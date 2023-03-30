@@ -50,13 +50,13 @@
 
         sitePreloader: function () {
             jQuery(window).load(function() {
-                jQuery("#edublink-preloader").fadeOut();
+                jQuery("#estam-preloader").fadeOut();
             });
                 
             // Close The Preloader
             $('.preloader-close-btn').on('click', function (e) {
                 e.preventDefault();
-                jQuery("#edublink-preloader").fadeOut();
+                jQuery("#estam-preloader").fadeOut();
             });
         },
 
@@ -616,7 +616,7 @@
             $( '.edu-search-popup' ).on( 'click', function () {
                 $('.edu-search-popup').removeClass( 'open' );
             } )
-            $( '.edu-search-popup .edublink-search-popup-field' ).on( 'click', function (e) {
+            $( '.edu-search-popup .estam-search-popup-field' ).on( 'click', function (e) {
                 e.stopPropagation();
             } )
         },
@@ -646,7 +646,7 @@
             } );
             
             // Vivus Hover JS
-            $( '.edublink-svg-animate' ).hover( function () {
+            $( '.estam-svg-animate' ).hover( function () {
                 var svg = $( this ).find( 'svg' )[0];
                 new Vivus( svg, {
                     duration: 50

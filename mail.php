@@ -29,7 +29,7 @@ if ($name == "") {
     $msg['code'] = FALSE;
 } else {
     $to = 'tonyocletus@gmail.com';
-    $subject = 'EduBlink Contact Query';
+    $subject = 'ESTAM University Contact Query';
     $_message = '<html><head></head><body>';
     $_message .= '<p>Name: ' . $name . '</p>';
     $_message .= '<p>Message: ' . $phone . '</p>';
@@ -39,7 +39,7 @@ if ($name == "") {
 
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers .= 'From:  EduBlink <tonyocletus@gmail.com>' . "\r\n";
+    $headers .= 'From:  ESTAM University <tonyocletus@gmail.com>' . "\r\n";
     $headers .= 'cc: contact@example.com' . "\r\n";
     $headers .= 'bcc: contact@example.com' . "\r\n";
     mail($to, $subject, $_message, $headers, '-f tonyocletus@gmail.com');
