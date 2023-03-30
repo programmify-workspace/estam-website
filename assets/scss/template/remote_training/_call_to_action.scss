@@ -1,0 +1,42 @@
+.remote-training-wrapper {
+    background: url("../images/cta/cta-banner-remote.webp");
+    
+    &::before {
+        display: none;
+    }
+    .edu-cta-banner {
+        .section-title {
+            .title {
+                color: var(--color-white);
+            }
+            .subs-button {
+                justify-content: center;
+                .btn-medium {
+                    background: var(--color-white);
+                    color: var(--color-heading);
+                    font-weight: var(--p-semi-bold);
+                    height: 60px;
+
+                    &::after {
+                        background: var(--color-secondary);
+                    }
+                    &:hover {
+                        color: var(--color-white) !important;
+                    }
+                }
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-01 {
+                    right: -252px;
+                    top: -25px;
+                }
+                &.shape-02 {
+                    left: -4px;
+                    bottom: -20px;
+                }
+            }
+        }
+    }
+}

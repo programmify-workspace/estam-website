@@ -1,0 +1,196 @@
+/*-------------------------
+    Forms Styles
+-------------------------*/
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    transition: 0.3s;
+}
+
+input {
+    height: 60px;
+}
+
+select {
+    transition: 0.3s;
+    height: 50px;
+    padding: 10px 20px;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0 none;
+    border-radius: 3px;
+    color: var(--color-heading);
+    font-family: var(--font-secondary);
+    font-size: 15px;
+    font-weight: 600;
+    background: url(../images/icons/arrow-icon.png) 88% center no-repeat transparent;
+    background-color: var(--color-lighten01);
+    min-width: 160px;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea {
+    font-size: 15px;
+    background-color: var(--color-white);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0 25px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: var(--color-heading);
+
+    /* -- Placeholder -- */
+    &::placeholder {
+        color: var(--color-placeholder);
+        /* Firefox */
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: var(--color-placeholder);
+        opacity: 1;
+    }
+
+    &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: var(--color-placeholder);
+        opacity: 1;
+    }
+
+    &:focus {
+        border-color: var(--color-primary);
+    }
+}
+
+
+textarea {
+    padding: 20px 25px;
+}
+
+// Custom Checkbox and radio button 
+input[type="checkbox"],
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    ~label {
+        position: relative;
+        font-size: 15px;
+        line-height: 26px;
+        color: var(--color-heading);
+        padding-left: 32px;
+        cursor: pointer;
+        margin-bottom: 0;
+        &::before {
+            content: " ";
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 17px;
+            height: 17px;
+            // background-color: #fff;
+            border: 1px solid #d2d5d6;
+            border-radius: 2px;
+            transition: all .3s;
+        }
+        &::after {
+            content: "\e913";
+            font-family: var(--font-icomoon);
+            font-size: 10px;
+            color: var(--color-white);
+            position: absolute;
+            top: 0;
+            left: 4px;
+            opacity: 0;
+            transition: all .3s;
+        }
+    }
+
+    &:checked {
+        ~label {
+            &::before {
+                background-color: var(--color-primary);
+                border-color: var(--color-primary);
+            }
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+input[type="radio"] {
+    ~label {
+        padding-left: 30px;
+        &::before {
+            border: 1px solid #dcdfe0;
+            border-radius: 50%;
+        }
+        &::after {
+            content: "";
+            height: 7px;
+            width: 7px;
+            top: 9px;
+            left: 5px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+        }
+    }
+     &:checked {
+        ~label {
+            &::before {
+                background-color: var(--color-white);
+                border-color: #dcdfe0;
+            }
+        }
+    }
+}
+
+/*--------------------
+    Contact Form 
+----------------------*/
+.form-group {
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    label {
+        color: var(--color-heading);
+        margin-bottom: 8px;
+    }
+    .submit-btn {
+        padding: 0 35px;
+    }
+}
+
+.form-message {
+    margin-bottom: 0;
+    text-align: center;
+
+    &.error {
+        margin-top: 20px;
+        color: #f80707;
+    }
+
+    &.success {
+        margin-top: 20px;
+        color: #0d8d2d;
+    }
+}
+

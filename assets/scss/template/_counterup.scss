@@ -1,0 +1,488 @@
+/*-------------------
+  Counterup Styles
+---------------------*/
+.edu-counterup {
+    border-radius: 10px;
+    text-align: center;
+    padding: 38px 30px;
+    @media #{$small-mobile} {
+       padding: 25px;
+    }
+    .odometer.odometer-auto-theme .odometer-digit .odometer-value {
+        @media #{$sm-layout} {
+            line-height: 1.2;
+        }
+    }
+    .count-number {
+        margin-bottom: 5px;
+        span,
+        em {
+            font-family: var(--font-secondary);
+            font-weight: var(--p-extra-bold);
+        }
+
+        &.primary-color {
+            color: var(--color-primary);
+        }
+
+        &.secondary-color {
+            color: var(--color-secondary);
+        }
+
+        &.extra02-color {
+            color: var(--color-extra02);
+        }
+
+        &.extra05-color {
+            color: var(--color-extra05);
+        }
+    }
+    .title {
+        margin-bottom: 0;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: var(--p-medium);
+    }
+    &.counterup-style-1 {
+        box-shadow: 0px 10px 30px 6px rgba(0, 0, 0, 0.07);
+    }
+    &.counterup-style-3 {
+        padding: 0;
+        border-radius: 0;
+        position: relative;
+
+        &:after {
+            content: "";
+            height: 100%;
+            width: 1px;
+            background-color: var(--color-border);
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+            @media #{$large-mobile} {
+                display: none;
+            }
+        }
+
+        &.border-none {
+            &:after {
+                display: none;
+                @media #{$md-layout} {
+                    display: block;
+                }
+                @media #{$sm-layout} {
+                    display: block;
+                }
+                @media #{$large-mobile} {
+                    display: none;
+                }
+            }
+        }
+    }
+    &.counterup-style-4 {
+        box-shadow: 0px 30px 70px 0px rgba(16, 12, 47, 0.05);
+        border-radius: 4px;
+        background-color: var(--color-white);
+        .icon {
+            text-align: center;
+            height: 90px;
+            width: 90px;
+            line-height: 95px;
+            border-radius: 50%;
+            font-size: 50px;
+            margin: 0 auto 25px;
+            &.primary-color {
+                background-color: rgba(26, 182, 157, .1);
+                color: var(--color-primary);
+            }
+            &.secondary-color {
+                background-color: rgba(255, 91, 92, .1);
+                color: var(--color-secondary);
+            }
+            &.extra08-color {
+                background-color: rgba(70, 100, 228, .1);
+                color: var(--color-extra08);
+            }
+            &.extra05-color {
+                background-color: rgba(248, 150, 36, .1);
+                color: var(--color-extra05);
+            }
+        }
+        .count-number {
+            span {
+                font-weight: var(--p-bold);
+            }
+        }
+    }
+    &.counterup-style-5 {
+        &.primary-color {
+            background-color: rgba(26, 182, 157, .1);
+            .count-number {
+                color: var(--color-primary);
+            }
+        }
+        &.secondary-color {
+            background-color: rgba(255, 91, 92, .1);
+            .count-number {
+                color: var(--color-secondary);
+            }
+        }
+        &.extra02-color {
+            background-color: rgba(142, 86, 255, .1);
+            .count-number {
+                color: var(--color-extra02);
+            }
+        }
+        &.extra05-color {
+            background-color: rgba(248, 150, 36, .1);
+            .count-number {
+                color: var(--color-extra05);
+            }
+        }
+    }
+
+    &.counterup-style-6 {
+        position: relative;
+        padding: 5px 0;
+        &:after {
+            content: "";
+            height: 100%;
+            width: 1px;
+            background-color: rgba(255,255,255, .2);
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+        }
+        &.border-none {
+            &:after {
+                display: none;
+            }
+        }
+        .icon {
+            font-size: 60px;
+            color: var(--color-white);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .count-number {
+            color: var(--color-white);
+        }
+        .title {
+            color: var(--color-white);
+        }
+    }
+}
+
+.counterup-area-2 {
+    position: relative;
+    z-index: 1;
+    &:before {
+        content: "";
+        height: 53%;
+        width: 100%;
+        background-color: var(--color-lighten01);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+    .counterup-box-wrap {
+        background-color: var(--color-white);
+        box-shadow: 0px 30px 70px 0px rgba(16, 12, 47, 0.08);
+        border-radius: 10px;
+        padding: 70px;
+        position: relative;
+        @media #{$sm-layout} {
+            padding: 40px;
+        }
+        @media #{$large-mobile} {
+            padding: 10px;
+        }
+        .counterup-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            position: relative;
+            @media #{$small-mobile} {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .edu-counterup {
+                border-radius: 0;
+                &:first-child {
+                    border-right: .8px solid var(--color-border);
+                    @media #{$small-mobile} {
+                        border-right: none;
+                    }
+                }
+                &:nth-child(3) {
+                    border-right: .8px solid var(--color-border);
+                    @media #{$small-mobile} {
+                        border-right: none;
+                    }
+                }
+            }
+            &.counterup-box-1 {
+                border-bottom: .8px solid var(--color-border);
+                @media #{$small-mobile} {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .shape-group {
+            @media #{$md-layout-1} {
+                display: none;
+            }
+            li {
+                position: absolute;
+                z-index: -1;
+                &.shape-1 {
+                    top: -80px;
+                    left: -90px;
+                }
+
+                &.shape-2 {
+                    top: -100px;
+                    left: -15px;
+                    z-index: 1;
+                }
+
+                &.shape-3 {
+                    bottom: -60px;
+                    right: -70px;
+                }
+
+                &.shape-4 {
+                    bottom: -63px;
+                    right: 30px;
+                }
+            }
+        }
+    }
+}
+
+ 
+.counterup-area-3 {
+    :nth-child(2),
+    :nth-child(4) {
+        .edu-counterup {
+            &.counterup-style-3 {
+                &:after {
+                    @media #{$md-layout-1} {
+                        width: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.counterup-area-4 {
+    margin-top: -160px;
+    position: relative;
+}
+
+.counterup-area-6 {
+    background: var(--gradient-primary);
+    padding: 65px 0;
+    :nth-child(2) {
+        .counterup-style-6{
+            &:after {
+                @media #{$md-layout-1} {
+                    width: 0px;
+                }
+            }
+        }
+    }
+}
+
+.counterup-area-7 {
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-lighten04);
+    .counterup-content {
+        padding-right: 80px;
+        padding-top: 30px;
+    }
+    .counterup-box-wrap {
+        background-color: var(--color-white);
+        box-shadow: 0px 30px 70px 0px rgba(16, 12, 47, 0.08);
+        border-radius: 10px;
+        padding: 70px;
+        position: relative;
+        @media #{$sm-layout} {
+            padding: 40px;
+        }
+        @media #{$large-mobile} {
+            padding: 10px;
+        }
+        .counterup-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            position: relative;
+            @media #{$small-mobile} {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .edu-counterup {
+                border-radius: 0;
+                &:first-child {
+                    border-right: .8px solid var(--color-border);
+                    @media #{$small-mobile} {
+                        border-right: none;
+                    }
+                }
+                &:nth-child(3) {
+                    border-right: .8px solid var(--color-border);
+                    @media #{$small-mobile} {
+                        border-right: none;
+                    }
+                }
+            }
+            &.counterup-box-1 {
+                border-bottom: .8px solid var(--color-border);
+                @media #{$small-mobile} {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .shape-group {
+            li {
+                position: absolute;
+                z-index: -1;
+                img {
+                    @media #{$sm-layout} {
+                        transform: scale(.5);
+                        animation: none;
+                    }
+                }
+                &.shape-1 {
+                    top: -80px;
+                    left: -90px;
+                }
+
+                &.shape-2 {
+                    top: -100px;
+                    left: -15px;
+                    z-index: 1;
+                }
+
+                &.shape-3 {
+                    bottom: -60px;
+                    right: -90px;
+                }
+
+                &.shape-4 {
+                    bottom: -63px;
+                    right: 30px;
+                }
+            }
+        }
+    }
+}
+
+.counterup-area-8 {
+    position: relative;
+    .shape-group {
+        li {
+            position: absolute;
+            z-index: -1;
+            img {
+                opacity: .9;
+            }
+            &.shape-1 {
+                bottom: -70px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+.counterup-area-9 {
+    .shape-group {
+        li {
+            &.shape-1 {
+                bottom: -34px;
+                right: -54px;
+            }
+        }
+    }
+}
+.counterup-area-11 {
+    background: var(--gradient-primary);
+    padding: 65px 0;
+    .counterup-style-6{
+        display: flex;
+        @media #{$large-mobile} {
+            display: block;
+        }
+        &:after {
+            display: none;
+        }
+        .icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.149);
+            line-height: 104px;
+            @media #{$lg-layout} {
+               width: 80px;
+               height: 80px;
+               line-height: 82px; 
+               font-size: 45px;
+            }
+            @media #{$large-mobile} {
+                text-align: center;
+                display: inline-block;
+            }
+            &.icon-flower {
+                font-size: 47px;
+                @media #{$lg-layout} {
+                    font-size: 40px;
+                 }
+            }
+        }
+        .counterup-wrapper {
+            margin-left: 20px;
+            margin-top: 15px;
+            text-align: left;
+            .count-number {
+                text-align: left;
+                @media #{$lg-layout} {
+                    font-size: 30px;
+                }
+                @media #{$large-mobile} {
+                    text-align: center;
+                }
+            }
+            .title {
+                @media #{$large-mobile} {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.counterup-area-12 {
+    .edu-counterup {
+        padding: 0;
+    }
+}
+.counterup-area-13 {
+    background: var(--gradient-primary);
+
+    .counterup-style-13 {
+        margin: 50px 0 60px 0;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0;
+        .count-number {
+            color: var(--color-white);
+        }
+        .title {
+            color: var(--color-white);
+        }
+    }
+}

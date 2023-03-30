@@ -1,0 +1,22 @@
+.photography-gallery {
+    padding: 120px 20px 0;
+    .p-gallery-grid-wrap {
+        width: 25%;
+        @media #{$sm-layout} {
+            width: 50%;
+        }
+        @media #{$small-mobile} {
+            width: 100%;
+        }
+        .thumbnail {
+            img {
+                border-radius: 0;
+                width: 100%;
+                height: 100%;
+            }
+            &::before {
+                border-radius: 0;
+            }
+        }
+    }
+}

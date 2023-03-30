@@ -1,0 +1,3159 @@
+/*-------------------------
+  Dark Mode CSS Starts Here
+---------------------------*/
+body.dark-mode {
+    background-color: var(--dark-color-bg-body);
+}
+
+.dark-mode {
+    .hero-banner .banner-content p,
+    .popup-mobile-menu .inner .header-top .close-menu .close-button,
+    .edublink-vue-mobile-popup-menu .inner .header-top .close-menu .close-button,
+    .header-action .mobile-menu-bar .hamberger-button,
+    .edu-course .content .course-rating .rating-count,
+    .edu-course .content .course-meta li,
+    .event-details .details-content .event-meta li a,
+    .edu-sorting-area .sorting-right .layout-switcher label,
+    .course-details-content .course-enroll-box .single-item .login-btn a,
+    .course-details-3 .nav-tabs .nav-item .nav-link.active, 
+    .course-details-3 .nav-tabs .nav-item .nav-link:hover,
+    .header-action .search-bar .input-group .form-control,
+    .team-details-content .main-info .team-meta li,
+    .team-details-content .main-info .team-meta li .rating-count,
+    .team-details-content .contact-info ul li span,
+    .blog-details-content > ul li,
+    .blog-meta li,
+    input[type=text], 
+    input[type=password], 
+    input[type=email], 
+    input[type=number], 
+    input[type=tel], 
+    textarea,
+    a.edu-btn.btn-border, 
+    button.edu-btn.btn-border,
+    .edu-search-popup .inner .search-form .submit-button,
+    .edu-search-popup .close-button .close-trigger,
+    .about-style-3 .about-content .nav-tabs .nav-link,
+    .isotop-button button,
+    .blog-meta li a,
+    .edu-course .hover-content-aside .content .course-feature ul li:before,
+    .edu-breadcrumb-area .edu-breadcrumb li.breadcrumb-item,
+    .edu-breadcrumb-area .edu-breadcrumb li.breadcrumb-item a,
+    .edu-breadcrumb-area .edu-breadcrumb li.separator i,
+    .faq-page-nav .nav-tabs .nav-link,
+    .edu-course-widget.widget-course-summery .content .course-item li,
+    .event-details .details-content ul li,
+    .pricing-table .pricing-header .price-wrap .amount,
+    .pricing-table .pricing-body .list-item li,
+    .edu-pagination li a,
+    .product-details-area .content .product-rating .rating-count,
+    .tag-list a,
+    .form-group label,
+    select,
+    .edu-breadcrumb-area .course-meta li,
+    .edu-product .inner > .thumbnail .product-hover-info ul li a,
+    .edu-sorting-area .sorting-right .edu-sorting .icon,
+    .edu-product .inner .content .product-rating .rating-count,
+    .edu-blog-widget.widget-categories .category-list li a,
+    .product-description-nav .nav-item button.nav-link:hover, 
+    .course-details-content .entry-content .course-meta li,
+    .product-description-nav .nav-item button.nav-link.active,
+    .product-details-area .content .product-action .add-to-cart-btn .wishlist-btn i,
+    .product-details-area .content .product-feature li span,
+    .cart-table thead th,
+    .cart-table tbody td.product-remove .remove-wishlist,
+    .pv-demo-counterup .counterup-wrap .edu-counterup .title,
+    .order-summery .summery-table tbody td,
+    .order-summery .summery-table .order-total td:last-child,
+    a,
+    a.edu-btn:hover, 
+    button.edu-btn:hover,
+    .course-layout-five-tooltip-content .content .course-feature ul li:before,
+    .cta-banner-3 .newsletter-form .input-group .form-control,
+    .cta-banner-3 .newsletter-form .input-group .form-control::placeholder ,
+    .footer-light .copyright-area p,
+    .header-action .search-bar .input-group .search-btn,
+    .hero-banner.hero-style-8 .banner-content .banner-search .input-group .search-btn,
+    .categorie-grid.categorie-style-3 .content .title,
+    .categorie-area-5 .categorie-grid .content .title,
+    .edu-course-area .course-style-10 .content .title a,
+    .header-photography .header-mainmenu.edu-sticky .mainmenu-nav .mainmenu > li > a,
+    .course-style-11 .content .title a,
+    .header-photography .header-mainmenu.edu-sticky .header-action li.icon a {
+        color: var(--color-white);
+    }
+
+    ul li a:hover,
+    .edu-blog-widget.widget-categories .category-list li a:hover,
+    a:hover,
+    a.btn-transparent:hover, 
+    button.btn-transparent:hover,
+    .course-details-content .course-enroll-box .single-item .login-btn a:hover,
+    .social-share.icon-transparent li a:hover,
+    .hero-banner.hero-style-2 .banner-gallery .online-support .inner .content .title a:hover,
+    .hero-banner.hero-style-4 .banner-gallery .online-support .inner .content .title a:hover,
+    .edu-team-grid.team-style-3 .content .title a:hover,
+    .edu-breadcrumb-area .edu-breadcrumb li.breadcrumb-item a:hover,
+    .popup-mobile-menu .mainmenu li a:hover,
+    .login-form-box a,
+    .edu-course.course-style-4 .content .title a:hover,
+    .faq-page-nav .nav-tabs .nav-link.active,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .inner .footer-link a:hover,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .inner .widget-information ul li a:hover {
+        color: var(--color-primary);
+    }
+
+    .section-title .pre-title.pre-textsecondary,
+    .login-form-box a:hover,
+    .about-style-3 .about-content .nav-tabs .nav-link:hover,
+    .about-style-3 .about-content .nav-tabs .nav-link.active {
+        color: var(--color-secondary);
+    }
+
+    ul li a,
+    .edu-course.course-style-5 .content .course-meta li,
+    .edu-breadcrumb-area.breadcrumb-style-4 .course-meta li,
+    .pricing-table .pricing-body .list-item li.item-off {
+        color: var(--color-body);
+    }
+
+    .about-image-gallery .video-box .inner .thumb .popup-icon:hover,
+    .popup-mobile-menu .inner .header-top .close-menu .close-button:hover,
+    .edu-product .inner > .thumbnail .product-hover-info ul li a:hover {
+        background-color: var(--color-primary);
+    }
+    
+    .product-details-area .content .product-action .add-to-cart-btn .wishlist-btn:hover {
+        background-color: var(--color-secondary);
+    }
+
+    a.btn-transparent, 
+    button.btn-transparent {
+        color: var(--color-textSecondary);
+    }
+
+    .bg-lighten01,
+    .bg-lighten04,
+    .counterup-area-2:before,
+    .hero-banner.hero-style-5,
+    .edu-course-area.course-area-10,
+    .hero-style-10,
+    .testimonial-area-3,
+    .testimonial-area-9,
+    .hero-banner.hero-style-6:before,
+    .team-area-4,
+    .why-choose-area-2:before,
+    .team-area-5,
+    .counterup-area-7,
+    .contact-form-area,
+    .hero-banner.hero-style-1,
+    .brand-area-6,
+    .course-area-8,
+    .testimonial-area-10,
+    .brand-area-2,
+    .hero-style-11.remote-training,
+    .remote-brand,
+    .edu-sorting-area .sorting-right .edu-sorting .edu-select option,
+    .faq-style-7 {
+        background-color: var(--dark-bg-color);
+    }
+    .photography-about-style::before {
+        background: var(--dark-bg-color);
+    }
+    .remote-training .header-right .header-action .search-bar .input-group {
+        background: transparent;
+        border: 1px solid #333a44;
+    }
+    .header-style-7 .header-mainmenu {
+        background-color: transparent !important;
+    }
+    .header-style-7 .header-mainmenu.edu-sticky {
+        background-color: var(--bg-color-2) !important;
+    }
+    .header-photography .header-mainmenu .header-right::after {
+        background-color: rgba(255, 255, 255, 0.302) !important;
+    }
+    .header-photography .header-mainmenu.edu-sticky .header-action .mobile-menu-bar .hamberger-button {
+        color: var(--color-white);
+    }
+    .counterup-area-7 .counterup-box-wrap .counterup-box:before,
+    .counterup-area-7 .counterup-box-wrap .counterup-box:after,
+    .course-details-content .course-enroll-box .single-item:after,
+    .edu-counterup.counterup-style-3:after {
+        background-color: var(--dark-color-border);
+    }
+    .counterup-area-7 .counterup-box-wrap .counterup-box .edu-counterup:first-child {
+        border-right: .8px solid var(--dark-color-border);
+    }
+    .counterup-area-7 .counterup-box-wrap .counterup-box .edu-counterup:nth-child(3) {
+        border-right: .8px solid var(--dark-color-border);
+    }
+    .counterup-area-7 .counterup-box-wrap .counterup-box.counterup-box-1 {
+        border-bottom: 0.8px solid var(--dark-color-border);
+    }
+    .edu-course-area .course-style-10 .content {
+        background: var(--dark-color-bg-body);
+    }
+    .product-details-area .content .product-action .add-to-cart-btn .wishlist-btn:hover {
+        border-color: var(--color-secondary);
+    }
+    .hero-style-11 .banner-thumbnail .shape-group li.shape-2 {
+        filter: opacity(0.2);
+    }
+    .photography-testimonial .shape-group li.shape-2 img {
+        filter: brightness(0) saturate(100%) invert(10%) sepia(5%) saturate(4893%) hue-rotate(178deg) brightness(92%) contrast(78%);
+    }
+    .language-about .about-image-gallery .shape-group li.shape-2 img,
+    .faq-style-6 .edu-faq-gallery .shape-group li.shape-4 img {
+        filter: opacity(1) !important;
+    }
+    .edu-campus-area .campus-image-gallery .shape-1 span,
+    .edu-campus-area .campus-content .shape-4 span,
+    .edu-event-area .shape-group li.shape-2 span,
+    .edublink-vue-mobile-popup-menu .inner .header-top,
+    .edublink-vue-mobile-popup-menu .mainmenu li + li,
+    .about-style-3 .about-image-gallery .shape-group li.shape-4 span,
+    .home-four-course .shape-group .shape-2 span,
+    .hero-banner.hero-style-4 .shape-group li.shape-8 span,
+    .about-style-4 .about-image-gallery .shape-group .shape-4 span,
+    .why-choose-area-2 .shape-group li.shape-1 span,
+    .why-choose-area-2 .shape-group li.shape-3 span,
+    .team-area-5 .shape-group li.shape-3 span,
+    .team-area-5 .shape-group li.shape-1 span,
+    .why-choose-area-3 .shape-group li.shape-1 span,
+    .edu-breadcrumb-area .shape-group li.shape-1,
+    .edu-breadcrumb-area .shape-group li.shape-4,
+    .edu-event-list.event-list-2,
+    .popup-mobile-menu .inner .header-top,
+    .edu-blog-widget.widget-search .blog-search input,
+    .login-form-box .form-group input,
+    .tag-list a,
+    .edu-product:hover .inner .thumbnail a,
+    .pro-qty,
+    .product-details-area .content .product-action .add-to-cart-btn .wishlist-btn,
+    .product-description-nav,
+    .product-description-content .comment-area,
+    .product-details-area .thumbnail,
+    .checkout-notice .coupn-box,
+    .order-summery.checkout-summery .summery-table-wrap,
+    .checkout-billing .form-group select,
+    .edu-course-widget.widget-course-summery .content .course-item li,
+    .course-details-content .nav-tabs,
+    .order-payment,
+    a.edu-btn.btn-border, 
+    .course-curriculam .course-lesson ul li:first-child,
+    .course-curriculam .course-lesson ul li,
+    .course-curriculam .course-lesson,
+    .social-share li a,
+    .about-style-3 .shape-group li.shape-6 span,
+    .footer-dark .copyright-area,
+    .comment-list-wrapper .comment + .comment,
+    .course-overview .border-box,
+    .edu-accordion .accordion-item,
+    .blog-details-content,
+    .course-review .border-box,
+    .course-review .border-box .comment-area,
+    .edu-blog-widget.widget-latest-post .latest-post,
+    .contact-form.form-style-2 .form-group input, 
+    .contact-form.form-style-2 .form-group textarea,
+    .contact-form-area .shape-group li.shape-3 span,
+    .pv-courses-demo .shape-group li.shape-5 span,
+    .testimonial-area-4 .swiper-navigation .swiper-btn-nxt, 
+    .testimonial-area-4 .swiper-navigation .swiper-btn-prv,
+    .course-sidebar-2 .edu-course-widget .inner,
+    .hero-banner.hero-style-8 .shape-group li.shape-5 span,
+    .course-area-8 .shape-group li.shape-2 span,
+    .hero-banner.hero-style-9 .slider .container .shape-group li.shape-1 span,
+    button.edu-btn.btn-border,
+    .edu-footer.footer-style-7 .copyright-area,
+    .edu-course-area.course-area-10 .shape-group li.shape-4 span,
+    .testimonial-area-10 .shape-group .shape-5 span,
+    .faq-style-6 .faq-accordion .accordion-item .accordion-button.collapsed,
+    .testimonial-area-10 .shape-group li.shape-3 span,
+    .about-counterup .shape-group li.shape-1 span,
+    .testimonial-area-11 .shape-group li.shape-3 span,
+    .photography-about-style .shape-group li.shape-8 span {
+        border-color: var(--dark-color-border);
+    }
+    .pv-demo-counterup .counterup-wrap .edu-counterup.border-end {
+        border-color: var(--dark-color-border) !important;
+    } 
+    .hero-style-10 .banner-content .shape-group li.shape-1 span {
+        border-color: rgba(28, 36, 47, .2);
+    }
+    .tpd-visible-frame-left .tpd-frame-left:before,
+    .tpd-visible-frame-right .tpd-frame-left:before,
+    .tpd-visible-frame-right .tpd-frame-left:after {
+        border-right: 13px solid var(--color-black);
+    }
+
+    .tpd-visible-frame-right .tpd-frame-right:after {
+        border-left: 13px solid var(--color-black);
+    }
+    .about-counterup .about-course .about-course-style-2,
+    .hero-banner.hero-style-8 .banner-content .banner-search .input-group .form-control,
+    .hero-banner.hero-style-8 .banner-content .banner-search .input-group .search-btn {
+        background-color: var(--bg-color-2);
+    }
+    .hero-banner.hero-style-8 .banner-thumbnail .shape-group li.shape-1 img {
+        filter: opacity(0.03);
+        -webkit-filter: opacity(0.03);
+    }
+    .video-area-5 .video-gallery .thumbnail .video-play-btn i {
+        color: var(--color-secondary);
+    }
+    .hero-style-10 .wave-bottom-bg img,
+    .language-about .about-image-gallery .main-img-3{
+        filter: brightness(0) saturate(100%) invert(6%) sepia(10%) saturate(3102%) hue-rotate(176deg) brightness(96%) contrast(93%);
+    }
+    .video-area-5::after {
+        filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(6549%) hue-rotate(193deg) brightness(83%) contrast(100%);
+    }
+    .features-area-6::after {
+        filter: brightness(0) saturate(100%) invert(7%) sepia(8%) saturate(2950%) hue-rotate(173deg) brightness(97%) contrast(95%);
+    }
+    .features-area-6 .shape-group li.shape-2 img,
+    .testimonial-area-11 .shape-group .shape-5 img {
+        filter: brightness(0) saturate(100%) invert(16%) sepia(6%) saturate(1952%) hue-rotate(178deg) brightness(94%) contrast(92%);
+    }
+    .language-about .about-image-gallery .main-img-wrapper .main-img-inner::after {
+        background: var(--dark-color-border);
+        opacity: .99;
+    }
+    .edu-course-area .course-style-10 .content .title a:hover {
+        color: var(--color-primary);
+    }
+    .hero-style-10 .banner-thumbnail .shape-group li.shape-5 img,
+    .hero-style-10 .banner-thumbnail .shape-group li.shape-6 img {
+        filter: opacity(.05);
+    }
+    .faq-style-6 .edu-faq-gallery .shape-group li.shape-1 span,
+    .faq-style-6 .edu-faq-gallery .shape-group li.shape-2 span {
+        filter: opacity(0.05);
+    }
+    .hero-style-11::before,
+    .remote-brand::after,
+    .faq-style-7::after {
+        display: none;
+    }
+    .about-counterup .about-course .about-course-style-2 .certificate {
+        background-color: #24353c;
+    }
+    .hero-banner.hero-style-9 .slider .health-slider-content .swiper-slide .inner p,
+    .testimonial-area-9 .home-health-testimonial-activator .testimonial-grid .content p,
+    .event-area-4 .edu-event.event-style-1 .content .event-meta li,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .description,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .inner .footer-link a,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .inner .widget-information ul li,
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .inner .widget-information ul li a,
+    .edu-footer.footer-style-7 .copyright-area a,
+    .testimonial-area-10 .home-language-testimonial-activator .testimonial-grid .content p,
+    .about-counterup .about-course .about-course-style-2 .content p,
+    .photography-about-style .about-content p,
+    .photography-testimonial .photography-testimonial-activator .testimonial-grid .content p,
+    .footer-for-photography .description,
+    .footer-for-photography .information-list li,
+    .footer-for-photography .information-list li a {
+        color: var(--color-title);
+    }
+    .footer-for-photography .copyright-area {
+        background-color: var(--dark-color-bg-body);
+        border: 1px solid var(--dark-color-border);
+    }
+    .pv-cta-area .cta-content .button-group .btn-bg-white,
+    .remote-training-wrapper .edu-cta-banner .section-title .subs-button .btn-medium {
+        color: var(--color-black) !important;
+    }
+    .course-style-11 .content {
+        background: var(--dark-color-bg-body);
+    }
+    .features-area-5 .features-box {
+        &:hover {
+           .icon {
+            border: 7px solid var(--color-white);
+           }
+        }
+    }
+    .features-area-5 .features-box.color-primary-style {
+        &:hover {
+           .icon {
+            background-color: var(--color-primary);
+            border: 7px solid var(--color-white);
+           }
+        }
+    }
+    .features-area-5 .features-box.color-extra06-style {
+        &:hover {
+           .icon {
+            background-color: var(--color-extra06);
+           }
+        }
+    }      
+    .features-box,
+    .edu-course-area.course-area-9 .edu-course.course-style-5 {
+        background-color: transparent;
+    }
+    .features-area-5 .features-box .icon {
+        background-color: rgb(28, 36, 47);
+        border: 7px solid rgb(46, 53, 63);
+        box-shadow: none;
+    }
+    .features-area-5 .features-box .content {
+        background: var(--bg-color-2);
+        box-shadow: none;
+    }
+    .about-counterup .about-course .about-course-style-2,
+    .faq-style-6 .faq-accordion .accordion-item .accordion-body,
+    .video-area-5 .video-gallery .thumbnail img {
+        box-shadow: none;
+    }
+    .testimonial-area-9 .bg-thumbnail .shape-group li.shape-4 img {
+        filter: opacity(0.09);
+    }
+    .testimonial-area-9 {
+        .swiper-navigation {
+            .swiper-btn-prv,
+            .swiper-btn-nxt {
+                background-color: var(--color-white);
+            }
+        }
+    }
+    .health-coach-wrapper.cta-banner-7 .input-group input {
+        background-color: var(--color-white) !important;
+    }
+    .edu-footer.footer-style-7 .footer-top .edu-footer-widget .logo a img.logo-dark {
+        display: inline-block;
+    }
+    .home-photography-course ul .course-view-all a.edu-btn {
+        color: var(--color-heading) !important;
+    }
+    .home-photography-course ul .course-view-all a:hover {
+        color: var(--color-white) !important;
+    }
+    .health-coach-wrapper.cta-banner-7 .input-group input {
+        color: var(--color-heading);
+    }
+    .cta-banner-7::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(2, 11, 23, 0.8);
+        z-index: 1;
+    }
+    .categorie-area-5 .container,
+    .cta-banner-7 .container {
+        position: relative;
+        z-index: 2;
+    }
+    .categorie-area-5::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(2, 11, 23, 0.8);
+        z-index: 1;
+    }
+    .edu-course-area.course-area-9 ul .course-view-all a.edu-btn {
+        color: var(--color-primary) !important;
+
+        &:hover {
+            color: var(--color-white) !important;
+        }
+    }
+} 
+.dark-mode {
+    p {
+        color: var(--color-title);
+    }
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: var(--color-white);
+    }
+    .edu-pagination {
+        li:hover {
+            a {
+                color: var(--color-white);
+            }
+        }
+    }
+    #edublink-preloader {
+        background: var(--dark-bg-color);
+        .preloader-close-btn-wraper .preloader-close-btn {
+            background: #1C252F;
+            color: var(--color-white);
+        }
+    }
+    .edu-btn {
+        color: var(--color-white) !important;
+    }
+    .d-none-shape-dark {
+        display: block;
+    } 
+    .d-block-shape-light {
+        display: none;
+    }
+    /*-------------------
+    About Dark Styles
+    ---------------------*/
+    .about-image-gallery {
+		.video-box {
+			.inner {
+				background-color: var(--color-white);
+
+				.thumb {
+					.popup-icon {
+						background-color: var(--color-white);
+					}
+				}
+			}
+		}
+	}
+	.about-style-1,
+    .about-style-2,
+    .about-style-7,
+    .about-style-9{
+		.about-image-gallery {
+			.shape-group {
+				li {
+					&.shape-1 {
+						img {
+							filter: opacity(0.06);
+						}
+					}
+				}
+			}
+		}
+	}
+    .about-style-4 {
+        .about-image-gallery {
+            .main-img-1 {
+                background-color: var(--color-white);
+            }
+            .shape-group {
+                .shape-2 {
+                    img {
+                        filter: opacity(0.06);
+                    }
+                }
+            }
+        }
+    }
+    .about-style-3{
+		.about-image-gallery {
+			.shape-group {
+				li {
+					&.shape-2 {
+						img {
+							filter: opacity(0.06);
+						}
+					}
+				}
+			}
+		}
+        .about-content {
+            .nav-tabs {
+                .nav-item {
+                    &::after {
+                        background-color: var(--color-extra09);
+                    }
+                }
+            }
+        }
+	}
+    .about-style-6 {
+        background-color: var(--dark-color-bg-body);
+        &::after {
+            filter: brightness(0) saturate(100%) invert(6%) sepia(8%) saturate(3633%) hue-rotate(174deg) brightness(95%) contrast(93%);
+        }
+    }
+    .about-style-2 {
+        .about-image-gallery {
+            .author-box {
+                .inner {
+                    background-color: var(--color-white);
+
+                    .title {
+                        color: var(--color-black);
+                    }
+                }
+            }
+            .award-status {
+                .inner {
+                    .content {
+                        .subtitle {
+                            color: var(--color-black);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .about-style-8 {
+        &::before {
+            background: var(--dark-bg-color);
+        }
+        &::after {
+            border: 1px solid var(--color-extra10);
+        }
+        .about-image-gallery {
+            .shape-group {
+                li {
+                    &.shape-1 {
+                        img {
+                            filter: opacity(0.06);
+                        }
+                    }
+                    &.shape-4 {
+                        span {
+                            border: 1px solid var(--color-extra10);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+	.about-content {
+		.features-list {
+			li {
+				color: var(--color-title);
+			}
+		}
+	}
+
+    /*-------------------
+    Breadcrumb Dark Styles
+    ---------------------*/
+    .breadcrumb-style-2 {
+        .page-title {
+            .title {
+                color: var(--color-white);
+            }
+        }
+        .edu-breadcrumb {
+            li {
+                color: var(--color-white);
+                &.breadcrumb-item {
+                    a {
+                        color: var(--color-white);
+                    }
+                }
+                &.separator {
+                    i {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    .breadcrumb-style-5 {
+        background: var(--dark-bg-color);
+    }
+    .edu-breadcrumb-area {
+        background-color: var(--dark-bg-color);
+        z-index: -1;
+        .course-meta {
+            li {
+                &::after {
+                    background-color: var(--color-extra10);
+                }
+            }
+        }
+    }
+    .why-choose-box {
+        &.features-box {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .why-choose-box-2 {
+        
+        &.features-box {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+            .icon {
+                color: var(--color-white);
+            }
+            &.color-extra08-style {
+                &:hover {
+                    .icon {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Brand Dark Styles
+    ---------------------*/
+    .brand-grid-wrap {
+        &::after {
+            background-color: var(--color-extra11);
+        }
+        .brand-grid {
+            border-right: 1px solid var(--color-extra11);
+
+            &:first-child {
+                border-left: 1px solid var(--color-extra11);
+            }
+            &:nth-child(5n) {
+                border-left: 1px solid var(--color-extra11);
+            }
+            &:hover {
+                box-shadow: var(--shadow-darker);
+            }
+        }
+    }
+    .brand-area-1 {
+        .brand-grid-wrap {
+            .brand-grid {
+                
+                &:hover {
+                    background-color: #232c38;
+                }
+            }
+        }
+    }
+    .brand-area-3 {
+        .brand-grid-wrap {
+            .brand-grid {
+                border-right: none;
+            }
+            
+            &.brand-style-3 {
+                .brand-grid {
+                    background-color: var(--bg-color-2);
+                    opacity: 1;
+
+                    img {
+                        filter: brightness(0) saturate(100%) invert(73%) sepia(0%) saturate(4982%) hue-rotate(288deg) brightness(90%) contrast(90%);
+                    }
+                    &:hover {
+                        img {
+                            filter: brightness(0) saturate(100%) invert(99%) sepia(71%) saturate(0%) hue-rotate(333deg) brightness(106%) contrast(100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .brand-area-5 {
+        &::before {
+            background-image: url(../images/bg/dark-bg-image-20.svg);
+            @media #{$md-layout-1} {
+                background: var(--dark-bg-color);
+            }
+        }
+    }
+    .brand-area-2 .brand-grid-wrap .brand-grid:first-child,
+    .brand-area-4 .brand-grid-wrap .brand-grid:first-child,
+    .brand-area-5 .brand-grid-wrap .brand-grid:first-child,
+    .brand-area-6 .brand-grid-wrap .brand-grid:first-child,
+    .brand-area-4 .brand-grid-wrap .brand-grid:nth-child(5n),
+    .brand-area-5 .brand-grid-wrap .brand-grid:nth-child(5n),
+    .brand-area-6 .brand-grid-wrap .brand-grid:nth-child(5n) {
+        border-left: none;
+    }
+
+    /*-------------------
+    Blog Dark Styles
+    ---------------------*/
+    .edu-blog {
+        .content {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+        }
+        &.blog-style-3 {
+            .content {
+                &::before {
+                    filter: brightness(0) saturate(100%) invert(11%) sepia(21%) saturate(912%) hue-rotate(174deg) brightness(83%) contrast(92%);
+                }
+            }
+        }
+        &.blog-style-list {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .blog-meta {
+        li {
+            &::after {
+                background-color: var(--color-extra09);
+            }
+        }
+    }
+    .edu-blog-area {
+        &.blog-area-2 {
+            &::before {
+                filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(3862%) hue-rotate(182deg) brightness(105%) contrast(102%);
+            }
+        }
+        &.blog-area-3 {
+            .blog-style-2 {
+                .content {
+                    background-color: transparent;
+
+                    .blog-date {
+                        span {
+                            color: var(--color-white);
+                        }
+                    }
+                    .blog-meta {
+                        i {
+                            color: var(--color-title);
+                        }
+                    }
+                }
+                .inner {
+                    .thumbnail {
+                        .blog-date {
+                            span {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .edu-blog-sidebar {
+        background-color: var(--bg-color-2);
+    }
+    .blog-pagination-list {
+        border: 1px solid var(--dark-color-border);
+
+        &:hover {
+            background-color: var(--bg-color-2);
+
+        }
+    }
+
+    /*-------------------
+    Call To Action Dark Styles
+    ---------------------*/
+    .edu-cta-banner-area {
+        background-color: var(--dark-bg-color);
+        &::before {
+            filter: brightness(0) saturate(101%) invert(36%) sepia(57%) saturate(374%) hue-rotate(121deg) brightness(86%) contrast(74%);
+        }
+    }
+    .university-cta-wrapper {
+        &.edu-cta-banner-area {
+            &::before {
+                filter: brightness(0) saturate(101%) invert(36%) sepia(57%) saturate(374%) hue-rotate(121deg) brightness(86%) contrast(74%) !important;
+            }
+        }
+    }
+    .online-academy-cta-wrapper  {
+        background-image: none;
+        background-color: var(--dark-bg-color);
+
+    
+        &::before {
+            background-image: url(../images/cta/h-4-cta.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: brightness(0) saturate(100%) invert(6%) sepia(18%) saturate(1959%) hue-rotate(173deg) brightness(98%) contrast(97%);
+        }
+    }
+    .cta-banner-2 {
+        background-color: var(--dark-bg-color);
+
+        &::before {
+            display: none;
+        }
+        .shape-group {
+            li {
+                &.shape-5 {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    .cta-banner-3 {
+        background-color: var(--dark-color-bg-body);
+        &::before {
+            filter: brightness(0) saturate(100%) invert(4%) sepia(22%) saturate(4302%) hue-rotate(194deg) brightness(91%) contrast(101%);
+        }
+        .newsletter-form {
+            .input-group {
+                .form-control {
+                    background-color: var(--dark-color-bg-body);
+                    
+                }
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-3,
+                &.shape-4 {
+                    img {
+                        opacity: .65;
+                    }
+                }
+            }
+        }
+    }
+    .cta-area-1 {
+        .cta-style-3 {
+            .inner {
+                .content {
+                    .subtitle {
+                        color: var(--color-white);
+                    }
+                    .title {
+                        color: var(--color-white);
+                    }
+                }
+            }
+            .shape-group {
+                li {
+                    &.shape-02 {
+                        img {
+                            filter: opacity(0.06);
+                        }
+                    }
+                }
+            }
+        }
+        .home-one-cta {
+            .shape-group {
+                li {
+                    &.shape-02 {
+                        img {
+                            filter: opacity(0.06);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cta-area-2 {
+        .cta-style-2 {
+            .inner {
+                .content {
+                    .subtitle {
+                        color: var(--color-black);
+                    }
+                    .title {
+                        a {
+                            color: var(--color-black);
+                            &:hover {
+                                color: rgba(24, 24, 24, .75);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Categorie Dark Styles
+    ---------------------*/
+    .categorie-grid {
+        background-color: var(--bg-color-2);
+        .content {
+            p {
+                color: var(--color-title);
+            }
+        }
+        &:hover {
+            .icon {
+                color: var(--color-white);
+            }
+            .content {
+                .title {
+                    color: var(--color-white);
+                }
+                p {
+                    color: var(--color-white);
+                }
+            }
+            .icon {
+                svg {
+                    path {
+                        stroke: var(--color-white);
+                    }
+                }
+            }
+        }
+        &.color-primary-style,
+        &.color-secondary-style,
+        &.color-tertiary-style,
+        &.color-extra01-style,
+        &.color-extra02-style,
+        &.color-extra03-style,
+        &.color-extra04-style,
+        &.color-extra05-style,
+        &.color-extra06-style,
+        &.color-extra07-style,
+        &.color-extra08-style {
+            
+            &:hover {
+                .icon,
+                .course-remain {
+                    color: var(--color-white);
+                }
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        } 
+        &.categorie-style-3 {
+            background-color: var(--bg-color-2);
+        }  
+    }
+    .categorie-area-3 {
+        background-color: var(--dark-color-bg-body);
+    
+        &::before {
+            display: none;
+        }
+    }
+    .home-four-course {
+        &::before {
+            display: none;
+        }
+    }
+
+    /*-------------------------
+        Counterup Styles  
+    --------------------------*/
+    .edu-counterup {
+        &.counterup-style-5 {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .counterup-area-1 {
+        .counterup-style-1 {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+        }
+    }
+    .counterup-area-2 {
+        .counterup-box-wrap {
+            background-color: var(--bg-color-2);
+            box-shadow: inherit;
+            .counterup-box {
+                .edu-counterup {
+                    border-radius: 0;
+                    &:first-child {
+                        border-right: .8px solid var(--dark-color-border);
+                        @media #{$small-mobile} {
+                            border-right: none;
+                        }
+                    }
+                    &:nth-child(3) {
+                        border-right: .8px solid var(--dark-color-border);
+                        @media #{$small-mobile} {
+                            border-right: none;
+                        }
+                    }
+                }
+                &.counterup-box-1 {
+                    border-bottom: .8px solid var(--dark-color-border);
+                    @media #{$small-mobile} {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+    .course-area-3 {
+        .isotop-button {
+            button {
+                background-color: var(--bg-color-2);
+                &.is-checked,
+                &:hover {
+                    background-color: var(--color-secondary);
+                }
+            }
+        }
+    }
+    .counterup-area-7 {
+        .counterup-box-wrap {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .counterup-area-8 {
+        .shape-group {
+            li {
+                &.shape-1 {
+                    img {
+                        filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+                    }
+                }
+            }
+        }
+    }
+
+    .counterup-style-4 {
+        background-color: var(--bg-color-2);
+        box-shadow: none;
+    }
+    
+    .counterup-style-6 {
+        .icon,
+        .count-number,
+        .title {
+            color: var(--color-white);
+        }
+    }
+    .pv-demo-counterup {
+        .counterup-wrap {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .edu-sorting-area .sorting-right .edu-sorting .edu-select {
+        background-color: var(--bg-color-2);
+    }
+
+    /*-------------------------
+        Landing Page Dark Styles  
+    --------------------------*/
+    .pv-demo-area {
+        .single-demo {
+            .inner {
+                background-color: var(--bg-color-2);
+            }
+        }
+    }
+
+    /*-------------------------
+        Course Styles  
+    --------------------------*/
+    .edu-course {
+        background-color: var(--bg-color-2);
+
+        .thumbnail {
+            .duration {
+                color: var(--color-white);
+            }
+        }
+        .inner {
+            .content {
+                .course-meta {
+                    li {
+                        &::after {
+                            background-color: var(--color-extra09);
+                        }
+                    }
+                }
+            }
+        }
+        .course-hover-content {
+            .content {
+                .course-level {
+                    background-color: var(--color-white);
+                    color: var(--color-black);
+                }
+                .title {
+                    color: var(--color-white);
+                }
+                .course-rating {
+                    .rating-count {
+                        color: var(--color-white);
+                    }
+                }
+                .course-price {
+                    color: var(--color-white);
+                }
+                p {
+                    color: var(--color-white);
+                }
+                .course-meta {
+                    li {
+                        color: var(--color-white);
+                        i {
+                            color: var(--color-white); 
+                        }
+                    }
+                }
+                .btn-secondary {
+                    color: var(--color-white);
+
+                    &:hover {
+                        color: var(--color-black) !important;
+                    }
+                }
+            }
+        }
+        &.course-style-3 {
+            &::before {
+                background-color: var(--bg-color-2);
+            }
+            .inner {
+                .content {
+                    background-color: var(--bg-color-2);
+                }
+            }
+        }
+        &.course-style-4 { 
+            &:hover {
+                .content {
+                    .course-price {
+                        color: var(--color-white);
+                    }
+                    .title {
+                        a {
+                            color: var(--color-white);
+                        }
+                    }
+                    .course-rating {
+                        .rating-count {
+                            color: var(--color-white);
+                        }
+                    }
+                    .course-meta {
+                        li {
+                            &::after {
+                                background-color: var(--color-title);
+                            }
+                            color: var(--color-white);
+                            i {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.course-style-5 {
+            .inner {
+                .content {
+                    .price-round {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+        &.course-style-6 {
+            background-color:var(--dark-bg-color);
+
+            .content {
+                background-color: var(--bg-color-2);
+            }
+            .thumbnail {
+                .price-round {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.course-style-7 {
+            .thumbnail {
+                .course-price {
+                    &.price-round {
+                        background-color: var(--color-white);
+                    }
+                }
+            }
+            .content {
+                .course-level,
+                .title {
+                    color: var(--color-white);
+                }
+                .course-meta {
+                    li {
+                        &::after {
+                            background-color: #a19c9c;
+                        }
+                        color: var(--color-white);
+                        i {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+                p {
+                    color: var(--color-white);
+                }
+            }
+        }  
+        &.course-style-8,
+        &.course-style-4 {
+            &:hover {
+                .content .course-price {
+                    color: var(--color-white);
+                }
+            }
+            .hover-content-aside .content:before {
+                border-right: 11px solid transparent;
+                border-left: 11px solid transparent;
+                border-bottom: 13px solid var(--dark-bg-color);
+            }
+        }
+        &.course-style-14 {
+            &:hover {
+                background-color: var(--bg-color-2);
+            }
+        }
+        &.course-style-9 {
+            &:hover {
+                background-color: var(--bg-color-2);
+            }
+        }
+        .hover-content-aside {
+            .content {
+                background-color: var(--dark-bg-color);
+
+                &::before {
+                    border-right:13px solid var(--dark-bg-color);
+                }
+            }
+        }
+    }
+    .bg-lighten03 {
+        background-color: var(--dark-bg-color);
+    }
+    .tpd-tooltip {
+        .tpd-content-relative-padder {
+            background-color: var(--dark-bg-color);
+            .content {
+                .button-group {
+                    .edu-btn {
+                        color: var(--color-white) !important;
+                    }
+                }
+            }
+        }  
+    }
+    .course-area-1 {
+        .edu-course-widget {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .course-area-4 {
+        background-color: var(--dark-bg-color);
+    }
+    .course-area-7 {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(4%) sepia(22%) saturate(4302%) hue-rotate(194deg) brightness(91%) contrast(101%);
+        } 
+        .shape-group {
+            li {
+                img {
+                    opacity: .65;
+                }
+            }
+        }
+    }
+    // course details demo area
+    .pv-course-details-area {
+        background-color: var(--dark-bg-color);
+        &::before {
+            display: none;
+        }
+    }
+    .pv-courses-demo {
+        .shape-group {
+            li {
+                &.shape-2 {
+                    img {
+                        filter: opacity(0.06);
+                    }
+                }
+            }
+        }
+    }
+    .course-sidebar-2 {
+        background-color: var(--dark-bg-color);
+    }
+    .course-sidebar-3 {
+        .edu-course-widget {
+            background-color: var(--bg-color-2);
+            &.widget-course-summery {
+                .thumbnail {
+                    .play-btn {
+                        background-color: var(--color-white);
+
+                        &:hover {
+                            color: var(--color-secondary);
+                        }
+                    }
+                }
+            }
+        }
+        .edu-blog-widget {
+            background-color: var(--bg-color-2);
+        }
+    }
+    .edu-course-widget {
+        background-color: var(--bg-color-2);
+    }
+    .course-curriculam {
+        .course-lesson {
+            ul {
+                li {
+                    background-color: var(--dark-color-bg-body);
+                    color: var(--color-white);
+
+                    &:hover {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+    .course-review {
+        .rating-box {
+            background: var(--bg-color-2);
+        }
+        .review-wrapper {
+            .progress {
+                background-color: var(--bg-color-2);
+            }
+        }
+        .comment-form-area {
+            .rating-icon {
+                .rating {
+                    i {
+                      color: var(--dark-footer-text);  
+                    }
+                }
+            }
+        }
+    }
+    .course-details-area {
+        .entry-content {
+            .thumbnail {
+                .video-play-btn {
+                    background-color: var(--color-white);
+                    color: var(--color-secondary);
+
+                    &:hover {
+                        background-color: var(--color-secondary);
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    .course-details-content {
+        .course-enroll-box {
+            background-color: var(--bg-color-2);
+        }
+        .entry-content {
+            .course-meta {
+                li {
+                    &::after {
+                        background-color: var(--color-extra10);
+                    }
+                }
+            }
+        }
+    }
+    .tag-list {
+        a {
+            &:Hover {
+                color: var(--color-white);
+            }
+        }
+    }
+    .edu-blog-widget {
+        &.widget-action {
+            .inner {
+                background-color: var(--dark-color-bg-body);
+
+                &::before {
+                    background-image: url(../images/others/dark-shape-21.png);
+                }
+            }
+        }
+    }
+    .course-details-3 {
+        .course-curriculam {
+            .edu-accordion {
+                .course-lesson {
+                    .reading-status {
+                        .title {
+                            color: var(--color-white);
+                        }
+                        .complete-text {
+                            span {
+                                color: var(--color-white);
+
+                                &::after {
+                                    background-color: var(--color-white);
+                                }
+                            }
+                        }
+                    }
+                }
+                .accordion-item {
+                    border: 1px solid var(--dark-color-border);
+                    .accordion-button {
+                        &::after {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------------
+        Campus Styles  
+    --------------------------*/
+    .edu-campus-area {
+        .campus-image-gallery {
+            .shape-2 {
+                img {
+                    filter: opacity(0.06);
+                }
+            }
+        }
+        .campus-content {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+            @media #{$large-mobile} {
+                background-color: transparent;
+            }
+            .shape-5 {
+                span {
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+
+    /*-------------------------
+        Copyright Styles  
+    --------------------------*/
+    .footer-lighten {
+        .copyright-area {
+            background-color: var(--dark-color-bg-body);
+            a {
+                color: var(--color-primary);
+            }
+        }
+        p,
+        li,
+        a {
+            color: var(--color-title);
+        }
+    }
+    
+    /*-------------------
+    Event Dark Styles
+    ---------------------*/
+    .edu-event {
+        .inner {
+            .content {
+                background-color: var(--bg-color-2);
+
+            }
+        }  
+    }
+    .event-area-3 {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(4%) sepia(22%) saturate(4302%) hue-rotate(194deg) brightness(91%) contrast(101%);
+        }
+        .edu-event-list {
+            background-color: var(--bg-color-2);
+
+            &:hover:not(.event-list-2) {
+                .content {
+                    .title {
+                        color: var(--color-white);
+                        a {
+                            &:hover {
+                                color: rgba(255,255,255,0.8);
+                            }
+                        }
+                    }
+                    .event-meta {
+                        li {
+                            color: var(--color-white);
+                            i {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                    .event-location {
+                        color: var(--color-white);
+                        i {
+                            color: var(--color-white);
+                        }
+                    }
+                    p {
+                        color: var(--color-white);
+                    }
+                    .edu-btn {
+                        color: var(--color-heading) !important;
+                        &:hover {
+                            color: var(--color-white) !important;
+                        }
+                    }
+                }
+            }
+            &.bg-style-primary {
+                .content {
+                    .edu-btn {
+                        &.btn-medium  {
+                            &:hover {
+                                color: var(--color-heading) !important;
+                            }
+                        }
+                    }
+                }
+            }  
+        }
+        .shape-group {
+            li {
+                img {
+                    opacity: .65;
+                }
+            }
+        }
+    }
+    .edu-event-list {
+        background-color: transparent;
+    }
+
+    /*-------------------
+    Features Dark Styles
+    ---------------------*/
+    .features-box {
+        .content {
+            p {
+                color: var(--color-title);
+            }
+        }
+        &.features-style-2 {
+            .content {
+                .title {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.features-style-4 {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-primary-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-secondary-style {
+            &:hover {
+                .icon{
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra05-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra08-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra02-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra03-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra04-style {
+            &:hover {
+                .icon {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .features-area-1 {
+        .features-box {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+            &:hover {
+                .icon {
+                    svg {
+                        path {
+                        stroke: var(--color-white);  
+                        }
+                    }
+                }
+            }
+            .content {
+                p {
+                    color: var(--color-title);
+                }
+            }
+        }
+    }
+    .features-area-3 {
+        .features-grid-wrap {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+        }
+    }
+
+    /*-------------------
+    FAQ Dark Styles
+    ---------------------*/
+    .faq-accordion {
+        .accordion-item {
+            background-color: var(--bg-color-2);
+            color: var(--color-white);
+            .accordion-button { 
+                color: var(--color-white);
+
+                &::before {
+                    color: var(--color-white);
+                }
+                &.collapsed { 
+                    color: var(--color-white);
+
+                    &::before {
+                        color: var(--color-white);
+                    }
+                }  
+            }
+            .accordion-body {
+                background-color: var(--bg-color-2);
+            } 
+        }
+    }
+    .edu-faq-gallery { 
+        .shape-group { 
+            li {
+                &.shape-4 {
+                    img {
+                        filter: opacity(0.06);
+                    }
+                }
+            }
+        }
+    }
+    .faq-style-2 {
+        background-color: var(--dark-bg-color);
+        &::before {
+            display: none;
+        }
+        .edu-faq-gallery {
+            .shape-group {
+                .shape-3,
+                .shape-5 {
+                    img {
+                        filter: opacity(0.08);
+                    }
+                }
+                .shape-6 {
+                    img {
+                        filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2%) hue-rotate(310deg) brightness(54%) contrast(36%);
+                    }
+                }
+            }
+        }
+    }
+    .faq-style-3 {
+        .edu-faq-gallery {
+            .thumbnail-1 {
+                background-color: var(--color-white);
+            }
+        }
+    }
+    .faq-style-4 {
+        .faq-accordion {
+            .accordion-item {
+                .accordion-button {
+                    color: var(--color-white);
+
+                    &::before {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    .faq-page-tab-content {
+        &::after {
+            filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+        }
+    }
+
+    /*-------------------
+    Footer Dark Styles
+    ---------------------*/
+    .edu-footer {
+        .footer-dark {
+            .widget-title {
+                color: var(--color-white);
+            }
+        }
+        &.footer-style-1 {
+            background-color: var(--bg-color-2);
+            .footer-top {
+                .edu-footer-widget {
+                    .logo {
+                       a {
+                        img {
+                            &.logo-light {
+                                display: none;
+                            } 
+                            &.logo-dark {
+                                display: inline-block;
+                            }
+                        }
+                       } 
+                    }
+                }
+            }
+            .copyright-area {
+                background-color: var(--dark-color-bg-body);
+            }
+        }
+        
+        &.footer-style-2 {
+            background-color: var(--bg-color-2);
+            .footer-top {
+                .edu-footer-widget {
+                    .logo {
+                        a {
+                            img {
+                                &.logo-light {
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+        &.footer-style-3 {
+            background-color: var(--dark-color-bg-body);
+            .edu-footer-widget {
+                .logo {
+                    a {
+                        img {
+                            &.logo-light {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                .widget-title {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.footer-style-6 {
+            background: var(--dark-color-bg-body);
+                .footer-top {
+                    .edu-footer-widget {
+                        .widget-title {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+        }
+
+        .edu-footer-widget {
+            .footer-link  {
+                li {
+                    a {
+                        color: var(--color-title);
+                        &:hover {
+                            color: var(--color-primary);
+                        }
+                    }
+                }
+            }
+            .logo {
+                a {
+                    img {
+                        &.logo-light {
+                            display: none;
+                        }
+            
+                        &.logo-dark {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            .input-group {
+                .form-control {
+                    color: var(--color-white);
+                    background-color: var(--dark-color-border);
+                }
+            }
+            .inner {
+                .input-group {
+                    .btn-secondary {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+        &.footer-kindergarten {
+            .copyright-area {
+                &::before {
+                    filter: brightness(0) saturate(100%) invert(14%) sepia(8%) saturate(2142%) hue-rotate(173deg) brightness(95%) contrast(89%);
+                } 
+            }
+        }
+    }
+    .footer-for-kitchen,
+    .footer-for-yoga {
+        .edu-footer-widget {
+            .inner {
+                .description {
+                    color: var(--color-title);
+                }
+                .widget-information {
+                    ul {
+                        li {
+                            color: var(--color-title);
+                            span {
+                                color: var(--color-white);
+                            }
+                            a {
+                                color: var(--color-title);
+
+                                &:hover {
+                                    color: var(--color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+                li {
+                    a {
+                        color: var(--color-title);
+
+                        &:hover {
+                            color: var(--color-primary);
+                        }
+                    }
+                }
+            }
+        }
+        .copyright-area {
+            background-color: var(--dark-color-bg-body);
+            border-top: 1px solid #262626;
+        }
+    }
+
+    /*-------------------
+    Header Dark Styles
+    ---------------------*/
+    .header-action {
+        li {
+            &.icon {
+                a {
+                    .count {
+                        color: var(--color-white);
+                    }
+                }
+                a.search-trigger,
+                a.cart-icon,
+                button.search-trigger {
+                    color: var(--color-white);
+                }
+            }
+        }
+        .header-btn {
+            a {
+                color: var(--color-white);
+            }
+        }
+        .search-bar {
+            .input-group {
+                border: 1px solid #333a44;
+
+                .form-control {
+                    background: transparent;
+                }
+            }
+        }
+    }
+    .header-style-2 {
+        .header-top {
+            .header-info {
+                li {
+                    &::after {
+                        background-color: #30302f;
+                    }
+                    a {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+        .header-mainmenu {
+            .header-right {
+                &::after {
+                    background-color: var(--dark-color-border);
+                }
+            }
+        }
+    }
+    .header-style-3 {
+        .header-top-bar {
+            background-color: var(--dark-color-bg-body);
+        }
+        .header-mainmenu {
+            .header-right {
+                &::after {
+                    background-color: var(--color-extra09);
+                }
+            }
+        }
+        .header-top {
+            .header-info {
+                li {
+                    a {
+                        &:hover {
+                            color: var(--color-secondary);
+                        }
+                        &.edu-btn {
+                            &:hover {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .edu-header {
+        &.header-style-4  {
+            &::before {
+                filter: brightness(0) saturate(100%) invert(4%) sepia(55%) saturate(1345%) hue-rotate(186deg) brightness(89%) contrast(95%);
+            }
+            &::after {
+                filter: brightness(0) saturate(100%) invert(4%) sepia(55%) saturate(1345%) hue-rotate(186deg) brightness(89%) contrast(95%);
+            }
+
+            .header-mainmenu {
+                background-color: transparent;
+                &.edu-sticky {
+                    background-color: var(--bg-color-2);
+                }
+                .header-navbar {
+                    .header-right {
+                        .header-action {
+                            .search-bar {
+                                .input-group {
+                                    input[type="text"] { 
+                                        background: transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .header-mainmenu {
+            background-color: var(--bg-color-2);
+        }
+        &.header-photography {
+            .header-mainmenu {
+                background-color: transparent;
+                &.edu-sticky {
+                    background-color: var(--bg-color-2);
+                }
+            }
+        }
+        &.pv-header-style {
+            .header-mainmenu {
+                background-color: transparent;
+                &.edu-sticky {
+                    background-color: var(--bg-color-2);
+                }
+            }
+        }
+        .header-category {
+            border-left: 1.5px solid var(--dark-color-border);
+            border-right: 1.5px solid var(--dark-color-border); 
+        }
+        .header-brand {
+            img {
+                &.logo-light {
+                    display: none;
+                }
+    
+                &.logo-dark {
+                    display: inline-block;
+                }
+            }
+        }
+        &.header-photography {
+            .header-brand {
+                img {
+                    &.logo-light {
+                        display: inline-block;
+                    }
+        
+                    &.logo-dark {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+    }
+    .header-top-bar {
+        background-color: var(--dark-color-bg-body);
+    }
+    .header-top {
+        .header-notify {
+            color: var(--color-white);
+        }
+        .header-info {
+            li {
+                a {
+                    color: var(--color-white);
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+                &.header-btn {
+                    .edu-btn {
+                        color: var(--color-white);
+                        i {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+            .social-icon {
+                a {
+                    i {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    // Mobile Menu
+    .popup-mobile-menu {
+        .mainmenu {
+            li {
+                a {
+                    color: var(--color-white);
+                }
+                & + li {
+                    border-top: 1px solid var(--dark-color-border);
+                }
+            }
+        }
+        .inner {
+            background: var(--dark-color-bg-body);
+            .header-top {
+                border-bottom: 1px solid var(--dark-color-border);
+                .logo {
+                    a {
+                        img {
+                            &.logo-light {
+                                display: none;
+                            }
+                
+                            &.logo-dark {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                .close-menu {
+                    .close-button {
+                        background: var(--dark-color-border);
+                    }
+                }
+            }
+        }
+    }
+
+    // Nav 
+    .mainmenu-nav {
+        .mainmenu {
+            > li > a {
+                color: var(--color-white);
+            }
+            li {
+                &.has-droupdown {
+                    .submenu {
+                        background-color: #02060d;
+                        li {
+                            a {
+                                color: var(--color-title);
+                            }
+                        }
+                    } 
+                    ul {
+                        box-shadow: var(--shadow-darker);
+                    }
+                    .mega-sub-menu-01 {
+                        box-shadow: none;
+                    }
+                }
+                ul {
+                    
+                    &.mega-menu {
+                        background-color: #02060d;
+                        >li {
+                            border-right: 1px solid #191d22;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Search 
+    .edu-search-popup {
+        .content-wrap {
+            background-color: rgb(40, 47, 58);
+            .search-form {
+                border-bottom: 1px solid #646465;
+            }
+        }
+        .site-logo {
+            img {
+                &.logo-light {
+                    display: none;
+                }
+    
+                &.logo-dark {
+                    display: inline-block;
+                }
+            }
+        }
+        .inner {
+            .search-form {
+                input {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Hero Banner Dark Styles
+    ---------------------*/
+    .hero-banner {
+        .banner-thumbnail {
+            .instructor-info {
+                .inner {
+                    background-color: var(--color-white);
+                    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
+                    .title {
+                        color: var(--color-black);
+                    }
+                    .media {
+                        .content {
+                            color: var(--color-black);
+                        }
+                    }
+                }
+            }
+        }
+        &.presentation-hero-style {
+            &::before {
+                background-image: url(../images/bg/dark-bg-image-27.png);
+            }
+            .banner-content {
+                &::after,
+                &::before {
+                    border: 1px solid #242424;
+                }
+            }
+        }
+        &.hero-style-1 {
+
+            &::before {
+                filter: opacity(.1);
+            }
+        }
+        &.hero-style-2 {
+            &::before { 
+                filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(3862%) hue-rotate(182deg) brightness(105%) contrast(102%);
+            }
+        }
+        &.hero-style-3 {
+            .banner-content {
+                .title {
+                    color: var(--color-white);
+                }
+                p {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.hero-style-4 {
+            clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
+            background: var(--dark-bg-color);
+
+            .scroll-down-btn {
+                bottom: -100px;
+
+                @media #{$sm-layout} {
+                    bottom: -10px;
+                }
+                .scroll-btn {
+                    background-color: rgba(255, 255, 255, 0.05);
+
+                    &::before,
+                    &::after {
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                    }
+                }
+            }
+            &::before {
+                display: none;
+            }
+            .shape-group {
+                li {
+                    &.shape-1{
+                        img {
+                            filter: opacity(0.06);
+                        }
+                    }
+                    &.shape-7 {
+                        img {
+                            filter: opacity(0.05);
+                        }
+                    }
+                    &.shape-3,
+                    &.shape-5 {
+                        img {
+                            filter: brightness(0) saturate(100%) invert(99%) sepia(3%) saturate(0%) hue-rotate(313deg) brightness(59%) contrast(36%);
+                        }
+                    }
+                }
+            }
+            .banner-gallery {
+                .online-support {
+                    .inner {
+                        .content {
+                            .title {
+                                a {
+                                    color: var(--color-black);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.hero-style-5 {
+            .banner-thumbnail {
+                .thumbnail {
+                    background-color: var(--color-white);
+                }
+                .shape-group {
+                    .shape-1 {
+                        img {
+                            filter: opacity(0.08);
+                        }
+                    }
+                }
+            }
+        }
+        &.hero-style-6 {
+            .banner-thumbnail {
+                .shape-group {
+                    .shape-1 {
+                        img {
+                            filter: opacity(0.08);
+                        }
+                    }
+                }
+            }
+        }
+        &.hero-style-7 {
+            background: var(--dark-bg-color);
+
+            .shape-group {
+                z-index: 1;
+                li {
+                    img {
+                        opacity: .65;
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Instagram Dark Styles
+    ---------------------*/
+    .instagram-grid {
+        a {
+            &::after {
+                background-color: var(--color-black);
+            }
+            .user-info {
+                color: var(--color-white);
+            }
+        }
+    }
+
+    /*-------------------
+    Shop Dark Styles
+    ---------------------*/
+    .pv-shop-area {
+        background-color: var(--dark-bg-color);
+        &::before {
+            display: none;
+        }
+    }
+    .pv-inner-page-area {
+        background: var(--dark-bg-color);
+
+        &::before {
+            display: none;
+        }
+    }
+    .pv-cta-area {
+        background-color: var(--dark-color-bg-body);
+        &::before {
+            background-image: url(../images/bg/dark-bg-imgae-26.png);
+        }
+        .cta-content {
+            .title {
+                color: var(--color-white);
+            }
+        }
+    }
+
+    /*-------------------
+    Team Dark Styles
+    ---------------------*/
+    .team-share-info {
+        li {
+            a {
+                color: var(--color-white);
+                border: 2px solid var(--color-white);
+
+                &:hover {
+                    color: var(--color-primary);
+                    background: var(--color-white);
+                }
+            }
+        }
+    }
+    .edu-team-grid {
+        &.team-style-1  {
+            &:hover {
+                .team-share-info {
+                    li {
+                        &:first-child {
+                            a {
+                                background-color: var(--color-white);
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.team-style-2 { 
+            &::after {
+                background-color: var(--bg-color-2);
+                box-shadow: none;
+            }
+        }
+        &.team-style-3 {
+            .content {
+                .title {
+                    a {
+                        color: var(--color-heading);
+                    }
+                }
+            }
+        }
+        &.team-style-4{
+            .content {
+                .title {
+                    background-color: var(--bg-color-2);
+                    color: var(--color-white);
+                }
+                .designation {
+                    background-color: var(--bg-color-2);
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.team-style-5 {
+            .content {
+                background-color: var(--bg-color-2);
+                box-shadow: none;
+                .title {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .team-area-6  {
+        .shape-group {
+            .shape-1,
+            .shape-2,
+            .shape-3 {
+                img {
+                    filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+                }
+            }
+        }
+    }
+    .edu-team-details-area  {
+        .team-details-content  {
+            .main-info {
+                .team-meta {
+                    li {
+                        &::after {
+                            background-color: #6a6a6a;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Testimonial Dark Styles
+    ---------------------*/
+    .testimonial-grid {
+        background-color: var(--bg-color-2);
+        box-shadow: none;
+        
+        p {
+            color: var(--color-title);
+        }
+        .thumbnail {
+            .qoute-icon {
+                color: var(--color-white);
+                border: 4px solid var(--color-white);
+            }
+        }
+    }
+    .testimonial-area-2 {
+        .testimonial-slide {
+            .content {
+                box-shadow: none;
+            }
+        }
+        .shape-group {
+            .shape-1 {
+                img {
+                    filter: opacity(0.06);
+                }
+            }
+        }
+        &.edu-section-gap {
+            .shape-group {
+                .shape-3 {
+                    img {
+                        filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+                    }
+                }
+            }
+        }
+    }
+    .testimonial-area-3 {
+        .shape-group {
+            li {
+                &.shape-5 {
+                    bottom: 150px;
+                    img {
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7494%) hue-rotate(344deg) brightness(100%) contrast(104%);
+                    }
+                } 
+            }
+        }
+    }
+    .testimonial-slide {
+        .content {
+            background-color: var(--bg-color-2);
+            p {
+                color: var(--color-title);
+            }
+        }
+    }
+    .testimonial-area-4 {
+        .shape-group {
+            li {
+                &.shape-2 {
+                    img {
+                        filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+                    }
+                }
+            }
+        }
+        .slick-arrow-nav {
+            .slick-arrow {
+                &:hover {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .testimonial-area-6  {
+        &::before {
+            background: var(--dark-bg-color);
+        }
+        .testimonial-slide {
+            .content {
+                background-color: transparent;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-3 {
+                    span {
+                        border: 1px solid var(--color-extra10);
+                    }
+                }
+            }
+        }
+    }
+    .testimonial-area-8 {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(5%) sepia(18%) saturate(3887%) hue-rotate(188deg) brightness(92%) contrast(102%);
+        }
+    }
+    .testimonial-coverflow {
+        .testimonial-grid {
+            &::before {
+                background-color: var(--dark-color-bg-body);
+            }
+        }
+    }
+
+    /*-------------------
+    Video Dark Styles
+    ---------------------*/
+    .video-area-1 {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(4%) sepia(83%) saturate(1113%) hue-rotate(182deg) brightness(92%) contrast(101%);
+        }
+    }
+    .video-gallery {
+        .thumbnail {
+            .video-play-btn {
+                i {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .video-banner-content {
+        .video-play-btn {
+            i {
+                color: var(--color-white);
+            }
+        }
+        .title {
+            color: var(--color-white);
+        }
+    }
+    .video-gallery {
+        .content {
+            background-color: var(--dark-color-bg-body);
+        }
+    }
+
+    /*--------------------------
+    why-choose-us Dark Styles
+    ----------------------------*/
+    .why-choose-area-1 {
+        .thumbnail {
+            &.thumbnail-2 {
+               img {
+                background-color: var(--color-white);
+               }
+            }
+        }
+        .why-choose-content {
+            .features-list {
+                .features-box {
+                    &.color-secondary-style,
+                    &.color-primary-style,
+                    &.color-extra05-style {
+                        &:hover {
+                            .icon {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .why-choose-area-2 {
+        background-color: var(--dark-color-bg-body);
+    }
+    .why-choose-area-4  {
+        .shape-group {
+            li {
+                &.shape-2 {
+                    span {
+                        border: 1px solid var(--color-extra10);
+                    }
+                }
+            }
+        }
+    }
+    .why-choose-box-3 {
+        &.features-box {
+            .icon {
+                color: var(--color-white);
+            }
+            .content {
+                background-color: var(--bg-color-2);
+            }
+        }
+    }
+
+    /*----------------------------------------
+    Coming Soon/Gallery/Pagination Dark Styles
+    ------------------------------------------*/
+    .coming-soon-page-area {
+        background: var(--dark-bg-color);
+        &::before {
+            filter: opacity(.2);
+        }
+        .coming-soon-content {
+            .title {
+                background: var(--gradient-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .input-group {
+                background-color: var(--bg-color-2);
+                .form-control {
+                    color: var(--color-white);
+                }
+            }
+        }
+        .coming-countdown {
+            .countdown-section {
+                &::after {
+                    color: var(--color-white);
+                }
+            }
+            .countdown-number {
+                color: var(--color-white);
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1,
+                &.shape-2 {
+                    img {
+                        filter: opacity(0.5);
+                    }
+                }
+            }
+        }
+    }
+    .edu-gallery-grid {
+        .zoom-icon {
+            background-color: var(--color-white);
+        }
+    }
+    .edu-pagination {
+        li {
+            &.active {
+                a {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Section Dark Styles
+    ---------------------*/
+    .section-title {
+        .pre-title {
+            color: var(--color-title);
+        }
+        p {
+            color: var(--color-title);
+        }
+    }
+    .section-title-flex {
+        .left-content {
+            &::after {
+                background-color: var(--color-extra10);
+            }
+        }
+    }
+    .social-share {
+        li {
+            a{
+                color: var(--color-white);
+                &:hover {
+                    color: var(--color-white);
+                } 
+            }
+        }
+    }
+    .pricing-table {
+        background-color: var(--bg-color-2);
+
+        .pricing-header {
+            border-bottom: 1px solid var(--dark-color-border) !important;
+        }
+    }
+    .login-form-box {
+        background-color: var(--bg-color-2);
+    }
+    select {
+        border: 1px solid var(--dark-color-border);
+        background: url(../images/icons/Down-Arrow.png) 88% center no-repeat transparent;
+        
+    }
+    .edu-product {
+        .inner {
+            > .thumbnail {
+                .product-hover-info {
+                    ul {
+                        li {
+                            a {
+                                background-color: var(--bg-color-2);
+
+                                &:hover {
+                                    color: var(--color-white);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pro-qty {
+        input {
+            color: var(--color-white);
+        }
+    }
+    .product-details-area  {
+        .content {
+            .product-action {
+                .add-to-cart-btn {
+                    .wishlist-btn {
+                        &:hover {
+                            i {
+                                color: var(--color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cart-table {
+        th,
+        td {
+            border-bottom: 1px solid var(--dark-color-border) !important;
+        }
+        tbody {
+            td {
+                color: var(--color-title);
+            }
+        }
+    }
+    .cart-update-btn-area {
+        .product-cupon {
+            border: 1px solid var(--dark-color-border);
+            .submit-btn {
+                color: var(--color-white);
+            }
+        }
+        input[type="text"] {
+            background-color: transparent;
+        }
+        .update-btn {
+            .edu-btn {
+                &.disabled {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .order-summery {
+        tbody {
+            td {
+                border-color: var(--dark-color-border) !important;
+            }
+        }
+    }
+    .checkout-billing {
+        .form-group {
+            input,
+            textarea {
+                border-color: var(--dark-color-border);
+                background-color: transparent;
+            }
+            select {
+                background: url(../images/icons/Down-Arrow.png) 88% center no-repeat transparent;
+            }
+        }
+    }
+    .order-payment {
+        .payment-method {
+            background-color: var(--bg-color-2);
+        }
+        .form-group {
+            border-bottom: 1px solid var(--dark-color-border);
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+    .cls-1 {
+        fill: var(--color-white);
+    }
+    .edu-accordion {
+        .accordion-item {
+            .accordion-button {
+                color: var(--color-white);
+                background-color: var(--dark-color-bg-body);
+            }
+        }
+    }
+    blockquote {
+        background-color: var(--bg-color-2);
+    }
+    .contact-form {
+        &.form-style-2 {
+            background-color: var(--bg-color-2);
+            box-shadow: none;
+        }
+    }
+    .event-details  {
+        .details-content {
+            .event-meta {
+                li {
+                    &::after {
+                        background-color: var(--dark-color-border);
+                    }
+                }
+            }
+        }
+    }
+    .error-page-area {
+        .shape-group {
+            .shape-1 {
+                img {
+                    filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(104%) contrast(101%);
+                }
+            }
+        }
+    }
+    .privacy-policy {
+        ul {
+            li {
+                color: var(--color-title);
+            }
+        }
+    }
+    .course-overview {
+        ul {
+            li {
+                color: var(--color-title);  
+            }
+        }
+    }
+    .product-description-content {
+        .comment-form {
+            .form-group {
+                input, 
+                textarea {
+                    background: transparent;
+                }
+            }
+        }
+    }
+    .comment-form {
+        .form-group {
+            input, 
+            textarea {
+                box-shadow: none;
+                border: 1px solid var(--dark-color-border);
+                background: transparent;
+            }
+            .edu-form-check {
+                label {
+                    &::before {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    /*-------------------
+    Button Dark Styles
+    ---------------------*/
+    .wishlist-btn {
+        background: transparent;
+
+        &.btn-outline-dark {
+            border: 1px solid var(--dark-color-border);
+            &:hover {
+                color: var(--color-white);
+                border-color: var(--color-secondary);
+                background-color: var(--color-secondary);
+            }
+        }
+        i {
+            color: var(--color-white);
+        }
+    }
+
+    .btn-icon-round {
+        color: var(--color-white);
+
+        &:hover {
+            color: var(--color-white);
+        }
+    }
+    a{
+        &.edu-btn {
+            &.btn-secondary {
+                color: var(--color-white);
+    
+                &:hover {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    .isotop-button {
+
+        button {
+            &:hover,
+            &.is-checked {
+                color: var(--color-white);
+            }
+        }
+    }
+    a {
+        &.edu-btn {
+            &.btn-border {
+                &:hover {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+    
+    /*-------------------
+    Form Dark Styles
+    ---------------------*/
+    input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        textarea { 
+            background-color: transparent;
+        }
+    .contact-form-area {
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        textarea { 
+            border: 1px solid var(--dark-color-border);
+        }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] { 
+      ~label {
+        color: var(--color-title);
+      }  
+    }
+
+    input[type="checkbox"] ~ label::before, 
+    input[type="radio"] ~ label::before {
+        border: 1px solid var(--dark-color-border);
+        color: var(--color-white);  
+    }
+    input[type="checkbox"] ~ label::after, 
+    input[type="radio"] ~ label::after {
+        color: var(--color-white);
+    }
+    input[type="checkbox"]:checked ~ label::before, 
+    input[type="radio"]:checked ~ label::before {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+    .login-form-box {
+        .chekbox-area {
+            .edu-form-check {
+                label {
+                    &::before {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }  
+    } 
+
+    /*-------------------
+    Swiper Slider Dark Styles
+    ---------------------*/
+    .swiper-navigation {
+        .swiper-btn-nxt,
+        .swiper-btn-prv {
+            background-color: transparent;
+            color: var(--color-white);
+
+            &:hover {
+                color: var(--color-white);
+            }
+        }
+    }
+    .blog-style-4 {
+        .swiper-navigation {
+            .swiper-btn-nxt,
+            .swiper-btn-prv {
+                background-color: var(--bg-color-2);
+                color: var(--color-white);
+    
+                &:hover {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,151 @@
+/*=======================================================================
+    Modern Schooling Styles Starts
+=========================================================================*/
+
+// @import "hero_banner";
+
+/*=======================================================================
+    Modern Schooling Styles End
+=========================================================================*/
+// Modern Schooling Banner Styles
+.hero-banner {
+    &.hero-style-8 {
+        min-height: 790px;
+        background-color: var(--color-white);
+        position: relative;
+
+        @media #{$md-layout} {
+            padding-top: 95px;
+        }
+
+        .banner-content {
+            z-index: 12;
+
+            @media #{$md-layout-1} {
+                text-align: center;
+                padding-bottom: 50px;
+            }
+            @media #{$sm-layout} {
+                padding-top: 50px;
+            }
+
+            p {
+                padding-right: 90px;
+                @media #{$md-layout-1} {
+                    padding-right: 0;
+                }
+            }
+            .banner-search {
+                width: 92%;
+                @media #{$md-layout-1} {
+                    width: 100%;
+                }
+                .input-group {
+                    background-color: var(--color-white);
+                    box-shadow: var(--shadow-darker3);
+                    border: none;
+                    border-radius: 4px;
+                    .form-control {
+                        height: 70px;
+                        border: none;
+                        line-height: 1;
+                        font-size: 15px;
+                        color: var(--color-body);
+                        font-weight: 400;
+                        padding: 0 0 0 20px;
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                    .search-btn {
+                        border: none;
+                        background-color: transparent;
+                        font-size: 20px;
+                        color: var(--color-heading);
+                        padding: 0 20px;
+                        transition: var(--transition);
+                        &:hover {
+                            color: var(--color-primary);
+                        }
+                    }
+                }
+            }  
+        }
+        .banner-thumbnail {
+            margin-right: -100px;
+            margin-top: -60px;
+            @media #{$custom-lg-device-eight} {
+                margin-right: -40px;
+            }
+            @media #{$smlg-device} {
+                margin-right: 0;
+            }
+
+            .thumbnail {
+                @media #{$md-layout-1} {
+                    padding-bottom: 100px;
+                }
+            }
+
+            .instructor-info {
+                bottom: -60px;
+                left: 35px;
+                @media #{$md-layout-1} {
+                    left: 0;
+                    bottom: 45px;
+                }
+            }
+            .shape-group {
+                li {
+                    &.shape-1 {
+                        top: 120px;
+                        left: 162px;
+                    }
+                    &.shape-2 {
+                        top: 92px;
+                        left: inherit;
+                        right: -30px;
+                    }
+                    &.shape-3 {
+                        top: inherit;
+                        left: inherit;
+                        right: -100px;
+                        bottom: 9px;
+                        @media #{$custom-lg-device-six} {
+                            right: -40px;
+                        }
+                    }
+                    &.shape-4 {
+                        top: -25px;
+                        right: inherit;
+                        left: -10px;
+                    }
+                }
+            }
+        }
+
+        .shape-group {
+            li {
+                position: absolute;
+
+                &.shape-5 {
+                    left: 140px;
+                    top: -88px;
+                    z-index: 1;
+                    span {
+                        display: block;
+                        width: 400px;
+                        height: 400px;
+                        border: 1px solid var(--color-border);
+                        border-radius: 50%;
+                    }
+                }
+                &.shape-6 {
+                    left: 67px;
+                    top: 140px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}

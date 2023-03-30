@@ -1,0 +1,114 @@
+/*-----------------------------
+    Blog Comments Style  
+------------------------------*/
+.comment-area {
+    margin-top: 100px;
+    .heading-title {
+        margin-bottom: 30px;
+    }
+}
+.comment-list-wrapper {
+    .comment {
+        display: flex;
+        .thumbnail {
+            min-width: 80px;
+            width: 80px;
+            max-height: 80px;
+            border-radius: 50%;
+            margin-right: 30px;
+            @media #{$large-mobile} {
+                margin-right: 20px;
+                min-width: 60px;
+                width: 60px;
+            }
+            img {
+                border-radius: 50%;
+                width: 100%;
+            }
+        }
+        .comment-content {
+            .title {
+                margin-bottom: 2px;
+            }
+            .date {
+                display: block;
+                margin-bottom: 14px;
+            }
+            p {
+                margin-bottom: 18px;
+            }
+
+            .reply-btn {
+                display: flex;
+                align-items: center;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 26px;
+                font-family: var(--font-secondary);
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+        &.comment-reply {
+            margin-left: 110px;
+            @media #{$large-mobile} {
+                margin-left: 40px;
+            }
+        }
+        & + .comment {
+            border-top: 1px solid var(--color-border);
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+    }
+}
+
+/*-----------------------------
+    Blog Comments Form
+------------------------------*/
+.comment-form-area {
+    margin-top: 90px;
+    .heading-title {
+        margin-bottom: 30px;
+    }
+}
+
+.comment-form {
+    .form-group {
+        margin-bottom: 0;
+        input,
+        textarea {
+            box-shadow: var(--shadow-darker);
+        }
+        .edu-form-check {
+            label {
+                color: var(--color-body);
+                padding-left: 27px;
+                &:before {
+                    background-color: #f7f7f7;
+                    border-color: var(--color-border);
+                    height: 15px;
+                    width: 15px;
+                    top: 5px;
+                }
+                &:after {
+                    left: 3px;
+                }
+            }
+            input {
+                &:checked {
+                    ~label {
+                        &::before {
+                            background-color: var(--color-primary);
+                            border-color: var(--color-primary);
+                        }
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

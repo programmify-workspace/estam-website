@@ -1,0 +1,96 @@
+.faq-style-6 {
+    overflow: hidden;
+    .edu-faq-content {
+        padding-bottom: 120px;
+        @media #{$md-layout-1} {
+            padding-bottom: 60px;
+        }
+    }
+    .edu-faq-gallery {
+        bottom: -96px;
+        @media #{$smlg-device} {
+            bottom: -115px;
+            left: 40px;
+        }
+        @media #{$md-layout-1} {
+            left: 0;
+            bottom: 0;
+        }
+        .thumbnail-1 {
+            img {
+                border-radius: 0;
+            }
+            @media #{$md-layout-1} {
+                text-align: center;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1 {
+                    top: -88px;
+                    left: 0%;
+                   span {
+                    width: 550px;
+                    height: 550px;
+                    border-radius: 50%;
+                    display: block;
+                    background-color: rgba(255, 255, 255, 0.4);
+                    box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.05);
+                   }
+                }
+                &.shape-2 {
+                    top: -37px;
+                    left: 50px;
+                    span {
+                    width: 450px;
+                    height: 450px;
+                     border-radius: 50%;
+                     display: block;
+                     background-color: rgba(255, 255, 255, 0.4);
+                     box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.05);
+                    }
+                }
+                &.shape-3 {
+                    top: 165px;
+                    left: 367px;
+                    bottom: inherit;
+                    z-index: -1;
+                }
+                &.shape-4 {
+                    top: 80px;
+                    right: -38px;
+                    left: inherit;
+                    bottom: inherit;
+                    z-index: 1;
+                }
+                &.shape-5 {
+                    left: -20px;
+                    bottom: 153px;
+                }
+            }
+        }
+    }
+    .faq-accordion {
+        .accordion-item {
+            box-shadow: none;
+            .accordion-button.collapsed {
+                border: 1px solid var(--color-border);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            .accordion-body {
+                box-shadow: var(--shadow-darker);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+    }
+    .row--45 > [class*="col"], 
+    .row--45 > [class*="col-"] {
+        @media #{$laptop-device} {
+            padding-left: 40px;
+            padding-right: 40px; 
+        }   
+    }
+}
+  

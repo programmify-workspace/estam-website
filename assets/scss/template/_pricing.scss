@@ -1,0 +1,91 @@
+/*-------------------
+  Pricing Table Styles 
+---------------------*/
+.pricing-table {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-darker);
+    border-radius: 5px;
+    padding: 50px 30px 45px;
+    position: relative;
+    text-align: center;
+    .pricing-header {
+        margin-bottom: 35px;
+        text-align: center;
+        border-bottom: 1px solid #e7e7e7;
+        .price-wrap {
+            font-family: var(--font-secondary);
+            line-height: 1;
+            margin-bottom: 20px;
+            .amount {
+                font-weight: var(--p-bold);
+                font-size: 40px;
+                color: var(--color-heading);
+                display: block;
+                margin-bottom: 18px;
+            }
+            .duration {
+                color: var(--color-body);
+                font-size: 15px;
+                font-weight: var(--p-medium);
+            }
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-family: var(--font-secondary);
+            font-weight: var(--p-medium);
+            font-size: 15px;
+            color: var(--color-primary);
+            margin-bottom: 18px;
+        }
+    }
+
+    .pricing-body {
+        margin-bottom: 40px;
+        .list-item {
+            @extend %liststyle;
+            li{
+                display: flex;
+                align-items: center;
+                margin: 0;
+                justify-content: center;
+                color: var(--color-heading);
+                i {
+                    color: var(--color-primary);
+                    margin-right: 10px;
+                }
+                & + li {
+                    margin-top: 16px;
+                }
+                &.item-off {
+                    color: var(--color-body);
+                    i {
+                        color: var(--color-body);
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+    .edu-btn {
+        &.btn-border {
+            padding: 0 30px;
+            i {
+                font-size: 15px;
+                font-weight: 600;
+                top: 2px;
+                padding-left: 10px;
+            }
+            &:after {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        .edu-btn {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        } 
+    }
+}

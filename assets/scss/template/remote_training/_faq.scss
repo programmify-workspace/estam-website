@@ -1,0 +1,94 @@
+.faq-style-7 {
+    overflow: hidden;
+    padding-top: 350px;
+    margin-top: -240px;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../images/bg/bg-image-36.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        z-index: -1;
+    }
+    .edu-faq-content {
+        padding-bottom: 120px;
+        @media #{$md-layout-1} {
+            padding-bottom: 60px;
+        }
+    }
+    .edu-faq-gallery {
+        bottom: 0;
+        @media #{$smlg-device} {
+            left: 0;
+            bottom: -8px;
+        }
+        .thumbnail-1 {
+            margin-left: -277px;
+            @media #{$custom-lg-device-two} {
+                margin-left: -140px;
+            }
+            @media #{$custom-laptop-device} {
+                margin-left: -60px;
+            }
+            @media #{$smlg-device} {
+                margin-left: -70px;
+            }
+            @media #{$md-layout-1} {
+                margin-left: 0;
+            }
+            img {
+                border-radius: 0;
+                min-height: 727px;
+                max-width: 100%;
+                position: relative;
+                z-index: 9;
+                @media #{$sm-layout} {
+                    min-height: 100%;
+                }
+            }
+            @media #{$md-layout-1} {
+                text-align: center;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1 {
+                    top: 251px;
+                    left: -27px;
+                    bottom: inherit;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .faq-accordion {
+        .accordion-item {
+            box-shadow: none;
+            .accordion-button.collapsed {
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            .accordion-body {
+                box-shadow: var(--shadow-darker);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+    }
+    .row--45 > [class*="col"], 
+    .row--45 > [class*="col-"] {
+        @media #{$laptop-device} {
+            padding-left: 40px;
+            padding-right: 40px; 
+        }   
+    }
+}

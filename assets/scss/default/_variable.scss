@@ -1,0 +1,151 @@
+/*-------------------------
+    Variables
+-------------------------*/
+:root {
+    //Themes colors
+    --color-primary: #1ab69d;
+    --color-secondary: #ee4a62;
+    --color-textSecondary: #ff5b5c;
+    --color-tertiary: #f8b81f;
+    --color-dark: #111212;
+    --color-heading: #181818;
+    --dark-color-heading: #ffffff;
+    --color-border: #e5e5e5;
+    --dark-color-border: #282f3a;
+    --color-body: #808080;
+    --gradient-primary: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    --bg-color: #EAF0F2;
+    --dark-bg-color: #020b17;
+    --cta-color-bg:#F0F4F5;
+    --color-bg-body:#ffffff;
+    --dark-color-bg-body:#111822;
+    --bg-color-2: #1c242f;
+    // Typo Color 
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --footer-text: #181818;
+    --dark-footer-text: #808080;
+    --edu-btn-color: #ffffff;
+    --color-title: #bababa;
+
+    // Lighten Color
+
+    --color-lighten01: #f0f4f5; 
+    --color-lighten02: #edf5f8; 
+    --color-lighten03: #f5f1eb; 
+    --color-lighten04: #f7f5f2; 
+
+    // Extra Color 
+    --color-extra01: #0ecd73;
+    --color-extra02: #8e56ff;
+    --color-extra03: #f92596;
+    --color-extra04: #5866eb;
+    --color-extra05: #f8941f;
+    --color-extra06: #39c0fa;
+    --color-extra07: #da04f8;
+    --color-extra08: #4664e4;
+    --color-extra09: #525151;
+    --color-extra10: #404040;
+    --color-extra11: #22272e;
+
+    // Notify Colors 
+    --color-success: #3EB75E;
+    --color-danger: #FF0003;
+    --color-warning: #FF8F3C;
+    --color-info: #1BA2DB;
+    --color-placeholder: #808080;
+
+    //Social icon colors
+    --color-facebook: #1877f2;
+    --color-twitter: #1da1f2;
+    --color-youtube: #cd201f;
+    --color-linkedin: #0a66c2;
+    --color-pinterest: #E60022;
+    --color-instagram: #C231A1;
+    --color-vimeo: #00ADEF;
+    --color-twitch: #6441A3;
+    --color-discord: #7289da;
+    
+    //Border-radius
+    --border-width: 2px;
+    --radius-small: 4px;
+    --radius: 10px;
+    --radius-big: 16px;
+
+
+    //Font weight
+    --p-light: 300;
+    --p-regular: 400;
+    --p-medium: 500;
+    --p-semi-bold: 600;
+    --p-bold: 700;
+    --p-extra-bold: 800;
+
+
+    //Shadows
+    --shadow-darker: 0px 10px 50px 0px rgba(26,46,85,0.1);
+    --shadow-darker2: 0px 20px 50px 0px rgba(26,46,85,0.1);
+    --shadow-dark: 0px 10px 30px 0px rgba(20,36,66,0.15);
+    --shadow-darkest: 0px 10px 30px 0px rgba(0,0,0,0.05);
+    --shadow-darker3:0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+    --shadow-darker4: 0px 20px 70px 0px rgba(15, 107, 92, 0.2);
+
+    //transition easing
+    --transition: 0.3s;
+    --transition-2: 0.5s;
+    --transition-transform: transform .65s cubic-bezier(.23,1,.32,1);
+
+    //Font Family
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Spartan', sans-serif;
+    --font-icomoon: 'icomoon';
+
+    //Fonts Size
+    --font-size-b1: 15px;
+    --font-size-b2: 13px;
+
+    //Line Height
+    --line-height-b1: 1.73; //26px
+    --line-height-b2: 1.85; //24px
+
+    // Heading Font 
+    --h1: 50px; //60px 700 1.2
+    --h2: 36px; //50px 700 1.39
+    --h3: 28px; // 40px 700 1.43
+    --h4: 20px; //28px 600  1.4
+    --h5: 18px; //26px 600  1.45
+    --h6: 16px; //26px 600  1.62
+
+
+    --h1-lineHeight: 1.2;
+    --h2-lineHeight: 1.39;
+    --h3-lineHeight: 1.43;
+    --h4-lineHeight: 1.4;
+    --h5-lineHeight: 1.45;
+    --h6-lineHeight: 1.62;
+
+}
+
+// Layouts Variation
+$custom-lg-device-seven: 'only screen and (min-width: 1200px)';
+$custom-lg-device-three: 'only screen and (min-width: 1750px)';
+$custom-lg-device-four: 'only screen and (min-width: 1800px)';
+$custom-lg-device-five: 'only screen and (min-width: 1900px)';
+
+$custom-lg-device-two: 'only screen and (min-width: 1401px) and (max-width: 1750px)';
+$custom-lg-device-six: 'only screen and (min-width: 1401px) and (max-width: 1650px)';
+$custom-lg-device-eight: 'only screen and (min-width: 1200px) and (max-width: 1450px)';
+
+$laptop-device: 'only screen and (min-width: 1200px) and (max-width: 1599px)';
+$custom-laptop-device: 'only screen and (min-width: 1200px) and (max-width: 1400px)';
+
+$extra-device: 'only screen and (min-width: 1600px) and (max-width: 1919px)';
+$lg-layout: 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
+
+$lg-layout-1:'only screen and (max-width: 1650px)';
+$smlg-device: 'only screen and (max-width: 1199px)';
+$md-layout-1:'only screen and (max-width: 991px)';
+$sm-layout:'only screen and (max-width: 767px)';
+$large-mobile: 'only screen and (max-width: 575px)';
+$small-mobile: 'only screen and (max-width: 479px)';

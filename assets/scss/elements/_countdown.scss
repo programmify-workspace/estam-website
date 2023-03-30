@@ -1,0 +1,85 @@
+/*-------------------------
+Countdown 
+--------------------------*/
+.countdown {
+    display: flex;
+    .countdown-section {
+        margin-right: 10px;
+        text-align: center; 
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .countdown-number {
+        font-size: 20px;
+        font-weight: var(--p-semi-bold);
+        line-height: 1;
+        margin-bottom: 10px;
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        text-align: center;
+        border-radius: 50%;
+        &.day {
+            background-color: rgba(26, 182, 157, .1);
+            color: var(--color-primary);
+        }
+        &.hour {
+            background-color: rgba(238, 74, 98, .1);
+            color: var(--color-secondary);
+        }
+        &.minute {
+            background-color: rgba(142, 86, 255, .1);
+            color: var(--color-extra02);
+        }
+        &.second {
+            background-color: rgba(248, 148, 31, .1);
+            color: var(--color-extra05);
+        }
+    }
+    .countdown-unit {
+        line-height: 1;
+        font-size: 15px;
+        font-weight: var(--p-medium);
+        color: var(--color-body);
+    }
+}
+
+.coming-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .countdown-section {
+        margin: 0 30px;
+        position: relative;
+        min-width: 80px;
+        &:after {
+            content:":";
+            font-size: 30px;
+            color: var(--color-white);
+            font-weight: var(--s-bold);
+            position: absolute;
+            right: -30px;
+            top: -9px;
+        }
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    .countdown-number {
+        margin-bottom: 0;
+        font-size: 50px;
+        font-weight: var(--p-bold);
+        color: var(--color-white);
+        font-family: var(--font-secondary);
+        line-height: 1;
+    }
+    .countdown-unit {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgba(255,255,255, .6);
+    }
+}
+

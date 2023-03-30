@@ -1,0 +1,40 @@
+/*-------------------------
+    Common
+-------------------------*/
+
+.color-fb {
+    color: var(--color-facebook) !important;
+}
+.color-ig {
+    color: var(--color-instagram) !important;
+}
+.color-twitter {
+    color: var(--color-twitter) !important;
+}
+.color-yt {
+    color: var(--color-youtube) !important;
+}
+.color-linkd {
+    color: var(--color-linkedin) !important;
+}
+.color-primary {
+    color: var(--color-primary);
+}
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+// Background Color
+
+.bg-lighten01 {
+    background-color: var(--color-lighten01);
+}
+.bg-lighten02 {
+    background-color: var(--color-lighten02);
+}
+.bg-lighten03 {
+    background-color: var(--color-lighten03);
+}
+.bg-lighten04 {
+    background-color: var(--color-lighten04);
+}

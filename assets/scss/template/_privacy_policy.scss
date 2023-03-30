@@ -1,0 +1,47 @@
+/*-------------------
+  Privacy Policy Style
+---------------------*/
+.privacy-policy-area {
+    padding: 120px 0 100px;
+    @media #{$md-layout} {
+        padding: 100px 0; 
+    }
+    @media #{$sm-layout} {
+        padding: 80px 0; 
+    }
+}
+.privacy-policy {
+    padding-right: 50px;
+    h4.title {
+        margin-bottom: 25px;
+    }
+    p {
+        margin-bottom: 28px;
+    }
+    .text-block {
+        margin-bottom: 60px;
+        @media #{$sm-layout} {
+            margin-bottom: 50px;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    ul {
+        @extend %liststyle;
+        li {
+            padding-left: 30px;
+            position: relative;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            &:after {
+                content: "\e913";
+                font-family: var(--font-icomoon);
+                color: var(--color-primary);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}

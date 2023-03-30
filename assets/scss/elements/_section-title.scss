@@ -1,0 +1,117 @@
+/*---------------------------
+  Section Title
+----------------------------*/
+.section-title {
+    margin-bottom: 44px;
+    @media #{$sm-layout} {
+        margin-bottom: 40px;
+    }
+    .pre-title {
+        font-weight: 500;
+        display: inline-block;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        letter-spacing: 1px;
+        &.pre-textsecondary {
+            color: var(--color-secondary);
+        }
+    }
+    .title {
+        margin-bottom: 4px;
+        br {
+            @media #{$sm-layout} {
+                display: none;
+            }
+        }
+    }
+    .shape-line {
+        display: block;
+        color: var(--color-primary);
+    }
+    p {
+        margin-bottom: 24px;
+        margin-top: 15px;
+    }
+    &.section-left {
+        text-align: left;
+    }
+    &.section-center {
+        text-align: center;
+    }
+}
+
+
+.section-title-flex {
+    display: flex;
+    @media #{$sm-layout} {
+        display: block;
+        text-align: center;  
+    }
+    .left-content {
+        flex: 1;
+        text-align: right;
+        margin-right: 90px;
+        margin-bottom: 20px;
+        position: relative;
+        @media #{$sm-layout} {
+            text-align: center;  
+            margin-right: 0;
+        }
+        &:after {
+            content: "";
+            height: 83px;
+            width: 1px;
+            background-color: #e5e1dc;
+            position: absolute;
+            top: 5px;
+            right: -45px;
+            @media #{$sm-layout} {
+                display: none;
+            }
+        }
+    }
+    .right-content {
+        flex: 1;
+        p {
+            margin: 0;
+            color: var(--color-heading);
+        }
+    }
+}
+
+.splash-title {
+    .number {
+        font-size: 60px;
+        font-weight: 700;
+        font-family: var(--font-secondary);
+        line-height: 1;
+        margin-bottom: 5px;
+        background: #31B978;
+        background: linear-gradient(to left, #31B978 0%, #1AB69D 76%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @media #{$md-layout} {
+            font-size: 50px;  
+        }
+        @media #{$sm-layout} {
+            font-size: 40px;  
+        }
+    }
+    .pre-title {
+        font-size: 16px;
+        font-weight: 700;
+        background: #31B978;
+        background: linear-gradient(to left, #31B978 0%, #1AB69D 76%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .title {
+        font-size: 40px;
+        @media #{$md-layout} {
+            font-size: 36px;
+        }
+        @media #{$sm-layout} {
+            font-size: 30px;
+        }
+    }
+}

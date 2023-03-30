@@ -1,0 +1,81 @@
+// Testimonial Style
+.testimonial-area-8 {
+    background-image: url(../images/bg/h8-testimonial-bg.svg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: relative;
+    .testimonial-activation {
+        padding: 0 30px;
+        margin: -30px -30px 0;
+        margin-bottom: 50px;
+
+        .swiper-slide {
+            opacity: 0;
+            visibility: hidden;
+            &.swiper-slide-active,
+            &.swiper-slide-next,
+            &.swiper-slide-next + .swiper-slide {
+                opacity: 1;
+                visibility: visible;
+            }
+            &.swiper-slide-next + .swiper-slide {
+
+                @media #{$md-layout-1} {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+            &.swiper-slide-next {
+                @media #{$sm-layout} {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    .testimonial-slide {
+        margin-top: 93px;
+        .author-info {
+            display: block;
+
+            .thumb {
+                margin-right: 0;
+                margin-top: -100px;
+                margin-bottom: 35px;
+            }
+        }
+        .content {
+            text-align: center;
+            margin-bottom: 45px;
+
+            p {
+                margin-bottom: 30px;
+            }
+            .info {
+                .title {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .shape-group {
+        li {
+            &.shape-3 {
+                bottom: 109px;
+                left: 50%;
+                z-index: 1;
+                transform: translateX(-50%);
+            }
+        }
+    }
+    .swiper-horizontal>.swiper-pagination-bullets, 
+    .swiper-pagination-bullets.swiper-pagination-horizontal, 
+    .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: -30px;
+    }
+}

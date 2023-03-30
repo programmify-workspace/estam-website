@@ -1,0 +1,108 @@
+.hero-style-13 {
+    min-height: 950px;
+    background: var(--gradient-primary);
+    position: relative;
+    top: -110px;
+    overflow: hidden;
+    @media #{$smlg-device} {
+        min-height: 700px;
+    }
+    @media #{$md-layout-1} {
+        min-height: 100%;
+    }
+
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: 2;
+    //     background: url(../images/);
+    //     background-repeat: no-repeat;
+    //     background-position: center bottom;
+    // }
+    .banner-content {
+        .title {
+            color: var(--color-white);
+        }
+        p {
+            color: var(--color-white);
+        }
+        .banner-btn {
+            a {
+                &.edu-btn {
+                    background-color:  var(--color-white);
+                    color: #181818;
+                    &::after {
+                        display: none;
+                    }
+
+                    &:hover {
+                        background-color: var(--color-secondary);
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    .banner-thumbnail {
+        margin-right: -20px;
+        margin-bottom: -95px;
+        .shape-group {
+            li {
+                &.shape-5 {
+                    bottom: 117px;
+                    right: -55px;
+                    span {
+                         width: 650px;
+                        height: 650px;
+                        border-radius: 50%;
+                        background-color: rgba(255, 255, 255, 0.051);
+                        display: block;
+                    }
+                }
+                &.shape-6 {
+                    bottom: 201px;
+                    right: 20px;
+                    span {
+                        width: 500px;
+                        height: 500px;
+                        border-radius: 50%;
+                        background-color: rgba(255, 255, 255, 0.051);
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .shape-group {
+        li {
+            &.shape-8 {
+                right: -6px;
+                top: 13%;
+                z-index: 0;
+            }
+            &.shape-9 {
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            &.shape-10 {
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            &.shape-11 {
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+        }
+    }
+}

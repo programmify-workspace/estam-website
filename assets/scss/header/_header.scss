@@ -1,0 +1,681 @@
+/*--------------------------
+    Header Styles  
+--------------------------*/
+.edu-header {
+    z-index: 99;
+    .header-mainmenu {
+        background-color: var(--color-white);
+        box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .05);
+        position: relative;
+        @media #{$smlg-device} {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        @media #{$sm-layout} {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        // z-index: 99; required, conflict issue with z-10 class 
+        &.edu-sticky {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 99;
+            background-color: var(--color-white);
+            animation: headerSticky .95s ease forwards;
+        }
+    }
+    .header-navbar {
+        display: flex;
+        align-items: center;
+        @media #{$smlg-device} {
+           justify-content: space-between;
+        }
+        .header-mainnav {
+            flex: 1;
+            @media #{$smlg-device} {
+                display: none; 
+            }
+        }
+    }
+    .header-brand {
+        display: flex;
+        align-items: center;
+        img {
+            &.logo-dark {
+                display: none;
+            }
+
+            &.logo-light {
+                display: inline-block;
+            }
+        }
+        .logo {
+            margin-right: 40px;
+            @media #{$large-mobile} {
+                margin-right: 15px;
+            }
+            a {
+                display: block;
+            }
+        }
+    }
+    .header-category {
+        border-left: 1.5px solid #f2f2f2;
+        border-right: 1.5px solid #f2f2f2;
+        margin-right: 10px;
+        @media only screen and (max-width: 1350px) {
+            display: none;
+        }
+        .mainmenu {
+            li {
+                &.has-droupdown {
+                    >a {
+                        padding: 0 40px;
+                        i {
+                            padding-right: 10px;
+                            font-size: 18px;
+                            position: relative;
+                            top: 2px;
+                        }
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.header-fullwidth {
+        .header-mainmenu,
+        .header-top-bar {
+            padding-left: 62px;
+            padding-right: 62px;
+            @media only screen and (max-width: 1699px) {
+                padding-left: 22px;
+                padding-right: 22px;     
+            }
+            @media #{$sm-layout} {
+                padding-left: 0;
+                padding-right: 0; 
+            }
+        }
+    }
+}
+
+/*------------------------
+    Header Style One  
+--------------------------*/
+.header-style-1 {
+    position: relative;
+
+    .header-top {
+        .header-top-left {
+            .header-notify {
+                @media #{$lg-layout} {
+                    font-size: 13px;
+                }
+                @media #{$md-layout} {
+                    text-align: center;
+                    padding: 15px 0 5px;
+                }
+                @media #{$sm-layout} {
+                    text-align: center;
+                    padding: 15px 0 5px;
+                }
+            }
+        }
+        .header-info {
+            @media #{$lg-layout} {
+                margin: 0 -20px;
+            }
+            @media #{$sm-layout} {
+               margin: 0 -10px; 
+            }
+            li {
+                @media #{$lg-layout} {
+                    padding: 14px 15px 12px;
+                    font-size: 13px;
+                }
+                @media #{$sm-layout} {
+                   padding: 10px; 
+                }
+                &:after {
+                    @media #{$md-layout} {
+                        height: 50%;
+                    }
+                    @media #{$sm-layout} {
+                        display: none;
+                    }
+                }
+                @media only screen and (max-width: 1350px) {
+                    &:nth-last-child(2) {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+                &.social-icon {
+                    @media only screen and (max-width: 1350px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .header-mainnav {
+        .mainmenu-nav {
+            .mainmenu {
+                @media only screen and (max-width: 1350px) {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .header-action {
+        li {
+            &.search-icon {
+                display: none;
+                @media only screen and (max-width: 1699px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/*------------------------
+    Header Style Two  
+--------------------------*/
+.header-style-2 {
+    .header-mainmenu {
+        .header-right {
+            position: relative;
+            padding-left: 50px;
+            margin-left: 22px;
+            @media #{$small-mobile} {
+                padding-left: 20px;
+                margin-left: 0px;
+            }
+            &:after {
+                content: "";
+                height: 40px;
+                width: 2px;
+                background-color: #f2f2f2;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+        }
+        .mainmenu {
+            justify-content: flex-end;
+        }
+    }
+    .header-action {
+        margin: 0 -16px;
+        li {
+            margin: 0 16px;
+            &.icon {
+                a {
+                    .count {
+                        background-color: var(--color-secondary);
+                    }
+                }
+                &.cart-icon {
+                    margin-right: 26px;
+                }
+            }
+        }
+    }
+    .header-top-bar {
+        background-color: var(--color-lighten04);
+    }
+    .header-top {
+        .header-info {
+            li {
+                color: var(--color-heading);
+                font-weight: 500;
+                &:after {
+                    background-color: #e0ddd7;
+                    height: 30px;
+                    display: none;
+                }
+                &:first-child {
+                    &:after {
+                        display: block;
+                    }
+                }
+                a {
+                    color: var(--color-heading);
+                    
+                }
+                i {
+                    color: var(--color-secondary);
+                }
+               
+            }
+        }
+    }
+}
+
+/*------------------------
+    Header Style Three  
+--------------------------*/
+.header-style-3 {
+    .header-mainmenu {
+        .header-right {
+            position: relative;
+            padding-left: 50px;
+            margin-left: 22px;
+            @media #{$small-mobile} {
+                padding-left: 20px;
+                margin-left: 0px;
+            }
+            &:after {
+                content: "";
+                height: 40px;
+                width: 2px;
+                background-color: #f2f2f2;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+        }
+        .mainmenu {
+            justify-content: flex-end;
+        }
+    }
+    .header-action {
+        margin: 0 -16px;
+        li {
+            margin: 0 16px;
+            &.icon {
+                &.cart-icon {
+                    margin-right: 26px;
+                }
+            }
+        }
+    }
+    .header-top-bar {
+        background-color: #232323;
+    }
+    .header-top {
+        .header-info {
+            li {
+                color: rgba(255,255,255, .7);
+                font-weight: 500;
+                &:after {
+                    background-color: rgba(255,255,255, .2);
+                    height: 30px;
+                    display: none;
+                }
+                &:first-child {
+                    &:after {
+                        display: block;
+                    }
+                }
+                a {
+                    color: rgba(255,255,255, .7);
+                    &:hover {
+                        color: var(--color-white);
+                    }
+                }
+                i {
+                    color: var(--color-primary);
+                }
+               
+            }
+        }
+    }
+}
+
+/*------------------------
+    Header Style Four  
+--------------------------*/
+.header-style-4 {
+    position: relative;
+    &:before {
+        content: url(../images/others/shape-19.png);
+        position: absolute;
+        top: 0;
+        left: 0;
+        @media only screen and (max-width: 1399px) {
+            display: none;
+        }
+    } 
+    &:after {
+        content: url(../images/others/shape-20.png);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        @media only screen and (max-width: 1399px) {
+            display: none;
+        }
+    }
+    .header-mainmenu {
+        box-shadow: none;
+        background: transparent;
+        transition: var(--transition);
+        &.edu-sticky {
+            box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .05);
+        }
+    }
+    &.header-fullwidth {
+        .header-mainmenu {
+            padding-left: 90px;
+            padding-right: 90px;
+            @media only screen and (max-width: 1350px) {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            @media only screen and (max-width: 767px) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    .header-navbar {
+        .header-mainnav {
+            margin-left: 25px;
+            @media only screen and (max-width: 1350px) {
+                margin-left: 0;
+            }
+            .mainmenu {
+                @media only screen and (max-width: 1350px) {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .header-action {
+        li {
+            &.search-icon {
+                display: none;
+                @media only screen and (max-width: 1699px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+/*------------------------
+    Header Style Seven  
+--------------------------*/
+.header-style-7 {
+    .header-mainmenu {
+        background-color: transparent;
+        box-shadow: none;
+        z-index: 3;
+        padding-left: 120px;
+        padding-right: 120px;
+        @media #{$smlg-device} {
+            line-height: 90px;
+        }
+        @media only screen and (max-width: 1350px) {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        @media only screen and (max-width: 767px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &.edu-sticky {
+            box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .05);
+        }
+    }
+    // &.header-fullwidth-1,
+    
+    input[type="text"], input[type="password"], 
+    input[type="email"], input[type="number"], 
+    input[type="tel"], textarea {
+        background-color: transparent;
+    }
+    .header-action {
+        li {
+            &.search-icon {
+                display: none;
+                @media (max-width:1699px) {
+                    display: block;
+                }
+            }
+        }
+    }
+    .mainmenu-nav {
+        .mainmenu {
+            li {
+                ul {
+                  &.mega-menu{
+                    @media (min-width:1350px) and (max-width:1599px) {
+                        left: -430px;
+                    }
+                    @media (max-width:1350px) {
+                        left: -345px;
+                    }
+                  }  
+                }
+            }
+        }
+    }
+
+    &.header-business {
+        .header-mainmenu {
+            &.edu-sticky {
+                box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .05);
+                .header-brand {
+                    img {
+                        &.logo-dark {
+                            display: block;
+                        }
+                        &.logo-light {
+                            display: none;
+                        }
+                    }
+                }
+                .header-action {
+                    li{
+                        &.icon {
+                            a {
+                                color: var(--color-heading);
+                                .count {
+                                    background-color: var(--color-primary);
+                                    color: var(--color-white);
+                                }
+                            }
+                        }
+                    }
+                    .search-bar {
+                        .input-group {
+                            border: 1px solid #e5e5e5;
+                        }
+                    }
+                    .mobile-menu-bar {
+                        .hamberger-button {
+                            color: var(--color-heading);
+                        }
+                    }
+                }
+                .mainmenu-nav {
+                    .mainmenu {
+                        >li {
+                            >a {
+                                color: var(--color-heading);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .mainmenu-nav {
+            .mainmenu {
+                > li {
+                    > a {
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+        .header-action {
+            li {
+                &.icon {
+                    a {
+                        color: var(--color-white);
+
+                        .count {
+                            background-color: var(--color-white);
+                            color: var(--color-heading);
+                        }
+                    }
+                }
+                &.search-icon {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+//remote-training 
+.remote-training {
+    .header-mainmenu {
+        padding-left: 90px;
+        padding-right: 90px;
+
+        @media (max-width:1250px) {
+          padding-left: 40px;
+          padding-right: 40px;  
+        }
+        @media #{$sm-layout} {
+            padding-left: 15px;
+            padding-right: 15px;
+        } 
+
+        &.edu-sticky {
+            .header-action {
+                .search-bar {
+                    .input-group {
+                        border: 1px solid #e5e5e5;
+                    }
+                }
+            }
+        } 
+    }
+    .header-right {
+        .header-action {
+            .search-bar {
+                .input-group {
+                    background: var(--color-white);
+                    border: none;
+                }
+            }
+        }
+    }
+}
+/*------------------------
+    Photography  
+--------------------------*/
+.header-photography {
+    position: relative;
+    .header-mainmenu {
+        background-color: transparent;
+        padding-left: 90px;
+        padding-right: 90px;
+        box-shadow: none;
+
+        @media (max-width:1250px) {
+          padding-left: 40px;
+          padding-right: 40px;  
+        }
+        @media #{$sm-layout} {
+            padding-left: 15px;
+            padding-right: 15px;
+        } 
+
+        .mainmenu-nav {
+            .mainmenu {
+                >li {
+                    >a {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        &.edu-sticky {
+            box-shadow: 0 6px 15px 0 rgba(0, 0, 0, .05);
+            .header-brand {
+                img {
+                    &.logo-dark {
+                        display: block;
+                    }
+                    &.logo-light {
+                        display: none;
+                    }
+                }
+            }
+            .header-action {
+                li{
+                    &.icon {
+                        a {
+                            color: var(--color-heading);
+                            .count {
+                                background-color: var(--color-primary);
+                            }
+                        }
+                    }
+                }
+                .search-bar {
+                    .input-group {
+                        border: 1px solid #e5e5e5;
+                    }
+                }
+                .mobile-menu-bar {
+                    .hamberger-button {
+                        color: var(--color-heading);
+                    }
+                }
+            }
+            .mainmenu-nav {
+                .mainmenu {
+                    >li {
+                        >a {
+                            color: var(--color-heading);
+                        }
+                    }
+                }
+            }
+        } 
+        .header-right {
+            &::after {
+                background-color: rgba(255, 255, 255, 0.302);
+            }
+        }
+    }
+    .header-right {
+        .header-action {
+            li{
+                &.icon {
+                    a {
+                        color: #ffffff;
+                        .count {
+                            background-color: var(--color-primary);
+                        }
+                    }
+                }
+            }
+            .mobile-menu-bar {
+                .hamberger-button {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &::after {
+            @media #{$smlg-device} {
+               display: none; 
+            }
+        }
+    }
+}

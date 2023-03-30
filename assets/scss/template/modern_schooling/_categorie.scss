@@ -1,0 +1,217 @@
+// Categorie Style
+.categorie-area-4 {
+    .categorie-grid {
+        display: flex;
+        align-items: flex-start;
+        background: transparent;
+        padding: 0;
+        text-align: left;
+
+        .icon {
+            font-size: 40px;
+            margin: 0 20px 0 0;
+            .computer-science {
+                font-size: 33px;
+            }
+            .health-fitness {
+                font-size: 46px;
+            }
+            .personal-development {
+                font-size: 44px;
+            }
+            .art-design {
+                font-size: 45px;
+            }
+            .video-photography {
+                font-size: 37px;
+            }
+            .data-science {
+                font-size: 41px;
+            }
+        }
+        &.color-primary-style,
+        &.color-secondary-style,
+        &.color-extra01-style,
+        &.color-extra02-style,
+        &.color-extra03-style,
+        &.color-extra04-style,
+        &.color-extra05-style,
+        &.color-extra06-style,
+        &.color-extra07-style,
+        &.color-tertiary-style{
+            background-color: transparent;
+        }
+        &.categorie-style-4 {
+            .content {
+                margin-top: 13px;
+                .title {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+                span {
+                    display: block;
+                }
+            }
+            &.color-primary-style { 
+                .content {
+                 .title {
+                     &:hover {
+                         color: var(--color-primary);
+                     }
+                 }
+                } 
+             }
+             &.color-secondary-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-secondary);
+                         }
+                     }
+                 } 
+             }
+             &.color-extra01-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra01);
+                         }
+                     }
+                 } 
+             } 
+             &.color-extra02-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra02);
+                         }
+                     }
+                 } 
+             } 
+             &.color-extra03-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra03);
+                         }
+                     }
+                 } 
+             } 
+             &.color-extra04-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra04);
+                         }
+                     }
+                 } 
+             } 
+             &.color-extra05-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra05);
+                         }
+                     }
+                 } 
+             }
+             &.color-extra06-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra06);
+                         }
+                     }
+                 } 
+             }
+             &.color-extra07-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-extra07);
+                         }
+                     }
+                 } 
+             }
+             &.color-tertiary-style {
+                 .content {
+                     .title {
+                         &:hover {
+                             color: var(--color-tertiary);
+                         }
+                     }
+                 } 
+             }
+            &:hover {
+                &.color-primary-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-primary);
+                    }
+                }
+                &.color-secondary-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-secondary);
+                    }
+                }
+                &.color-extra01-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra01);
+                    }
+                } 
+                &.color-extra02-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra02);
+                    }
+                } 
+                &.color-extra03-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra03);
+                    }
+                } 
+                &.color-extra04-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra04);
+                    }
+                } 
+                &.color-extra05-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra05);
+                    }
+                }
+                &.color-extra06-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-extra06);
+                    }
+                }
+                &.color-extra07-style {
+                    .icon {
+                        background-color: var(--color-extra07);
+                    }
+                }
+                &.color-tertiary-style {
+                    background-color: transparent;
+                    .icon {
+                        background-color: var(--color-tertiary);
+                    }
+                }
+            }
+        }
+        &:hover {
+            background-color: transparent;
+
+            .content {
+                .title {
+                    color: var(--color-heading);
+                }
+            }
+        }
+    }
+}

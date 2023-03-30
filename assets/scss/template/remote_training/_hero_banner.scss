@@ -1,0 +1,86 @@
+.hero-style-11 {
+    padding: 240px 0 160px;
+    @media #{$smlg-device} {
+        padding: 200px 0 130px;
+    }
+    @media #{$large-mobile} {
+        padding: 150px 0 80px;
+    }
+    &.remote-training {
+        min-height: 840px;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        z-index: 1;
+        margin-top: -110px;
+        @media #{$smlg-device} {
+            min-height: 100%;
+        }
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/bg/bg-image-35.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+    }
+    .banner-content {
+        p {
+            padding-right: 20px;
+            @media #{$md-layout-1} {
+                padding-right: 0;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1 {
+                    top: -57px;
+                    left: -218px;
+                }
+            }
+        }
+    }
+    .banner-thumbnail {
+        margin-right: 0;
+        .thumbnail {
+            img {
+                border-radius: 20px;
+                box-shadow: var(--shadow-darker);
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-2 {
+                    top: inherit;
+                    left: -68px;
+                    bottom: -65px;
+                }
+                &.shape-3 {
+                    left: 75px;
+                    bottom: -50px;
+                    top: inherit;
+                    span {
+                        width: 80px;
+                        height: 80px;
+                        background: var(--color-tertiary);
+                        border-radius: 100%;
+                    }
+                }
+                &.shape-4 {
+                    top: -103px;
+                    right: -54px;
+                }
+                &.shape-5 {
+                    top: -64px;
+                    right: -116px;
+                    bottom: inherit;
+                }
+            }
+        }
+    }
+}

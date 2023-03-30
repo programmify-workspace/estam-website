@@ -1,0 +1,55 @@
+/*-------------------------
+    Accordion Style
+---------------------------*/
+.edu-accordion {
+    .accordion-item {
+        margin-bottom: 30px;
+        border: 1px solid var(--color-border);
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .accordion-button {
+            font-size: 18px;
+            color: var(--color-heading);
+            font-weight: var(--p-semi-bold);
+            background-color: transparent;
+            border: none;
+            padding: 28px 30px;
+            box-shadow: none;
+            &:focus {
+                border: none;
+                box-shadow: none;
+            }
+            &:after {
+                background-image: none;
+                content: "\e95d";
+                font-family: var(--font-icomoon);
+                font-size: 22px;
+                font-weight: 500;
+                height: auto;
+                width: auto;
+
+            }
+            &.collapsed {
+                &:after {
+                    content: "\e95c";
+                }
+            }
+        }
+    }
+    .accordion-body {
+        padding: 0;
+        .course-lesson {
+            border: none;
+            padding: 0;
+            ul {
+                li {
+                    padding: 14px 30px;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}

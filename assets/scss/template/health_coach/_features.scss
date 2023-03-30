@@ -1,0 +1,81 @@
+.features-area-5 {
+    @media #{$md-layout-1} {
+        padding-top: 100px;
+    }
+    .features-box {
+        box-shadow: none;
+        padding: 0;
+        transition: var(--transition-2);
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto -50px;
+            border: 7px solid var(--color-white);
+            box-shadow: var( --shadow-darker4);
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition-2);
+        }
+        .content {
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-darker);
+            padding: 100px 40px 50px 40px;
+            border-radius: 5px;
+            @media #{$md-layout-1} {
+               margin-bottom: 20px; 
+            }
+            .title {
+                font-weight: var(--p-bold);
+            }
+        }
+        &.color-primary-style {
+            .icon {
+                img {
+                    filter: brightness(0) saturate(100%) invert(53%) sepia(56%) saturate(571%) hue-rotate(121deg) brightness(99%) contrast(92%);
+                }
+            }
+            &:hover {
+                .icon {
+                    img {
+                        filter: brightness(0) saturate(100%) invert(99%) sepia(18%) saturate(498%) hue-rotate(41deg) brightness(119%) contrast(100%);
+                    }
+                }
+            }
+        }
+        &.color-secondary-style {
+            .icon {
+                background-color: rgba(238,74,98, .1);
+                box-shadow: 0px 20px 70px 0px rgba(176, 57, 75, 0.2);
+                img {
+                    filter: brightness(0) saturate(100%) invert(47%) sepia(93%) saturate(3371%) hue-rotate(324deg) brightness(96%) contrast(93%);
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(238,74,98);
+                    img {
+                        filter: brightness(0) saturate(100%) invert(99%) sepia(18%) saturate(498%) hue-rotate(41deg) brightness(119%) contrast(100%);
+                    }
+                }
+            }
+        }
+        &.color-extra06-style {
+            .icon {
+                background-color: rgb(231, 247, 254);
+                box-shadow: 0px 20px 70px 0px rgba(27, 89, 116, 0.2);
+                img {
+                    filter: brightness(0) saturate(100%) invert(67%) sepia(25%) saturate(4311%) hue-rotate(170deg) brightness(104%) contrast(96%);
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: var(--color-extra06);
+                    img {
+                        filter: brightness(0) saturate(100%) invert(99%) sepia(18%) saturate(498%) hue-rotate(41deg) brightness(119%) contrast(100%);
+                    }
+                }
+            }
+        }
+    }
+}

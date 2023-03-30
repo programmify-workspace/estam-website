@@ -1,0 +1,479 @@
+/*-------------------
+  Categorie Styles
+---------------------*/
+.categorie-area-3 {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/bg/bg-image-4.webp);
+        background-size: cover;
+        z-index: -1;
+    }
+}
+
+.categorie-grid {
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 5px;
+    transition: var(--transition);
+    .icon {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        margin: 0 auto 28px;
+        transition: var(--transition);
+    }
+    .content {
+        .title {
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        p {
+            color: var(--color-heading);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        .course-remain {
+            font-weight: 500;
+            display: inline-block;
+            padding: 2px 18px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+    }
+    &:hover {
+        .content {
+            .title {
+                color: var(--color-white);
+            }
+            p {
+                color: var(--color-white);
+            }
+        }
+        .icon {
+            svg {
+                path {
+                    stroke: var(--color-white);
+                }
+            }
+        }
+    }
+    &.color-primary-style {
+        background-color: rgba(26,182,157, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(26,182,157, .1);
+            color: var(--color-primary);
+        }
+        &:hover {
+            background-color: rgba(26,182,157, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.color-secondary-style {
+        background-color: rgba(238,74,98, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(238,74,98, .1);
+            color: var(--color-secondary);
+        }
+        &:hover {
+            background-color: rgba(238,74,98, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.color-tertiary-style {
+        background-color: rgba(248,184,31, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(248,184,31, .1);
+            color: var(--color-tertiary);
+        }
+        &:hover {
+            background-color: rgba(248,184,31, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    } 
+    &.color-extra01-style {
+        background-color: rgba(14,205,115, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(14,205,115, .1);
+            color: var(--color-extra01);
+        }
+        &:hover {
+            background-color: rgba(14,205,115, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    } 
+    &.color-extra02-style {
+        background-color: rgba(142,86,255, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(142,86,255, .1);
+            color: var(--color-extra02);
+        }
+        svg {
+            path {
+                fill: var(--color-extra02) !important;
+            }
+        }
+        &:hover {
+            background-color: rgba(142,86,255, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+            svg {
+                path {
+                    fill: var(--color-white) !important;
+                }
+            }
+        }
+    } 
+    &.color-extra03-style {
+        background-color: rgba(249,37,150, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(249,37,150, .1);
+            color: var(--color-extra03);
+        }
+        &:hover {
+            background-color: rgba(249,37,150, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    } 
+    &.color-extra04-style {
+        background-color: rgba(88,102,235, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(88,102,235, .1);
+            color: var(--color-extra04);
+        }
+        &:hover {
+            background-color: rgba(88,102,235, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.color-extra05-style {
+        background-color: rgba(248,148,31, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(248,148,31, .1);
+            color: var(--color-extra05);
+        }
+        &:hover {
+            background-color: rgba(248,148,31, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.color-extra06-style {
+        background-color: rgba(57,192,250, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(57,192,250, .1);
+            color: var(--color-extra06);
+        }
+        svg {
+            path {
+                fill: var(--color-extra06) !important;
+            }
+        }
+        &:hover {
+            background-color: rgba(57,192,250, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+            svg {
+                path {
+                    fill: var(--color-white) !important;
+                }
+            }
+        }
+    }
+    &.color-extra07-style {
+        background-color: rgba(218,4,248, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(218,4,248, .1);
+            color: var(--color-extra07);
+        }
+        &:hover {
+            background-color: rgba(218,4,248, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.color-extra08-style {
+        background-color: rgba(70,100,228, .07);
+        .icon,
+        .course-remain {
+            background-color: rgba(70,100,228, .1);
+            color: var(--color-extra08);
+        }
+        &:hover {
+            background-color: rgba(70,100,228, 1);
+            .icon,
+            .course-remain {
+                background-color: rgba(255,255,255, .15);
+                color: var(--color-white);
+            }
+        }
+    }
+    &.categorie-style-2 {
+        padding: 16px 30px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        min-height: 80px;
+        .icon {
+            background-color: transparent;
+            margin-bottom: 0;
+            justify-content: flex-start;
+            height: auto;
+            width: auto;
+            min-width: 84px;
+            .art-design {
+                font-size: 45px;
+            }
+            .personal-development {
+                font-size: 44px;
+            }
+            .health-fitness {
+                font-size: 46px;
+            }
+            .data-science {
+                font-size: 41px;
+            }
+            .computer-science {
+                font-size: 33px;
+            }
+            .video-photography {
+                font-size: 37px;
+            }
+        }
+        .content {
+            flex: 1;
+            .title {
+                margin-bottom: 0;
+                font-size: 15px;
+                font-weight: var(--p-semi-bold);
+            }
+        }
+        &:hover {
+            .icon {
+                background-color: transparent;
+            }
+        }
+    }
+    &.categorie-style-3 {
+        background-color: var(--color-white);
+        padding: 40px 20px 35px;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+        
+
+        .icon {
+            font-size: 40px;
+            &.laptop-icon {
+                font-size: 34px;
+            }
+            &.design-pencil-icon {
+                font-size: 34px;
+            }
+        }
+        .content {
+            .title {
+                font-size: 18px;
+                color: var(--color-heading);
+            }
+        }
+        &.color-primary-style { 
+           .content {
+            .title {
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+           } 
+        }
+        &.color-secondary-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+            } 
+        }
+        &.color-extra01-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra01);
+                    }
+                }
+            } 
+        } 
+        &.color-extra02-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra02);
+                    }
+                }
+            } 
+        } 
+        &.color-extra03-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra03);
+                    }
+                }
+            } 
+        } 
+        &.color-extra04-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra04);
+                    }
+                }
+            } 
+        } 
+        &.color-extra05-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra05);
+                    }
+                }
+            } 
+        }
+        &.color-extra06-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra06);
+                    }
+                }
+            } 
+        }
+        &.color-extra07-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-extra07);
+                    }
+                }
+            } 
+        }
+        &.color-tertiary-style {
+            .content {
+                .title {
+                    &:hover {
+                        color: var(--color-tertiary);
+                    }
+                }
+            } 
+        }
+        &:hover {
+            background-color: var(--color-white);
+            box-shadow: 0px 10px 45px 0px rgba(0,0,0,0.1);
+            &.color-primary-style {
+                .icon {
+                    background-color: var(--color-primary);
+                }
+            }
+            &.color-secondary-style {
+                .icon {
+                    background-color: var(--color-secondary);
+                }
+            }
+            &.color-extra01-style {
+                .icon {
+                    background-color: var(--color-extra01);
+                }
+            } 
+            &.color-extra02-style {
+                .icon {
+                    background-color: var(--color-extra02);
+                }
+            } 
+            &.color-extra03-style {
+                .icon {
+                    background-color: var(--color-extra03);
+                }
+            } 
+            &.color-extra04-style {
+                .icon {
+                    background-color: var(--color-extra04);
+                }
+            } 
+            &.color-extra05-style {
+                .icon {
+                    background-color: var(--color-extra05);
+                }
+            }
+            &.color-extra06-style {
+                .icon {
+                    background-color: var(--color-extra06);
+                }
+            }
+            &.color-extra07-style {
+                .icon {
+                    background-color: var(--color-extra07);
+                }
+            }
+            &.color-tertiary-style {
+                .icon {
+                    background-color: var(--color-tertiary);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+.features-area-6 {
+    padding-bottom: 50px;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -297px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: url(../images/bg/wave-banner.svg);
+        background-repeat: no-repeat;
+        background-position: center top;
+        @media #{$large-mobile} {
+            display: none;
+        }
+    }
+    .section-title {
+        margin-bottom: -40px;
+    }
+    .features-box {
+        background-color: transparent;
+        box-shadow: none;
+        .title {
+            font-weight: var(--p-bold);
+        }
+        p {
+            color: var(--color-body);
+        }
+        .icon {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            &.icon-course {
+                background: url(../images/bg/features-bg-1.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                svg {
+                    filter: brightness(0) saturate(100%) invert(37%) sepia(79%) saturate(3130%) hue-rotate(240deg) brightness(101%) contrast(102%);
+                }
+            }
+            &.icon-tag {
+                background: url(../images/bg/features-bg-2.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+
+                @media #{$large-mobile} {
+                    margin-top: 20px; 
+                }
+                svg {
+                    filter: brightness(0) saturate(100%) invert(47%) sepia(23%) saturate(4728%) hue-rotate(321deg) brightness(92%) contrast(102%);
+                }
+            }
+            &.icon-certificate {
+                background: url(../images/bg/features-bg-3.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                svg {
+                    filter: brightness(0) saturate(100%) invert(68%) sepia(74%) saturate(5492%) hue-rotate(138deg) brightness(105%) contrast(80%);
+                }
+            }
+            &.icon-member {
+                background: url(../images/bg/features-bg-4.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                svg {
+                    filter: brightness(0) saturate(100%) invert(83%) sepia(54%) saturate(3372%) hue-rotate(345deg) brightness(109%) contrast(94%);
+                }
+            }
+        }
+        &.feature-wrapper {
+           @media #{$md-layout-1} {
+                margin-top: 50px;
+           }
+        }
+    }
+    .shape-group {
+        li {
+            &.shape-1 {
+                right: 160px;
+                top: -88px;
+                z-index: 13;
+            }
+            &.shape-2 {
+                right: 0px;
+                top: -297px;
+                z-index: 12;
+            }
+        }
+    }
+}

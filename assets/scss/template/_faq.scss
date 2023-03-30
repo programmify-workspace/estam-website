@@ -1,0 +1,423 @@
+/*-------------------
+  FAQ Styles
+---------------------*/
+.faq-accordion {
+    .accordion-item {
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0px 10px 50px 0px rgba(26,46,85,0.1);
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .accordion-header {
+            padding: 0;
+            position: relative;
+        }
+        .accordion-button {
+            background-color: var(--color-primary);
+            padding: 20px 45px 20px 30px;
+            border-radius: 10px 10px 0 0;
+            border: none;
+            box-shadow: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-white);
+            transition: .3s;
+			z-index: 2;
+            @media #{$large-mobile} {
+            	font-size: 16px;
+            }
+            &:after {
+                display: none;
+            }
+            &:before {
+                content: "\e91e";
+                font-family: "icomoon";
+                font-size: 6px;
+                color: var(--color-white);
+                background-image: none;
+                position: absolute;
+                top: 22px;
+                right: 30px;
+                line-height: 1;
+                transform: rotate(180deg);
+                transition: .3s;
+            }
+            &.collapsed {
+            	background-color: transparent;
+            	color: var(--color-heading);
+                &:before {
+                    top: 26px;
+                    transform: rotate(0deg);
+                    color: var(--color-body);
+                }
+            }
+       }
+       .accordion-body {
+           padding: 25px 30px 30px;
+           p {
+               margin-bottom: 0;
+           }
+       }
+    }
+}
+
+.edu-faq-content {
+	position: relative;
+	.shape-group {
+		@extend %liststyle;
+		margin: 0;
+		li {
+			position: absolute;
+			z-index: -1;
+			&.shape-1 {
+				bottom: -115px;
+				right: -145px;
+			}
+			&.shape-2 {
+				bottom: -95px;
+				right: -165px;
+				span {
+					display: block;
+					height: 101px;
+					width: 101px;
+					border: 15px solid var(--color-secondary);
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+}
+
+.edu-faq-gallery {
+	position: relative;
+	.thumbnail-1 {
+		text-align: right;
+		img {
+			border-radius: 120px 120px 0 120px;
+		}
+	}
+	.thumbnail-2 {
+		margin-top: 70px;
+		img {
+			border-radius: 60px 0 100px;
+		}
+	}
+	.thumbnail-3 {
+		margin-top: -30px;
+		text-align: right;
+		img {
+			border-radius: 60px 0 100px;
+		}
+	}
+	.thumbnail-4 {
+		img {
+			border-radius: 0 50px 120px 120px;
+		}
+	}
+	.shape-group {
+		@extend %liststyle;
+		margin: 0;
+		li {
+			position: absolute;
+			z-index: -1;
+			margin: 0;
+			&.shape-1 {
+				top: -45px;
+				left: 44%;
+			}
+			&.shape-2 {
+				top: 56px;
+				right: -10px;
+			}
+			&.shape-3 {
+				bottom: -15px;
+				left: -7px;
+				z-index: 1;
+				@media only screen and (max-width: 991px) {
+					display: none;
+				}
+			}
+			&.shape-4 {
+				bottom: -45px;
+				left: -45px;
+				@media only screen and (max-width: 991px) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.faq-style-1 {
+	padding: 150px 0 120px;
+	@media #{$md-layout} {
+		padding: 150px 0 100px; 
+	}
+	@media #{$sm-layout} {
+		padding: 100px 0; 
+	}
+}
+
+.faq-style-2 {
+	padding: 120px 0 150px;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url(../images/bg/bg-image-10.webp);
+		background-size: cover;
+	}
+	@media #{$md-layout} {
+		padding: 100px 0;
+	}
+	@media #{$sm-layout} {
+		padding: 80px 0 100px;
+	}
+	.edu-faq-gallery {
+		z-index: 1;
+		@media #{$md-layout} {
+			margin-top: 50px; 
+		}
+		@media #{$sm-layout} {
+			margin-top: 20px; 
+		}
+		.thumbnail-1 {
+			margin-top: 35px;
+			img {
+				border-radius: 0 80px 0 80px;
+			}
+		}
+		.thumbnail-2 {
+			margin-top: 285px;
+			@media #{$md-layout} {
+				margin-top: 0; 
+			}
+			@media #{$sm-layout} {
+				margin-top: 0; 
+			}
+			img {
+				border-radius: 80px 0 80px 0;
+			}
+		}
+		.shape-group {
+			@media only screen and (max-width: 991px) {
+				display: none;
+			}
+			.shape-1 {
+				top: 35px;
+				left: -35px;
+			}
+			.shape-2 {
+				top: 35px;
+				left: 210px;
+				right: auto;
+				z-index: 1;
+			}
+			.shape-3 {
+				top: 230px;
+				left: inherit;
+				bottom: inherit;
+				right: -22px;
+				z-index: -1;
+			}
+			.shape-4 {
+				top: 270px;
+				left: inherit;
+				right: -58px;
+				bottom: inherit;
+			}
+			.shape-5 {
+			    bottom: 110px;
+				left: -50px;
+			}
+			.shape-6 {
+			    bottom: 35px;
+				left: 90px;
+			}
+		}
+	}
+}
+
+.faq-style-3 {
+	.edu-faq-gallery {
+		text-align: right;
+		@media only screen and (max-width: 991px) {
+			text-align: center;
+		}
+		.thumbnail-1 {
+			background-color: var(--color-white);
+			box-shadow: 0px 20px 40px 0px rgba(42,11,88,0.1);
+			padding: 20px;
+			border-radius: 10px;
+			display: inline-block;
+			@media only screen and (max-width: 991px) {
+				display: block;
+			}
+			img {
+				border-radius: 0;
+				width: 100%;
+			}
+		}
+		.shape-group {
+			@media #{$sm-layout} {
+			   	display: none; 
+			}
+			.shape-1 {
+				top: -30px;
+    			right: -50px;
+				left: inherit;
+			}
+			.shape-2 {
+				top: 70px;
+				right: -97px;
+				z-index: 1;
+			}
+			.shape-3 {
+				bottom: -40px;
+				left: -68px;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.faq-style-4 {
+	padding-bottom: 100px;
+	@media #{$sm-layout} {
+		padding-bottom: 50px;
+	}
+	.faq-accordion {
+		.accordion-item {
+			.accordion-button {
+				color: var(--color-white);
+				&:before {
+					color: var(--color-white);
+				}
+				&.style-extra02 {
+					background-color: var(--color-extra02);
+				}
+				&.style-extra05 {
+					background-color: var(--color-extra05);
+				}
+				&.style-primary {
+					background-color: var(--color-primary);
+				}
+				&.collapsed {
+					border-radius: 10px;
+				}
+			}
+		}
+	}
+	
+	.faq-thumbnail {
+		position: relative;
+		.thumbnail {
+		 	mask-image: url(../images/others/mask-09.png);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            -webkit-mask-position: center;
+            text-align: center;
+		}
+		.shape-group {
+			@extend %liststyle;
+			li {
+				margin: 0;
+				position: absolute;
+				z-index: -1;
+				&.shape-1 {
+					top: -78px;
+					right: 115px;
+					z-index: 1;
+					@media only screen and (max-width: 991px) {
+						z-index: -1;
+					}
+				}
+				&.shape-2 {
+					top: 0;
+					right: 30px;
+				}
+				&.shape-3 {
+					bottom: 40px;
+					left: 10px;
+				}
+			}
+		}
+	}
+}
+.faq-page-area {
+	overflow: hidden;
+}
+.faq-page-nav {
+	padding-right: 30px;
+	@media only screen and (max-width: 991px) {
+		text-align: center;
+		margin-bottom: 40px;
+		padding-right: 0;
+	}
+	.title {
+		margin-bottom: 14px;
+	}
+	.nav-tabs {
+		border: none;
+		display: block;
+		.nav-item {
+			margin: 18px 0;
+		}
+		.nav-link {
+			border: none;
+			background-color: transparent;
+			padding: 5px 0;
+			color: var(--color-heading);
+			font-weight: 600;
+			font-family: var(--font-secondary);
+			position: relative;
+			transition: var(--transition);
+			@media only screen and (max-width: 991px) {
+				margin: 0 auto;
+			}
+			&:after {
+				content: "\e95a";
+				font-family: var(--font-icomoon);
+				color: var(--color-primary);
+				font-size: 20px;
+				font-weight: 400;
+				position: absolute;
+				top: 1px;
+				left: -20px;
+				visibility: hidden;
+				opacity: 0;
+				transition: var(--transition);
+
+			}
+			&.active {
+				padding-left: 30px;
+				color: var(--color-primary);
+				&:after {
+					font-size: 20px;
+					left: 0;
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.faq-page-tab-content {
+	position: relative;
+	&:after {
+		content: url(../images/others/map-shape-1.png);
+		position: absolute;
+		bottom: -90px;
+		right: 70px;
+		z-index: -1;
+	}
+}

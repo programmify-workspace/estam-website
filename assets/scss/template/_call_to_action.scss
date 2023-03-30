@@ -1,0 +1,535 @@
+/*-------------------
+  Call To Action Styles
+---------------------*/
+.edu-cta-banner-area {
+    padding: 102px 0;
+    background-color: #f0f4f5;
+    position: relative;
+    z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(../images/cta/cta.svg);
+            filter: brightness(0) saturate(100%) invert(52%) sepia(75%) saturate(451%) hue-rotate(121deg) brightness(96%) contrast(90%);
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    @media #{$md-layout} {
+       padding: 80px 0 70px; 
+    }
+    @media #{$sm-layout} {
+       padding: 80px 0 70px; 
+    }
+
+    .shape-group {
+        @media #{$md-layout} {
+            display: none;
+        }
+        @media #{$sm-layout} {
+            display: none;
+        }
+    }
+}
+.cta-banner-2 {
+    position: relative;
+    background-color: #f7f5f2;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+        display: none
+    }
+    .shape-group {
+        @extend %liststyle;
+        li {
+            margin: 0;
+            position: absolute;
+            z-index: -1;
+             &.shape-1 {
+                top: 30px;
+                left: 100px;
+            } 
+            &.shape-2 {
+                bottom: -20px;
+                left: 17%;
+            }
+            &.shape-3 {
+                bottom: 60px;
+                right: 120px;
+            }
+            &.shape-4 {
+                top: 10px;
+                right: 18%;
+            }
+            &.shape-5 {
+                bottom: -55px;
+                left: 50%;
+                transform: translateX(-50%);
+                img {
+                    opacity: 1;
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+
+.cta-banner-3 {
+    padding: 220px 0 130px;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/bg/bg-image-4.svg);
+        filter: brightness(0) saturate(100%) invert(93%) sepia(4%) saturate(983%) hue-rotate(324deg) brightness(104%) contrast(94%);
+        z-index: -1;
+    }
+    @media #{$sm-layout} {
+        padding: 150px 0 80px; 
+    }
+    .edu-cta-banner {
+        .section-title {
+            .title {
+                margin-bottom: 40px;
+            }
+        }
+        .newsletter-form {
+            width: 82%;
+            margin: 0 auto;
+            @media #{$sm-layout} {
+                width: 100%;
+            }
+        }
+    }
+    .shape-group {
+        @extend %liststyle;
+        @media #{$smlg-device} {
+            display: block;
+        }
+        @media #{$md-layout-1} {
+            display: none;
+        }
+        li {
+            margin: 0;
+            position: absolute;
+            z-index: -1;           
+            &.shape-1 {
+                bottom: -70px;
+                left: -290px;
+                z-index: 0;
+                @media #{$laptop-device, $smlg-device} {
+                    left: -60px;
+                }
+                img {
+                    @media #{$laptop-device, $smlg-device} {
+                        width: 60%;
+                    }
+                }
+            } 
+            &.shape-2 {
+                bottom: -105px;
+                right: -175px;
+                z-index: 0;
+                @media #{$laptop-device} {
+                    right: -100px;
+                    bottom: -25px;
+                }
+                @media #{$smlg-device} {
+                    right: -130px;
+                    bottom: -25px;
+                }
+                img {
+                    @media #{$laptop-device, $smlg-device} {
+                        width: 70%;
+                    }
+                }
+            }
+            &.shape-3 {
+                top: -70px;
+                left: 119px;
+                img {
+                    opacity: .3;
+                    @media #{$laptop-device, $smlg-device} {
+                        width: 70%;
+                    }
+                }
+            }
+            &.shape-4 {
+                bottom: -115px;
+                right: 180px;
+                img {
+                    opacity: .3;
+                    @media #{$laptop-device, $smlg-device} {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+.health-coach-wrapper {
+    background-image: url(../images/bg/bg-image-33.webp);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    &.cta-banner-7 {
+        &::before {
+            display: none;
+        }
+        .input-group {
+            align-items: center;
+            justify-content: center;
+            @media #{$small-mobile} {
+                display: block;
+            }
+
+            input {
+                width: 50%;
+                display: block;
+                flex: none;
+                margin-right: 20px;
+                border-radius: 5px !important;
+                @media #{$small-mobile} {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+            button {
+                &.btn-medium {
+                    height: 60px;
+                    line-height: 61px;
+                    border-radius: 5px !important;
+                    @media #{$small-mobile} {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.edu-cta-banner {
+    position: relative;
+    z-index: 1;
+    .section-title {
+        margin-bottom: 0;
+        .title {
+            margin-bottom: 28px;
+        }
+    }
+    .shape-group {
+        @extend %liststyle;
+        @media #{$sm-layout} {
+            display: none;  
+        }
+        li {
+            position: absolute;
+            z-index: -1;
+            &.shape-1 {
+                bottom: 0;
+                left: -130px;
+            }
+            &.shape-2 {
+                top: -105px;
+                right: -160px;
+            }
+        }
+    }
+}
+.university-cta-wrapper {
+    background-color: #f7f5f2;
+
+    &.edu-cta-banner-area {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(90%) sepia(23%) saturate(5531%) hue-rotate(343deg) brightness(101%) contrast(94%);
+    
+        }
+    }
+}
+.online-academy-cta-wrapper  {
+    &.edu-cta-banner-area {
+        background-image: url(../images/cta/h-4-cta-compressed.webp);
+
+        &::before {
+            background-image: url(../images/cta/h-4-cta.svg);
+            filter: brightness(0) saturate(100%) invert(99%) sepia(3%) saturate(10%) hue-rotate(90deg) brightness(105%) contrast(90%);
+            -webkit-filter: brightness(0) saturate(100%) invert(99%) sepia(3%) saturate(10%) hue-rotate(90deg) brightness(105%) contrast(90%);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.home-one-cta-wrapper,
+.university-cta-wrapper,
+.online-academy-cta-wrapper {
+    overflow: hidden;
+    .edu-cta-banner {
+        .shape-group {
+            li{
+                &.shape-01 {
+                    top: 109px;
+                    left: -68px;
+                }
+                &.shape-02 {
+                    bottom: 29px;
+                    left: 11px;
+                }
+                &.shape-03 {
+                    top: -61px;
+                    right: -168px;
+                    z-index: 0;
+                }
+                &.shape-04 {
+                    top: -126px;
+                    right: -118px;
+                }
+            }
+        }
+    }
+}
+
+.cta-area-2 {
+    position: relative;
+    z-index: 1;
+    margin-top: -70px;
+
+    .edu-cta-box {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(56%) sepia(0%) saturate(0%) hue-rotate(221deg) brightness(90%) contrast(90%);
+        }
+    }
+}
+
+.edu-cta-box {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    padding: 50px 50px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/bg/cta-bg-imgae-07.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    @media #{$sm-layout} {
+        padding: 40px 30px;
+    }
+    &.home-one-cta,
+    &.home-four-cta {
+        .title {
+            a {
+                &:hover {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+        }
+        .shape-group {
+            li{
+                &.shape-01 {
+                    top: -11px;
+                    left: -118px;
+                }
+                &.shape-02 {
+                    top: -31px;
+                    left: -63px;
+                    z-index: -2;
+                }
+                &.shape-03 {
+                    bottom: -50px;
+                    right: -45px;
+                }
+            }
+        }
+    }
+    .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        @media #{$sm-layout} {
+            flex-direction: column;
+            text-align: center;
+        }
+        .content {
+            font-family: var(--font-secondary);
+            .subtitle {
+                font-weight: var(--p-medium);
+                font-size: 18px;
+                color: #fff;
+            }
+            .title {
+                font-size: 26px;
+                margin-bottom: 0;
+                color: #fff;
+                @media #{$sm-layout} {
+                    font-size: 20px;
+                }
+            }
+        }
+        .sparator {
+            margin: 0 30px;
+            @media #{$sm-layout} {
+                margin: 15px 0; 
+            }
+            span {
+                display: block;
+                text-align: center;
+                height: 70px;
+                width: 70px;
+                line-height: 60px;
+                border: 4px solid rgba(26, 182, 157, .2);
+                border-radius: 50%;
+                font-size: 24px;
+                font-weight: var(--p-semi-bold);
+                color: var(--color-primary);
+                background-color: #fff;
+
+            }
+        }
+    }
+    .shape-group {
+        @extend %liststyle;
+        li {
+            position: absolute;
+            z-index: -1;
+            margin: 0;
+            &.shape-1 {
+                top: -31px;
+                left: -118px;
+            }
+            &.shape-2 {
+                bottom: -50px;
+                right: -45px;
+            }
+        }
+    }
+    &.cta-style-3 {
+        background: var(--color-secondary);
+        @media #{$sm-layout} {
+            padding: 40px 30px;
+        }
+        .inner {
+            .content {
+                .subtitle {
+                    color: var(--color-white);
+                }
+                .title {
+                    color: var(--color-white);
+                    font-weight: var(--p-semi-bold);
+                }
+            }
+            .sparator {
+                span {
+                    border: 4px solid rgba(238, 74, 98, .7);
+                    color: var(--color-secondary);
+                }
+            }
+        
+        }
+    }
+    &.cta-style-2 {
+        background: var(--color-tertiary);
+        .inner {
+            .content {
+                .subtitle {
+                    color: var(--color-heading);
+                }
+                .title {
+                    a {
+                        color: var(--color-heading);
+                        &:hover {
+                            color: rgba(24, 24, 24, .75);
+                        }
+                    }
+                }
+            }
+            .sparator {
+                span {
+                    color: #000;
+                    border-color: rgba(20, 20, 23, 0.1);
+                }
+            }
+        }
+    }
+}
+
+
+.newsletter-form {
+    .input-group {
+        @media #{$large-mobile} {
+            display: block;
+            text-align: left;
+        }
+        .form-control {
+            height: 60px;
+            border-radius: 5px !important;
+            background-color: var(--color-white);
+            border: none;
+            color: var(--color-heading);
+            padding: 0 40px;
+            @media #{$sm-layout} {
+                height: 50px;
+            }
+            @media #{$large-mobile} {
+               width: 100%;
+            }
+            /* -- Placeholder -- */
+            &::placeholder {
+                color: var(--color-heading);
+                /* Firefox */
+                opacity: 1;
+            }
+
+            &:-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: var(--color-heading);
+                opacity: 1;
+            }
+
+            &::-ms-input-placeholder {
+                /* Microsoft Edge */
+                color: var(--color-heading);
+                opacity: 1;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        button {
+            border-radius: 30px 5px !important;
+            margin-left: 20px !important;
+            padding: 0 40px;
+            @media #{$large-mobile} {
+                margin: 20px 0 0 !important;
+            }
+            &:hover {
+                border-radius: 5px 30px !important;
+            }
+        }
+    }
+}

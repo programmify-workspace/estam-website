@@ -1,0 +1,19 @@
+{
+  "name": "estam-website",
+  "version": "1.0.0",
+  "description": "ESTAM University official website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ESTAM",
+    "University"
+  ],
+  "author": "Programmify Team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4"
+  }
+}

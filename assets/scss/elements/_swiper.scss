@@ -1,0 +1,67 @@
+/*---------------------------
+ * Swiper Styles
+----------------------------*/
+.swiper-wrapper {
+    .swiper-slide {
+        padding: 0 15px;
+    }
+}
+
+// Nav Dot Style
+
+
+
+
+// Nav Arrow Style 
+.swiper-navigation {
+    .swiper-btn-nxt,
+    .swiper-btn-prv {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        margin-right: 10px;
+        font-size: 24px;
+        text-align: center;
+        background-color: var(--color-white);
+        color: var(--color-heading);
+        transition: var(--transition);
+        @media #{$sm-layout} {
+            height: 45px;
+            width: 45px;
+            line-height: 45px;
+            font-size: 18px;
+        }
+        &:hover {
+            color: var(--color-white);
+            background: var(--gradient-primary);
+        }
+    }
+}
+.blog-gallery-activation {
+    position: relative;
+    .swiper-navigation {
+        .swiper-btn-nxt,
+        .swiper-btn-prv {
+            position: absolute;
+            top: 45%;
+            z-index: 1;
+        }
+        .swiper-btn-nxt {
+            left: 30px;
+        }
+        .swiper-btn-prv {
+           right: 20px;
+        }
+    }
+}
+.testimonial-area-4 {
+    .swiper-navigation {
+        .swiper-btn-nxt,
+        .swiper-btn-prv { 
+            border: 1px solid var(--color-border);
+        }
+    }
+}
+

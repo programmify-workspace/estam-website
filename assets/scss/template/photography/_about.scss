@@ -1,0 +1,112 @@
+.photography-about-style {
+    position: relative;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( -90deg, rgba(240,244,245,0.70196) 0%, rgba(240,244,245,0.2) 100%);
+        z-index: -1;
+    }
+    .about-content {
+        padding-left: 0;
+        padding: 0 10px;
+        p {
+            font-size: 18px;
+            color: var(--color-heading);
+            text-align: center;
+            @media #{$md-layout-1} {
+                font-size: 16px;
+            }
+        }
+    }
+    .contact-us-btn {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .View_All_Courses {
+        font-size: 15px;
+        font-family: "Spartan";
+        color: rgb(26, 182, 157);
+        line-height: 2;
+        text-align: left;
+        position: absolute;
+        left: 1354.937px;
+        top: 2012.5px;
+        z-index: 253;
+      }
+      
+    .shape-group {
+        li {
+            &.shape-7 {
+                left: 98px;
+                top: 169px;
+            }
+            &.shape-8 {
+                left: -98px;
+                top: -128px;
+                span {
+                    display: block;
+                    height: 400px;
+                    width: 400px;
+                    border: 1px solid var(--color-border);
+                    border-radius: 50%;
+                }
+            }
+            &.shape-9 {
+                left: 257px;
+                top: 207px;
+                span {
+                    width: 70px;
+                    height: 70px;
+                    background: var(--color-tertiary);
+                    border-radius: 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+    .shape-group {
+        li {
+            &.shape-1 {
+                right: -263px;
+                bottom: -3px;            
+            }
+            &.shape-2 {
+                right: -205px;
+                bottom: 38px;
+                z-index: 0;
+            }
+            &.shape-3 {
+                left: 241px;
+                top: -20px;
+            }
+            &.shape-4 {
+                left: -245px;
+                bottom: -143px;
+                @media #{$lg-layout-1} {
+                    left: 0;
+                }            
+            }
+            &.shape-5 {
+                left: -65px;
+                bottom: -170px; 
+                @media #{$lg-layout-1} {
+                    left: 170px;
+                }
+            }
+            &.shape-6 {
+                right: -169px;
+                bottom: -250px;
+                @media #{$lg-layout-1} {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

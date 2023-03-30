@@ -1,0 +1,160 @@
+/*---------------------------------------------
+Template Name: EduBlink Education HTML5 Template
+Template URL: 
+Description: 
+Author: 
+Author URL: 
+Version: 1.0.0
+
+===============================================   
+STYLESHEET INDEXING
+|
+|___ Default Styles
+|	|___ Variables
+|	|___ Shortcode 
+|	|___ Reset Styels
+|	|___ Typography
+|	|___ Forms Styles
+|	|___ Common 
+|	|___ Animation 
+|
+|___ Elements Styles
+|	|___ Accordion Style
+|	|___ Back To Top
+|	|___ Breadcrumb
+|	|___ Button
+|	|___ Countdown
+|	|___ Course Widget
+|	|___ Pagination Styles 
+|	|___ Sal Styels 
+|	|___ Section Title
+|	|___ Slick Styles 
+|	|___ Social Share Style 
+|
+|___Template Styles
+|	|___ About Styles
+|	|___ Brand Styles
+|	|___ Call To Action Styles
+|	|___ Campus Styles
+|	|___ Categorie Styles
+|	|___ Contact Styles
+|	|___ Counterup Styles
+|	|___ Course Styles
+|	|___ Course Details Style
+|	|___ Event Styles
+|	|___ FAQ Styles
+|	|___ Features Styles
+|	|___ Gallery Styles
+|	|___ Hero Banner Styles
+|	|___ Instagram Styles
+|	|___ Pricing Table Styles
+|	|___ Privacy Policy Style
+|	|___ Product Details Styles
+|	|___ Shop Styles
+|	|___ Splash Page Styles
+|	|___ Team Styles
+|	|___ Testimonial Styles
+|	|___ Video Styles
+|	|___ Why Choose Styles
+|	|___ 404 Error
+|
+|___Blocks Styles
+|	|___ Header Styles
+|	|___ Footer Styles
+|
+|___Blog Styles
+|
+|___Spacing
+|
+|___ END STYLESHEET INDEXING
+
+--------------------------------------------*/
+
+/*=======================================================================
+1. Default Styles
+=========================================================================*/
+@import "default/variable";
+@import "default/shortcode";
+@import "default/reset";
+@import "default/typography";
+@import "default/form";
+@import "default/common";
+@import "default/animations";
+
+/*=======================================================================
+2. Elements Styles
+=========================================================================*/
+@import "elements/accordion";
+@import "elements/backtotop";
+@import "elements/breadcrumb";
+@import "elements/button";
+@import "elements/countdown";
+@import "elements/course-widget";
+@import "elements/pagination";
+@import "default/sal";
+@import "elements/section-title";
+@import "elements/swiper";
+@import "elements/social-share";
+@import "elements/theme-switcher";
+
+/*=======================================================================
+3. Template Styles
+=========================================================================*/
+@import "template/about";
+@import "template/brand";
+@import "template/call_to_action";
+@import "template/campus";
+@import "template/categorie";
+@import "template/contact";
+@import "template/counterup";
+@import "template/course";
+@import "template/course_details";
+@import "template/event";
+@import "template/faq";
+@import "template/features";
+@import "template/gallery";
+@import "template/hero_banner";
+@import "template/instagram";
+@import "template/pricing";
+@import "template/privacy_policy";
+@import "template/product_details";
+@import "template/shop";
+@import "template/splash";
+@import "template/team";
+@import "template/testimonial";
+@import "template/video";
+@import "template/why_choose";
+@import "template/404";
+@import "template/modern_schooling/main";
+@import "template/health_coach/main";
+@import "template/language_academy/main";
+@import "template/remote_training/main";
+@import "template/photography/main";
+@import "template/business_coach/main";
+
+
+/*=======================================================================
+4.Blocks Styles 
+=========================================================================*/
+@import 'header/header';
+@import 'header/nav';
+@import 'header/header-top';
+@import 'header/header-action';
+@import 'header/mobilemenu';
+@import 'header/search-popup';
+@import "footer/footer";
+
+/*=======================================================================
+5.Blog Styles 
+=========================================================================*/
+@import "blog/blog";
+@import "blog/blog-details";
+@import "blog/comments";
+@import "blog/widget";
+
+/*=======================================================================
+6. Spacing/Dark
+=========================================================================*/
+@import "default/spacing";
+@import "default/dark";
+@import "default/rtl";

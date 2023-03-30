@@ -1,0 +1,89 @@
+.edu-cta-banner-area-6 {
+    background: var(--gradient-primary);
+    width: 100%;
+    overflow: visible !important;
+
+    .thumbnail {
+        img {
+            height: 567px;
+            margin-top: -67px;
+            margin-left: 60px;
+            @media #{$lg-layout} {
+                margin-top: -30px;
+            }
+            @media #{$md-layout-1} {
+                display: none;
+            }
+        }
+    }
+    .section-title {
+        padding: 120px 0;
+        @media #{$md-layout-1} {
+            text-align: center;
+            padding: 70px 0;
+
+            br {
+                display: none;
+            }
+        }
+        
+        .title {
+            color: var(--color-white);
+        }
+        a {
+            &.edu-btn {
+                &.btn-sceondary {
+                    &:hover {
+                        color: var(--color-heading) !important;
+                        background-color: var(--color-white) !important;
+                    }
+                }
+            }
+        }
+    }
+    .edu-cta-banner {
+        .shape-group {
+            li {
+                &.shape-01 {
+                    top: 100px !important;
+                    left: -8px !important;
+                }
+                &.shape-02 {
+                    top: 161px !important;
+                    left: -64px !important;
+                    bottom: inherit !important;
+                }
+                &.shape-03 {
+                    left: 28% !important;
+                    bottom: 100px !important;
+                    z-index: -1 !important;
+                    right: inherit !important;
+                    top: inherit !important;
+                }
+                &.shape-04 {
+                    top: inherit !important; 
+                    right: inherit !important; 
+                    bottom: 29% !important;
+                    left: 29% !important;
+                    z-index: 1;
+                }
+                &.shape-05 {
+                    top: 110px !important;
+                    right: -251px !important;
+                }
+                &.shape-06 {
+                    top: 0 !important;
+                    right: -32% !important;
+                }
+            }
+        }
+    }
+    .btn-secondary {
+        &::after {
+            background: var(--color-white);
+        }
+        &:hover {
+            color: var(--color-heading) !important;
+        }
+    }
+}

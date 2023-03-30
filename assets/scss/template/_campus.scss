@@ -1,0 +1,115 @@
+/*-------------------
+  Campus Styles
+---------------------*/
+.campus-thumbnail {
+    .thumbnail {
+        img {
+            border-radius: 5px;
+            @media #{$smlg-device} {
+                width: 100%;
+            }
+        }
+    }
+}
+.campus-content {
+    box-shadow: var(--shadow-darker);
+    border-radius: 0 5px 5px 5px;
+    padding: 60px 50px 60px 70px;
+    background-color: var(--color-white);
+    margin-left: -120px;
+    margin-top: 90px;
+    @media #{$smlg-device} {
+        margin-left: 0;  
+        margin-top: 20px;
+    }
+    @media #{$large-mobile} {
+        box-shadow: none;
+        padding: 0;
+    }
+    .features-box {
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        display: flex;
+        text-align: left;
+        margin-bottom: 24px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .icon {
+            font-size: 48px;
+            margin-right: 20px;
+            margin-bottom: 0;
+            .fitness-icon {
+                font-size: 32px;
+            }
+        }
+        .content {
+            flex: 1;
+            .title {
+                margin-bottom: 12px;
+            }
+            p {
+                color: var(--color-body);
+            }
+        }
+    }
+}
+
+.edu-campus-area {
+    position: relative;
+    .campus-image-gallery {
+        position: relative;
+        .shape-1 {
+            z-index: -1;
+            bottom: -220px;
+            left: -235px;
+            span {
+                display: block;
+                height: 470px;
+                width: 470px;
+                border: 1px solid var(--color-border);
+                border-radius: 50%;
+            }
+        }
+        .shape-2 {
+            bottom: -84px;
+            left: -144px;
+        }
+        .shape-3 {
+            bottom: -118px;
+            left: -85px;
+        }
+    }
+    .campus-content {
+        position: relative;
+        .shape-4 {
+            z-index: -1;
+            top: -140px;
+            right: -158px;
+            span {
+                display: block;
+                height: 320px;
+                width: 320px;
+                border: 1px solid var(--color-border);
+                border-radius: 50%;
+            }
+        }
+        .shape-5 {
+            top: -33px;
+            right: -64px;
+            span {
+                display: block;
+                height: 150px;
+                width: 150px;
+                border-radius: 100%;
+                background: #F3F8FA;
+            }
+        }
+        .shape-6 {
+            top: -80px;
+            right: -28px;
+            z-index: 0;
+        }
+    }
+}

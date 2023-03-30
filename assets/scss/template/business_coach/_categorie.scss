@@ -1,0 +1,120 @@
+.categorie-area-6  {
+    position: relative;
+    z-index: 1;
+    .categorie-grid {
+        padding: 30px 30px;
+        display: flex;
+        text-align: left;
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-darker);
+        .icon {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 28px;
+            transition: var(--transition);
+        } 
+        .content {
+            flex: 1;
+            margin-top: 10px;
+            margin-left: 20px;
+            
+            .title {
+                font-weight: var(--p-bold);
+                margin-bottom: 10px;
+                color: var(--color-heading);
+            }
+            p {
+                color: var(--color-body);
+                margin-bottom: 0;
+            }
+        }
+        &.color-primary {
+            .icon {
+                background-color: rgba(26,182,157, .07);
+                color: rgb(26,182,157);
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(26,182,157);
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-secondary {
+            .icon {
+                background-color: rgba(238, 74, 98, 0.102);
+                color: rgb(238, 74, 98);
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(238, 74, 98);
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-extra08 {
+            .icon {
+                background-color: rgba(70, 100, 228, 0.102);
+                color: rgb(70, 100, 228);
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(70, 100, 228);
+                    color: var(--color-white);
+                }
+            }
+        }
+        &.color-tertiary {
+            .icon {
+                background-color: rgba(248, 148, 31, 0.102);
+                img {
+                    filter: brightness(0) saturate(100%) invert(71%) sepia(92%) saturate(605%) hue-rotate(343deg) brightness(101%) contrast(95%);
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(248, 148, 31);
+                    img {
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+                    }
+                }
+            }
+        }
+        &.color-extra02 {
+            .icon {
+                background-color: rgba(142, 86, 255, 0.102);
+                img {
+                    filter: brightness(0) saturate(100%) invert(46%) sepia(76%) saturate(4932%) hue-rotate(240deg) brightness(101%) contrast(104%);
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(142, 86, 255);
+                    img {
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+                    }
+                }
+            }
+        }
+        &.color-extra07 {
+            .icon {
+                background-color: rgba(249, 37, 150, 0.102);
+                color: rgb(249, 37, 150);
+                &.Physical-activity {
+                    font-size: 30px;
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: rgb(249, 37, 150);
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}

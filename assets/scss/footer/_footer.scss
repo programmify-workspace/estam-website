@@ -1,0 +1,565 @@
+/*-------------------------
+   Footer Styles
+-------------------------*/
+.edu-footer {
+    position: relative;
+    // z-index: 1;
+
+    .footer-top {
+        // background-color: #F0F4F5;
+        position: relative;
+        padding: 100px 0 95px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(../images/bg/BG-3.webp);
+            background-repeat: no-repeat;
+            
+            @media #{$md-layout-1} {  
+                display: none;
+            }
+        }
+        @media #{$md-layout} {
+            padding: 80px 0;
+        }
+        @media #{$sm-layout} {
+            padding: 60px 0;
+        }
+    }
+    &.footer-style-1 {
+        background-color: #F0F4F5;
+        .footer-top {
+            .edu-footer-widget {
+                .logo {
+                   a {
+                    img {
+                        &.logo-dark {
+                            display: none;
+                        } 
+                    }
+                   } 
+                }
+            }
+        }
+    }
+    &.footer-style-2 {
+        background-color: #111212;
+        .footer-top {
+            .edu-footer-widget {
+                .widget-title {
+                    color: #ffffff;
+                }
+            }
+        } 
+    }
+    &.footer-style-3 {
+        background-color: #111212;
+    }
+    &.footer-style-7 {
+        .footer-top {
+            &::before {
+                display: none;
+            }
+            .edu-footer-widget {
+                .logo {
+                    a {
+                        img {
+                            &.logo-dark {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .description {
+                    color: var(--footer-text);
+                }
+                .widget-title {
+                    font-weight: var(--p-bold);
+                    margin-top: 12px;
+                }
+                .inner {
+                    margin-top: 30px;
+                    .footer-link {
+                        a {
+                            color: var(--footer-text);
+
+                            &:hover {
+                                color: var(--color-primary);
+                            }
+                        }
+                    }
+                    .widget-information {
+                        ul {
+                            li {
+                                color: var(--footer-text);
+
+                                a {
+                                    color: var(--footer-text);
+
+                                    &:hover {
+                                        color: var(--color-primary);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .social-share {
+                    margin-top: 20px;
+                }
+            }
+            .shape-group {
+                li {
+                    &.shape-1 {
+                        left: 100px;
+                        bottom: 45px;
+                    }
+                    &.shape-2 {
+                        right: 100px;
+                        bottom: -2px;
+                    }
+                }
+            }
+        }
+        .copyright-area {
+            border-top: 1px solid var(--color-border);
+            a {
+                color: var(--color-heading);
+            }
+        }
+    }
+    .description {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .information-list {
+        @extend %liststyle;
+        li {
+            margin-top: 0;
+            margin-bottom: 0;
+            span {
+                font-weight: 500;
+                margin-right: 5px;
+            }
+            a {
+                transition: 0.3s;
+            }
+            & + li {
+                margin-top: 5px;
+            }
+            &:hover {
+                a {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    .edu-footer-widget {
+        position: relative;
+        z-index: 1;
+        .logo {
+            a {
+                img {
+                    &.logo-light {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        .inner {
+            margin-top: 36px;
+            @media #{$md-layout} {
+                margin-top: 20px;
+            }
+            @media #{$sm-layout} {
+                margin-top: 20px;
+            }
+        }
+        .footer-link {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+            li {
+                margin-top: 0;
+                margin-bottom: 0;
+                a {
+                    display: block;
+                    line-height: 26px;
+                }
+                & + li {
+                    margin-top: 11px;
+                }
+                &:hover {
+                    a {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+        .input-group {
+            margin-bottom: 35px;
+            .form-control {
+                background-color: var(--color-white);
+                border-radius: 5px !important;
+                font-size: var(--font-size-b1);
+                font-weight: 400;
+                border: none;
+                height: auto;
+                padding: 0 15px;
+            }
+            button {
+                margin-left: 10px !important;
+                border-radius: 5px !important;
+            }
+        }
+        &.explore-widget {
+            margin-left: 65px;
+            @media #{$lg-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$md-layout} {
+                margin-left: 0;
+            }
+
+            @media #{$sm-layout} {
+                margin-left: 0;
+            }
+        }
+        .input-group {
+            &.footer-subscription-form {
+                @media #{$small-mobile} {
+                    flex-direction: column;
+                }
+                .form-control {
+                    @media #{$small-mobile} {
+                        width: 100%;
+                        height: 50px;
+                        margin-bottom: 20px;
+                    }
+                }
+                button {
+                    @media #{$small-mobile} {
+                        margin-left: 0px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &.footer-dark {
+        .widget-title {
+            color: var(--color-white);
+        }
+        p {
+            color: #bababa;
+        }
+        li {
+            color: #bababa;
+        }
+        a {
+            color: #bababa;
+        }
+    }
+
+    &.footer-lighten {
+        .widget-title {
+            font-weight: var(--p-bold);
+        }
+        p {
+            color: var(--footer-text);
+        }
+        li {
+            color: var(--footer-text);
+        }
+        a {
+            color: var(--footer-text);
+        }
+    }
+
+    &.footer-light {
+        p {
+            color: var(--color-heading);
+        }
+        li {
+            color: var(--color-heading);
+        }
+        a {
+            color: var(--color-heading);
+        }
+        .edu-footer-widget {
+            .input-group {
+                .form-control {
+                    background-color: var(--color-lighten04);
+                }
+            }
+        }
+    }
+    &.footer-kindergarten {
+        background-color: #111212;
+        .footer-top {
+            padding: 100px 0 40px;
+
+            &::before {
+                display: none;
+            }
+        }
+        .edu-footer-widget {
+            .widget-information {
+                margin-bottom: 24px;
+            }
+        }
+        .widget-title {
+            color: var(--color-white);
+        }
+        p {
+            color: #bababa;
+        }
+        li {
+            color: #bababa;
+        }
+        a {
+            color: #bababa;
+        }
+        .copyright-area {
+            position: relative;
+            z-index: 1;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url(../images/bg/bg-image-3.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                z-index: -1;
+            }
+        }
+    }
+    &.footer-for-kitchen {
+        .footer-top {
+            &::before {
+                display: none;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1 {
+                    top: 45px;
+                    left: 6%;
+                    @media #{$lg-layout-1, $custom-lg-device-two} {
+                        left: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        left: -80px;
+                    }
+                } 
+                &.shape-2 {
+                    bottom: 30px;
+                    left: 40px;
+                    @media #{$lg-layout-1} {
+                        left: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        left: -80px;
+                    }
+                }
+                &.shape-3 {
+                    bottom: -50px;
+                    left: 46%;
+                }
+                &.shape-4 {
+                    bottom: -10px;
+                    right: 40px;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        right: -50px;
+                    }
+                }
+                &.shape-5 {
+                    top: 50px;
+                    right: 6%;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        right: -50px;
+                    }
+                }
+            }
+        }
+    }
+    &.footer-for-yoga {
+        .footer-top {
+            &::before {
+                display: none;
+            }
+        }
+        .shape-group {
+            li {
+                img {
+                    opacity: .3;
+                }
+                &.shape-1 {
+                    top: 45px;
+                    left: 6%;
+                    @media #{$lg-layout-1, $custom-lg-device-two} {
+                        left: 0;
+                    }
+                } 
+                &.shape-2 {
+                    bottom: 30px;
+                    left: 40px;
+                    @media #{$lg-layout-1} {
+                        left: 0;
+                    }
+                    img {
+                        opacity: .2;
+                    }
+                }
+                &.shape-3 {
+                    bottom: -83px;
+                    left: 46%;
+                    img {
+                        opacity: .7;
+                    }
+                }
+                &.shape-4 {
+                    bottom: -10px;
+                    right: 40px;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                    img {
+                        opacity: .2;
+                    }
+                }
+                &.shape-5 {
+                    top: 50px;
+                    right: 6%;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.footer-for-photography {
+        .footer-top {
+            &::before {
+                display: none;
+            }
+        }
+        .shape-group {
+            li {
+                &.shape-1 {
+                    top: 65px;
+                    left: 200px;
+                    @media #{$lg-layout-1, $custom-lg-device-two} {
+                        left: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        left: -80px;
+                    }
+                } 
+                &.shape-2 {
+                    bottom: 50px;
+                    left: 75px;
+                    @media #{$lg-layout-1} {
+                        left: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        left: -80px;
+                    }
+                }
+                &.shape-3 {
+                    bottom: -13px;
+                    left: 46%;
+                }
+                &.shape-4 {
+                    bottom: 40px;
+                    right: 100px;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        right: -50px;
+                    }
+                }
+                &.shape-5 {
+                    top: 70px;
+                    right: 253px;
+                    @media #{$lg-layout-1} {
+                        right: 0;
+                    }
+                    @media #{$custom-lg-device-eight} {
+                        right: -50px;
+                    }
+                }
+            }
+        }
+    }
+    .copyright-area {
+        a {
+            color: var(--color-primary);
+            transition: background 0.2s linear;
+            &:hover {
+                background: var(--gradient-primary);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
+
+/*-------------------------
+    Copyright Styles  
+--------------------------*/
+.copyright-area {
+    padding: 32px 0;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.footer-dark {
+    .copyright-area {
+        border-top: 1px solid #1f2020;
+    }
+}
+.footer-lighten {
+    .copyright-area {
+        background-color: #ebeff0;
+        p {
+            color: var(--color-black);
+        }
+    }
+}
+
+.footer-light {
+    .copyright-area {
+        background-color: var(--color-white);
+        border-top: 1px solid #e5e5e5;
+        p {
+            color: var(--color-heading);
+        }
+    }
+}
+
+.footer-kindergarten {
+    .copyright-area {
+        padding: 105px 0 50px;
+    }
+}

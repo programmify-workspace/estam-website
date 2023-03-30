@@ -1,0 +1,33 @@
+// //Blog Style
+// .edu-blog-area {
+//     &.blog-area-6 {
+//         .thumbnail {
+//             position: relative;
+//             a {
+//                 border-radius: 10px 10px 0px 0px;
+//                 img {
+//                     border-radius: 10px 10px 0px 0px;
+//                 }
+//             }
+//             .date {
+//                 position: absolute;
+//                 left: 20px;
+//                 top: 20px;
+//                 background: var(--gradient-primary);
+//                 border-radius: 3px;
+//                 padding: 3px 12px;
+//                 font-size: 15px;
+//                 color: var(--color-white);
+//                 display: block;
+//             }
+//         }
+//         .content {
+//             border-radius: 0px 0px 10px 10px;
+//             &.position-top {
+//                 margin-top: 0;
+//                 margin-left: 0;
+//                 margin-right: 0;
+//             }
+//         } 
+//     }
+// }

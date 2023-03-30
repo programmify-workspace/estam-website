@@ -1,0 +1,258 @@
+/*--------------------------
+    Navigation Styles 
+----------------------------*/
+
+.mainmenu-nav {
+    .mainmenu {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-secondary);
+        > li {
+            > a {
+                color: var(--color-heading);
+                font-size: 15px;
+                font-weight: 600;
+                padding: 0 26px;
+                display: block;
+                height: 90px;
+                line-height: 94px;
+                transition: 0.3s;
+                @media #{$lg-layout} {
+                    padding: 0 17px;
+                }
+                @media #{$md-layout} {
+                    padding: 0 12px;
+                }
+                &:hover,
+                &.active {
+                    color: var(--color-primary) !important;
+                }
+            }
+        } 
+        li {
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            &.has-droupdown {
+                & > a {
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "\e91e";
+                        font-family: 'icomoon';
+                        right: 8px;
+                        top: 0;
+                        font-size: 6px;
+                        font-weight: 400;
+                        @media #{$lg-layout} {
+                            right: 0px;
+                        }
+                    }
+                }
+                .submenu {
+                    min-width: 270px;
+                    height: auto;
+                    position: absolute;
+                    top: 90%;
+                    left: 0;
+                    z-index: 8;
+                    opacity: 0;
+                    visibility: hidden;
+                    text-align: left;
+                    padding: 20px 0 25px;
+                    transition: 0.3s;
+                    background-color: var(--color-white);
+                    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.08);
+                    pointer-events: none;
+
+                    li {
+                        position: relative;
+                        a {
+                            font-size: 15px;
+                            font-weight: 600;
+                            padding: 5px 30px;
+                            display: block;
+                            color: var(--color-heading);
+                            @extend %transition;
+                            &:hover {
+                                color: var(--color-primary) !important;
+                                background: var(--color-darker);
+                            }
+                            &.active {
+                                color: var(--color-primary) !important;
+                                background: var(--color-darker);
+                            }
+                        }
+                        &.has-droupdown {
+                            > a {
+                                &::after {
+                                    transform: rotate(-90deg);
+                                    top: 10px;
+                                    right: 40px;
+                                }
+                            }
+                            .submenu {
+                                position: absolute;
+                                left: 100%;
+                                top: 90%;
+                                z-index: 90;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: 0.3s;
+                            }
+                            &:hover {
+                                .submenu {
+                                    left: 100%;
+                                    top: 0;
+                                    z-index: 90;
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    > .submenu {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 100%;
+                        pointer-events: auto;
+                    }
+                    .mega-menu {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 100%;
+                        pointer-events: auto;
+                        .submenu {
+                            pointer-events: auto;
+                        }
+                    }
+                }
+            }
+            ul.mega-menu { 
+                min-width: 1170px;      
+                height: auto;
+                position: absolute;
+                top: 90%;
+                left: -324px;
+                padding: 70px 0;
+                z-index: 10;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                background-color: var(--color-white);
+                box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.08);
+                display: grid;
+                pointer-events: none;
+                grid-template-columns: repeat(3, 1fr);
+                
+                @media #{$custom-laptop-device} {
+                    left: -275px;
+                }
+                .menu-title {
+                    font-weight: 700;
+                    padding-left: 100px;
+                    margin-bottom: 20px;
+                }
+                >li {
+                    border-right: 1px solid var(--color-border);
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+                .submenu {
+                    position: initial;
+                    visibility: visible;
+                    opacity: 1;
+                    box-shadow: none;
+                    padding: 0 0 0 70px;
+                }
+            }
+            ul.mega-menu-one {
+                li {
+                    .submenu {
+                        padding: 0 0 0 35px;
+                    }
+                    &:nth-child(2) {
+                        border-right: none;
+                    }
+                    a {
+                        padding: 0;
+                        img {
+                            max-width: 450px;
+                            min-height: 275px;
+                            margin-bottom: -50px;
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.badge {
+    display: inline-block;
+    padding: 0.63em 0.65em 0.35em 0.65em;
+    font-size: 9px;
+    font-family: var(--font-secondary);
+    font-weight: var(--p-bold);
+    line-height: 1;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    margin-left: 5px;
+}
+.badge-1 {
+    display: inline-block;
+    padding: 0.63em 0.65em 0.35em 0.65em;
+    font-size: 9px;
+    font-family: var(--font-secondary);
+    font-weight: var(--p-bold);
+    line-height: 1;
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    margin-left: 5px;
+}
+.header-style-2,
+.header-style-3 {
+    .mainmenu-nav {
+        .mainmenu {
+            li {
+                ul.mega-menu {
+                    left: auto;
+                    right: -397px;
+                    @media #{$custom-lg-device-eight} {
+                        right: -570px;
+                    }
+                }
+            }
+        }
+    }
+}
+.header-style-4,
+.header-style-7 {
+    .mainmenu-nav {
+        .mainmenu {
+            li {
+                ul.mega-menu {
+                    left: -145px;
+                    @media #{$custom-laptop-device} {
+                       left: -260px; 
+                    }
+                }
+            }
+        }
+    }
+}
