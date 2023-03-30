@@ -8,7 +8,7 @@ body.dark-mode {
 .dark-mode {
     .hero-banner .banner-content p,
     .popup-mobile-menu .inner .header-top .close-menu .close-button,
-    .edublink-vue-mobile-popup-menu .inner .header-top .close-menu .close-button,
+    .estam-vue-mobile-popup-menu .inner .header-top .close-menu .close-button,
     .header-action .mobile-menu-bar .hamberger-button,
     .edu-course .content .course-rating .rating-count,
     .edu-course .content .course-meta li,
@@ -210,8 +210,8 @@ body.dark-mode {
     .edu-campus-area .campus-image-gallery .shape-1 span,
     .edu-campus-area .campus-content .shape-4 span,
     .edu-event-area .shape-group li.shape-2 span,
-    .edublink-vue-mobile-popup-menu .inner .header-top,
-    .edublink-vue-mobile-popup-menu .mainmenu li + li,
+    .estam-vue-mobile-popup-menu .inner .header-top,
+    .estam-vue-mobile-popup-menu .mainmenu li + li,
     .about-style-3 .about-image-gallery .shape-group li.shape-4 span,
     .home-four-course .shape-group .shape-2 span,
     .hero-banner.hero-style-4 .shape-group li.shape-8 span,
@@ -484,7 +484,7 @@ body.dark-mode {
             }
         }
     }
-    #edublink-preloader {
+    #estam-preloader {
         background: var(--dark-bg-color);
         .preloader-close-btn-wraper .preloader-close-btn {
             background: #1C252F;

@@ -1,11 +1,4 @@
-/*---------------------------------------------
-Template Name: EduBlink Education HTML5 Template
-Template URL: 
-Description: 
-Author: 
-Author URL: 
-Version: 1.0.0
-
+/*
 ===============================================   
 STYLESHEET INDEXING
 |
@@ -78,7 +71,7 @@ STYLESHEET INDEXING
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Spartan:wght@400;500;600;700;800&display=swap");
 
 :root {
-    --color-primary: #1ab69d;
+    --color-primary: #47499a;
     --color-secondary: #ee4a62;
     --color-textSecondary: #ff5b5c;
     --color-tertiary: #f8b81f;
@@ -88,7 +81,7 @@ STYLESHEET INDEXING
     --color-border: #e5e5e5;
     --dark-color-border: #282f3a;
     --color-body: #808080;
-    --gradient-primary: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    --gradient-primary: linear-gradient(-90deg, #31b978 0%, #47499a 100%);
     --bg-color: #EAF0F2;
     --dark-bg-color: #020b17;
     --cta-color-bg: #F0F4F5;
@@ -876,7 +869,7 @@ Custom Row
     }
 }
 
-#edublink-preloader {
+#estam-preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -884,13 +877,13 @@ Custom Row
     width: 100%;
     z-index: 99999999999999;
     overflow: hidden;
-    background-image: -webkit-linear-gradient(70deg, #31b978 0%, #1ab69d 100%);
-    background-image: linear-gradient(20deg, #31b978 0%, #1ab69d 100%);
+    background-image: -webkit-linear-gradient(70deg, #31b978 0%, #47499a 100%);
+    background-image: linear-gradient(20deg, #31b978 0%, #47499a 100%);
     -webkit-transition: all 1.5s ease-out;
     transition: all 1.5s ease-out;
 }
 
-#edublink-preloader.loaded .preloader-close-btn-wraper {
+#estam-preloader.loaded .preloader-close-btn-wraper {
     bottom: 200%;
 }
 
@@ -937,8 +930,8 @@ Custom Row
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-animation: edublink-preloader-bounce-animation 2.0s infinite ease-in-out;
-    animation: edublink-preloader-bounce-animation 2.0s infinite ease-in-out;
+    -webkit-animation: estam-preloader-bounce-animation 2.0s infinite ease-in-out;
+    animation: estam-preloader-bounce-animation 2.0s infinite ease-in-out;
 }
 
 .preloader-spin-2 {
@@ -950,13 +943,13 @@ Custom Row
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-animation: edublink-preloader-bounce-animation 2.0s infinite ease-in-out;
-    animation: edublink-preloader-bounce-animation 2.0s infinite ease-in-out;
+    -webkit-animation: estam-preloader-bounce-animation 2.0s infinite ease-in-out;
+    animation: estam-preloader-bounce-animation 2.0s infinite ease-in-out;
     -webkit-animation-delay: -1.0s;
     animation-delay: -1.0s;
 }
 
-@-webkit-keyframes edublink-preloader-bounce-animation {
+@-webkit-keyframes estam-preloader-bounce-animation {
     0%,
   100% {
         -webkit-transform: scale(0);
@@ -969,7 +962,7 @@ Custom Row
     }
 }
 
-@keyframes edublink-preloader-bounce-animation {
+@keyframes estam-preloader-bounce-animation {
     0%,
   100% {
         -webkit-transform: scale(0);
@@ -2012,7 +2005,7 @@ input[type="radio"]:checked ~ label::before {
 /*----------------------
     Animation  
 -----------------------*/
-.edublink-animated-shape {
+.estam-animated-shape {
     position: relative;
     z-index: 9;
 }
@@ -2423,7 +2416,7 @@ input[type="radio"]:checked ~ label::before {
     animation: rotateIt 11s linear infinite;
 }
 
-@-webkit-keyframes edublink-vsm-y-move {
+@-webkit-keyframes estam-vsm-y-move {
     0% {
         -webkit-transform: translate(0, -30%);
         transform: translate(0, -30%);
@@ -2435,7 +2428,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-vsm-y-move {
+@keyframes estam-vsm-y-move {
     0% {
         -webkit-transform: translate(0, -30%);
         transform: translate(0, -30%);
@@ -2447,7 +2440,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-vsm-y-reverse-move {
+@-webkit-keyframes estam-vsm-y-reverse-move {
     0% {
         -webkit-transform: translate(0, 30%);
         transform: translate(0, 30%);
@@ -2459,7 +2452,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-vsm-y-reverse-move {
+@keyframes estam-vsm-y-reverse-move {
     0% {
         -webkit-transform: translate(0, 30%);
         transform: translate(0, 30%);
@@ -2471,7 +2464,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-sm-x-move {
+@-webkit-keyframes estam-sm-x-move {
     0% {
         -webkit-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
@@ -2483,7 +2476,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-sm-x-move {
+@keyframes estam-sm-x-move {
     0% {
         -webkit-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
@@ -2495,7 +2488,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-sm-x-reverse-move {
+@-webkit-keyframes estam-sm-x-reverse-move {
     0% {
         -webkit-transform: translate(50%, 0);
         transform: translate(50%, 0);
@@ -2507,7 +2500,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-sm-x-reverse-move {
+@keyframes estam-sm-x-reverse-move {
     0% {
         -webkit-transform: translate(50%, 0);
         transform: translate(50%, 0);
@@ -2519,7 +2512,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-rotate-y {
+@-webkit-keyframes estam-rotate-y {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -2531,7 +2524,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-rotate-x {
+@-webkit-keyframes estam-rotate-x {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -2543,7 +2536,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-rotate-x {
+@keyframes estam-rotate-x {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -2555,7 +2548,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-rotate-y {
+@keyframes estam-rotate-y {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -2567,7 +2560,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-zoom1 {
+@-webkit-keyframes estam-zoom1 {
     0% {
         -webkit-transform: scale(0.9);
         transform: scale(0.9);
@@ -2579,7 +2572,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-zoom2 {
+@-webkit-keyframes estam-zoom2 {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -2591,7 +2584,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-zoom2 {
+@keyframes estam-zoom2 {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -2603,7 +2596,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@-webkit-keyframes edublink-zoom1 {
+@-webkit-keyframes estam-zoom1 {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -2615,7 +2608,7 @@ input[type="radio"]:checked ~ label::before {
     }
 }
 
-@keyframes edublink-zoom1 {
+@keyframes estam-zoom1 {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -3640,8 +3633,8 @@ a.edu-btn:after,
     content: "";
     height: 100%;
     width: 0;
-    background: -webkit-linear-gradient(right, #31b978 0%, #1ab69d 100%);
-    background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    background: -webkit-linear-gradient(right, #31b978 0%, #47499a 100%);
+    background: linear-gradient(-90deg, #31b978 0%, #47499a 100%);
     border-radius: 5px;
     position: absolute;
     top: 0;
@@ -3798,13 +3791,13 @@ a.edu-btn.btn-round:hover,
 }
 
 .btn-gradient {
-    background: -webkit-linear-gradient(right, #31b978 0%, #1ab69d 100%) !important;
-    background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%) !important;
+    background: -webkit-linear-gradient(right, #31b978 0%, #47499a 100%) !important;
+    background: linear-gradient(-90deg, #31b978 0%, #47499a 100%) !important;
 }
 
 .btn-gradient::after {
-    background: -webkit-linear-gradient(right, #1ab69d 0%, #31b978 100%) !important;
-    background: linear-gradient(-90deg, #1ab69d 0%, #31b978 100%) !important;
+    background: -webkit-linear-gradient(right, #47499a 0%, #31b978 100%) !important;
+    background: linear-gradient(-90deg, #47499a 0%, #31b978 100%) !important;
 }
 
 .wishlist-btn {
@@ -5098,8 +5091,8 @@ body.sal-disabled [data-sal|='flip'] {
     line-height: 1;
     margin-bottom: 5px;
     background: #31B978;
-    background: -webkit-linear-gradient(right, #31B978 0%, #1AB69D 76%);
-    background: linear-gradient(to left, #31B978 0%, #1AB69D 76%);
+    background: -webkit-linear-gradient(right, #31B978 0%, #47499a 76%);
+    background: linear-gradient(to left, #31B978 0%, #47499a 76%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -5120,8 +5113,8 @@ body.sal-disabled [data-sal|='flip'] {
     font-size: 16px;
     font-weight: 700;
     background: #31B978;
-    background: -webkit-linear-gradient(right, #31B978 0%, #1AB69D 76%);
-    background: linear-gradient(to left, #31B978 0%, #1AB69D 76%);
+    background: -webkit-linear-gradient(right, #31B978 0%, #47499a 76%);
+    background: linear-gradient(to left, #31B978 0%, #47499a 76%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -7800,7 +7793,7 @@ body.sal-disabled [data-sal|='flip'] {
 }
 
 .categorie-grid.color-primary-style:hover {
-    background-color: #1ab69d;
+    background-color: #47499a;
 }
 
 .categorie-grid.color-primary-style:hover .icon,
@@ -13573,7 +13566,7 @@ body .tpd-size-medium .tpd-content {
 }
 
 .features-box.color-primary-style:hover .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
     color: var(--color-white);
 }
 
@@ -13708,7 +13701,7 @@ body .tpd-size-medium .tpd-content {
     }
 }
 
-.features-box.features-style-2 .edublink-svg-animate svg path {
+.features-box.features-style-2 .estam-svg-animate svg path {
     stroke: #ffffff !important;
     max-width: 38px;
 }
@@ -13915,8 +13908,8 @@ body .tpd-size-medium .tpd-content {
 }
 
 .features-area-2 {
-    background: -webkit-linear-gradient(right, #31b978 0%, #1ab69d 100%);
-    background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%);
+    background: -webkit-linear-gradient(right, #31b978 0%, #47499a 100%);
+    background: linear-gradient(-90deg, #31b978 0%, #47499a 100%);
 }
 
 .features-area-3 .features-grid-wrap {
@@ -13993,8 +13986,8 @@ body .tpd-size-medium .tpd-content {
 }
 
 .edu-gallery-grid .thumbnail::before {
-    background: -webkit-linear-gradient(235deg, #31b978 0%, #1ab69d 100%);
-    background: linear-gradient(-145deg, #31b978 0%, #1ab69d 100%);
+    background: -webkit-linear-gradient(235deg, #31b978 0%, #47499a 100%);
+    background: linear-gradient(-145deg, #31b978 0%, #47499a 100%);
     border-radius: 5px;
     position: absolute;
     content: "";
@@ -14304,8 +14297,8 @@ body .tpd-size-medium .tpd-content {
 .hero-banner.presentation-hero-style .banner-content .subtitle {
     letter-spacing: 1px;
     background: #31B978;
-    background: -webkit-linear-gradient(right, #31B978 0%, #1AB69D 76%);
-    background: linear-gradient(to left, #31B978 0%, #1AB69D 76%);
+    background: -webkit-linear-gradient(right, #31B978 0%, #47499a 76%);
+    background: linear-gradient(to left, #31B978 0%, #47499a 76%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 40px;
@@ -14610,8 +14603,8 @@ body .tpd-size-medium .tpd-content {
 }
 
 .hero-banner.hero-style-1 .banner-thumbnail .shape-group .shape-1 {
-    -webkit-animation: edublink-sm-x-move 3.5s alternate infinite linear;
-    animation: edublink-sm-x-move 3.5s alternate infinite linear;
+    -webkit-animation: estam-sm-x-move 3.5s alternate infinite linear;
+    animation: estam-sm-x-move 3.5s alternate infinite linear;
 }
 
 .hero-banner.hero-style-1 .shape-7 {
@@ -15949,7 +15942,7 @@ body .tpd-size-medium .tpd-content {
 }
 
 .hero-banner.hero-style-7 .banner-content .features-box.color-primary-style .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
 }
 
 .hero-banner.hero-style-7 .banner-gallery {
@@ -17490,7 +17483,7 @@ body .tpd-size-medium .tpd-content {
 /*-------------------
   Splash Page Styles 
 ---------------------*/
-.edublink-landing-page #edublink-preloader {
+.estam-landing-page #estam-preloader {
     display: none !important;
 }
 
@@ -17521,15 +17514,15 @@ body .tpd-size-medium .tpd-content {
     line-height: 90px;
 }
 
-.pv-header-style .edublink-vue-mobile-popup-menu .mainmenu li.header-btn {
+.pv-header-style .estam-vue-mobile-popup-menu .mainmenu li.header-btn {
     padding-top: 30px;
 }
 
-.pv-header-style .edublink-vue-mobile-popup-menu .mainmenu li.header-btn .edu-btn {
+.pv-header-style .estam-vue-mobile-popup-menu .mainmenu li.header-btn .edu-btn {
     padding: 0;
 }
 
-.pv-header-style .edublink-vue-mobile-popup-menu .mainmenu li.header-btn .edu-btn:hover {
+.pv-header-style .estam-vue-mobile-popup-menu .mainmenu li.header-btn .edu-btn:hover {
     color: var(--color-white);
 }
 
@@ -20036,7 +20029,7 @@ body .tpd-size-medium .tpd-content {
 }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: #1ab69d;
+    background-color: #47499a;
 }
 
 .testimonial-area-6 {
@@ -21155,7 +21148,7 @@ body .tpd-size-medium .tpd-content {
 }
 
 .why-choose-box-2.features-box.color-primary-style .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
 }
 
 .why-choose-box-2.features-box.color-secondary-style .icon {
@@ -21196,7 +21189,7 @@ body .tpd-size-medium .tpd-content {
 }
 
 .why-choose-box-3.features-box.color-primary-style .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
 }
 
 .why-choose-box-3.features-box.color-secondary-style .icon {
@@ -22512,11 +22505,11 @@ body .tpd-size-medium .tpd-content {
 
 .categorie-area-5 .categorie-grid.color-primary .icon {
     background-color: rgba(26, 182, 157, 0.07);
-    color: #1ab69d;
+    color: #47499a;
 }
 
 .categorie-area-5 .categorie-grid.color-primary:hover .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
     color: var(--color-white);
 }
 
@@ -23926,7 +23919,7 @@ body .tpd-size-medium .tpd-content {
 .photography-about-style .View_All_Courses {
     font-size: 15px;
     font-family: "Spartan";
-    color: #1ab69d;
+    color: #47499a;
     line-height: 2;
     text-align: left;
     position: absolute;
@@ -24211,11 +24204,11 @@ body .tpd-size-medium .tpd-content {
 
 .categorie-area-6 .categorie-grid.color-primary .icon {
     background-color: rgba(26, 182, 157, 0.07);
-    color: #1ab69d;
+    color: #47499a;
 }
 
 .categorie-area-6 .categorie-grid.color-primary:hover .icon {
-    background-color: #1ab69d;
+    background-color: #47499a;
     color: var(--color-white);
 }
 
@@ -28392,7 +28385,7 @@ body.dark-mode {
 
 .dark-mode .hero-banner .banner-content p,
 .dark-mode .popup-mobile-menu .inner .header-top .close-menu .close-button,
-.dark-mode .edublink-vue-mobile-popup-menu .inner .header-top .close-menu .close-button,
+.dark-mode .estam-vue-mobile-popup-menu .inner .header-top .close-menu .close-button,
 .dark-mode .header-action .mobile-menu-bar .hamberger-button,
 .dark-mode .edu-course .content .course-rating .rating-count,
 .dark-mode .edu-course .content .course-meta li,
@@ -28613,8 +28606,8 @@ body.dark-mode {
 .dark-mode .edu-campus-area .campus-image-gallery .shape-1 span,
 .dark-mode .edu-campus-area .campus-content .shape-4 span,
 .dark-mode .edu-event-area .shape-group li.shape-2 span,
-.dark-mode .edublink-vue-mobile-popup-menu .inner .header-top,
-.dark-mode .edublink-vue-mobile-popup-menu .mainmenu li + li,
+.dark-mode .estam-vue-mobile-popup-menu .inner .header-top,
+.dark-mode .estam-vue-mobile-popup-menu .mainmenu li + li,
 .dark-mode .about-style-3 .about-image-gallery .shape-group li.shape-4 span,
 .dark-mode .home-four-course .shape-group .shape-2 span,
 .dark-mode .hero-banner.hero-style-4 .shape-group li.shape-8 span,
@@ -29001,11 +28994,11 @@ body.dark-mode {
     color: var(--color-white);
 }
 
-.dark-mode #edublink-preloader {
+.dark-mode #estam-preloader {
     background: var(--dark-bg-color);
 }
 
-.dark-mode #edublink-preloader .preloader-close-btn-wraper .preloader-close-btn {
+.dark-mode #estam-preloader .preloader-close-btn-wraper .preloader-close-btn {
     background: #1C252F;
     color: var(--color-white);
 }
@@ -32814,8 +32807,8 @@ html[dir="rtl"] .edu-course.course-style-7 .content .course-meta li:last-child {
 }
 
 html[dir="rtl"] .course-area-8 .edu-course.course-style-4::after {
-    background: -webkit-linear-gradient(left, #31b978 0%, #1ab69d 100%);
-    background: linear-gradient(-270deg, #31b978 0%, #1ab69d 100%);
+    background: -webkit-linear-gradient(left, #31b978 0%, #47499a 100%);
+    background: linear-gradient(-270deg, #31b978 0%, #47499a 100%);
 }
 
 html[dir="rtl"] .course-area-8 .course-style-4 .thumbnail .time-top {

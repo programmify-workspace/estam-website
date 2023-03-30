@@ -69,7 +69,7 @@ button {
             content: "";
             height: 100%;
             width: 0;
-            background: linear-gradient(-90deg, #31b978 0%, #1ab69d 100%); 
+            background: linear-gradient(-90deg, #31b978 0%, #47499a 100%); 
             border-radius: 5px;
             position: absolute; 
             top: 0;
@@ -186,9 +186,9 @@ button {
     }
 }
 .btn-gradient {
-    background:linear-gradient(-90deg, #31b978 0%, #1ab69d 100%) !important;
+    background:linear-gradient(-90deg, #31b978 0%, #47499a 100%) !important;
     &::after {
-        background: linear-gradient(-90deg, #1ab69d 0%, #31b978 100%) !important; 
+        background: linear-gradient(-90deg, #47499a 0%, #31b978 100%) !important; 
     }
 }
 .wishlist-btn {
