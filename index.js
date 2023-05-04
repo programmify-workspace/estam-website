@@ -38,12 +38,76 @@ app.get('/about', (req, res) => {
   })
 })
 
-// Contact Page route
+// Gallery Page route
 app.get('/gallery', (req, res) => {
   res.render('gallery', {
     title: "Gallery", 
     name: "Our Gallery"
   })
+})
+
+// Career Services route
+app.get('/career-services', (req, res) => {
+  res.render('career-services', {
+    title: "Career", 
+    name: "Career Service"
+  }) 
+})
+
+// Contact Us route
+app.get('/contact-us', (req, res) => {
+  res.render('contact-us', {
+    title: "Contact", 
+    name: "Contact Us"
+  }) 
+})
+
+// Faq route
+app.get('/faq', (req, res) => {
+  res.render('faq', {
+    title: "Faq", 
+    name: "Faq"
+  }) 
+})
+
+// News and Events Us route
+app.get('/news-and-events', (req, res) => {
+  res.render('news-and-events', {
+    title: "News And Events", 
+    name: "News And Event"
+  }) 
+})
+
+// post-graduate route
+app.get('/post-graduate', (req, res) => {
+  res.render('post-graduate', {
+    title: "Post Graduate", 
+    name: "Post Graduate"
+  }) 
+})
+
+// Research route
+app.get('/research', (req, res) => {
+  res.render('research', {
+    title: "Research", 
+    name: "Research"
+  }) 
+})
+
+// Scholarships route
+app.get('/scholarships', (req, res) => {
+  res.render('scholarships', {
+    title: "Scholarships", 
+    name: "Scholarships"
+  }) 
+})
+
+// Student Resources route
+app.get('/student-resources', (req, res) => {
+  res.render('student-resources', {
+    title: "Student Resourcess", 
+    name: "Student Resources"
+  }) 
 })
 
 // Handle 404 errors
