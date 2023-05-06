@@ -73,8 +73,8 @@ app.get('/course-details', (req, res) => {
 // Faculties Page route
 app.get('/faculties', (req, res) => {
   res.render('faculties', {
-    title: "Course Details", 
-    name: "Course Details"
+    title: "Faculties", 
+    name: "Faculties"
   })
 })
 
@@ -97,16 +97,16 @@ app.get('/campus-life', (req, res) => {
 // Apply Page route
 app.get('/apply', (req, res) => {
   res.render('apply', {
-    title: "Campus Life", 
-    name: "Campus Life"
+    title: "Apply", 
+    name: "Apply"
   })
 })
 
 // Alumni Page route
 app.get('/alumni', (req, res) => {
   res.render('alumni', {
-    title: "News and Events", 
-    name: "News and Events"
+    title: "Alumni", 
+    name: "Alumni"
   })
 })
 

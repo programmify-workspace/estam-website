@@ -37,39 +37,39 @@
                                 <p>Fill out this form for booking a consultant advising session.</p>
                             </div>
                             <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="mail.php"><br>
-                                <legend style="color: black; font-style: italic; font-weight: 500";>Personal information</legend>
+                                <legend style="color: #000a38; font-style: italic; font-weight: 500";>Personal information</legend>
                                 <div class="row row--10">
                                     <div class="form-group col-12">
-                                        <input type="text" name="contact-name" id="contact-name" placeholder="Enter your name">
+                                        <input type="text" name="contact-name" id="contact-name" placeholder="Enter your name" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="text" name="dob" id="dob" placeholder="Date of birth dd/mm/yyyy">
+                                        <input type="text" name="dob" id="dob" placeholder="Date of birth dd/mm/yyyy" required>
                                     </div>
                                     <label for="gender"><br> Gender:</label>
-                                    <select name="gender" id="gender">
+                                    <select name="gender" id="gender" required>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="non-binary">Non-binary</option>
                                         <option value="prefer-not-to-say">Prefer not to say</option>
                                     </select>
                                     <div class="form-group col-12">
-                                        <input type="email" name="contact-email" id="contact-email" placeholder="Enter your email">
+                                        <input type="email" name="contact-email" id="contact-email" placeholder="Enter your email" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="tel" name="contact-phone" id="contact-phone" placeholder="Phone number">
+                                        <input type="tel" name="contact-phone" id="contact-phone" placeholder="Phone number" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <textarea name="contact-message" id="contact-message" cols="30" rows="3" placeholder="Enter your address"></textarea>
+                                        <textarea name="contact-message" id="contact-message" cols="30" rows="3" placeholder="Enter your address" required></textarea>
                                     </div>
-                                    <legend style="color: black; font-style: italic; font-weight: 500";><br> Educational Background</legend>
+                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";><br> Educational Background</legend>
                                     <div class="form-group col-12">
-                                        <input type="text" name="secondary-school-name" id="secondary-school-name" placeholder="Secondary school name">
+                                        <input type="text" name="secondary-school-name" id="secondary-school-name" placeholder="Secondary school name" required>
                                     </div>
                                     <label for="document"><br> Upload your Secondary School Certificate:</label>
-                                        <input type="file" id="document" name="document">
-                                    <legend style="color: black; font-style: italic; font-weight: 500";>Program Information</legend>
+                                        <input type="file" id="document" name="document" required>
+                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";>Program Information</legend>
                                     <label for="program-of-interest"><br> Program of Interest</label>
-                                    <select id="program-of-interest" name="program-of-interest">
+                                    <select id="program-of-interest" name="program-of-interest" required>
                                         <option value="">--Select--</option>
                                         <option value="Computer Science">Computer Science</option>
                                         <option value="Mechanical Engineering">Mechanical Engineering</option>
@@ -78,19 +78,19 @@
                                         <option value="Psychology">Psychology</option>
                                     </select>
                                     <div class="form-group col-12">
-                                        <input type="text" name="start-date" id="start-date" placeholder="Intended start date">
+                                        <input type="text" name="start-date" id="start-date" placeholder="Intended start date" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="text" name="campus-location" id="campus-location" placeholder="Campus Location">
+                                        <input type="text" name="campus-location" id="campus-location" placeholder="Campus Location" required>
                                     </div>
                                     <label for="degree"><br> Degree Type</label>
-                                    <select name="degree" id="degree">
+                                    <select name="degree" id="degree" required>
                                         <option value="bachelor">Bachelor's degree</option>
                                         <option value="masters">Master's degree</option>
                                     </select>
-                                    <legend style="color: black; font-style: italic; font-weight: 500";><br> Additional Information <br></legend>
+                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";><br> Additional Information <br></legend>
                                     <div class="form-group col-12">
-                                        <textarea name="activities" id="activities" cols="30" rows="3" placeholder="Extracurricular Activities, Hobbies, or Interests"></textarea>
+                                        <textarea name="activities" id="activities" cols="30" rows="3" placeholder="Extracurricular Activities, Hobbies, or Interests" required></textarea>
                                     </div>
 
                                     <div class="form-group col-12">
@@ -107,6 +107,7 @@
                 </div>
             </div>
         </section>
+        
         <!--=====================================-->
         <!--=      Google Map Area Start        =-->
         <!--=====================================-->
