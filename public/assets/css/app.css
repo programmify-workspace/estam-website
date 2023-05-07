@@ -8365,6 +8365,8 @@ body.sal-disabled [data-sal|='flip'] {
     box-shadow: var(--shadow-darker);
     background-color: var(--color-white);
     border-radius: 5px;
+    margin-left: unset !important;
+    width: unset !important;
     margin-bottom: -80px;
     position: relative;
 }
