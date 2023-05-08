@@ -40,3 +40,7 @@ Please feel free to contribute to this project. You can fork the project, make c
 ## Contact
 
 If you have any questions or concerns, don't hesitate to reach out to your team lead or project manager. Let's work together to build a great website for ESTAM University.
+
+<code>
+  -- For any registration on behalf of programmify? kindly use <b>team@programmify.org</b>
+</code>
