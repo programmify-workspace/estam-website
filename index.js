@@ -38,11 +38,75 @@ app.get('/about', (req, res) => {
   })
 })
 
-// Contact Page route
+// Gallery Page route
 app.get('/gallery', (req, res) => {
   res.render('gallery', {
     title: "Gallery", 
     name: "Our Gallery"
+  })
+})
+
+// Contact Page route
+app.get('/contact-us', (req, res) => {
+  res.render('contact-us', {
+    title: "Contact Us", 
+    name: "Contact Us"
+  })
+})
+
+// Admissions Page route
+app.get('/admissions', (req, res) => {
+  res.render('admissions', {
+    title: "Admissions", 
+    name: "Admissions"
+  })
+})
+
+// Course details Page route
+app.get('/course-details', (req, res) => {
+  res.render('course-details', {
+    title: "Course Details", 
+    name: "Course Details"
+  })
+})
+
+// Faculties Page route
+app.get('/faculties', (req, res) => {
+  res.render('faculties', {
+    title: "Faculties", 
+    name: "Faculties"
+  })
+})
+
+// Blog Page route
+app.get('/blog', (req, res) => {
+  res.render('blog', {
+    title: "Blog", 
+    name: "Blog"
+  })
+})
+
+// Campus Life Page route
+app.get('/campus-life', (req, res) => {
+  res.render('campus-life', {
+    title: "Campus Life", 
+    name: "Campus Life"
+  })
+})
+
+// Apply Page route
+app.get('/apply', (req, res) => {
+  res.render('apply', {
+    title: "Apply", 
+    name: "Apply"
+  })
+})
+
+// Alumni Page route
+app.get('/alumni', (req, res) => {
+  res.render('alumni', {
+    title: "Alumni", 
+    name: "Alumni"
   })
 })
 

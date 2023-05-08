@@ -204,6 +204,22 @@
         padding: 80px 0 0;
     }
 }
+// @media only screen and (max-width: 479px){
+//     .contact-form.form-style-2 {
+//     padding: 40px;
+//     width: 100px;
+//     }
+// }
+.contact-form.form-style-2 {
+    @media #{$md-layout} {
+        padding: 100px 0 0;
+        width: 100px;
+    }
+    @media #{$sm-layout} {
+        padding: 80px 0 0;
+        width: 100px;
+    }
+}
 
 .google-map-area {
     #gmap_canvas {
