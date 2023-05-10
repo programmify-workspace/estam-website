@@ -167,6 +167,12 @@ STYLESHEET INDEXING
  *  Shortcode
 =================================*/
 /*--------------------------------------*/
+.center{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
 .container-custom,
 .container-custom-1520 {
     width: 100%;
@@ -251,7 +257,8 @@ STYLESHEET INDEXING
 }
 
 .bg-image--19 {
-    background-image: url(../images/bg/bg-image-19.webp);
+    /* background-image: url(../images/bg/bg-image-19.webp); */
+    background-image: url(https://www.neh.gov/sites/default/files/2018-06/openbooks.jpg);
 }
 
 .bg-image--21 {
