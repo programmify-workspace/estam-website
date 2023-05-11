@@ -173,6 +173,12 @@ STYLESHEET INDEXING
     justify-content: center;
     text-align: center;
 }
+
+.right{
+    display:flex;
+    justify-content: right
+}
+
 .container-custom,
 .container-custom-1520 {
     width: 100%;

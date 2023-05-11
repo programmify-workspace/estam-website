@@ -71,10 +71,34 @@ app.get('/course-details', (req, res) => {
 })
 
 // Faculties Page route
-app.get('/faculties', (req, res) => {
-  res.render('faculties', {
-    title: "Faculties", 
-    name: "Faculties"
+// app.get('/faculties', (req, res) => {
+//   res.render('faculties', {
+//     title: "Faculties", 
+//     name: "Faculties"
+//   })
+// })
+
+// Faculty of social and management science
+app.get('/faculty-of-social-and-management-science', (req, res) => {
+  res.render('faculty-of-social-and-management-science', {
+    title: "Faculty of Social and Management Science", 
+    name: "Faculty of Social and Management Science"
+  })
+})
+
+// Faculty of applied science
+app.get('/faculty-of-applied-science', (req, res) => {
+  res.render('faculty-of-applied-science', {
+    title: "Faculty of Applied Science", 
+    name: "Faculty of Applied Science"
+  })
+})
+
+// Faculty of engineering
+app.get('/faculty-of-engineering', (req, res) => {
+  res.render('faculty-of-engineering', {
+    title: "Faculty of Engineering", 
+    name: "Faculty of Engineering"
   })
 })
 
