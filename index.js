@@ -158,6 +158,14 @@ app.get('/students-fellowship', (req, res) => {
   })
 });
 
+// Faq Page route
+app.get('/faq', (req, res) => {
+  res.render('faq', {
+    title: "FAQ", 
+    name: "FAQ"
+  })
+})
+
 // Handle 404 errors
 app.use((req, res, next) => {
   res.status(404).render('404', { title: 'Page Not Found' });
