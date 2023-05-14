@@ -108,7 +108,55 @@ app.get('/alumni', (req, res) => {
     title: "Alumni", 
     name: "Alumni"
   })
-})
+});
+
+// Excursion page route
+app.get('/excursion', (req, res) => {
+  res.render('excursion', {
+    title: "Excursion", 
+    name: "Excursion"
+  })
+});
+
+// Craft week page route
+app.get('/craft-week', (req, res) => {
+  res.render('craft-week', {
+    title: "Craft Week", 
+    name: "Craft Week"
+  })
+});
+
+// Christmas Carols page route
+app.get('/christmas-carols', (req, res) => {
+  res.render('christmas-carols', {
+    title: "Christmas Carols", 
+    name: "Christmas Carols"
+  })
+});
+
+// Students week page route
+app.get('/students-week', (req, res) => {
+  res.render('students-week', {
+    title: "Students' Week", 
+    name: "Students' Week"
+  })
+});
+
+// Football Matches page route
+app.get('/football-matches', (req, res) => {
+  res.render('football-matches', {
+    title: "Football Matches", 
+    name: "Football Matches"
+  })
+});
+
+// Students Fellowship page route
+app.get('/students-fellowship', (req, res) => {
+  res.render('students-fellowship', {
+    title: "Students Fellowship", 
+    name: "Students Fellowship"
+  })
+});
 
 // Handle 404 errors
 app.use((req, res, next) => {

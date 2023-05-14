@@ -1,13 +1,62 @@
 {{>header}}
+
+    <!--=====================================-->
+        <!--=       Breadcrumb Area Start      =-->
+        <!--=====================================-->
+
+
+        <div class="edu-breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-inner">
+                    <div class="page-title">
+                        <h1 class="title">Apply</h1>
+                    </div>
+                    <ul class="edu-breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-one.html">Home</a></li>
+                        <li class="separator"><i class="icon-angle-right"></i></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="separator"><i class="icon-angle-right"></i></li>
+                        <li class="breadcrumb-item active" aria-current="page">Apply</li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="shape-group">
+                <li class="shape-1">
+                    <span></span>
+                </li>
+                <li class="shape-2 scene"><img data-depth="2" src="assets/images/about/shape-13.png" alt="shape"></li>
+                <li class="shape-3 scene"><img data-depth="-2" src="assets/images/about/shape-15.png" alt="shape"></li>
+                <li class="shape-4">
+                    <span></span>
+                </li>
+                <li class="shape-5 scene"><img data-depth="2" src="assets/images/about/shape-07.png" alt="shape"></li>
+            </ul>
+        </div>
+
         <!--=====================================-->
         <!--=       Contact Me Area Start       =-->
         <!--=====================================-->
+
         <section class="contact-us-area">
             <div class="container">
                 <div class="row g-5">
                     <div class="col-xl-4 col-lg-6">
                         <div class="contact-us-info">
                             <h3 class="heading-title">ESTAM UNIVERSITY (SEGBEYA CAMPUS) ONLINE APPLICATION</h3>
+                                <div>
+                                    <h4>GENERAL ENTRY REQUIREMENTS</h4>
+                                    <h6>
+                                        All applicants to Ecole Superieure Des Technologies Avancees et de Management degree programmes must have Credit-level passes in five relevant subjects at the O'level.
+                                    </h6>
+
+                                    <br>
+
+                                    <h4>DIRECT ENTRY REQUIREMENTS</h4>
+                                    <h6>
+                                        In addition to the O'level requirements states above, the university admits into 200 level undergraduates programmes via Direct Entry for candidates with A/L passes at its equivalents in the required subjects, or National Diploma(ND), Higher National Diploma(HND), and National Certificate of Education(NCE).
+                                    </h6>
+                                </div>
+                                <br>
                             <ul class="address-list">
                                 <li>
                                     <h5 class="title">Address</h5>
@@ -125,79 +174,156 @@
                         </div>
                     </div>
                     <div class="offset-xl-2 col-lg-6">
-                        <div class="contact-form form-style-2" style="width: 1000px; justify-content: center; align-items: center; margin-left: -110px; ">
+                        <div class="contact-form form-style-2" style="width: 1000px; justify-content: center; align-items: center;">
                             <div class="section-title">
                                 <h4 class="title">Apply NOW!</h4>
                                 <p>PLEASE COMPLETE THE FORM CAREFULLY AND CORRECTLY AS EVERY INFORMATION ENTERED WILL BE VERIFIED ACCORDINGLY.</p>
                             </div>
-                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="mail.php"><br>
-                                <legend style="color: #000a38; font-style: italic; font-weight: 500";>Personal information</legend>
+                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" action="https://formspree.io/f/mvonykwa" method="POST">
+                            <br>
+                                <legend>Personal information</legend>
                                 <div class="row row--10">
                                     <div class="form-group col-12">
-                                        <input type="text" name="contact-name" id="contact-name" placeholder="Enter your name" required>
+                                        <input type="text" name="Name" id="name" placeholder="Enter your full name" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="text" name="dob" id="dob" placeholder="Date of birth dd/mm/yyyy" required>
+                                        <label for="dob"><br> Date Of Birth</label>
+                                        <input type="date" name="Date Of Birth" id="dob" required style="border: 0 0 1px 0 solid;">
                                     </div>
                                     <label for="gender"><br> Gender:</label>
-                                    <select name="gender" id="gender" required>
+                                    <select name="Gender" id="gender" required>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
-                                        <option value="non-binary">Non-binary</option>
-                                        <option value="prefer-not-to-say">Prefer not to say</option>
                                     </select>
                                     <div class="form-group col-12">
-                                        <input type="email" name="contact-email" id="contact-email" placeholder="Enter your email" required>
+                                        <input type="email" name="E-mail" id="email" placeholder="Enter your email" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="tel" name="contact-phone" id="contact-phone" placeholder="Phone number" required>
+                                        <input type="tel" name="Phone" id="phone" placeholder="Phone number" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <textarea name="address" id="address" cols="30" rows="3" placeholder="Enter your address" required></textarea>
+                                        <textarea name="address" id="Address" cols="30" rows="3" placeholder="Enter your address" required></textarea>
                                     </div>
-                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";><br> Educational Background</legend>
                                     <div class="form-group col-12">
-                                        <input type="text" name="secondary-school-name" id="secondary-school-name" placeholder="Secondary school name" required>
+                                    <label for="degree"><br> Next of Kin Details</label>
+                                    <input type="text" name="Next of Kin's name" id="nok-name" placeholder="Name" required>
+                                    <textarea name="Next of Kin's Address" id="nok-address" cols="30" rows="3" placeholder="Address" required></textarea>
+                                    <input type="email" name="Next of Kin's E-mail" id="nok-email" placeholder="E-mail" required>
+                                    <input type="text" name="Relationship with Next Of Kin" id="nok-relationship" placeholder="Relationship" required>
+                                    </div>
+                                    <legend><br> <br> Educational Background</legend>
+                                    <div class="form-group col-12">
+                                        <input type="text" name="Secondary School name" id="ss-name" placeholder="Secondary school name" required>
                                     </div>
                                     <label for="document"><br> Upload Credentials: WAEC RESULT, LGA IDENTIFICATION, BIRTH CERTIFICATE/AGE DECLARATION</label>
-                                        <input type="file" id="document" name="document" required>
+                                    <input type="file" id="doc1" name="Certificates" required>
                                     <label for="document">Upload Passport Photograph</label>
-                                        <input type="file" id="document" name="document" required>
-                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";>Program Information</legend>
-                                    <label for="program-of-interest"><br> Course of Study</label>
-                                    <select id="program-of-interest" name="program-of-interest" required>
+                                    <input type="file" id="doc2" name="Passport Photograph" required>
+                                    <legend><br> Program Information</legend>
+                                    <label for="course">Course of Study</label>
+                                    <select id="course" name="Course of Study" required>
                                         <option value="">--Select--</option>
-                                        <option value="computer-science">Computer Science</option>
-                                        <option value="accounting">Accounting</option>
-                                        <option value="mass-comm">Mass Communication</option>
-                                        <option value="business-admin">Business Administration</option>
-                                        <option value="international-relations">International Relations</option>
-                                        <option value="economics">Economics</option>
+                                        <option value="Accounting">Accounting</option>
+                                        <option value="Banking and Finance">Banking and Finance</option>
+                                        <option value="Business Administration">Business Administration</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Computer Engineering">Computer Engineering</option>
+                                        <option value="Economics">Economics</option>
+                                        <option value="Environmental Science">Environmental Science</option>
+                                        <option value="Human Resource Management">Human Resource Management</option>
+                                        <option value="International Relations">International Relations</option>
+                                        <option value="Management Information Technology">Management Information Technology</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Mass Communication">Mass Communication</option>
+                                        <option value="Political Science">Political Science</option>
+                                        <option value="Public Administration">Public Administration</option>
+                                        <option value="Sociology">Sociology</option>
+                                        <option value="Transport and Logistics Management">Transport and Logistics Management</option>
                                     </select>
                                     <div class="form-group col-12">
-                                        <input type="text" name="start-date" id="start-date" placeholder="Intended start date" required>
+                                        <input type="text" name="Intended start date" id="start-date" placeholder="Intended start date" required>
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="text" name="campus-location" id="campus-location" placeholder="Campus Location" required>
+                                        <input type="text" name="Campus Location" id="campus-location" placeholder="Campus Location" required>
                                     </div>
                                     <label for="degree"><br> Degree Type</label>
-                                    <select name="degree" id="degree" required>
-                                        <option value="bachelor">Bachelor's degree</option>
-                                        <option value="masters">Master's degree</option>
+                                    <select name="Degree Type" id="degree" required>
+                                        <option value="Bachelor's degree">Bachelor's degree</option>
+                                        <option value="Master's degree">Master's degree</option>
                                     </select>
-                                    <legend style="color: #000a38; font-style: italic; font-weight: 500";><br> Additional Information <br></legend>
+                                    <label for="degree"><br> If Bachelor's Degree, what level?</label>
+                                    <select name="If Bachaelor's Degree, what level?" id="degree">
+                                        <option value="">--Select--</option>
+                                        <option value="100L">100L</option>
+                                        <option value="200L">200L</option>
+                                        <option value="300L">300L</option>
+                                    </select>
+                                    <legend><br><br> Additional Information <br></legend>
                                     <div class="form-group col-12">
-                                        <textarea name="activities" id="activities" cols="30" rows="3" placeholder="Extracurricular Activities, Hobbies, or Interests" required></textarea>
+                                        <textarea name="Extracurricular Activities, Hobbies or Interests" id="activities" cols="30" rows="3" placeholder="Extracurricular Activities, Hobbies or Interests" required></textarea>
                                     </div>
                                     <div class="form-group col-12">
-                                        <textarea name="intro" id="intro" cols="30" rows="2" placeholder="Who introduced you to ESTAM University, Segbeya Campus?" required></textarea>
+                                        <textarea name="Who introduced you to ESTAM University, Segbeya Campus?" id="intro" cols="30" rows="2" placeholder="Who introduced you to ESTAM University, Segbeya Campus?" required></textarea>
                                     </div>
 
                                     <div class="form-group col-12">
-                                        <button class="rn-btn edu-btn btn-medium submit-btn" name="submit" type="submit">Apply <i class="icon-4"></i></button>
+                                        <button class="rn-btn edu-btn btn-medium submit-btn" name="submit" type="submit" id="submit" style="width: 100%;">Apply <i class="icon-4"></i></button>
                                     </div>
                                 </div>
                             </form>
+
+                            <style>
+                                #contact-form legend{
+                                    color: #000a38; 
+                                    font-style: italic; 
+                                    font-weight: 500;
+                                }
+                            </style>
+
+                            {{!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                            <script type="text/javascript">emailjs.init('V7_-Wg8MX_4xGVKrp')</script>  
+
+                            <script>
+                                const btn = document.getElementById('button');
+                                const form = document.getElementById('contact-form');
+
+                                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                                event.preventDefault();
+
+                                btn.value = 'Sending...';
+
+                                emailjs.sendForm('service_sza2ajx', 'template_rvdh5ab', form)
+                                    .then(() => {
+                                    btn.value = 'Apply';
+                                    alert('Sent!');
+                                    }, (err) => {
+                                    btn.value = 'Apply';
+                                    alert(JSON.stringify(err));
+                                     });
+                                });
+
+                            </script>
+
+                            <script>
+                                const express = require('express');
+                                const bodyParser = require('body-parser');
+
+                                const app = express();
+                                const port = 3000;
+
+                                // Increase the maximum size limit to 100 MB
+                                app.use(bodyParser.json({ limit: '100mb' }));
+                                app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+
+                                // Rest of your server-side code goes here...
+
+                                app.listen(port, () => {
+                                console.log(`Server running on port ${port}`);
+                                });
+
+
+                            </script> --}}
+
                             <ul class="shape-group">
                                 <li class="shape-1 scene"><img data-depth="1" src="assets/images/about/shape-13.png" alt="Shape"></li>
                                 <li class="shape-2 scene"><img data-depth="-1" src="assets/images/counterup/shape-02.png" alt="Shape"></li>
