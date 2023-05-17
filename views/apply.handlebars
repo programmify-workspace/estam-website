@@ -179,7 +179,7 @@
                                 <h4 class="title">Apply NOW!</h4>
                                 <p>PLEASE COMPLETE THE FORM CAREFULLY AND CORRECTLY AS EVERY INFORMATION ENTERED WILL BE VERIFIED ACCORDINGLY.</p>
                             </div>
-                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" action="https://formspree.io/f/mvonykwa" method="POST">
+                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" action="" method="POST">
                             <br>
                                 <legend>Personal information</legend>
                                 <div class="row row--10">
@@ -215,10 +215,10 @@
                                     <div class="form-group col-12">
                                         <input type="text" name="Secondary School name" id="ss-name" placeholder="Secondary school name" required>
                                     </div>
-                                    <label for="document"><br> Upload Credentials: WAEC RESULT, LGA IDENTIFICATION, BIRTH CERTIFICATE/AGE DECLARATION</label>
-                                    <input type="file" id="doc1" name="Certificates" required>
-                                    <label for="document">Upload Passport Photograph</label>
-                                    <input type="file" id="doc2" name="Passport Photograph" required>
+                                    <label for="doc1"><br> Upload Credentials: WAEC RESULT, LGA IDENTIFICATION, BIRTH CERTIFICATE/AGE DECLARATION</label>
+                                    <input type="file" id="doc1" name="Certificates" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                                    <label for="doc2" >Upload Passport Photograph</label>
+                                    <input type="file" id="doc2" name="Passport Photograph" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
                                     <legend><br> Program Information</legend>
                                     <label for="course">Course of Study</label>
                                     <select id="course" name="Course of Study" required>
@@ -280,49 +280,120 @@
                                 }
                             </style>
 
-                            {{!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-                            <script type="text/javascript">emailjs.init('V7_-Wg8MX_4xGVKrp')</script>  
+                            {{!-- <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBDo3NhkLRywLhbtz5KVQJZaw2oy0mB4yE",
+    authDomain: "estam-form.firebaseapp.com",
+    projectId: "estam-form",
+    storageBucket: "estam-form.appspot.com",
+    messagingSenderId: "339389850168",
+    appId: "1:339389850168:web:fa9e247f24dd3b8ccb7ccd",
+    measurementId: "G-BHJLS6NP3G"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+<script>
+// Get a reference to the Firebase Realtime Database
+var database = firebase.database();
+
+// Get a reference to the form element
+var form = document.getElementById("contact-form");
+
+// Add a submit event listener to the form
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the form data
+  var formData = new FormData(form);
+
+  // Convert the form data to JSON
+  var jsonData = {};
+  formData.forEach(function(value, key) {
+    jsonData[key] = value;
+  });
+
+  // Save the form data to the database
+  database.ref("formSubmissions").push(jsonData)
+    .then(function() {
+      // Reset the form after successful submission
+      form.reset();
+      alert("Form submitted successfully!");
+    })
+    .catch(function(error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred while submitting the form. Please try again later.");
+    });
+});
+</script> --}}
+
+                            
+                            {{!-- enctype="multipart/form-data" --}}
+                            <!-- SweetAlert -->
+                            {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+                            <!-- jQuery -->
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
                             <script>
-                                const btn = document.getElementById('button');
-                                const form = document.getElementById('contact-form');
+                            $(document).ready(function () {
+                                // Attach a submit event listener to the form
+                                $("#contact-form").submit(function (event) {
+                                event.preventDefault(); // Prevent the form from submitting normally
 
-                                document.getElementById('contact-form').addEventListener('submit', function(event) {
-                                event.preventDefault();
+                                // Create a new FormData object
+                                var formData = new FormData(this);
 
-                                btn.value = 'Sending...';
+                                // Iterate over the file input fields and append the files to the FormData object
+                                var fileInputs = document.querySelectorAll('input[type="file"]');
+                                for (var i = 0; i < fileInputs.length; i++) {
+                                    var input = fileInputs[i];
+                                    var fieldName = input.getAttribute('name');
+                                    var files = input.files;
 
-                                emailjs.sendForm('service_sza2ajx', 'template_rvdh5ab', form)
-                                    .then(() => {
-                                    btn.value = 'Apply';
-                                    alert('Sent!');
-                                    }, (err) => {
-                                    btn.value = 'Apply';
-                                    alert(JSON.stringify(err));
-                                     });
+                                    // Append each file to the FormData object using the field name
+                                    for (var j = 0; j < files.length; j++) {
+                                    formData.append(fieldName + "[" + j + "]", files[j]);
+                                    }
+                                }
+
+                                // Submit the form using AJAX
+                                $.ajax({
+                                    url: "https://formsubmit.co/ajax/rachaelfavour2005@gmail.com",
+                                    method: "POST",
+                                    data: formData,
+                                    dataType: "json",
+                                    contentType: false, // Set content type to false for proper file upload
+                                    processData: false, // Prevent jQuery from processing the data
+                                    success: function (response) {
+                                    // Show SweetAlert success message
+                                    Swal.fire("Success!", "Form submitted successfully!", "success");
+                                    // Reset the form
+                                    $("#contact-form")[0].reset();
+                                    },
+                                    error: function (xhr, status, error) {
+                                    // Show SweetAlert error message
+                                    Swal.fire("Error!", "An error occurred while submitting the form.", "error");
+                                    }
                                 });
-
-                            </script>
-
-                            <script>
-                                const express = require('express');
-                                const bodyParser = require('body-parser');
-
-                                const app = express();
-                                const port = 3000;
-
-                                // Increase the maximum size limit to 100 MB
-                                app.use(bodyParser.json({ limit: '100mb' }));
-                                app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
-
-                                // Rest of your server-side code goes here...
-
-                                app.listen(port, () => {
-                                console.log(`Server running on port ${port}`);
                                 });
-
-
+                            });
                             </script> --}}
+
+
+
 
                             <ul class="shape-group">
                                 <li class="shape-1 scene"><img data-depth="1" src="assets/images/about/shape-13.png" alt="Shape"></li>
