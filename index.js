@@ -314,8 +314,8 @@ app.get('/computer-engineering', (req, res) => {
 // Master's in Computer Networks and Security Course Details Page route
 app.get('/msc-computer-networks-and-security', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Computer Networks and Security Program", 
-    name: "Msc. Computer Networks and Security Program",
+    title: "MSc. Computer Networks and Security Program", 
+    name: "MSc. Computer Networks and Security Program",
     description1: "The Master's in Computer Networks and Security program at ESTAM University provides students with in-depth knowledge and practical skills in the areas of computer networks, network security, and data protection. The program is designed to meet the growing demand for professionals who can address the complex challenges of network security and ensure the smooth operation of computer networks.",
     description2: "A Master's in Computer Networks and Security from ESTAM University opens up diverse career opportunities in technology companies, cybersecurity firms, government agencies, research institutions, and more. Graduates may pursue roles such as network security engineer, network administrator, cybersecurity analyst, network consultant, or pursue further research or doctoral studies in computer networks and security.",
     highlight1: "Advanced Networking Concepts: Our program covers advanced networking concepts, including network architectures, protocols, performance analysis, and network management. Students gain a deep understanding of network design principles and the ability to optimize network performance.",
@@ -328,8 +328,8 @@ app.get('/msc-computer-networks-and-security', (req, res) => {
 // Msc. Human Resource Management Course Details Page route
 app.get('/msc-human-resource-management', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Human Resource Management", 
-    name: "Msc. Human Resource Management",
+    title: "MSc. Human Resource Management", 
+    name: "MSc. Human Resource Management",
     description1: "The Master's in Human Resource Management program at ESTAM University provides students with comprehensive knowledge and practical skills in various areas of human resource management, including talent acquisition, employee development, performance management, compensation and benefits, and organizational effectiveness. The program is designed to prepare students to become strategic HR leaders who can effectively contribute to the success of organizations.",
     description2: "A Master's in Human Resource Management from ESTAM University opens up diverse career opportunities in various sectors, including corporate organizations, consulting firms, nonprofit organizations, government agencies, and more. Graduates may pursue roles such as HR manager, talent acquisition specialist, training and development manager, compensation and benefits analyst, or pursue leadership positions in HR departments.",
     highlight1: "Strategic Human Resource Management: Our program focuses on the strategic aspects of human resource management. Students learn how to align HR practices with organizational goals, develop workforce planning strategies, design effective talent management programs, and implement change management initiatives. They gain the skills to create a high-performance work culture and enhance organizational effectiveness.",
@@ -343,8 +343,8 @@ app.get('/msc-human-resource-management', (req, res) => {
 // Msc Economics Course Details Page route
 app.get('/msc-economics', (req, res) => {
   res.render('course-details', {
-    title: "Msc Economics", 
-    name: "Msc Economics",
+    title: "MSc Economics", 
+    name: "MSc Economics",
     description1: "The Master's in Economics program at ESTAM University provides students with a strong foundation in economic theory, quantitative methods, and applied economics. The program is designed to develop students' analytical and critical thinking abilities, equipping them with the tools and knowledge needed to tackle complex economic issues and contribute to the development of sound economic policies.",
     description2: "A Master's in Economics from ESTAM University opens up diverse career opportunities in various sectors, including government agencies, research institutions, international organizations, financial institutions, consulting firms, and more. Graduates may pursue roles such as economists, policy analysts, research analysts, data analysts, or pursue further research or doctoral studies in economics.",
     highlight1: "Economic Theory and Analysis: Our program focuses on economic theory and analysis, providing students with a deep understanding of microeconomics, macroeconomics, and econometrics. Students learn advanced economic models, theories of market behavior, and tools for economic analysis. They gain the ability to analyze economic phenomena, evaluate policy implications, and make informed decisions based on economic principles.",
@@ -357,8 +357,8 @@ app.get('/msc-economics', (req, res) => {
 // Msc. Communication and Media Studies Course Details Page route
 app.get('/msc-communication-and-media-studies', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Communication and Media Studies", 
-    name: "Msc. Communication and Media Studies",
+    title: "MSc. Communication and Media Studies", 
+    name: "MSc. Communication and Media Studies",
     description1: "The Master's in Communication and Media Studies program at ESTAM University provides students with a comprehensive understanding of communication theories, media technologies, media industries, and the societal impact of media. The program is designed to develop students' critical thinking, research, and practical skills, equipping them to navigate the complex and ever-changing media landscape.",
     description2: "A Master's in Communication and Media Studies from ESTAM University opens up diverse career opportunities in various sectors, including media organizations, advertising agencies, public relations firms, digital media companies, nonprofit organizations, and more. Graduates may pursue roles such as communication specialists, media analysts, public relations managers, content strategists, or pursue further research or doctoral studies in communication and media studies.",
     highlight1: "Communication Theories and Analysis: Our program explores the foundations of communication theories and their application to various media contexts. Students learn about theories of mass communication, interpersonal communication, persuasion, media effects, and cultural studies. They gain the ability to analyze media messages, interpret communication phenomena, and critically evaluate media content.",
@@ -372,8 +372,8 @@ app.get('/msc-communication-and-media-studies', (req, res) => {
 // Msc. Diplomacy and International Affairs Course Details Page route
 app.get('/msc-diplomacy-and-international-affairs', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Diplomacy and International Affairs", 
-    name: "Msc. Diplomacy and International Affairs",
+    title: "MSc. Diplomacy and International Affairs", 
+    name: "MSc. Diplomacy and International Affairs",
     description1: "The Master's in Diplomacy and International Affairs program at ESTAM University provides students with a comprehensive understanding of the theories, practices, and challenges of international relations. The program is designed to develop students' analytical, diplomatic, and negotiation skills, preparing them for careers in diplomacy, international organizations, government agencies, and non-governmental organizations.",
     description2: "A Master's in Diplomacy and International Affairs from ESTAM University opens up diverse career opportunities in various sectors, including diplomatic services, international organizations, government agencies, non-profit organizations, think tanks, and consulting firms. Graduates may pursue roles such as diplomats, policy analysts, international consultants, foreign affairs officers, or pursue further research or doctoral studies in international relations.",
     highlight1: "International Relations Theory: Our program explores the major theories and frameworks in international relations, including realism, liberalism, constructivism, and critical theories. Students gain a deep understanding of the dynamics of the international system, global governance, and the role of diplomacy in shaping international outcomes.",
@@ -387,8 +387,8 @@ app.get('/msc-diplomacy-and-international-affairs', (req, res) => {
 // Msc. Accounting and Auditing Course Details Page route
 app.get('/msc-accounting-and-auditing', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Accounting and Auditing", 
-    name: "Msc. Accounting and Auditing",
+    title: "MSc. Accounting and Auditing", 
+    name: "MSc. Accounting and Auditing",
     description1: "The Master's in Accounting and Auditing program at ESTAM University provides students with a comprehensive understanding of financial accounting, managerial accounting, auditing, and related areas. The program is designed to develop students' technical proficiency, critical thinking abilities, and ethical awareness, preparing them for careers in accounting firms, corporations, government agencies, and other professional settings.",
     description2: "A Master's in Accounting and Auditing from ESTAM University opens up diverse career opportunities in various sectors, including accounting firms, corporations, government agencies, financial institutions, and regulatory bodies. Graduates may pursue roles such as auditors, financial analysts, management accountants or tax consultants.",
     highlight1: "Financial Reporting and Analysis: Our program focuses on financial reporting standards, financial statement analysis, and the interpretation of financial information. Students learn about Generally Accepted Accounting Principles and International Financial Reporting Standards. They gain the skills to analyze financial statements, evaluate the financial performance of organizations, and communicate financial information effectively.",
@@ -402,8 +402,8 @@ app.get('/msc-accounting-and-auditing', (req, res) => {
 // Msc. Public and Local Government Administration Course Details Page route
 app.get('/msc-public-and-local-government-administration', (req, res) => {
   res.render('course-details', {
-    title: "Msc. Public and Local Government Administration", 
-    name: "Msc. Public and Local Government Administration",
+    title: "MSc. Public and Local Government Administration", 
+    name: "MSc. Public and Local Government Administration",
     description1: "The Master's in Public and Local Government Administration program at ESTAM University provides students with a comprehensive understanding of public administration, policy analysis, and local government management. The program is designed to develop students' analytical, managerial, and leadership skills, preparing them for careers in public administration, government agencies, nonprofit organizations, and other public sector settings.",
     description2: "A Master's in Public and Local Government Administration from ESTAM University opens up diverse career opportunities in various sectors, including government agencies, local municipalities, nonprofit organizations, international organizations, and consulting firms. Graduates may pursue roles such as public administrators, policy analysts, program managers, city managers, or pursue further research or doctoral studies in public administration.",
     highlight1: "Public Administration and Policy Analysis: Our program explores the theories and practices of public administration, public policy development, and implementation. Students gain insights into the functions of public organizations, policy formulation processes, and the role of public administrators in promoting effective governance. They develop skills in policy analysis, program evaluation, and evidence-based decision-making.",
