@@ -167,6 +167,11 @@ STYLESHEET INDEXING
  *  Shortcode
 =================================*/
 /*--------------------------------------*/
+.side-by-side{
+    display:flex;
+    flex-direction: row;
+}
+
 .center{
     display:flex;
     flex-direction: column;
@@ -11788,9 +11793,9 @@ body .tpd-size-medium .tpd-content {
     margin-right: 8px;
 }
 
-.course-curriculam .course-lesson ul li:hover {
+/* .course-curriculam .course-lesson ul li:hover {
     color: var(--color-primary);
-}
+} */
 
 .course-curriculam .course-lesson .badge-list {
     margin: -3px;
