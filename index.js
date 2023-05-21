@@ -62,6 +62,14 @@ app.get('/admissions', (req, res) => {
   })
 })
 
+// Student-resource Page route
+app.get('/student-resource', (req, res) => {
+  res.render('student-resource', {
+    title: "Student Resource", 
+    name: "Student Resource"
+  })
+})
+
 //Mass Communication Course Details Page route
 app.get('/mass-communication', (req, res) => {
   res.render('course-details', {
