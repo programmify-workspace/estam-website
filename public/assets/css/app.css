@@ -7814,6 +7814,22 @@ body.sal-disabled [data-sal|='flip'] {
     background-color: #47499a;
 }
 
+.spect{
+    width: calc(100vw - 200px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.fex{
+    color: rgb(196, 9, 9);
+}
+
+.fex:hover{
+    color: rgb(153, 0, 0);
+}
+
 .categorie-grid.color-primary-style:hover .icon,
       .categorie-grid.color-primary-style:hover .course-remain {
     background-color: rgba(255, 255, 255, 0.15);
@@ -13334,6 +13350,9 @@ body .tpd-size-medium .tpd-content {
 @media only screen and (max-width: 767px) {
     .faq-style-3 .edu-faq-gallery .shape-group {
         display: none;
+    }
+    .spect{
+        flex-direction: column;
     }
 }
 
