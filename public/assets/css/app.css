@@ -7826,6 +7826,13 @@ body.sal-disabled [data-sal|='flip'] {
     color: rgb(196, 9, 9);
 }
 
+.btna{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: calc(100vw - 200px);;
+}
+
 .fex:hover{
     color: rgb(153, 0, 0);
 }
@@ -13353,6 +13360,7 @@ body .tpd-size-medium .tpd-content {
     }
     .spect{
         flex-direction: column;
+        width: calc(100vw - 50px);
     }
 }
 
@@ -13737,6 +13745,15 @@ body .tpd-size-medium .tpd-content {
         -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
         justify-content: flex-start;
+    }
+    .spect{
+        flex-direction: column;
+        width: calc(100vw - 20px);
+    }
+    .btna{
+        width: calc(100vw - 20px);
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
