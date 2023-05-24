@@ -30508,6 +30508,8 @@ body.dark-mode {
     display: none;
 }
 
+
+
 .dark-mode .pv-inner-page-area {
     background: var(--dark-bg-color);
 }
