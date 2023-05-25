@@ -576,6 +576,22 @@ app.get('/career-services', (req, res) => {
   })
 });
 
+// Scholarships page route
+app.get('/scholarships', (req, res) => {
+  res.render('scholarships', {
+    title: "Scholarships", 
+    name: "Scholarships"
+  })
+});
+
+// Research page route
+app.get('/research', (req, res) => {
+  res.render('research', {
+    title: "Research", 
+    name: "Research"
+  })
+});
+
 // Handle 404 errors
 app.use((req, res, next) => {
   res.status(404).render('404', { title: 'Page Not Found' });
