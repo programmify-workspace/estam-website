@@ -603,7 +603,6 @@ app.use((err, req, res, next) => {
   res.status(500).render('500', { title: 'Server Error' });
 });
 
-const server = app.listen(PORT, () => {
-  const { address, port } = server.address();
-  console.log(`Server listening on http://${address}:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
 });
