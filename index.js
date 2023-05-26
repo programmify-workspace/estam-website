@@ -62,11 +62,11 @@ app.get('/admissions', (req, res) => {
   })
 })
 
-// Student-resource Page route
-app.get('/student-resource', (req, res) => {
-  res.render('student-resource', {
-    title: "Student Resource", 
-    name: "Student Resource"
+// accomodation Page route
+app.get('/accomodation', (req, res) => {
+  res.render('accomodation', {
+    title: "Accomodation", 
+    name: "Accomodation"
   })
 })
 
