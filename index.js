@@ -62,11 +62,11 @@ app.get('/admissions', (req, res) => {
   })
 })
 
-// Student-resource Page route
-app.get('/student-resource', (req, res) => {
-  res.render('student-resource', {
-    title: "Student Resource", 
-    name: "Student Resource"
+// accomodation Page route
+app.get('/accomodation', (req, res) => {
+  res.render('accomodation', {
+    title: "Accomodation", 
+    name: "Accomodation"
   })
 })
 
@@ -603,7 +603,6 @@ app.use((err, req, res, next) => {
   res.status(500).render('500', { title: 'Server Error' });
 });
 
-const server = app.listen(PORT, () => {
-  const { address, port } = server.address();
-  console.log(`Server listening on http://${address}:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
 });
