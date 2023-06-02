@@ -3808,6 +3808,12 @@ a.edu-btn.btn-round:hover,
     margin: 5px;
 }
 
+.thumbnail .course-img {
+    height: 250px; 
+    max-width:100%; 
+    object-fit:cover;
+}
+
 .btn-gradient {
     background: -webkit-linear-gradient(right, #f56262 0%, #47499a 100%) !important;
     background: linear-gradient(-90deg, #f56262 0%, #47499a 100%) !important;
