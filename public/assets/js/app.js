@@ -30,7 +30,6 @@
             eduJs.svgVivusAnimation();
             eduJs.widgetToggle();
             eduJs.ToolTip();
-            eduJs.contactForm();
             eduJs.sitePreloader();
             eduJs.countdownInit('.countdown', '2023/12/30');
             eduJs.countdownInit('.coming-countdown', '2023/12/30');
