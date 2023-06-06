@@ -177,7 +177,7 @@
                                 <h4 class="title">Apply NOW!</h4>
                                 <p>PLEASE COMPLETE THE FORM CAREFULLY AND CORRECTLY AS EVERY INFORMATION ENTERED WILL BE VERIFIED ACCORDINGLY.</p>
                             </div>
-                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="https://getform.io/f/381596eb-c2f9-456c-9962-2237cf5a9da3" enctype="multipart/form-data">
+                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="https://getform.io/f/6d47ce74-6347-4df5-aa6b-e2e2924bb5b8" enctype="multipart/form-data">
                             <br>
                                 <legend>Personal information</legend>
                                 <div class="row row--10">
@@ -214,9 +214,10 @@
                                         <input type="text" name="Secondary School name" id="ss-name" placeholder="Secondary school name" required>
                                     </div>
                                     <label for="doc1"><br> Upload Credentials: WAEC RESULT, LGA IDENTIFICATION, BIRTH CERTIFICATE/AGE DECLARATION</label>
-                                    <input type="file" id="doc1" name="Certificates" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                                    <input type="file" id="doc1" name="Certificate1" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                                    <input type="file" id="doc2" name="Certificate2" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
                                     <label for="doc2" >Upload Passport Photograph</label>
-                                    <input type="file" id="doc2" name="Passport Photograph" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                                    <input type="file" id="doc3" name="Passport Photograph" required accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
                                     <legend><br> Program Information</legend>
                                     <label for="course">Course of Study</label>
                                     <select id="course" name="Course of Study" required>
@@ -283,7 +284,7 @@
                                         button.disabled = true;
                                         button.innerHTML = 'Loading...';
 
-                                        fetch('https://getform.io/f/381596eb-c2f9-456c-9962-2237cf5a9da3', {
+                                        fetch('https://getform.io/f/6d47ce74-6347-4df5-aa6b-e2e2924bb5b8', {
                                             method: 'POST',
                                             body: formData
                                         })

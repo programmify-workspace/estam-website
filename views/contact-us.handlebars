@@ -69,7 +69,7 @@
                                 <p>Reach Out to Us for Any Inquiries, Feedback or Assistance <br>
                                     We're Here to Help You Navigate Your Educational Journey and Provide the Support You Need!</p>
                             </div>
-                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="mail.php">
+                            <form class="rnt-contact-form rwt-dynamic-form" id="contact-form" method="POST" action="https://formsubmit.co/info@estamuni.net">
                                 <div class="row row--10">
                                     <div class="form-group col-12">
                                         <input type="text" name="Contact-name" id="contact-name" placeholder="Your name" required>
@@ -84,13 +84,150 @@
                                         <textarea name="Contact-message" id="contact-message" cols="30" rows="4" placeholder="Your message" required></textarea>
                                     </div>
                                     <div class="form-group col-12">
-                                        <button class="rn-btn edu-btn btn-medium submit-btn" type="button" style="font-style: italic;" onclick="submitForm(this)">Submit Message <i class="icon-4"></i></button>
+                                        <button class="rn-btn edu-btn btn-medium submit-btn" type="submit" id="submit" name="submit" style="font-style: italic;" onclick="submitForm(event)">Submit Message <i class="icon-4"></i></button>
                                     </div>
                                 </div>
                             </form>
 
-                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-                            <script>
+                           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+                           <script>
+                            function submitForm(button) {
+                                var formElement = document.getElementById('contact-form');
+
+                                // Check if the form is valid
+                                if (formElement.checkValidity()) {
+                                var formData = new FormData(formElement);
+
+                                // Disable the button and change the text to "Loading"
+                                button.disabled = true;
+                                button.innerHTML = 'Loading...';
+
+                                fetch('https://formsubmit.co/info@estamuni.net', {
+                                    method: 'POST',
+                                    body: formData
+                                    })
+                                    .then(function(response) {
+                                    // Handle the response here if needed
+                                    console.log(response);
+
+                                    // Display SweetAlert confirmation message
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Form Submitted',
+                                        text: 'Your form has been submitted successfully!',
+                                        confirmButtonText: 'OK'
+                                    });
+
+                                    // Reset the form after successful submission
+                                    formElement.reset();
+
+                                    // Enable the button and change the text back to "Submit Message"
+                                    button.disabled = false;
+                                    button.innerHTML = 'Submit Message';
+                                    })
+                                    .catch(function(error) {
+                                    // Handle any errors here
+                                    console.error(error);
+
+                                    // Display SweetAlert error message
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Oops...',
+                                        text: 'Something went wrong!',
+                                        confirmButtonText: 'OK'
+                                    });
+
+                                    // Enable the button and change the text back to "Submit Message"
+                                    button.disabled = false;
+                                    button.innerHTML = 'Submit Message';
+                                    });
+                                } else {
+                                // If the form is not valid, display an error message or handle it as desired
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Validation Error',
+                                    text: 'Please fill in all required fields.',
+                                    confirmButtonText: 'OK'
+                                });
+                                }
+                            }
+
+                            const contactForm = document.querySelector("#contact-form");
+                            contactForm.addEventListener("submit", function(event) {
+                                event.preventDefault();
+                                submitForm(event.target.querySelector("button"));
+                            });
+                            </script>
+
+                           {{!-- <script>
+                            async function submitForm(button) {
+  event.preventDefault();
+
+  const fullNameInput = document.getElementById("contact-name");
+  const emailAddressInput = document.getElementById("contact-email");
+  const messageInput = document.getElementById("contact-message");
+  const fullName = fullNameInput.value.trim();
+  const emailAddress = emailAddressInput.value.trim();
+  const message = messageInput.value.trim();
+
+  // Validate inputs
+  if (!fullName || !emailAddress || !message) {
+    Swal.fire({
+      icon: "error",
+      text: "Please fill in all required details",
+    });
+    return;
+  }
+
+  const formData = {
+    "Contact-name": fullName,
+    "Contact-email": emailAddress,
+    "Contact-message": message
+  };
+
+  const endpoint = "https://info@estamuni.net/submit";
+
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  };
+
+  try {
+    const response = await fetch(endpoint, requestOptions);
+    const data = await response.json();
+
+    if (data.success) {
+      Swal.fire({
+        icon: "success",
+        text: "Your form has been submitted successfully!",
+      });
+      fullNameInput.value = "";
+      emailAddressInput.value = "";
+      messageInput.value = ""
+    } else {
+      throw new Error("Form submission failed.");
+    }
+    }
+    catch (error) {
+        Swal.fire({
+        icon: "error",
+        text: "An error occurred. Please try again later.",
+        });
+    console.log(error);
+  }
+}
+
+const contactForm = document.querySelector("#contact-form");
+contactForm.addEventListener("submit", submitForm);
+
+                           </script> --}}
+
+
+                            {{!-- <script>
                                 function submitForm(button) {
                                     var formElement = document.getElementById('contact-form');
 
@@ -100,9 +237,9 @@
 
                                         // Disable the button and change the text to "Loading"
                                         button.disabled = true;
-                                        button.innerHTML = 'Submitting Message...';
+                                        button.innerHTML = 'Loading...';
 
-                                        fetch('https://getform.io/f/381596eb-c2f9-456c-9962-2237cf5a9da3', {
+                                        fetch('"https://formsubmit.co/info@estamuni.net', {
                                             method: 'POST',
                                             body: formData
                                         })
@@ -121,9 +258,9 @@
                                         // Reset the form after successful submission
                                         formElement.reset();
 
-                                        // Enable the button and change the text back to "Submit Message"
+                                        // Enable the button and change the text back to "Apply"
                                         button.disabled = false;
-                                        button.innerHTML = 'Submit Message <i class="icon-4"></i>';
+                                        button.innerHTML = 'Submit Message';
                                         })
                                         .catch(function(error) {
                                         // Handle any errors here
@@ -137,9 +274,9 @@
                                             confirmButtonText: 'OK'
                                         });
 
-                                        // Enable the button and change the text back to "Submit Message"
+                                        // Enable the button and change the text back to "Apply"
                                         button.disabled = false;
-                                        button.innerHTML = 'Submit Message <i class="icon-4"></i>';
+                                        button.innerHTML = 'Submit Message';
                                         });
                                     } 
                                     else {
@@ -152,7 +289,8 @@
                                     });
                                     }
                                 }
-                            </script>
+                            </script> --}}
+
 
                             <ul class="shape-group">
                                 <li class="shape-1 scene"><img data-depth="1" src="assets/images/about/shape-13.png" alt="Shape"></li>
