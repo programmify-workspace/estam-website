@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer')
-const dotenv = require('dotenv')
+// const dotenv = require('dotenv')
 
 // Initialize your handlebar engine
 const engine = exphbs.engine;
@@ -12,7 +12,7 @@ const engine = exphbs.engine;
 const app = express();
 
 // Call env config method
-dotenv.config()
+// dotenv.config()
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
