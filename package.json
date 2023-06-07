@@ -15,8 +15,10 @@
   "author": "Programmify Team",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
-    "express-handlebars": "^7.0.7"
+    "express-handlebars": "^7.0.7",
+    "nodemailer": "^6.9.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
