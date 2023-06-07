@@ -2,6 +2,8 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer')
+const dotenv = require('dotenv')
 
 // Initialize your handlebar engine
 const engine = exphbs.engine;
@@ -9,8 +11,12 @@ const engine = exphbs.engine;
 // Initialize your express app
 const app = express();
 
-// Set your port to listen to enviroment port or 3000
-const PORT = process.env.PORT || 3000;
+// Call env config method
+dotenv.config()
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Set up Handlebars as the view engine
 app.engine('handlebars', engine());
@@ -20,20 +26,545 @@ app.set('views', './views');
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Create a transporter using SMTP configuration for Zoho
+let transporter;
+
+if (process.env.NODE_ENV === 'production') {
+  transporter = nodemailer.createTransport({
+    host: process.env.ZOHO_ADMIN_HOST,
+    port: process.env.ZOHO_PROD_PORT,
+    secure: true,
+    auth: {
+      user: process.env.ZOHO_ADMIN_EMAIL,
+      pass: process.env.ZOHO_ADMIN_PASS
+    }
+  });
+} else {
+  // Development environment configuration
+  transporter = nodemailer.createTransport({
+    host: process.env.ZOHO_ADMIN_HOST,
+    port: process.env.ZOHO_DEV_PORT,
+    secure: false,
+    auth: {
+      user: process.env.ZOHO_ADMIN_EMAIL,
+      pass: process.env.ZOHO_ADMIN_PASS
+    }
+  });
+}
+
+
+const imgURL = 'https://estamuni.net/public/assets/images/logo/logo-dark.png'
+
+// Configure Form Submission endpoints
+app.post('/submit-research', (req, res) => {
+  const { name, email, title, abstract, discipline } = req.body
+
+  // Send email to admin
+  const mailOptions = {
+    from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: process.env.ZOHO_ADMIN_EMAIL,
+    subject: 'New Research Proposal from ' + name,
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>Research Proposal by ${name}</h2>
+          <h3>Details of Research Proposal</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Title of Research Proposal:</strong> <br> ${title}</p>
+          <p><strong>Abstract:</strong> <br> ${abstract}</p>
+          <p><strong>Relevant Discipline or Department:</strong> <br> ${discipline}</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).render('500', { title: 'Server Error' });
+      console.error('Error sending email:', error);
+
+    } else {
+      console.log('Email sent:', info.response);
+      res.json({ message: 'Form submitted successfully' });
+    }
+  });
+
+  // Send email to user 
+
+  // Define the email content
+  const emailContent = {
+    from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: email,
+    subject: 'Thank You for Your Submission',
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>Thank You for Your Submission</h2>
+          <p>Dear ${name},</p>
+          <p>This is to acknowledge that we have received your research proposal. 
+          We greatly appreciate your interest in our research publications.</p>
+          <p>We will respond to you as soon as possible.</p>
+
+          <p>Best Regards,
+  
+          <br><br>ESTAM University
+          <br> 148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa
+          <br>Cotonou, Benin Republic</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send the email
+  transporter.sendMail(emailContent, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Email sent successfully:', info.response);
+    }
+  });
+});
+
+
+app.post('/submit-career', (req, res) => {
+  const { name, email, phone, message } = req.body
+
+  // send email to career services' email
+  const mailOptions = {
+    from: `Career Services ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
+    to: process.env.ZOHO_CAREER_SERVICES_EMAIL,
+    subject: 'New Career Services Request from ' + name,
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>Career Service Request from ${name}</h2>
+          <h3>Sender's Details:</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone Number:</strong> ${phone}</p>
+          <p><strong>Message:</strong> <br> ${message}</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).render('500', { title: 'Server Error' });
+      console.error('Error sending email:', error);
+
+    } else {
+      console.log('Email sent:', info.response);
+      res.json({ message: 'Form submitted successfully' });
+    }
+  });
+
+  // Send email to user 
+
+  // Define the email content
+  const emailContent = {
+    from: `ESTAM University ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
+    to: email,
+    subject: 'Thank You for Your Message',
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>Thank You for Your Message</h2>
+          <p>Dear ${name},</p>
+          <p>This is to acknowledge that we have received your message. 
+          We greatly appreciate your interest in our career services.</p>
+          <p>Our dedicated career services team is reviewing your message, and one of our career counselors will contact you shortly to provide assistance and guidance.</p>
+          <p>We understand the importance of your career goals, and we assure you that we will make every effort to respond to your inquiry promptly.</p>
+          <p>Thank you for reaching out to us. Your trust in our services is valued.</p>
+
+          <p>Best Regards,
+  
+          <br><br>ESTAM University
+          <br> 148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa
+          <br>Cotonou, Benin Republic</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send the email
+  transporter.sendMail(emailContent, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Email sent successfully:', info.response);
+    }
+  });
+
+
+});
+
+app.post('/submit-contact', (req, res) => {
+  const { name, email, phone, message } = req.body
+
+  // Send email to admin
+  const mailOptions = {
+    from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: process.env.ZOHO_CONTACT_US_EMAIL,
+    subject: 'New Message From Contact Page',
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>You have been contacted by ${name}</h2>
+          <h3>Sender's Details:</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone Number:</strong> ${phone}</p>
+          <p><strong>Message:</strong> <br> ${message}</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).render('500', { title: 'Server Error' });
+      console.error('Error sending email:', error);
+
+    } else {
+      console.log('Email sent:', info.response);
+      res.json({ message: 'Form submitted successfully' });
+    }
+  });
+
+  // Send email to user 
+
+  // Define the email content
+  const emailContent = {
+    from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: email,
+    subject: 'Thank You for Your Submission',
+    html: `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+      <style>
+        /* Add your styles here */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          padding: 20px;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 4px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logo img {
+          max-width: 200px;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #999999;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="${imgURL}" alt="Logo">
+        </div>
+        <div class="content">
+          <h2>Thank You for Your Submission</h2>
+          <p>Dear ${name},</p>
+          <p>This is to acknowledge that we have recieved your message</p>
+          <p>We will respond to you as soon as possible.</p>
+          <p>Regards,
+  
+          <br><br>ESTAM University
+          <br> 148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa
+          <br>Cotonou, Benin Republic</p>
+        </div>
+        <div class="footer">
+          &copy; 2023 <a href="https://estamuni.net">ESTAM University</a>. All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+    `
+  };
+
+  // Send the email
+  transporter.sendMail(emailContent, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Email sent successfully:', info.response);
+    }
+  });
+
+
+});
+
+
+
+
 // Define pages routes
 
 // Home Page route
 app.get('/', (req, res) => {
-    res.render('home', {
-      title: "Home",
-      name: "Home"
-    });
+  res.render('home', {
+    title: "Home",
+    name: "Home"
+  });
 });
 
 // About Page route
 app.get('/about', (req, res) => {
   res.render('about', {
-    title:"About", 
+    title: "About",
     name: "About Us"
   })
 })
@@ -41,7 +572,7 @@ app.get('/about', (req, res) => {
 // Gallery Page route
 app.get('/gallery', (req, res) => {
   res.render('gallery', {
-    title: "Gallery", 
+    title: "Gallery",
     name: "Our Gallery"
   })
 })
@@ -49,7 +580,7 @@ app.get('/gallery', (req, res) => {
 // Contact Page route
 app.get('/contact-us', (req, res) => {
   res.render('contact-us', {
-    title: "Contact Us", 
+    title: "Contact Us",
     name: "Contact Us"
   })
 })
@@ -57,7 +588,7 @@ app.get('/contact-us', (req, res) => {
 // Admissions Page route
 app.get('/admissions', (req, res) => {
   res.render('admissions', {
-    title: "Admissions", 
+    title: "Admissions",
     name: "Admissions"
   })
 })
@@ -65,7 +596,7 @@ app.get('/admissions', (req, res) => {
 // accomodation Page route
 app.get('/accomodation', (req, res) => {
   res.render('accomodation', {
-    title: "Accomodation", 
+    title: "Accomodation",
     name: "Accomodation"
   })
 })
@@ -73,7 +604,7 @@ app.get('/accomodation', (req, res) => {
 //Mass Communication Course Details Page route
 app.get('/mass-communication', (req, res) => {
   res.render('course-details', {
-    title: "Mass Communication", 
+    title: "Mass Communication",
     name: "Mass Communication",
     description1: "The Bachelor of Science in Mass Communication program at ESTAM University offers a comprehensive and interdisciplinary curriculum that combines theoretical foundations with hands-on practical experiences. Our program is designed to equip students with the necessary skills and knowledge to excel in various fields within mass communication, such as journalism, public relations, advertising, broadcasting, digital media, and media management.",
     description2: "A Bachelor of Science in Mass Communication from ESTAM University opens up a range of exciting career opportunities. Graduates may pursue roles such as journalists, news anchors, public relations specialists, advertising executives, social media managers, content creators, media researchers, or media consultants. The versatile skills acquired during the program prepare students for success in both traditional and digital media environments.",
@@ -88,7 +619,7 @@ app.get('/mass-communication', (req, res) => {
 //Economics Course Details Page route
 app.get('/economics', (req, res) => {
   res.render('course-details', {
-    title: "Economics", 
+    title: "Economics",
     name: "Economics",
     description1: "The Bachelor of Science in Economics program at ESTAM University offers a comprehensive curriculum that provides students with a strong foundation in economic theory, quantitative analysis, and applied research methods. Our program is designed to develop analytical thinking, problem-solving skills, and a deep understanding of economic principles that drive decision-making at various levels.",
     description2: "A Bachelor of Science in Economics from ESTAM University opens up a wide range of career opportunities in both the public and private sectors. Graduates may pursue roles such as economic analysts, policy researchers, data analysts, financial analysts, consultants, or pursue further education in economics or related fields.",
@@ -103,7 +634,7 @@ app.get('/economics', (req, res) => {
 //Political Science Course Details Page route
 app.get('/political-science', (req, res) => {
   res.render('course-details', {
-    title: "Political Science", 
+    title: "Political Science",
     name: "Political Science",
     description1: "The Bachelor of Science in Political Science program at ESTAM University offers a comprehensive curriculum that provides students with a deep understanding of political systems, institutions, ideologies, and public policies. Our program equips students with the analytical tools, research skills, and theoretical knowledge necessary to critically analyze political dynamics at local, national, and global levels.",
     description2: "A Bachelor of Science in Political Science from ESTAM University prepares graduates for diverse career paths. Graduates may pursue careers in government, policy analysis, international organizations, non-profit organizations, advocacy groups, journalism, research institutions, or pursue further education in political science, law, public administration, or related fields.",
@@ -118,7 +649,7 @@ app.get('/political-science', (req, res) => {
 //Public Administration Course Details Page route
 app.get('/public-administration', (req, res) => {
   res.render('course-details', {
-    title: "Public Administration", 
+    title: "Public Administration",
     name: "Public Administration",
     description1: "The Bachelor of Science in Public Administration program at ESTAM University offers a comprehensive curriculum that explores the theories, practices, and challenges of public administration. Our program equips students with the knowledge, skills, and leadership qualities needed to navigate the complexities of public governance, policy-making, and organizational management.",
     description2: "A Bachelor of Science in Public Administration from ESTAM University opens up a range of career opportunities in public service, government agencies, nonprofit organizations, and international development. Graduates may pursue roles such as policy analysts, program managers, public administrators, city planners, public affairs officers, or pursue further education in public administration, public policy, or related fields.",
@@ -133,7 +664,7 @@ app.get('/public-administration', (req, res) => {
 //International Relations Course Details Page route
 app.get('/international-relations', (req, res) => {
   res.render('course-details', {
-    title: "International Relations", 
+    title: "International Relations",
     name: "International Relations",
     description1: "The Bachelor of Science in International Relations program at ESTAM University offers a comprehensive curriculum that explores the complexities of global politics, diplomacy, international law, and global security. Our program equips students with the analytical tools, cultural awareness, and diplomatic skills necessary to navigate the complex and interconnected world of international relations.",
     description2: "A Bachelor of Science in International Relations from ESTAM University opens up a range of career opportunities in diplomacy, government, international organizations, non-profit organizations, think tanks, journalism, and research institutions. Graduates may pursue roles such as diplomats, policy analysts, international development specialists, foreign service officers, or pursue further education in international relations, law, or related fields.",
@@ -147,7 +678,7 @@ app.get('/international-relations', (req, res) => {
 //Sociology Course Details Page route
 app.get('/sociology', (req, res) => {
   res.render('course-details', {
-    title: "Sociology", 
+    title: "Sociology",
     name: "Sociology",
     description1: "The Bachelor of Science in Sociology program at ESTAM University offers a comprehensive curriculum that examines social structures, social interactions, and social phenomena. Our program equips students with the theoretical knowledge, research skills, and analytical tools to critically analyze social issues, advocate for change, and contribute to the betterment of society.",
     description2: "A Bachelor of Science in Sociology from ESTAM University opens up diverse career opportunities in research, social services, non-profit organizations, community development, human resources, advocacy, and policy analysis. Graduates may pursue roles such as research analysts, community organizers, social researchers, policy analysts, or pursue further education in sociology, social work, or related fields.",
@@ -162,7 +693,7 @@ app.get('/sociology', (req, res) => {
 //Business Administration Course Details Page route
 app.get('/business-administration', (req, res) => {
   res.render('course-details', {
-    title: "Business Administration", 
+    title: "Business Administration",
     name: "Business Administration",
     description1: "The Bachelor of Science in Business Administration program at ESTAM University offers a comprehensive curriculum that covers various aspects of business management, entrepreneurship, marketing, finance, and organizational behavior. Our program equips students with a solid understanding of business fundamentals, strategic thinking, and effective leadership skills.",
     description2: "A Bachelor of Science in Business Administration from ESTAM University opens up a wide range of career opportunities in various industries, including finance, marketing, consulting, entrepreneurship, human resources, and operations management. Graduates may pursue roles such as business analysts, marketing managers, financial analysts, project managers, or pursue further education in business, management, or related fields.",
@@ -177,7 +708,7 @@ app.get('/business-administration', (req, res) => {
 //Accounting Course Details Page route
 app.get('/accounting', (req, res) => {
   res.render('course-details', {
-    title: "Accounting", 
+    title: "Accounting",
     name: "Accounting",
     description1: "The Bachelor of Science in Accounting program at ESTAM University offers a comprehensive curriculum that covers various aspects of financial accounting, managerial accounting, auditing, taxation, and business law. Our program equips students with a strong foundation in accounting principles, analytical skills, and professional competencies.",
     description2: "A Bachelor of Science in Accounting from ESTAM University opens up diverse career opportunities in accounting firms, corporations, government agencies, non-profit organizations, and consulting firms. Graduates may pursue roles such as accountants, auditors, tax specialists, financial analysts, or pursue further professional certifications",
@@ -192,7 +723,7 @@ app.get('/accounting', (req, res) => {
 //Marketing Course Details Page route
 app.get('/marketing', (req, res) => {
   res.render('course-details', {
-    title: "Marketing", 
+    title: "Marketing",
     name: "Marketing",
     description1: "The Bachelor of Science in Marketing program at ESTAM University offers a comprehensive curriculum that covers various aspects of marketing strategy, consumer behavior, branding, digital marketing, and market research. Our program equips students with the knowledge, skills, and practical experience to thrive in the dynamic and competitive field of marketing",
     description2: "A Bachelor of Science in Marketing from ESTAM University opens up diverse career opportunities in advertising, brand management, market research, digital marketing, sales, and public relations. Graduates may pursue roles such as marketing managers, brand strategists, market researchers, digital marketing specialists, or pursue further education in marketing, business administration, or related fields.",
@@ -206,7 +737,7 @@ app.get('/marketing', (req, res) => {
 //Banking and Finance Course Details Page route
 app.get('/banking-and-finance', (req, res) => {
   res.render('course-details', {
-    title: "Banking and Finance", 
+    title: "Banking and Finance",
     name: "Banking and Finance",
     description1: "The Bachelor of Science in Banking and Finance program at ESTAM University offers a comprehensive curriculum that covers various aspects of banking operations, financial management, investment analysis, risk management, and regulatory frameworks. Our program equips students with a solid understanding of financial concepts, analytical skills, and prepares them for diverse roles in the banking and finance sector.",
     description2: "A Bachelor of Science in Banking and Finance from ESTAM University opens up diverse career opportunities in commercial banks, investment firms, financial planning firms, insurance companies, and regulatory agencies. Graduates may pursue roles such as financial analysts, investment bankers, credit analysts, risk managers, or pursue further education in finance, economics, or related fields.",
@@ -221,7 +752,7 @@ app.get('/banking-and-finance', (req, res) => {
 //Transport and Logistics Management Course Details Page route
 app.get('/transport-and-logistics-management', (req, res) => {
   res.render('course-details', {
-    title: "Transport and Logistics Management", 
+    title: "Transport and Logistics Management",
     name: "Transport and Logistics Management",
     description1: "The Bachelor of Science in Transport and Logistics Management program at ESTAM University offers a comprehensive curriculum that covers various aspects of transportation systems, supply chain management, logistics operations, and strategic planning. Our program equips students with the knowledge, skills, and practical experience to excel in the dynamic field of transport and logistics management.",
     description2: "A Bachelor of Science in Transport and Logistics Management from ESTAM University opens up diverse career opportunities in logistics companies, transportation firms, supply chain management departments, e-commerce companies, and consulting firms. Graduates may pursue roles such as logistics managers, supply chain analysts, transportation planners, warehouse managers, or pursue further education in logistics, operations management, or related fields.",
@@ -236,7 +767,7 @@ app.get('/transport-and-logistics-management', (req, res) => {
 //Human Resources Management Course Details Page route
 app.get('/human-resources-management', (req, res) => {
   res.render('course-details', {
-    title: "Human Resources Management", 
+    title: "Human Resources Management",
     name: "Human Resources Management",
     description1: "The Bachelor of Science in Human Resources Management program at ESTAM University offers a comprehensive curriculum that covers various aspects of HR management, including recruitment and selection, employee training and development, performance management, compensation and benefits, labor relations, and strategic HR planning. Our program equips students with the knowledge, skills, and competencies necessary to excel in the dynamic field of human resources.",
     description2: "A Bachelor of Science in Human Resources Management from ESTAM University opens up diverse career opportunities in HR departments of corporations, consulting firms, government agencies, non-profit organizations, and more. Graduates may pursue roles such as HR specialists, recruitment managers, training and development coordinators, compensation and benefits analysts, or pursue further education in HR management, organizational psychology, or related fields.",
@@ -255,7 +786,7 @@ app.get('/human-resources-management', (req, res) => {
 //Computer Science Course Details Page route
 app.get('/computer-science', (req, res) => {
   res.render('course-details', {
-    title: "Computer Science", 
+    title: "Computer Science",
     name: "Computer Science",
     description1: "The Bachelor of Science in Computer Science program at ESTAM University offers a comprehensive curriculum that covers various aspects of computer science, including programming, algorithms, data structures, software development, computer networks, databases, artificial intelligence, and cybersecurity. Our program equips students with the knowledge, skills, and practical experience to thrive in the rapidly evolving field of computer science.",
     description2: "A Bachelor of Science in Computer Science from ESTAM University opens up diverse career opportunities in technology companies, software development firms, IT consulting, research organizations, and more. Graduates may pursue roles such as software engineers, web developers, data analysts, network administrators, cybersecurity specialists, or pursue further education in computer science, artificial intelligence, or related fields.",
@@ -270,7 +801,7 @@ app.get('/computer-science', (req, res) => {
 // Environmental Science Course Details Page route
 app.get('/environmental-science', (req, res) => {
   res.render('course-details', {
-    title: " Environmental Science", 
+    title: " Environmental Science",
     name: " Environmental Science",
     description1: "The Bachelor of Science in Environmental Science program at ESTAM University offers a comprehensive curriculum that covers various aspects of environmental science, including ecology, environmental policy, conservation, natural resource management, environmental impact assessment, and sustainability. Our program equips students with the knowledge, skills, and practical experience to address complex environmental challenges.",
     description2: "A Bachelor of Science in Environmental Science from ESTAM University opens up diverse career opportunities in environmental consulting firms, government agencies, research institutions, non-profit organizations, and more. Graduates may pursue roles such as environmental scientists, environmental consultants, sustainability coordinators, conservation officers, or pursue further education in environmental science, environmental policy, or related fields.",
@@ -285,7 +816,7 @@ app.get('/environmental-science', (req, res) => {
 //Mangement Information Technology Course Details Page route
 app.get('/mangement-information-technology', (req, res) => {
   res.render('course-details', {
-    title: "Mangement Information Technology", 
+    title: "Mangement Information Technology",
     name: "Mangement Information Technology",
     description1: "The Bachelor of Science in Management Information Technology program at ESTAM University offers a comprehensive curriculum that covers various aspects of management and information technology, including systems analysis and design, database management, programming, project management, cybersecurity, and business intelligence. Our program equips students with the knowledge, skills, and practical experience to excel in the rapidly evolving field of IT management.",
     description2: "",
@@ -302,7 +833,7 @@ app.get('/mangement-information-technology', (req, res) => {
 //Computer Engineering Course Details Page route
 app.get('/computer-engineering', (req, res) => {
   res.render('course-details', {
-    title: "Computer Engineering", 
+    title: "Computer Engineering",
     name: "Computer Engineering",
     description1: "The Bachelor of Science in Computer Engineering program at ESTAM University offers a comprehensive curriculum that covers various aspects of computer engineering, including digital systems, computer architecture, programming, electronics, embedded systems, network engineering, and software engineering. Our program equips students with the knowledge, skills, and practical experience to excel in the dynamic field of computer engineering.",
     description2: "A Bachelor of Science in Computer Engineering from ESTAM University opens up diverse career opportunities in technology companies, semiconductor firms, telecommunications companies, research institutions, and more. Graduates may pursue roles such as computer engineers, software developers, embedded systems engineers, network engineers, or pursue further education in computer engineering, electronics, or related fields.",
@@ -322,7 +853,7 @@ app.get('/computer-engineering', (req, res) => {
 // Master's in Computer Networks and Security Course Details Page route
 app.get('/msc-computer-networks-and-security', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Computer Networks and Security Program", 
+    title: "MSc. Computer Networks and Security Program",
     name: "MSc. Computer Networks and Security Program",
     description1: "The Master's in Computer Networks and Security program at ESTAM University provides students with in-depth knowledge and practical skills in the areas of computer networks, network security, and data protection. The program is designed to meet the growing demand for professionals who can address the complex challenges of network security and ensure the smooth operation of computer networks.",
     description2: "A Master's in Computer Networks and Security from ESTAM University opens up diverse career opportunities in technology companies, cybersecurity firms, government agencies, research institutions, and more. Graduates may pursue roles such as network security engineer, network administrator, cybersecurity analyst, network consultant, or pursue further research or doctoral studies in computer networks and security.",
@@ -336,7 +867,7 @@ app.get('/msc-computer-networks-and-security', (req, res) => {
 // Msc. Human Resource Management Course Details Page route
 app.get('/msc-human-resource-management', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Human Resource Management", 
+    title: "MSc. Human Resource Management",
     name: "MSc. Human Resource Management",
     description1: "The Master's in Human Resource Management program at ESTAM University provides students with comprehensive knowledge and practical skills in various areas of human resource management, including talent acquisition, employee development, performance management, compensation and benefits, and organizational effectiveness. The program is designed to prepare students to become strategic HR leaders who can effectively contribute to the success of organizations.",
     description2: "A Master's in Human Resource Management from ESTAM University opens up diverse career opportunities in various sectors, including corporate organizations, consulting firms, nonprofit organizations, government agencies, and more. Graduates may pursue roles such as HR manager, talent acquisition specialist, training and development manager, compensation and benefits analyst, or pursue leadership positions in HR departments.",
@@ -351,7 +882,7 @@ app.get('/msc-human-resource-management', (req, res) => {
 // Msc Economics Course Details Page route
 app.get('/msc-economics', (req, res) => {
   res.render('course-details', {
-    title: "MSc Economics", 
+    title: "MSc Economics",
     name: "MSc Economics",
     description1: "The Master's in Economics program at ESTAM University provides students with a strong foundation in economic theory, quantitative methods, and applied economics. The program is designed to develop students' analytical and critical thinking abilities, equipping them with the tools and knowledge needed to tackle complex economic issues and contribute to the development of sound economic policies.",
     description2: "A Master's in Economics from ESTAM University opens up diverse career opportunities in various sectors, including government agencies, research institutions, international organizations, financial institutions, consulting firms, and more. Graduates may pursue roles such as economists, policy analysts, research analysts, data analysts, or pursue further research or doctoral studies in economics.",
@@ -365,7 +896,7 @@ app.get('/msc-economics', (req, res) => {
 // Msc. Communication and Media Studies Course Details Page route
 app.get('/msc-communication-and-media-studies', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Communication and Media Studies", 
+    title: "MSc. Communication and Media Studies",
     name: "MSc. Communication and Media Studies",
     description1: "The Master's in Communication and Media Studies program at ESTAM University provides students with a comprehensive understanding of communication theories, media technologies, media industries, and the societal impact of media. The program is designed to develop students' critical thinking, research, and practical skills, equipping them to navigate the complex and ever-changing media landscape.",
     description2: "A Master's in Communication and Media Studies from ESTAM University opens up diverse career opportunities in various sectors, including media organizations, advertising agencies, public relations firms, digital media companies, nonprofit organizations, and more. Graduates may pursue roles such as communication specialists, media analysts, public relations managers, content strategists, or pursue further research or doctoral studies in communication and media studies.",
@@ -380,7 +911,7 @@ app.get('/msc-communication-and-media-studies', (req, res) => {
 // Msc. Diplomacy and International Affairs Course Details Page route
 app.get('/msc-diplomacy-and-international-affairs', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Diplomacy and International Affairs", 
+    title: "MSc. Diplomacy and International Affairs",
     name: "MSc. Diplomacy and International Affairs",
     description1: "The Master's in Diplomacy and International Affairs program at ESTAM University provides students with a comprehensive understanding of the theories, practices, and challenges of international relations. The program is designed to develop students' analytical, diplomatic, and negotiation skills, preparing them for careers in diplomacy, international organizations, government agencies, and non-governmental organizations.",
     description2: "A Master's in Diplomacy and International Affairs from ESTAM University opens up diverse career opportunities in various sectors, including diplomatic services, international organizations, government agencies, non-profit organizations, think tanks, and consulting firms. Graduates may pursue roles such as diplomats, policy analysts, international consultants, foreign affairs officers, or pursue further research or doctoral studies in international relations.",
@@ -395,7 +926,7 @@ app.get('/msc-diplomacy-and-international-affairs', (req, res) => {
 // Msc. Accounting and Auditing Course Details Page route
 app.get('/msc-accounting-and-auditing', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Accounting and Auditing", 
+    title: "MSc. Accounting and Auditing",
     name: "MSc. Accounting and Auditing",
     description1: "The Master's in Accounting and Auditing program at ESTAM University provides students with a comprehensive understanding of financial accounting, managerial accounting, auditing, and related areas. The program is designed to develop students' technical proficiency, critical thinking abilities, and ethical awareness, preparing them for careers in accounting firms, corporations, government agencies, and other professional settings.",
     description2: "A Master's in Accounting and Auditing from ESTAM University opens up diverse career opportunities in various sectors, including accounting firms, corporations, government agencies, financial institutions, and regulatory bodies. Graduates may pursue roles such as auditors, financial analysts, management accountants or tax consultants.",
@@ -410,7 +941,7 @@ app.get('/msc-accounting-and-auditing', (req, res) => {
 // Msc. Public and Local Government Administration Course Details Page route
 app.get('/msc-public-and-local-government-administration', (req, res) => {
   res.render('course-details', {
-    title: "MSc. Public and Local Government Administration", 
+    title: "MSc. Public and Local Government Administration",
     name: "MSc. Public and Local Government Administration",
     description1: "The Master's in Public and Local Government Administration program at ESTAM University provides students with a comprehensive understanding of public administration, policy analysis, and local government management. The program is designed to develop students' analytical, managerial, and leadership skills, preparing them for careers in public administration, government agencies, nonprofit organizations, and other public sector settings.",
     description2: "A Master's in Public and Local Government Administration from ESTAM University opens up diverse career opportunities in various sectors, including government agencies, local municipalities, nonprofit organizations, international organizations, and consulting firms. Graduates may pursue roles such as public administrators, policy analysts, program managers, city managers, or pursue further research or doctoral studies in public administration.",
@@ -425,7 +956,7 @@ app.get('/msc-public-and-local-government-administration', (req, res) => {
 // Master of Business Administration (MBA) Course Details Page route
 app.get('/mba', (req, res) => {
   res.render('course-details', {
-    title: "Master of Business Administration (MBA)", 
+    title: "Master of Business Administration (MBA)",
     name: "Master of Business Administration (MBA)",
     description1: "The Master of Business Administration (MBA) program at ESTAM University provides students with a comprehensive understanding of business management principles, strategic thinking, and leadership skills. The program is designed to develop students' analytical, critical thinking, and decision-making abilities, preparing them for leadership roles in diverse industries and organizational settings.",
     description2: "An MBA from ESTAM University opens up diverse career opportunities in various sectors, including corporate management, consulting firms, entrepreneurship, finance, marketing, operations, and more. Graduates may pursue roles such as business managers, consultants, project leaders, marketing directors, or pursue entrepreneurial ventures. The versatile skill set gained through the program equips graduates to adapt to changing business landscapes and excel in leadership positions.",
@@ -450,7 +981,7 @@ app.get('/mba', (req, res) => {
 // Faculty of social and management science
 app.get('/faculty-of-social-and-management-science', (req, res) => {
   res.render('faculty-of-social-and-management-science', {
-    title: "Faculty of Social and Management Science", 
+    title: "Faculty of Social and Management Science",
     name: "Faculty of Social and Management Science"
   })
 })
@@ -458,7 +989,7 @@ app.get('/faculty-of-social-and-management-science', (req, res) => {
 // Faculty of applied science
 app.get('/faculty-of-applied-science', (req, res) => {
   res.render('faculty-of-applied-science', {
-    title: "Faculty of Applied Science", 
+    title: "Faculty of Applied Science",
     name: "Faculty of Applied Science"
   })
 })
@@ -466,7 +997,7 @@ app.get('/faculty-of-applied-science', (req, res) => {
 // Faculty of engineering
 app.get('/faculty-of-engineering', (req, res) => {
   res.render('faculty-of-engineering', {
-    title: "Faculty of Engineering", 
+    title: "Faculty of Engineering",
     name: "Faculty of Engineering"
   })
 })
@@ -474,7 +1005,7 @@ app.get('/faculty-of-engineering', (req, res) => {
 // postgraduate-programs
 app.get('/postgraduate-programs', (req, res) => {
   res.render('postgraduate-programs', {
-    title: "Postgraduate Programs", 
+    title: "Postgraduate Programs",
     name: "Postgraduate Programs"
   })
 })
@@ -483,7 +1014,7 @@ app.get('/postgraduate-programs', (req, res) => {
 // Blog Page route
 app.get('/blog', (req, res) => {
   res.render('blog', {
-    title: "Blog", 
+    title: "Blog",
     name: "Blog"
   })
 })
@@ -491,7 +1022,7 @@ app.get('/blog', (req, res) => {
 // Campus Life Page route
 app.get('/campus-life', (req, res) => {
   res.render('campus-life', {
-    title: "Campus Life", 
+    title: "Campus Life",
     name: "Campus Life"
   })
 })
@@ -499,7 +1030,7 @@ app.get('/campus-life', (req, res) => {
 // Apply Page route
 app.get('/apply', (req, res) => {
   res.render('apply', {
-    title: "Apply", 
+    title: "Apply",
     name: "Apply"
   })
 })
@@ -507,7 +1038,7 @@ app.get('/apply', (req, res) => {
 // Alumni Page route
 app.get('/alumni', (req, res) => {
   res.render('alumni', {
-    title: "Alumni", 
+    title: "Alumni",
     name: "Alumni"
   })
 });
@@ -515,7 +1046,7 @@ app.get('/alumni', (req, res) => {
 // Excursion page route
 app.get('/excursion', (req, res) => {
   res.render('excursion', {
-    title: "Excursion", 
+    title: "Excursion",
     name: "Excursion"
   })
 });
@@ -523,7 +1054,7 @@ app.get('/excursion', (req, res) => {
 // Craft week page route
 app.get('/craft-week', (req, res) => {
   res.render('craft-week', {
-    title: "Craft Week", 
+    title: "Craft Week",
     name: "Craft Week"
   })
 });
@@ -531,7 +1062,7 @@ app.get('/craft-week', (req, res) => {
 // Christmas Carols page route
 app.get('/christmas-carols', (req, res) => {
   res.render('christmas-carols', {
-    title: "Christmas Carols", 
+    title: "Christmas Carols",
     name: "Christmas Carols"
   })
 });
@@ -539,7 +1070,7 @@ app.get('/christmas-carols', (req, res) => {
 // Students week page route
 app.get('/students-week', (req, res) => {
   res.render('students-week', {
-    title: "Students' Week", 
+    title: "Students' Week",
     name: "Students' Week"
   })
 });
@@ -547,7 +1078,7 @@ app.get('/students-week', (req, res) => {
 // Football Matches page route
 app.get('/football-matches', (req, res) => {
   res.render('football-matches', {
-    title: "Football Matches", 
+    title: "Football Matches",
     name: "Football Matches"
   })
 });
@@ -555,7 +1086,7 @@ app.get('/football-matches', (req, res) => {
 // Students Fellowship page route
 app.get('/students-fellowship', (req, res) => {
   res.render('students-fellowship', {
-    title: "Students Fellowship", 
+    title: "Students Fellowship",
     name: "Students Fellowship"
   })
 });
@@ -563,7 +1094,7 @@ app.get('/students-fellowship', (req, res) => {
 // Faq Page route
 app.get('/faq', (req, res) => {
   res.render('faq', {
-    title: "FAQ", 
+    title: "FAQ",
     name: "FAQ"
   })
 })
@@ -571,7 +1102,7 @@ app.get('/faq', (req, res) => {
 // Career Services page route
 app.get('/career-services', (req, res) => {
   res.render('career-services', {
-    title: "Career Services", 
+    title: "Career Services",
     name: "Career Services"
   })
 });
@@ -579,7 +1110,7 @@ app.get('/career-services', (req, res) => {
 // Scholarships page route
 app.get('/scholarships', (req, res) => {
   res.render('scholarships', {
-    title: "Scholarships", 
+    title: "Scholarships",
     name: "Scholarships"
   })
 });
@@ -587,7 +1118,7 @@ app.get('/scholarships', (req, res) => {
 // Research page route
 app.get('/research', (req, res) => {
   res.render('research', {
-    title: "Research", 
+    title: "Research",
     name: "Research"
   })
 });
@@ -602,6 +1133,9 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).render('500', { title: 'Server Error' });
 });
+
+// Set your port to listen to enviroment port or 3000
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
