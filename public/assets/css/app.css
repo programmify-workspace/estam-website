@@ -3877,6 +3877,9 @@ a.edu-btn.btn-round:hover,
     border-radius: 50%;
     color: var(--color-white);
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-icon-round:hover {
@@ -5248,7 +5251,9 @@ body.sal-disabled [data-sal|='flip'] {
     width: 46px;
     height: 46px;
     line-height: 46px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     color: var(--color-body);
     -webkit-transition: 0.3s;
