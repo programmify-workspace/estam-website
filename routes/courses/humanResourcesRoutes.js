@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Human Resources Management Course Details Page route
-router.get('/', (req, res) => {
+router.get('/human-resources-management', (req, res) => {
     res.render('course-details', {
       title: "Human Resources Management",
       name: "Human Resources Management",

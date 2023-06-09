@@ -3,7 +3,7 @@ const express = require('express')
 router = express.Router()
 
 //Accounting Course Details Page route
-router.get('', (req, res) => {
+router.get('/accounting', (req, res) => {
   res.render('course-details', {
     title: "Accounting",
     name: "Accounting",

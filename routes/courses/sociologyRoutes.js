@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Sociology Course Details Page route
-router.get('/', (req, res) => {
+router.get('/sociology', (req, res) => {
     res.render('course-details', {
       title: "Sociology",
       name: "Sociology",

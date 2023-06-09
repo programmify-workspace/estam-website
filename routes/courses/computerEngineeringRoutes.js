@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Computer Engineering Course Details Page route
-router.get('/', (req, res) => {
+router.get('/computer-engineering', (req, res) => {
     res.render('course-details', {
       title: "Computer Engineering",
       name: "Computer Engineering",

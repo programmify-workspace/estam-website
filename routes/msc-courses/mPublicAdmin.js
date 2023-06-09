@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Msc. Public and Local Government Administration Course Details Page route
-router.get('/', (req, res) => {
+router.get('/msc-public-and-local-government-administration', (req, res) => {
     res.render('course-details', {
       title: "MSc. Public and Local Government Administration",
       name: "MSc. Public and Local Government Administration",

@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Environmental Science Course Details Page route
-router.get('/', (req, res) => {
+router.get('/environmental-science', (req, res) => {
     res.render('course-details', {
       title: " Environmental Science",
       name: " Environmental Science",

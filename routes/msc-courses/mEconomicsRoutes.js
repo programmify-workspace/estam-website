@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Msc Economics Course Details Page route
-router.get('/', (req, res) => {
+router.get('/msc-economics', (req, res) => {
     res.render('course-details', {
       title: "MSc Economics",
       name: "MSc Economics",

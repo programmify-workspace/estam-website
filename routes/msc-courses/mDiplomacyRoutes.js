@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Msc. Diplomacy and International Affairs Course Details Page route
-router.get('/', (req, res) => {
+router.get('/msc-diplomacy-and-international-affairs', (req, res) => {
     res.render('course-details', {
       title: "MSc. Diplomacy and International Affairs",
       name: "MSc. Diplomacy and International Affairs",

@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Political Science Course Details Page route
-router.get('/', (req, res) => {
+router.get('/public-administration', (req, res) => {
   res.render('course-details', {
     title: "Public Administration",
     name: "Public Administration",

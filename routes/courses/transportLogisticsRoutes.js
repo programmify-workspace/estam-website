@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Transport and logistics Management Course Details Page route
-router.get('/', (req, res) => {
+router.get('/transport-and-logistics-management', (req, res) => {
     res.render('course-details', {
         title: "Transport and Logistics Management",
         name: "Transport and Logistics Management",
