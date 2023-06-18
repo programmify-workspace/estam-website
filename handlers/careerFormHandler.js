@@ -1,17 +1,17 @@
-const transporter = require('../utils/emailUtils')
+import transporter from '../utils/emailUtils.js'
 
 // Logo path
 const imgURL = 'https://estamuni.net/public/assets/images/logo/logo-dark.png'
 
 // Configure Form Submission endpoints
-const handleSubmitContact = (req, res) => {
+const handleSubmitCareer = (req, res) => {
     const { name, email, phone, message } = req.body
   
-    // Send email to admin
+    // send email to career services' email
     const mailOptions = {
-      from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
-      to: process.env.ZOHO_CONTACT_US_EMAIL,
-      subject: 'New Message From Contact Page',
+      from: `Career Services ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
+      to: process.env.ZOHO_CAREER_SERVICES_EMAIL,
+      subject: 'New Career Services Request from ' + name,
       html: `<!DOCTYPE html>
       <html>
       <head>
@@ -56,7 +56,7 @@ const handleSubmitContact = (req, res) => {
             <img src="${imgURL}" alt="Logo">
           </div>
           <div class="content">
-            <h2>You have been contacted by ${name}</h2>
+            <h2>Career Service Request from ${name}</h2>
             <h3>Sender's Details:</h3>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -80,7 +80,6 @@ const handleSubmitContact = (req, res) => {
           message: 'Oops! Something went wrong!.' 
         });
         console.error('Error sending email:', error);
-  
       } else {
         console.log('Email sent:', info.response);
         res.json({ message: 'Form submitted successfully' });
@@ -91,9 +90,9 @@ const handleSubmitContact = (req, res) => {
   
     // Define the email content
     const emailContent = {
-      from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+      from: `ESTAM University ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
       to: email,
-      subject: 'Thank You for Your Submission',
+      subject: 'Thank You for Your Message',
       html: `<!DOCTYPE html>
       <html>
       <head>
@@ -138,11 +137,15 @@ const handleSubmitContact = (req, res) => {
             <img src="${imgURL}" alt="Logo">
           </div>
           <div class="content">
-            <h2>Thank You for Your Submission</h2>
+            <h2>Thank You for Your Message</h2>
             <p>Dear ${name},</p>
-            <p>This is to acknowledge that we have recieved your message</p>
-            <p>We will respond to you as soon as possible.</p>
-            <p>Regards,
+            <p>This is to acknowledge that we have received your message. 
+            We greatly appreciate your interest in our career services.</p>
+            <p>Our dedicated career services team is reviewing your message, and one of our career counselors will contact you shortly to provide assistance and guidance.</p>
+            <p>We understand the importance of your career goals, and we assure you that we will make every effort to respond to your inquiry promptly.</p>
+            <p>Thank you for reaching out to us. Your trust in our services is valued.</p>
+  
+            <p>Best Regards,
     
             <br><br>ESTAM University
             <br> 148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa
@@ -166,6 +169,7 @@ const handleSubmitContact = (req, res) => {
       }
     });
   
-  }
+  
+  };
 
-module.exports = handleSubmitContact
+  export default handleSubmitCareer

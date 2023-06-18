@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Craft week page route
 router.get('/craft-week', (req, res) => {
@@ -9,4 +9,4 @@ router.get('/craft-week', (req, res) => {
     })
   });
 
-  module.exports = router
+  export default router;

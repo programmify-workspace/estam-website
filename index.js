@@ -1,65 +1,60 @@
-// Bring your dependencies to your app
-const express = require('express');
-const path = require('path');
-const exphbs = require('express-handlebars');
-const dotenv = require('dotenv');
+import express from 'express';
+import path from 'path';
+import exphbs from 'express-handlebars';
+import dotenv from 'dotenv';
 
-// Require home route
-const homeRoute = require('./routes/homeRoute');
+import upload from './utils/fileUploadUtils.js'
 
-// Require route manager
-const routeManager = require('./routeManager');
+import homeRoute from './routes/homeRoute.js';
+import routeManager from './routeManager.js';
 
-// Import the post request handler function
-const handleSubmitContact = require('./handlers/submitContactHandler');
-const handleSubmitCareer =  require('./handlers/submitCareerHandler')
-const handleSubmitResearch = require('./handlers/submitResearchHandler')
+import handleSubmitContact from './handlers/contactFormHandler.js';
+import handleSubmitCareer from './handlers/careerFormHandler.js';
+import handleSubmitResearch from './handlers/researchFormHandler.js';
+import handleSubmitApply from './handlers/applyFormHandler.js';
 
-// Initialize your handlebar engine
 const engine = exphbs.engine;
-
-// Initialize your express app
 const app = express();
 
-// Call env config method
 dotenv.config();
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: '50mb' }));
 
-// Set up Handlebars as the view engine
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(new URL(import.meta.url).pathname, '../views'));
 
-// Mount Home
-app.use('/', homeRoute)
+app.use(express.static(path.join(new URL(import.meta.url).pathname, '../public')));
 
-// Mount RouteManager
-app.use('/', routeManager)
 
-// Define the route and use the post request handler function
+app.use('/', homeRoute);
+app.use('/', routeManager);
+
+// Set form submission handler routes
 app.post('/submit-contact', handleSubmitContact);
 app.post('/submit-career', handleSubmitCareer);
 app.post('/submit-research', handleSubmitResearch);
+app.post('/submit-apply', upload.fields([
+  {name:'photo_passport'}, 
+  {name: 'passport'}, 
+  {name: 'ssce_certificate'},
+  {name: 'birth_certificate'}
+]), handleSubmitApply);
 
-
-// Handle 404 errors
 app.use((req, res, next) => {
   res.status(404).render('404', { title: 'Page Not Found' });
 });
 
-// Handle server errors
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).render('500', { title: 'Server Error' });
+  res.status(500).render('500', { 
+    title: 'Server Error', 
+    message: 'Oops! Something went wrong!.' 
+  });
 });
 
-// Set your port to listen to enviroment port or 3000
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

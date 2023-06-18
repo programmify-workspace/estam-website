@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Faculty of social and management science
 router.get('/faculty-of-social-and-management-science', (req, res) => {
@@ -9,4 +9,4 @@ router.get('/faculty-of-social-and-management-science', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

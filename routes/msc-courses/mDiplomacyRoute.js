@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Msc. Diplomacy and International Affairs Course Details Page route
 router.get('/msc-diplomacy-and-international-affairs', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/msc-diplomacy-and-international-affairs', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

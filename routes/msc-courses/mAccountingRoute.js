@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Msc. Accounting and Auditing Course Details Page route
 router.get('/msc-accounting-and-auditing', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/msc-accounting-and-auditing', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

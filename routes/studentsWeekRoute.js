@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Students week page route
 router.get('/students-week', (req, res) => {
@@ -8,5 +8,5 @@ router.get('/students-week', (req, res) => {
       name: "Students' Week"
     })
   });
-
-module.exports = router
+  
+  export default router;

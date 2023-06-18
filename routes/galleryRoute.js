@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Gallery Page route
 router.get('/gallery', (req, res) => {
@@ -9,4 +9,4 @@ router.get('/gallery', (req, res) => {
     })
   })
 
-module.exports = router
+export default router;

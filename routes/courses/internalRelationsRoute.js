@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //International Relations Course Details Page route
 router.get('/international-relations', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/international-relations', (req, res) => {
     })
   })
 
-module.exports = router
+export default router;

@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Master's in Computer Networks and Security Course Details Page route
 router.get('/msc-computer-networks-and-security', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/msc-computer-networks-and-security', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

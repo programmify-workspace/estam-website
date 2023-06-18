@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Economics Course Details Page route
 router.get('/economics', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/economics', (req, res) => {
     })
   })
 
-module.exports = router
+export default router;

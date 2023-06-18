@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Human Resources Management Course Details Page route
 router.get('/human-resources-management', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/human-resources-management', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

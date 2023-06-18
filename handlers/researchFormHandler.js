@@ -1,4 +1,4 @@
-const transporter = require('../utils/emailUtils')
+import transporter from '../utils/emailUtils.js'
 
 // Logo path
 const imgURL = 'https://estamuni.net/public/assets/images/logo/logo-dark.png'
@@ -170,4 +170,4 @@ const handleSubmitResearch = (req, res) => {
   });
 };
 
-module.exports = handleSubmitResearch
+export default handleSubmitResearch

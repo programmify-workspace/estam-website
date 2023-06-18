@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Mass Communication Course Details Page route
 router.get('/mass-communication', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/mass-communication', (req, res) => {
     })
   })
 
-module.exports = router
+export default router;

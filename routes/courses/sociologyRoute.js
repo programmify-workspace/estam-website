@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Sociology Course Details Page route
 router.get('/sociology', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/sociology', (req, res) => {
     })
   })
 
-module.exports = router
+export default router;

@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Msc. Human Resource Management Course Details Page route
 router.get('/msc-human-resource-management', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/msc-human-resource-management', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Political Science Course Details Page route
 router.get('/public-administration', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/public-administration', (req, res) => {
   })
 })
 
-module.exports = router
+export default router;

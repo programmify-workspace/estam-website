@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Research page route
 router.get('/research', (req, res) => {
@@ -9,4 +9,4 @@ router.get('/research', (req, res) => {
     })
   });
   
-module.exports = router
+export default router;

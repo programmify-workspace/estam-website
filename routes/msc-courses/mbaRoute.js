@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 // Master of Business Administration (MBA) Course Details Page route
 router.get('/mba', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/mba', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

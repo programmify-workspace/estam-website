@@ -1,6 +1,5 @@
-const express = require('express')
-router = express.Router()
-
+import { Router } from 'express';
+const router = Router();
 //Mangement Information Technology Course Details Page route
 router.get('/mangement-information-technology', (req, res) => {
     res.render('course-details', {
@@ -15,4 +14,4 @@ router.get('/mangement-information-technology', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

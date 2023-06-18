@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Computer Science Course Details Page route
 router.get('/computer-science', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/computer-science', (req, res) => {
     })
   })
 
-  module.exports = router
+  export default router;

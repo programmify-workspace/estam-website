@@ -1,5 +1,5 @@
-const express = require('express')
-router = express.Router()
+import { Router } from 'express';
+const router = Router();
 
 //Transport and logistics Management Course Details Page route
 router.get('/transport-and-logistics-management', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/transport-and-logistics-management', (req, res) => {
       })
   })
 
-  module.exports = router
+  export default router;

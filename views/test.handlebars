@@ -1,0 +1,256 @@
+{{>header}}
+
+<!--=====================================-->
+<!--=       Breadcrumb Area Start      =-->
+<!--=====================================-->
+
+
+<div class="edu-breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-inner">
+            <div class="page-title">
+                <h1 class="title">Apply</h1>
+            </div>
+            <ul class="edu-breadcrumb">
+                <li class="breadcrumb-item"><a href="index-one.html">Home</a></li>
+                <li class="separator"><i class="icon-angle-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">Apply</li>
+            </ul>
+        </div>
+    </div>
+    <ul class="shape-group">
+        <li class="shape-1">
+            <span></span>
+        </li>
+        <li class="shape-2 scene"><img data-depth="2" src="assets/images/about/shape-13.png" alt="shape"></li>
+        <li class="shape-3 scene"><img data-depth="-2" src="assets/images/about/shape-15.png" alt="shape"></li>
+        <li class="shape-4">
+            <span></span>
+        </li>
+        <li class="shape-5 scene"><img data-depth="2" src="assets/images/about/shape-07.png" alt="shape"></li>
+    </ul>
+</div>
+
+<!--=====================================-->
+<!--=       Contact Me Area Start       =-->
+<!--=====================================-->
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: inherit;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .preview-btn {
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                margin-top: 20px;
+            }
+        }
+    </style>
+
+    <section class="contact-us-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-us-info">
+                        <h3 class="heading-title">ESTAM UNIVERSITY (SEGBEYA CAMPUS) ONLINE APPLICATION</h3>
+                        <div>
+                            <h4>GENERAL ENTRY REQUIREMENTS</h4>
+                            <h6>
+                                All applicants to Ecole Superieure Des Technologies Avancees et de Management degree
+                                programmes must have Credit-level passes in five relevant subjects at the O'level.
+                            </h6>
+
+                            <br>
+
+                            <h4>DIRECT ENTRY REQUIREMENTS</h4>
+                            <h6>
+                                In addition to the O'level requirements stated above, the university admits into 200 level
+                                undergraduates programmes via Direct Entry for candidates with A/L passes at its equivalents
+                                in the required subjects, or National Diploma(ND), Higher National Diploma(HND), and
+                                National Certificate of Education(NCE).
+                            </h6>
+                        </div>
+                        <br>
+                        <ul class="address-list">
+                            <li>
+                                <h5 class="title">Address</h5>
+                                <p>148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa, Cotonou</p>
+                            </li>
+                            <li>
+                                <h5 class="title">Email</h5>
+                                <p><a href="mailto:admissions@estamuni.net">admissions@estamuni.net</a></p>
+                            </li>
+                            <li>
+                                <h5 class="title">Phone</h5>
+                                <p><a href="tel:+0914135548598">(+229) 98 59 72 34 or (+234) 806 688 4850</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form id="application-form" method="POST" action="">
+                        <div class="form-section active" id="personal-info-section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class="form-control" id="first-name" name="first-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class="form-control" id="last-name" name="last-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                            </div>
+                            <button type="button" class="btn btn-primary next-btn">Next</button>
+                        </div>
+
+                        <div class="form-section" id="education-info-section">
+                            <h3 class="section-title">Education Information</h3>
+                            <div class="form-group">
+                                <label for="qualification">Qualification</label>
+                                <input type="text" class="form-control" id="qualification" name="qualification" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="institution">Institution</label>
+                                <input type="text" class="form-control" id="institution" name="institution" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="year-of-completion">Year of Completion</label>
+                                <input type="text" class="form-control" id="year-of-completion" name="year-of-completion" required>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary prev-btn">Previous</button>
+                                <button type="button" class="btn btn-primary next-btn">Next</button>
+                            </div>
+                        </div>
+
+                        <div class="form-section" id="program-info-section">
+                            <h3 class="section-title">Program Information</h3>
+                            <div class="form-group">
+                                <label for="program">Program</label>
+                                <select class="form-control" id="program" name="program" required>
+                                    <option value="">Select Program</option>
+                                    <option value="BSc Computer Science">BSc Computer Science</option>
+                                    <option value="BSc Electrical Engineering">BSc Electrical Engineering</option>
+                                    <option value="BSc Business Administration">BSc Business Administration</option>
+                                    <option value="BSc Accounting">BSc Accounting</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="semester">Semester</label>
+                                <select class="form-control" id="semester" name="semester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="First Semester">First Semester</option>
+                                    <option value="Second Semester">Second Semester</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <select class="form-control" id="year" name="year" required>
+                                    <option value="">Select Year</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary prev-btn">Previous</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Function to handle form sections
+        function handleFormSection(currentSection, nextSection) {
+            currentSection.removeClass('active');
+            nextSection.addClass('active');
+        }
+
+        $(document).ready(function () {
+            // Next button click event
+            $('.next-btn').click(function () {
+                var currentSection = $(this).closest('.form-section');
+                var nextSection = currentSection.next('.form-section');
+                handleFormSection(currentSection, nextSection);
+            });
+
+            // Previous button click event
+            $('.prev-btn').click(function () {
+                var currentSection = $(this).closest('.form-section');
+                var prevSection = currentSection.prev('.form-section');
+                handleFormSection(currentSection, prevSection);
+            });
+
+            // Preview button click event
+            $('.preview-btn').click(function () {
+                $('#application-form').submit();
+            });
+        });
+    </script>
+
+
+
+<!--=====================================-->
+<!--=      Google Map Area Start        =-->
+<!--=====================================-->
+<div class="google-map-area">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe id="gmap_canvas"
+                src="https://maps.google.com/maps?q=6.38551,2.44489&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+    </div>
+</div>
