@@ -2,6 +2,9 @@ import express from 'express';
 import path from 'path';
 import exphbs from 'express-handlebars';
 import dotenv from 'dotenv';
+import crypto from 'crypto'
+import session from 'express-session';
+
 
 import upload from './utils/fileUploadUtils.js'
 
@@ -12,6 +15,8 @@ import handleSubmitContact from './handlers/contactFormHandler.js';
 import handleSubmitCareer from './handlers/careerFormHandler.js';
 import handleSubmitResearch from './handlers/researchFormHandler.js';
 import handleSubmitApply from './handlers/applyFormHandler.js';
+import handleSubmitLogin from './handlers/loginFormHandler.js';
+import handleSubmitSignup from './handlers/signupFormHandler.js';
 
 const engine = exphbs.engine;
 const app = express();
@@ -20,6 +25,15 @@ dotenv.config();
 
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json({ limit: '50mb' }));
+
+const sessionSecret = crypto.randomBytes(64).toString('hex');
+
+app.use(session({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -31,6 +45,10 @@ app.use(express.static(path.join(new URL(import.meta.url).pathname, '../public')
 
 app.use('/', homeRoute);
 app.use('/', routeManager);
+
+// Set form submission Auth routes
+app.post('/signup', handleSubmitSignup)
+app.post('/login', handleSubmitLogin)
 
 // Set form submission handler routes
 app.post('/submit-contact', handleSubmitContact);
@@ -55,7 +73,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);

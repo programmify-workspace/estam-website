@@ -8,29 +8,6 @@ applyForm.addEventListener('submit', async (event) => {
     applyButton.disabled = true;
     applyButton.innerHTML = 'Loading...';
 
-    let timerInterval
-    Swal.fire({
-        title: 'Submitting Application',
-        html: 'Loading: <b></b> milliseconds left.',
-        timer: 40000,
-        timerProgressBar: true,
-        didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-                b.textContent = Swal.getTimerLeft()
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-        }
-    })
-
     // Get all the form elements
     const firstNameInput = document.getElementById('first_name');
     //const middleNameInput = document.getElementById('middle_name');
@@ -90,7 +67,11 @@ applyForm.addEventListener('submit', async (event) => {
                 text: 'Please select an option from the drop-down menu!',
                 confirmButtonText: 'OK'
             });
-            console.log("Please select an option from the drop-down menu!");
+
+
+            applyButton.disabled = false;
+            applyButton.innerHTML = 'Submit';
+            
             isValid = false;
         }
     });
@@ -111,7 +92,10 @@ applyForm.addEventListener('submit', async (event) => {
                 text: 'Please upload all the required files correctly!',
                 confirmButtonText: 'OK'
             });
-            console.log("Please upload all the required files correctly!");
+
+            applyButton.disabled = false;
+            applyButton.innerHTML = 'Submit';
+
             isValid = false;
         }
     });
@@ -144,7 +128,10 @@ applyForm.addEventListener('submit', async (event) => {
                 text: 'Please fill in all the required fields correctly!',
                 confirmButtonText: 'OK'
             });
-            console.log("Please fill in all the required fields correctly!");
+
+            applyButton.disabled = false;
+            applyButton.innerHTML = 'Submit';
+
             isValid = false;
         }
     });
@@ -159,7 +146,6 @@ applyForm.addEventListener('submit', async (event) => {
             });
 
             if (response.ok) {
-                console.log('Application submitted successfully.');
                 // Show success message to the user
                 Swal.fire({
                     icon: 'success',
@@ -167,9 +153,12 @@ applyForm.addEventListener('submit', async (event) => {
                     text: 'Application submitted successfully!',
                     confirmButtonText: 'OK'
                 });
+
+                applyButton.disabled = false;
+                applyButton.innerHTML = 'Submit';
+
                 applyForm.reset();
             } else {
-                console.log('An error occurred while submitting the form.');
                 // Show error message to the user
                 Swal.fire({
                     icon: 'error',
@@ -177,6 +166,10 @@ applyForm.addEventListener('submit', async (event) => {
                     text: 'An error occurred while submitting the form.',
                     confirmButtonText: 'OK'
                 });
+
+
+                applyButton.disabled = false;
+                applyButton.innerHTML = 'Submit';
             }
         } catch (error) {
             console.error('An error occurred while submitting the form:', error);
@@ -189,8 +182,4 @@ applyForm.addEventListener('submit', async (event) => {
             });
         }
     }
-
-    // Re-enable the button and reset the message
-    applyButton.disabled = false;
-    applyButton.innerHTML = 'Submit';
 });

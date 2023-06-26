@@ -23,6 +23,7 @@ import researchRoute from './routes/researchRoute.js';
 import accomodationRoute from './routes/accomodationRoute.js';
 import admissionsRoute from './routes/admissionsRoute.js';
 import login from './routes/auth/login.js';
+import signup from './routes/auth/signup.js';
 
 // Import course route modules
 import economicsRoute from './routes/courses/economicsRoute.js';
@@ -56,6 +57,11 @@ import appliedScienceRoute from './routes/faculties/appliedScienceRoute.js';
 import engineeringRoute from './routes/faculties/engineeringRoute.js';
 import pgProgramsRoute from './routes/faculties/pgProgramsRoute.js';
 
+// Dashboards
+import adminDashboard from './routes/admin/dashboardRoute.js'
+import studentDashboard from './routes/student/dashboardRoute.js'
+
+
 // Mount the routes
 function mountRoutes(path, routesArray) {
   routesArray.forEach((route) => {
@@ -85,6 +91,7 @@ const mainRoutes = [
   accomodationRoute,
   admissionsRoute,
   login,
+  signup,
 ];
 mountRoutes('/', mainRoutes);
 
@@ -125,5 +132,12 @@ const facultyRoutes = [
   pgProgramsRoute,
 ];
 mountRoutes('/', facultyRoutes);
+
+// Faculty routes
+const dashboardRoutes = [
+  studentDashboard,
+  adminDashboard,
+];
+mountRoutes('/', dashboardRoutes);
 
 export default router;
