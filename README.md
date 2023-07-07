@@ -22,6 +22,12 @@ To configure the project environment variables, follow these steps:
    - `ZOHO_DEV_PORT`: Replace `your_dev_port` with the development port number.
    - `ZOHO_PROD_PORT`: Replace `your_prod_port` with the production port number.
    - `ZOHO_ADMIN_HOST`: Replace `your_zoho_admin_host` with the Zoho admin host.
+   - `ZOHO_ADMISSIONS_EMAIL`: Replace `your_zoho_admissions_email` with the zoho admissions email address
+
+   - `DB_HOST`: Replace `your_database_host` with the database hostname
+   - `DB_NAME`: Replace `your_database_name` with the database name
+   - `DB_USER`: Replace `your_database_username` with the database username
+   - `DB_PASS`: Replace `your_database_password` with the database password
 
    **Note:** To generate a secure password for the Zoho admin account, follow these steps:
 
