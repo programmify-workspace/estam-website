@@ -37,6 +37,14 @@ const handleSubmitApply = (req, res) => {
     referrer
   } = req.body
 
+    // Trim whitespace from input values
+    const trimmedFirstName = first_name.trim();
+    const trimmedMiddleName = middle_name.trim();
+    const trimmedLastName = last_name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
+    const trimmedNokEmail = nok_email.trim();
+
     // Media Files
     const photo_passport = req.files['photo_passport'][0].filename;
     const passport = req.files['passport'][0].filename;
@@ -51,7 +59,7 @@ const handleSubmitApply = (req, res) => {
      // Insert Form data into table
   const sql =
   'INSERT INTO applicants (first_name, middle_name, last_name, gender, dob, email, phone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, nok_email, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-  const values = [first_name, middle_name, last_name, gender, dob, email, phone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, nok_email, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer];
+  const values = [trimmedFirstName, trimmedMiddleName, trimmedLastName, gender, dob, trimmedEmail, trimmedPhone,, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, trimmedNokEmail,, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer];
 
 
     // Execute the query
