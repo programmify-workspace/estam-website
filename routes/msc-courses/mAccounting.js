@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Msc. Accounting and Auditing Course Details Page route
-router.get('/', (req, res) => {
+router.get('/course-details', (req, res) => {
     res.render('course-details', {
       title: "MSc. Accounting and Auditing",
       name: "MSc. Accounting and Auditing",

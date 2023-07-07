@@ -7,7 +7,9 @@ const dotenv = require('dotenv');
 
 // Require route manager
 const routeManager = require('./routeManager');
-//const pages = require('./pages');
+const homeRoute = require('./routes/homeRoutes');
+const handleSubmitApply = require('./handlers/applyFormHandler');
+const upload = require('./utils/fileUtils');
 
 // Initialize your handlebar engine
 const engine = exphbs.engine;
@@ -32,52 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Use the routes in your app
-app.use('/', routeManager.homeRoutes);
-app.use('/about', routeManager.aboutRoutes);
-app.use('/gallery', routeManager.galleryRoutes);
-app.use('/contact-us', routeManager.contactRoutes);
-app.use('/economics', routeManager.economicsRoutes);
-app.use('/mass-communication', routeManager.massCommRoutes);
-app.use('/political-science', routeManager.politicalScienceRoutes );
-app.use('/public-administration', routeManager.publicAdminRoutes );
-app.use('/international-relations', routeManager.internalRelationsRoutes );
-app.use('/sociology', routeManager.sociologyRoutes);
-app.use('/business-administration', routeManager.businessAdminRoutes);
-app.use('/accounting', routeManager.accountingRoutes);
-app.use('/marketing', routeManager.marketingRoutes);
-app.use('/banking-and-finance', routeManager.bankingFinanceRoutes);
-app.use('/transport-and-logistics-management', routeManager.transportLogisticsRoutes);
-app.use('/human-resources-management', routeManager.humanResourcesRoutes);
-app.use('/computer-science', routeManager.computerScienceRoutes);
-app.use('/environmental-science', routeManager.environmentalScienceRoutes);
-app.use('/mangement-information-technology', routeManager.mitRoutes);
-app.use('/computer-engineering', routeManager.computerEngineeringRoutes);
-app.use('/msc-computer-networks-and-security', routeManager.mComputerNetworksRoutes);
-app.use('/msc-human-resource-management', routeManager.mHumanResourcesRoutes);
-app.use('/msc-economics', routeManager.mEconomicsRoutes);
-app.use('/msc-communication-and-media-studies', routeManager.mCommStudiesRoutes);
-app.use('/msc-diplomacy-and-international-affairs', routeManager.mDiplomacyRoutes);
-app.use('/msc-accounting-and-auditing', routeManager.mAccounting);
-app.use('/msc-public-and-local-government-administration', routeManager.mPublicAdmin);
-app.use('/mba', routeManager.mbaRoutes);
-app.use('/faculty-of-social-and-management-science', routeManager.socialManagementScienceRoutes);
-app.use('/faculty-of-applied-science', routeManager.appliedScienceRoutes);
-app.use('/faculty-of-engineering', routeManager.engineeringRoutes);
-app.use('/postgraduate-programs', routeManager.pgProgramsRoutes);
-app.use('/campus-life', routeManager.campusLifeRoutes);
-app.use('/apply', routeManager.applyRoutes);
-app.use('/alumni', routeManager.alumniRoutes);
-app.use('/excursion', routeManager.excursionRoutes);
-app.use('/craft-week', routeManager.craftWeekRoutes);
-app.use('/christmas-carols', routeManager.christmasCarolsRoutes);
-app.use('/students-week', routeManager.studentsWeekRoutes);
-app.use('/football-matches', routeManager.footballMatchesRoutes);
-app.use('/students-fellowship', routeManager.studentsFellowshipRoutes);
-app.use('/faq', routeManager.faqRoutes);
-app.use('/career-services', routeManager.careerServicesRoutes);
-app.use('/scholarships', routeManager.scholarshipsRoutes);
-app.use('/research', routeManager.researchRoutes);
-
+app.use('/', homeRoute);
+app.use('/', routeManager);
 
 // Create a transporter using SMTP configuration for Zoho
 let transporter;
@@ -271,7 +229,6 @@ app.post('/submit-research', (req, res) => {
     }
   });
 });
-
 
 app.post('/submit-career', (req, res) => {
   const { name, email, phone, message } = req.body
@@ -600,6 +557,13 @@ app.post('/submit-contact', (req, res) => {
 
 
 });
+
+app.post('/submit-apply', upload.fields([
+  {name:'photo_passport'}, 
+  {name: 'passport'}, 
+  {name: 'ssce_certificate'},
+  {name: 'birth_certificate'}
+]), handleSubmitApply);
 
 
 // Handle 404 errors

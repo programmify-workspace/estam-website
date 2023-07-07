@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Master's in Computer Networks and Security Course Details Page route
-router.get('/', (req, res) => {
+router.get('/course-details', (req, res) => {
     res.render('course-details', {
       title: "MSc. Computer Networks and Security Program",
       name: "MSc. Computer Networks and Security Program",

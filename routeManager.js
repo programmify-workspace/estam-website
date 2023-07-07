@@ -1,3 +1,6 @@
+const Router = require('express');
+const router = Router();
+
 // Require route files
 const homeRoutes = require('./routes/homeRoutes');
 const aboutRoutes = require('./routes/aboutRoutes');
@@ -16,6 +19,8 @@ const faqRoutes = require('./routes/faqRoutes')
 const careerServicesRoutes = require('./routes/careerServicesRoutes')
 const scholarshipsRoutes = require('./routes/scholarshipsRoutes')
 const researchRoutes = require('./routes/researchRoutes')
+const accomodationRoutes = require('./routes/accomodationRoutes')
+const admissionsRoutes = require('./routes/admissionsRoutes')
 
 // Require course's route files
 const economicsRoutes = require('./routes/courses/economicsRoutes')
@@ -49,8 +54,14 @@ const appliedScienceRoutes = require('./routes/faculties/appliedScienceRoutes');
 const engineeringRoutes = require('./routes/faculties/engineeringRoutes');
 const pgProgramsRoutes = require('./routes/faculties/pgProgramsRoutes');
 
+// Mount the routes
+function mountRoutes(path, routesArray) {
+  routesArray.forEach((route) => {
+    router.use(path, route);
+  });
+}
 
-module.exports = {
+const mainRoutes = [
   homeRoutes,
   aboutRoutes,
   galleryRoutes,
@@ -96,5 +107,11 @@ module.exports = {
   socialManagementScienceRoutes,
   appliedScienceRoutes,
   engineeringRoutes,
-  pgProgramsRoutes
-}
+  pgProgramsRoutes,
+  accomodationRoutes,
+  admissionsRoutes
+];
+
+mountRoutes('/', mainRoutes);
+
+module.exports = router

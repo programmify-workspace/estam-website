@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Master of Business Administration (MBA) Course Details Page route
-router.get('/', (req, res) => {
+router.get('/course-details', (req, res) => {
     res.render('course-details', {
       title: "Master of Business Administration (MBA)",
       name: "Master of Business Administration (MBA)",

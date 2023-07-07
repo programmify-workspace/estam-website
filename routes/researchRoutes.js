@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // Research page route
-router.get('/', (req, res) => {
+router.get('/research', (req, res) => {
     res.render('research', {
       title: "Research",
       name: "Research"
