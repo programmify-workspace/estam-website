@@ -307,13 +307,13 @@ const handleSubmitApply = (req, res) => {
             <p>Here are the next steps you can expect:</p>
             
             <ol>
-              <li>1. Application Review: Our admissions team will carefully review your application materials, including academic transcripts, test scores, personal statements, and recommendation letters.</li>
+              <li>Application Review: Our admissions team will carefully review your application materials, including academic transcripts, test scores, personal statements, and recommendation letters.</li>
             
-              <li>2. Application Status Update: Once your application has been thoroughly reviewed, we will provide you with a status update. Please allow us some time to process your application, as we receive a high volume of submissions.</li>
+              <li>Application Status Update: Once your application has been thoroughly reviewed, we will provide you with a status update. Please allow us some time to process your application, as we receive a high volume of submissions.</li>
             
-              <li>3. Additional Information: If there are any missing or incomplete documents in your application, we will contact you promptly to request the necessary information. We want to ensure that your application receives a comprehensive evaluation.</li>
+              <li>Additional Information: If there are any missing or incomplete documents in your application, we will contact you promptly to request the necessary information. We want to ensure that your application receives a comprehensive evaluation.</li>
             
-              <li>4. Notification of Decision: We understand that waiting for an admission decision can be an anxious time. Rest assured that we are committed to notifying you of the decision as soon as possible. You will receive a formal communication regarding the outcome of your application.</li>
+              <li>Notification of Decision: We understand that waiting for an admission decision can be an anxious time. Rest assured that we are committed to notifying you of the decision as soon as possible. You will receive a formal communication regarding the outcome of your application.</li>
             </ol>
 
             <p>We encourage you to explore our website for more information about ESTAM University, our programs, campus life, and student resources. If you have any questions or need further assistance, please do not hesitate to reach out to our admissions team at admissions@estamuni.net</p>
