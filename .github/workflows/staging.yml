@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - staging
+      - staging3
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -18,3 +18,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ./
+        
