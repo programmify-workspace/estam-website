@@ -10,6 +10,7 @@ const routeManager = require('./routeManager');
 const homeRoute = require('./routes/homeRoutes');
 const handleSubmitApply = require('./handlers/applyFormHandler');
 const upload = require('./utils/fileUtils');
+const transporter = require('./utils/emailUtils')
 
 // Initialize your handlebar engine
 const engine = exphbs.engine;
@@ -36,32 +37,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Use the routes in your app
 app.use('/', homeRoute);
 app.use('/', routeManager);
-
-// Create a transporter using SMTP configuration for Zoho
-let transporter;
-
-if (process.env.NODE_ENV === 'production') {
-  transporter = nodemailer.createTransport({
-    host: process.env.ZOHO_ADMIN_HOST,
-    port: process.env.ZOHO_PROD_PORT,
-    secure: true,
-    auth: {
-      user: process.env.ZOHO_ADMIN_EMAIL,
-      pass: process.env.ZOHO_ADMIN_PASS
-    }
-  });
-} else {
-  // Development environment configuration
-  transporter = nodemailer.createTransport({
-    host: process.env.ZOHO_ADMIN_HOST,
-    port: process.env.ZOHO_DEV_PORT,
-    secure: false,
-    auth: {
-      user: process.env.ZOHO_ADMIN_EMAIL,
-      pass: process.env.ZOHO_ADMIN_PASS
-    }
-  });
-}
 
 
 const imgURL = 'https://estamuni.net/public/assets/images/logo/logo-dark.png'
