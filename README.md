@@ -55,7 +55,7 @@ Remember that you are not the only one working on this project. Therefore, it is
 
 ## Branches
 
-Do not push buggy code to the staging branch. Treat the staging branch as if it were the main branch. If you need more freedom to work on the project without fear of breaking anything, create your own branch to work on, and only pull request to staging branch once you've confirmed that your changes are stable.
+Do not push buggy code to the staging3 branch. Treat the staging3 branch as if it were the main branch. If you need more freedom to work on the project without fear of breaking anything, create your own branch to work on, and only pull request to staging3 branch once you've confirmed that your changes are stable.
 
 ## Critical Changes
 
