@@ -126,6 +126,9 @@
                             our responses to your needs. We value your privacy and assure you that all information
                             shared will be treated confidentially.</p>
                     </div>
+
+
+
                     <form class="rnt-contact-form rwt-dynamic-form" id="career-form" method="POST"
                         action="submit-career">
                         <div class="row row--10">
@@ -143,9 +146,7 @@
                                     placeholder="Your message"></textarea>
                             </div>
                             <div class="form-group col-12">
-                                <button class="rn-btn edu-btn btn-medium submit-btn" type="submit" id="submit-career"
-                                    name="submit-career" style="font-style: italic;">Submit Message <i
-                                        class="icon-4"></i></button>
+                                <button class="g-recaptcha rn-btn edu-btn btn-medium submit-btn" name="submit-career" id="submit-career" data-sitekey="6Lc-zCcnAAAAAA5vMs2SyTMIcN8Lz6omsXRLzyeU" type="submit" data-callback="onSubmit" style="font-style: italic;">Submit Message<i class="icon-4"></i></button>
                             </div>
                         </div>
                     </form>
@@ -264,4 +265,6 @@ careerForm.addEventListener('submit', async (event) => {
         careerButton.innerHTML = 'Submit Message <i class="icon-4"></i>';
     }
 });
+
+
 </script>
