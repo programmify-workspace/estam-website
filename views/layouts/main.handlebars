@@ -33,6 +33,9 @@
 
   <!-- Site Stylesheet -->
   <link rel="stylesheet" href="assets/css/app.css" />
+
+  
+
 </head>
 
 <body class="sticky-header">
@@ -191,6 +194,21 @@
 
    <!-- Crisp chat for Estam University -->
   <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="3f9aac2d-523f-45a6-be45-0763cdf389f7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+
+
+
+
+  {{!-- Recaptcha Link  --}}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+  <script>
+  function onSubmit(token) {
+      document.getElementById("career-form").submit();
+  }
+  </script>
+
 </body>
 
 </html>
