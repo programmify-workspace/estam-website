@@ -65,6 +65,10 @@
                     </ul>
                 </div>
             </div>
+
+            
+
+  
             <div class="offset-xl-2 col-lg-6">
                 <div class="contact-form form-style-2">
                     <div class="section-title">
@@ -90,9 +94,12 @@
                                     placeholder="Your message"></textarea>
                             </div>
                             <div class="form-group col-12">
-                                <button class="rn-btn edu-btn btn-medium submit-btn" type="submit" id="submit-contact"
+                            <div class="g-recaptcha" data-sitekey="6Le56ScnAAAAAPgGUyHciF3EaUva8tamrC4QaFcS"></div>
+                            </div>
+                            <button class="rn-btn edu-btn btn-medium submit-btn" type="submit" id="submit-contact"
                                     name="submit" style="font-style: italic;">Submit Message <i
                                         class="icon-4"></i></button>
+
                             </div>
                         </div>
                     </form>
@@ -120,6 +127,9 @@
     </div>
 </div>
 
+<!-- Contact page recaptcha -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
     // Handle Career Services Form submission
     const contactForm = document.getElementById('contact-form');
@@ -127,6 +137,36 @@
 
     contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        if (typeof grecaptcha !== 'undefined') {
+        const recaptchaResponse = grecaptcha.getResponse();
+
+        if (!recaptchaResponse) {
+            Swal.fire({
+                icon: 'error',
+                title: 'reCAPTCHA Error',
+                text: 'Please complete the reCAPTCHA challenge.',
+                confirmButtonText: 'OK'
+            });
+
+            return; // Stop form submission if reCAPTCHA is not completed
+        }
+    } else {
+        console.error('reCAPTCHA script not loaded.');
+        // Display SweetAlert error message
+        Swal.fire({
+            icon: 'error',
+            title: 'reCAPTCHA Error',
+            text: 'An error occurred while loading reCAPTCHA.',
+            confirmButtonText: 'OK'
+        });
+
+        return; // Stop form submission if reCAPTCHA script is not loaded
+    }
+
+        function onSubmit(token) {
+         document.getElementById("contact-form").submit();
+        }
 
         const form = event.target;
         const formData = new URLSearchParams(new FormData(form));
@@ -172,6 +212,7 @@
                     text: 'Your message has been submitted successfully!',
                     confirmButtonText: 'OK'
                 });
+
 
                 // Reset the form after successful submission
                 contactForm.reset();
