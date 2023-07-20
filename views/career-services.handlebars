@@ -145,8 +145,9 @@
                                 <textarea name="message" id="contact-message" cols="30" rows="4"
                                     placeholder="Your message"></textarea>
                             </div>
+                            <div class="g-recaptcha" data-sitekey="6Lc-zCcnAAAAAA5vMs2SyTMIcN8Lz6omsXRLzyeU"></div>
                             <div class="form-group col-12">
-                                <button class="g-recaptcha rn-btn edu-btn btn-medium submit-btn" name="submit-career" id="submit-career" data-sitekey="6Lc-zCcnAAAAAA5vMs2SyTMIcN8Lz6omsXRLzyeU" type="submit" data-callback="onSubmit" style="font-style: italic;">Submit Message<i class="icon-4"></i></button>
+                                <button class="rn-btn edu-btn btn-medium submit-btn" name="submit-career" id="submit-career"  type="submit" style="font-style: italic;">Submit Message<i class="icon-4"></i></button>
                             </div>
                         </div>
                     </form>
@@ -175,6 +176,11 @@
     </div>
 </div>
 
+{{!-- data-callback="onSubmit"  --}}
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 <script>
 // Handle Career Services Form submission
 const careerForm = document.getElementById('career-form');
@@ -182,6 +188,36 @@ const careerButton = document.getElementById('submit-career');
 
 careerForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+        if (typeof grecaptcha !== 'undefined') {
+        const recaptchaResponse = grecaptcha.getResponse();
+
+        if (!recaptchaResponse) {
+            Swal.fire({
+                icon: 'error',
+                title: 'reCAPTCHA Error',
+                text: 'Please complete the reCAPTCHA challenge.',
+                confirmButtonText: 'OK'
+            });
+
+            return; // Stop form submission if reCAPTCHA is not completed
+        }
+    } else {
+        console.error('reCAPTCHA script not loaded.');
+        // Display SweetAlert error message
+        Swal.fire({
+            icon: 'error',
+            title: 'reCAPTCHA Error',
+            text: 'An error occurred while loading reCAPTCHA.',
+            confirmButtonText: 'OK'
+        });
+
+        return; // Stop form submission if reCAPTCHA script is not loaded
+    }
+
+    function onSubmit(token) {
+        document.getElementById("career-form").submit();
+    }
 
     const form = event.target;
     const formData = new URLSearchParams(new FormData(form));
@@ -265,6 +301,5 @@ careerForm.addEventListener('submit', async (event) => {
         careerButton.innerHTML = 'Submit Message <i class="icon-4"></i>';
     }
 });
-
 
 </script>
