@@ -7,6 +7,7 @@ router.get('/contact-us', (req, res) => {
       title: "Contact Us",
       name: "Contact Us"
     })
-  })
+})
 
-  module.exports = router
+module.exports = router
+

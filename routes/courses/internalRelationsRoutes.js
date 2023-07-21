@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //International Relations Course Details Page route
-router.get('/course-details', (req, res) => {
+router.get('/international-relations', (req, res) => {
     res.render('course-details', {
       title: "International Relations",
       name: "International Relations",

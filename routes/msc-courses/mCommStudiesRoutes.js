@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 // Msc. Communication and Media Studies Course Details Page route
-router.get('/course-details', (req, res) => {
+router.get('/msc-communication-and-media-studies', (req, res) => {
     res.render('course-details', {
       title: "MSc. Communication and Media Studies",
       name: "MSc. Communication and Media Studies",

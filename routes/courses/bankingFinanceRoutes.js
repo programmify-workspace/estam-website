@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Banking and Finance Course Details Page route
-router.get('/course-details', (req, res) => {
+router.get('/banking-and-finance', (req, res) => {
     res.render('course-details', {
       title: "Banking and Finance",
       name: "Banking and Finance",
