@@ -108,7 +108,7 @@
                         <ul class="address-list">
                             <li>
                                 <h5 class="title">Address</h5>
-                                <p>148, Von Adjavon, En face d'Eglise Gbiba Wiwe, Segbeya, Akpakpa, Cotonou</p>
+                                <p>Ayelawadje kajakumo en fance eglise Gbigbo wiiwe, Segbeya, Akpakpa, Cotonou</p>
                             </li>
                             <li>
                                 <h5 class="title">Email</h5>
@@ -149,6 +149,7 @@
                                     <input type="text" name="discipline" id="relevant-discipline"
                                         placeholder="Relevant Discipline or Department">
                                 </div>
+                                <div class="g-recaptcha" data-sitekey="6LfDB0MnAAAAAJFVvQx-zIqenvBZu_hxRqwibJNy" ></div>
                                 <div class="form-group col-12">
                                     <button class="rn-btn edu-btn btn-medium submit-btn" type="submit"
                                         name="submit-research" id="submit-research" style="font-style: italic;">Submit
@@ -190,6 +191,10 @@
     </div> --}}
 </div>
 
+
+<!-- Research page recaptcha -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
 
     // Handle Research Form submission
@@ -197,6 +202,37 @@
     const researchButton = document.getElementById('submit-research');
 
     researchForm.addEventListener('submit', async (event) => {
+        
+        if (typeof grecaptcha !== 'undefined') {
+        const recaptchaResponse = grecaptcha.getResponse();
+
+        if (!recaptchaResponse) {
+            Swal.fire({
+                icon: 'error',
+                title: 'reCAPTCHA Error',
+                text: 'Please complete the reCAPTCHA challenge.',
+                confirmButtonText: 'OK'
+            });
+
+            return; // Stop form submission if reCAPTCHA is not completed
+        }
+    } else {
+        console.error('reCAPTCHA script not loaded.');
+        // Display SweetAlert error message
+        Swal.fire({
+            icon: 'error',
+            title: 'reCAPTCHA Error',
+            text: 'An error occurred while loading reCAPTCHA.',
+            confirmButtonText: 'OK'
+        });
+
+        return; // Stop form submission if reCAPTCHA script is not loaded
+    }
+
+        function onSubmit(token) {
+         document.getElementById("research-form").submit();
+        }
+
         event.preventDefault();
 
         const form = event.target;
