@@ -2,7 +2,7 @@ const express = require('express')
 router = express.Router()
 
 //Marketing Course Details Page route
-router.get('/course-details', (req, res) => {
+router.get('/marketing', (req, res) => {
     res.render('course-details', {
       title: "Marketing",
       name: "Marketing",
