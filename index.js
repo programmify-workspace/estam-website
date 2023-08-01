@@ -553,7 +553,7 @@ app.use((err, req, res, next) => {
 });
 
 // Set your port to listen to enviroment port or 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
