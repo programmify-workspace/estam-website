@@ -10,13 +10,13 @@ const getCountries = async () => {
 
 // Get list of states by country_id from db
 const getStatesByCountryId = async (countryId) => {
-  const [states] = await pool.query('SELECT id, country_id, name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
+  const [states] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
   return states;
 };
 
 // Get list of states by country_id for Next of kin from db
 const getNokStatesByCountryId = async (countryId) => {
-  const [nokStates] = await pool.query('SELECT id, country_id, name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
+  const [nokStates] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
   return nokStates;
 };
 

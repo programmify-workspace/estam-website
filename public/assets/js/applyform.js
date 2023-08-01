@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: { selectedCountryId: selectedCountryId },
             success: function (response) {
                 const states = response.states || []; // Retrieve the states from the response
-                const stateOptions = states.map(state => `<option value="${state.id}">${state.name}</option>`).join('');
+                const stateOptions = states.map(state => `<option value="${state.name}">${state.name}</option>`).join('');
                 stateSelect.innerHTML = stateOptions;
             },
             error: function (error) {
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: { selectedNokCountryId: selectedNokCountryId },
             success: function (response) {
                 const states = response.nok_states || []; // Retrieve the states from the response
-                const stateOptions = states.map(state => `<option value="${state.id}">${state.name}</option>`).join('');
+                const stateOptions = states.map(state => `<option value="${state.name}">${state.name}</option>`).join('');
                 nokStateSelect.innerHTML = stateOptions;
             },
             error: function (error) {
