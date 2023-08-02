@@ -378,7 +378,7 @@ app.post('/submit-contact', (req, res) => {
   const mailOptions = {
     from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: process.env.ZOHO_CONTACT_US_EMAIL,
-    subject: 'New Message From Contact Page',
+    subject: `New Message From ${name}`,
     html: `<!DOCTYPE html>
     <html>
     <head>
@@ -553,7 +553,7 @@ app.use((err, req, res, next) => {
 });
 
 // Set your port to listen to enviroment port or 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);

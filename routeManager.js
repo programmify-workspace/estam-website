@@ -35,7 +35,10 @@ const marketingRoutes = require('./routes/courses/marketingRoutes');
 const bankingFinanceRoutes = require('./routes/courses/bankingFinanceRoutes');
 const transportLogisticsRoutes = require('./routes/courses/transportLogisticsRoutes');
 const humanResourcesRoutes = require('./routes/courses/humanResourcesRoutes');
+const estateManagementRoutes = require('./routes/courses/estateManagementRoutes');
 const computerScienceRoutes = require('./routes/courses/computerScienceRoutes');
+const microBiologyRoutes = require('./routes/courses/microBiologyRoutes');
+const bioChemistryRoutes = require('./routes/courses/bioChemistryRoutes');
 const environmentalScienceRoutes = require('./routes/courses/environmentalScienceRoutes');
 const mitRoutes = require('./routes/courses/mitRoutes');
 const computerEngineeringRoutes = require('./routes/courses/computerEngineeringRoutes');
@@ -91,7 +94,10 @@ const mainRoutes = [
   bankingFinanceRoutes,
   transportLogisticsRoutes,
   humanResourcesRoutes,
+  estateManagementRoutes,
   computerScienceRoutes,
+  microBiologyRoutes,
+  bioChemistryRoutes,
   environmentalScienceRoutes,
   mitRoutes,
   computerEngineeringRoutes,

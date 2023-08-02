@@ -59,7 +59,7 @@ const handleSubmitApply = (req, res) => {
      // Insert Form data into table
   const sql =
   'INSERT INTO applicants (first_name, middle_name, last_name, gender, dob, email, phone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, nok_email, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-  const values = [trimmedFirstName, trimmedMiddleName, trimmedLastName, gender, dob, trimmedEmail, trimmedPhone,, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, trimmedNokEmail,, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer];
+  const values = [trimmedFirstName, trimmedMiddleName, trimmedLastName, gender, dob, trimmedEmail, trimmedPhone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, trimmedNokEmail, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer];
 
 
     // Execute the query
@@ -156,7 +156,7 @@ const handleSubmitApply = (req, res) => {
                             <strong>Phone Number:</strong> ${phone}
                           </p>
                           <p>
-                            <strong>State Date:</strong> ${start_date}
+                            <strong>Start Date:</strong> ${start_date}
                           </p>
                         </div>
                         <div class="email-section">
