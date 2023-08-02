@@ -156,7 +156,7 @@ const handleSubmitApply = (req, res) => {
                             <strong>Phone Number:</strong> ${phone}
                           </p>
                           <p>
-                            <strong>State Date:</strong> ${start_date}
+                            <strong>Start Date:</strong> ${start_date}
                           </p>
                         </div>
                         <div class="email-section">
