@@ -47,14 +47,22 @@ const handleSubmitApply = (req, res) => {
 
     // Media Files
     const photo_passport = req.files['photo_passport'][0].filename;
-    const passport = req.files['passport'][0].filename;
     const birth_certificate = req.files['birth_certificate'][0].filename;
     const ssce_certificate = req.files['ssce_certificate'][0].filename;
 
     const photoPassportFilePath = req.files['photo_passport'][0].path;
-    const passportFilePath = req.files['passport'][0].path;
     const birthCertificateFilePath = req.files['birth_certificate'][0].path;
     const ssceCertificateFilePath = req.files['ssce_certificate'][0].path;
+
+
+    let passport = null;
+    let passportFilePath = null;
+    
+    if (req.files?.passport?.[0]?.filename) {
+      passport = req.files.passport[0].filename;
+      passportFilePath = req.files.passport[0].path;
+    }
+
 
      // Insert Form data into table
   const sql =

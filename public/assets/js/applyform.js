@@ -131,7 +131,7 @@ applyForm.addEventListener('submit', async (event) => {
     const ssceCertificateInput = document.getElementById('ssce_certificate');
     const birthCertificateInput = document.getElementById('birth_certificate');
     const photoIdInput = document.getElementById('photo_passport');
-    const passportInput = document.getElementById('passport');
+    // const passportInput = document.getElementById('passport');
     const hobbiesInterestTextarea = document.getElementById('hobbies_interest');
     const referrerSelect = document.getElementById('referrer');
 
@@ -173,7 +173,7 @@ applyForm.addEventListener('submit', async (event) => {
         ssceCertificateInput,
         birthCertificateInput,
         photoIdInput,
-        passportInput
+        // passportInput
     ];
 
     // Validate required file fields

@@ -75,7 +75,7 @@ CREATE TABLE `applicants` (
   `ssce_certificate` varchar(255) NOT NULL,
   `birth_certificate` varchar(255) NOT NULL,
   `photo_passport` varchar(255) NOT NULL,
-  `passport` varchar(255) NOT NULL,
+  `passport` varchar(255) DEFAULT NULL,
   `hobbies_interest` text DEFAULT NULL,
   `referrer` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp()
