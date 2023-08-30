@@ -2,8 +2,8 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const email_verifier = require('email-verifier-node');
 
 // Require route manager
 const routeManager = require('./routeManager');
@@ -373,30 +373,22 @@ app.post('/submit-career', (req, res) => {
 
 app.post('/submit-contact', (req, res) => {
   const { name, email, phone, honeypot, anotherhiddenfield, message } = req.body
-
-  // Perform security checks
   
   if(name === 'RobertNet') {
-    return res.status(400).send('Spam submission detected.');
+      return res.status(400).send('Spam submission detected.');
   }
 
    // Check hidden fields for values (indicating spam)
    if (honeypot || anotherhiddenfield) {
     return res.status(400).send('Spam submission detected.');
-  } 
+  }
 
-  email_verifier.verify_email(email)
-  .then( result => {
-      if(!result.is_verified){
-        return res.status(400).send('Spam submission detected.');
-        }else{
-
-                // Send email to admin
-      const mailOptions = {
-        from: `Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
-        to: process.env.ZOHO_CONTACT_US_EMAIL,
-        subject: `New Message From ${name}`,
-        html: `<!DOCTYPE html>
+  // Send email to admin
+  const mailOptions = {
+    from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: process.env.ZOHO_CONTACT_US_EMAIL,
+    subject: `New Message From ${name}`,
+    html: `<!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
@@ -454,28 +446,28 @@ app.post('/submit-contact', (req, res) => {
     </body>
     </html>
     `
-      };
+  };
 
-      // Send mail with defined transport object
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          res.status(500).render('500', { title: 'Server Error' });
-          console.error('Error sending email:', error);
+  // Send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).render('500', { title: 'Server Error' });
+      console.error('Error sending email:', error);
 
-        } else {
-          console.log('Email sent:', info.response);
-          res.json({ message: 'Form submitted successfully' });
-        }
-      });
+    } else {
+      console.log('Email sent:', info.response);
+      res.json({ message: 'Form submitted successfully' });
+    }
+  });
 
-      // Send email to user 
+  // Send email to user 
 
-      // Define the email content
-      const emailContent = {
-        from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
-        to: email,
-        subject: 'Thank You for Your Submission',
-        html: `<!DOCTYPE html>
+  // Define the email content
+  const emailContent = {
+    from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    to: email,
+    subject: 'Thank You for Your Submission',
+    html: `<!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
@@ -536,28 +528,25 @@ app.post('/submit-contact', (req, res) => {
     </body>
     </html>
     `
-      };
+  };
 
-      // Send the email
-      transporter.sendMail(emailContent, (error, info) => {
-        if (error) {
-          console.error('Error sending email:', error);
-        } else {
-          console.log('Email sent successfully:', info.response);
-        }
-      });
+  // Send the email
+  transporter.sendMail(emailContent, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Email sent successfully:', info.response);
+    }
+  });
 
-        }
-  })
-
-
+    
 });
 
 app.post('/submit-apply', upload.fields([
-  { name: 'photo_passport' },
-  { name: 'passport' },
-  { name: 'ssce_certificate' },
-  { name: 'birth_certificate' }
+  {name:'photo_passport'}, 
+  {name: 'passport'}, 
+  {name: 'ssce_certificate'},
+  {name: 'birth_certificate'}
 ]), handleSubmitApply);
 
 
