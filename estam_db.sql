@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2023 at 03:20 PM
+-- Generation Time: Aug 31, 2023 at 04:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,8 +93,8 @@ CREATE TABLE `applicants` (
 --
 
 INSERT INTO `applicants` (`id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `email`, `phone`, `nationality`, `address`, `city`, `country`, `state`, `nok_name`, `nok_address`, `nok_city`, `nok_country`, `nok_state`, `nok_email`, `nok_relationship`, `primary_name`, `secondary_name`, `additional_school`, `course`, `application_type`, `transfer_level`, `start_date`, `ssce_certificate`, `birth_certificate`, `photo_passport`, `passport`, `hobbies_interest`, `referrer`, `created_at`) VALUES
-(19, 'David', '', 'Adebanwo', 'Male', '2003-03-09', 'davidadebanwo@gmail.com', '+22957512334', 'American Samoa', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Me', 'God\'s Heritage', 'Mountain Top', '', 'Mass Communication', 'Transfer Student', '100L', 'today', '83ecbe77-1b63-4371-9bc1-1bc11c199854-pic.jpg', '2b042088-da37-4d8d-83f1-c5027f18b35f-generated (43) - Copy.pdf', '9471a0cd-596a-4545-8060-bdff36887e71-iscanvasimagetest.png', '', 'ertyui', 'Twitter', '2023-08-31 13:39:52'),
-(20, 'qwerrt', '', 'tyuio', 'Male', '2005-09-08', 'davidadebanwo@gmail.com', '+22957512312', 'Azerbaijan', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Father', 'God\'s Heritage', 'Zion High School', '', 'Computer Science', 'Transfer Student', '200L', 'today', 'd2e2159d-9e5e-4c76-bd70-d371dbd66a9a-pic.jpg', '8671675f-cd21-43ff-aaa0-b1df329f7d4e-pic.jpg', 'b317d1f9-eedf-4244-85c2-cc655beb6543-pic.jpg', '', 'qwert', 'Instagram', '2023-08-31 14:08:57');
+(21, 'David', '', 'Adebanwo', 'Male', '1999-09-12', 'davidadebanwo@gmail.com', '+22957512312', 'Azerbaijan', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Father', 'God\'s Heritage', 'Zion High School', '', 'International Relations', 'Direct Entry', '', 'today', '99352769-9851-402a-b94c-8722d4e0b805-eaae1da3-fce5-43c4-898a-560b9027e0c8-drawinggg.jpg', 'ba359607-9138-490f-929c-ffd72b4c221a-iscanvasimagetest.png', '7cff911c-8c3c-4072-9e03-67623a8a59d0-iscanvasimagetest.png', '', 'sdfgh', 'Twitter', '2023-08-31 14:59:30'),
+(22, 'Dave (Testing)', '', 'Ade', 'Male', '1999-09-12', 'davidadebanwo@gmail.com', '+22957512312', 'Azerbaijan', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Father', 'God\'s Heritage', 'Zion High School', '', 'International Relations', 'Direct Entry', '', 'today', 'a7913dbb-a26a-46b0-b3fa-66b939a48533-eaae1da3-fce5-43c4-898a-560b9027e0c8-drawinggg.jpg', '88c9994d-ea01-4331-9466-b70eabc5a9c2-iscanvasimagetest.png', '60ebdba8-bd52-435d-bd87-afbb3878eb9d-iscanvasimagetest.png', '', 'sdfgh', 'Twitter', '2023-08-31 15:04:38');
 
 -- --------------------------------------------------------
 
@@ -5640,7 +5640,8 @@ INSERT INTO `students` (`id`, `first_name`, `middle_name`, `last_name`, `gender`
 (23, 'David(Testing)', '', 'Adebanwo', 'Male', '2008-09-08', 'davidadebanwo@gmail.com', '+22954344', 'Benin', 'Alibori Department', 'Economics', 300, '', 'student', 0, NULL),
 (24, 'Pepa', 'Testing', 'Pig', 'Female', '2003-09-01', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Mass Communication', 200, '', 'student', 0, NULL),
 (27, 'David', '', 'Adebanwo', 'Male', '2008-01-01', 'davidadebanwo@gmail.com', '+22957512334', 'Benin', 'Alibori Department', 'Economics', 300, '', 'student', 0, NULL),
-(29, 'David', '', 'Adebanwo', 'Male', '2000-12-31', 'davidadebanwo@gmail.com', '+2295751456', 'Benin', 'Alibori Department', 'Transport and Logistics Management', 200, '', 'student', 0, NULL);
+(29, 'David', '', 'Adebanwo', 'Male', '2000-12-31', 'davidadebanwo@gmail.com', '+2295751456', 'Benin', 'Alibori Department', 'Transport and Logistics Management', 200, '', 'student', 0, NULL),
+(31, 'qwerrt', '', 'tyuio', 'Male', '2005-09-07', 'davidadebanwo@gmail.com', '+22957512312', 'Benin', 'Alibori Department', 'Computer Science', 200, '', 'student', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -5710,7 +5711,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -5746,7 +5747,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
