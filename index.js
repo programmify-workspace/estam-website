@@ -403,7 +403,16 @@ app.post('/submit-career', (req, res) => {
 });
 
 app.post('/submit-contact', (req, res) => {
-  const { name, email, phone, message } = req.body
+  const { name, email, phone, honeypot, anotherhiddenfield, message } = req.body
+  
+  if(name === 'RobertNet') {
+      return res.status(400).send('Spam submission detected.');
+  }
+
+   // Check hidden fields for values (indicating spam)
+   if (honeypot || anotherhiddenfield) {
+    return res.status(400).send('Spam submission detected.');
+  }
 
   // Send email to admin
   const mailOptions = {
