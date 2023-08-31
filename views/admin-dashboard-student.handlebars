@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estam Admin Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="/dashboard-assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li style="margin-top:10px;">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="/dashboard-assets/imgs/Estam Uni logo.png" alt="ESTAM Logo"
+                style="width:60px; height:auto; border-radius:50%; ">
+                        </span>
+                        <span class="title">ESTAM DASHBOARD</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin-dashboard">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin-dashboard/students">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Students</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin-dashboard/rejected-applications">
+                        <span class="icon">
+                            <ion-icon name='ban-outline'></ion-icon>
+                        </span>
+                        <span class="title">Rejects</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin-dashboard/admin-settings">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Change Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin-logout">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        {{#each student}}
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                {{!-- <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div> --}}
+
+                <div class="user">
+                    <img src="/dashboard-assets/imgs/customer01.jpg" alt="">
+                </div>
+            </div>
+
+            {{!-- <div class="cardBox">
+                <div class="card">
+                    <img src="/uploads/applicants/{{photo_passport}}" width="200px" alt="">
+                </div>
+                
+            </div> --}}
+            
+            
+
+            <!-- ================ Order Details List ================= -->
+            
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Student's Information</h2>
+                    </div>
+ 
+                    <div class="application-details">
+                        <div class="application-detail-each">
+                            <h3>Name: </h3>
+                            <p>{{first_name}} {{middle_name}} {{last_name}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Gender: </h3>
+                            <p>{{gender}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Date of Birth: </h3>
+                            <p>{{formatted_dob}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Course: </h3>
+                            <p>{{course}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Level: </h3>
+                            <p>{{level}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Email: </h3>
+                            <p>{{email}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Phone Number: </h3>
+                            <p>{{phone}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Country: </h3>
+                            <p>{{country}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>State: </h3>
+                            <p>{{state}}</p>
+                        </div>
+                    </div>
+                        
+                </div>
+                     
+
+
+            
+        </div>
+    </div>
+    {{/each}}
+    <!-- =========== Scripts =========  -->
+    <script src="/dashboard-assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

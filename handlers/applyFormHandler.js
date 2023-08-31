@@ -55,8 +55,8 @@ const handleSubmitApply = (req, res) => {
     const ssceCertificateFilePath = req.files['ssce_certificate'][0].path;
 
 
-    let passport = null;
-    let passportFilePath = null;
+    let passport = "";
+    let passportFilePath = "";
     
     if (req.files?.passport?.[0]?.filename) {
       passport = req.files.passport[0].filename;

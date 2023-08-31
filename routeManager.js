@@ -57,6 +57,10 @@ const appliedScienceRoutes = require('./routes/faculties/appliedScienceRoutes');
 const engineeringRoutes = require('./routes/faculties/engineeringRoutes');
 const pgProgramsRoutes = require('./routes/faculties/pgProgramsRoutes');
 
+// Require admin route files
+const adminLoginRoutes = require('./routes/adminLoginRoutes');
+const adminDashboardRoutes = require('./routes/adminDashboardRoutes')
+
 // Mount the routes
 function mountRoutes(path, routesArray) {
   routesArray.forEach((route) => {
@@ -115,7 +119,9 @@ const mainRoutes = [
   engineeringRoutes,
   pgProgramsRoutes,
   accomodationRoutes,
-  admissionsRoutes
+  admissionsRoutes,
+  adminLoginRoutes,
+  adminDashboardRoutes
 ];
 
 mountRoutes('/', mainRoutes);
