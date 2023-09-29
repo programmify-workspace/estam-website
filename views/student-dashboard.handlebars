@@ -21,7 +21,7 @@
                             <img src="/dashboard-assets/imgs/Estam Uni logo.png" alt="ESTAM Logo"
                 style="width:60px; height:auto; border-radius:50%; ">
                         </span>
-                        <span class="title">ESTAM DASHBOARD</span>
+                        <span class="title">STUDENT DASHBOARD</span>
                     </a>
                 </li>
 
@@ -35,34 +35,34 @@
                 </li>
 
                 <li>
-                    <a href="/admin-dashboard/students">
+                    <a href="#">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <ion-icon name='library-outline'></ion-icon>
                         </span>
-                        <span class="title">Students</span>
+                        <span class="title">Courses</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/admin-dashboard/rejected-applications">
+                    <a href="#">
                         <span class="icon">
-                            <ion-icon name='ban-outline'></ion-icon>
+                            <ion-icon name='journal-outline'></ion-icon>
                         </span>
-                        <span class="title">Rejects</span>
+                        <span class="title">Assignment</span>
                     </a>
                 </li>
 
-                <li>
+                {{!-- <li>
                     <a href="/admin-dashboard/admin-settings">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
                         <span class="title">Change Password</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
-                    <a href="/admin-logout">
+                    <a href="/student-logout">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -73,7 +73,7 @@
         </div>
 
         <!-- ========================= Main ==================== -->
-        {{#each admin}}
+        {{#each student}}
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -92,10 +92,6 @@
                 </div>
             </div>
 
-            <div class="topic">
-                <h1>Change Password</h1>
-            </div>
-
             {{!-- <div class="cardBox">
                 <div class="card">
                     <img src="/uploads/applicants/{{photo_passport}}" width="200px" alt="">
@@ -106,70 +102,78 @@
             
 
             <!-- ================ Order Details List ================= -->
-            
-            <div class="adminBox">
-                {{!-- <div class="recentOrders"> --}}
-                    {{!-- <div class="cardHeader">
-                        <h2>Student's Information</h2>
-                    </div> --}}
-                <form action="/change-admin-password" method="post" onsubmit="return confirm('Are you sure you want to change your password')">
-                    {{!-- <div class="application-details"> --}}
-                        <div class="adminBox-each" >
-                            <h3>Name </h3>
-                            <p>{{name}}</p>
+            {{!-- <div>
+                ytjy
+                {{#if errorMessage}}
+                    <h2>trfje{{errorMessage}}</h2>
+                {{/if}}
+                
+                {{#if successMessage}}
+                    <h2>{{successMessage}}</h2>
+                {{/if}}
+            </div> --}}
+
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Your Personal Information</h2>
+                    </div>
+                    <div class="application-details">
+                        <div class="application-detail-each">
+                            <h3>Name: </h3>
+                            <p>{{first_name}} {{middle_name}} {{last_name}}</p>
                         </div>
 
-                        <div class="adminBox-each">
-                            <h3>Email </h3>
+                        <div class="application-detail-each">
+                            <h3>Gender: </h3>
+                            <p>{{gender}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Date of Birth: </h3>
+                            <p>{{formatted_dob}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Course: </h3>
+                            <p>{{course}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Level: </h3>
+                            <p>{{level}}</p>
+                        </div>
+
+                        <div class="application-detail-each">
+                            <h3>Email: </h3>
                             <p>{{email}}</p>
                         </div>
 
-                        <div class="adminBox-each">
-                            <h3>Current Password </h3>
-                            <input type="password" name="currentPassword" required>
+                        <div class="application-detail-each">
+                            <h3>Phone Number: </h3>
+                            <p>{{phone}}</p>
                         </div>
 
-                        <div class="adminBox-each">
-                            <h3>New Password </h3>
-                            <input type="password" name="newPassword" required>
+                        <div class="application-detail-each">
+                            <h3>Country: </h3>
+                            <p>{{country}}</p>
                         </div>
 
-                        <div class="adminBox-each">
-                            <h3>New Password (Re-enter) </h3>
-                            <input type="password" name="newPasswordRetype" required>
+                        <div class="application-detail-each">
+                            <h3>State: </h3>
+                            <p>{{state}}</p>
                         </div>
-    {{/each}}
-                        <div class="adminBox-each">
-                            <button type="submit" class="status delivered" style="border:none;">Save Changes</button>
-                        </div>
-
-                        {{#if currentPasswordError}}
-                        <div class="error-message" >
-                            <p>{{currentPasswordError}}</p>
-                        </div>
-                        {{/if}}
-
-                        {{#if newPasswordError}}
-                        <div class="error-message" >
-                            <p>{{newPasswordError}}</p>
-                        </div>
-                        {{/if}}
-
-                        {{#if success}}
-                        <div class="success-message">
-                            <p>{{success}}</p>
-                        </div>
-                        {{/if}}
-                        
                     </div>
                         
-                </form>                     
-
+                </div>
+  
+            </div>
 
             
+
         </div>
     </div>
-    
+    {{/each}}
     <!-- =========== Scripts =========  -->
     <script src="/dashboard-assets/js/main.js"></script>
 

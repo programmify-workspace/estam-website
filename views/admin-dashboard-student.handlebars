@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estam Admin Dashboard</title>
+    <title>ESTAM Admin Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/dashboard-assets/css/style.css">
 </head>
@@ -88,7 +88,7 @@
                 </div> --}}
 
                 <div class="user">
-                    <img src="/dashboard-assets/imgs/customer01.jpg" alt="">
+                    <img src="/dashboard-assets/imgs/Estam Uni logo.png" alt="">
                 </div>
             </div>
 
@@ -102,13 +102,22 @@
             
 
             <!-- ================ Order Details List ================= -->
-            
+            {{!-- <div>
+                ytjy
+                {{#if errorMessage}}
+                    <h2>trfje{{errorMessage}}</h2>
+                {{/if}}
+                
+                {{#if successMessage}}
+                    <h2>{{successMessage}}</h2>
+                {{/if}}
+            </div> --}}
+
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Student's Information</h2>
                     </div>
- 
                     <div class="application-details">
                         <div class="application-detail-each">
                             <h3>Name: </h3>
@@ -154,13 +163,49 @@
                             <h3>State: </h3>
                             <p>{{state}}</p>
                         </div>
+
+                        {{#if username}}
+                        <div class="application-detail-each">
+                            <h3>Username: </h3>
+                            <p>{{username}}</p>
+                        </div>
+                        {{/if}}
+
+                        {{#if password}}
+                        <div class="application-detail-each">
+                            <h3>Password: </h3>
+                            <p>{{password}}</p>
+                        </div>
+                        {{/if}}
                     </div>
                         
                 </div>
-                     
+  
+            </div>
 
+            <div class="details" style=" min-height: 100px; ">
+                <div class="recentOrders" style="min-height: 100px;">
+                    <form action="/send-admission-letter" method="post" onsubmit="return confirm('Are you sure you want to send an admission letter to this applicant?')" style="margin:auto;">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="first_name" value="{{first_name}}">
+                        <input type="hidden" name="middle_name" value="{{middle_name}}">
+                        <input type="hidden" name="last_name" value="{{last_name}}">
+                        <input type="hidden" name="email" value="{{email}}">
+                        <input type="hidden" name="course" value="{{course}}">
+                        <input type="hidden" name="application_type" value="{{level}}">
+                        <input type="hidden" name="currentUsername" value="{{username}}">
+                        <input type="hidden" name="currentPassword" value="{{password}}">
+                        {{#if is_verified}}
+                            <button type="submit" class="status delivered" style="margin: auto; border:none; color:rgb(165, 165, 255);">Send Admission Letter Again</button>
+                            <p style="font-size:13px; margin-top:10px; text-align:center; color:green;">Admission letter has already been sent!</p>
+                            {{else}}
+                                <button type="submit" class="status delivered" style="margin: auto; border:none;">Send Admission Letter</button>
+                                <p style="font-size:13px; margin-top:10px; text-align:center; color:red;">Admission letter not sent yet!</p>
+                        {{/if }}
+                    </form>
+                </div>
+            </div>
 
-            
         </div>
     </div>
     {{/each}}

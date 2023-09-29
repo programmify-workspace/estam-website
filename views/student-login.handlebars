@@ -1,14 +1,15 @@
 {{> header}}
-       <div class="edu-breadcrumb-area">
+       
+        <div class="edu-breadcrumb-area">
             <div class="container">
                 <div class="breadcrumb-inner">
                     <div class="page-title">
-                        <h1 class="title">Admin dashboard Login</h1>
+                        <h1 class="title">Student dashboard Login</h1>
                     </div>
                     <ul class="edu-breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="separator"><i class="icon-angle-right"></i></li>
-                        <li class="breadcrumb-item active" aria-current="page">Admin Portal</li>
+                        <li class="breadcrumb-item active" aria-current="page">Student Portal</li>
                     </ul>
                 </div>
             </div>
@@ -24,7 +25,6 @@
                 <li class="shape-5 scene"><img data-depth="2" src="assets/images/about/shape-07.png" alt="shape"></li>
             </ul>
         </div>
-
         <!--=====================================-->
         <!--=          Login Area Start         =-->
         <!--=====================================-->
@@ -35,7 +35,7 @@
                         <div class="login-form-box">
                             <h3 class="title">Sign in</h3>
                             {{!-- <p>Don’t have an account? <a href="#">Sign up</a></p> --}}
-                            <form action="/admin-loging-in" method="post">
+                            <form action="/student-loging-in" method="post">
                                 {{#if messages.error}}
                                     <div class="error-message" style="color: red;">
                                         {{messages.error}}

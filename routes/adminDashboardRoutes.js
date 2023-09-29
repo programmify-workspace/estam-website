@@ -54,9 +54,8 @@ router.get("/admin-dashboard/students/:id", isAuthenticated, async (req, res) =>
     const id = req.params.id
     const sql = "SELECT *, DATE_FORMAT(dob, '%b %d, %Y') AS formatted_dob FROM students WHERE id = ?";
     const [result, fields] = await pool.query(sql, [id]);
-    console.log(result);
     
-    res.render('admin-dashboard-student', { layout: false, student: result });
+    res.render('admin-dashboard-student', { layout: false, student: result, successMessage: req.flash('success')[0], errorMessage: req.flash('error')[0] });
   } catch (error) {
     console.log(error);
     // Handle the error appropriately, e.g., send an error response

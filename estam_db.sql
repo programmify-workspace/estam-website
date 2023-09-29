@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2023 at 04:06 PM
+-- Generation Time: Sep 29, 2023 at 07:39 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -87,14 +87,6 @@ CREATE TABLE `applicants` (
   `referrer` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `applicants`
---
-
-INSERT INTO `applicants` (`id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `email`, `phone`, `nationality`, `address`, `city`, `country`, `state`, `nok_name`, `nok_address`, `nok_city`, `nok_country`, `nok_state`, `nok_email`, `nok_relationship`, `primary_name`, `secondary_name`, `additional_school`, `course`, `application_type`, `transfer_level`, `start_date`, `ssce_certificate`, `birth_certificate`, `photo_passport`, `passport`, `hobbies_interest`, `referrer`, `created_at`) VALUES
-(21, 'David', '', 'Adebanwo', 'Male', '1999-09-12', 'davidadebanwo@gmail.com', '+22957512312', 'Azerbaijan', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Father', 'God\'s Heritage', 'Zion High School', '', 'International Relations', 'Direct Entry', '', 'today', '99352769-9851-402a-b94c-8722d4e0b805-eaae1da3-fce5-43c4-898a-560b9027e0c8-drawinggg.jpg', 'ba359607-9138-490f-929c-ffd72b4c221a-iscanvasimagetest.png', '7cff911c-8c3c-4072-9e03-67623a8a59d0-iscanvasimagetest.png', '', 'sdfgh', 'Twitter', '2023-08-31 14:59:30'),
-(22, 'Dave (Testing)', '', 'Ade', 'Male', '1999-09-12', 'davidadebanwo@gmail.com', '+22957512312', 'Azerbaijan', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'test', 'Segbeya, Cotonou, Benín', 'Cotonou', 'Benin', 'Alibori Department', 'davidadebanwo@gmail.com', 'Father', 'God\'s Heritage', 'Zion High School', '', 'International Relations', 'Direct Entry', '', 'today', 'a7913dbb-a26a-46b0-b3fa-66b939a48533-eaae1da3-fce5-43c4-898a-560b9027e0c8-drawinggg.jpg', '88c9994d-ea01-4331-9466-b70eabc5a9c2-iscanvasimagetest.png', '60ebdba8-bd52-435d-bd87-afbb3878eb9d-iscanvasimagetest.png', '', 'sdfgh', 'Twitter', '2023-08-31 15:04:38');
 
 -- --------------------------------------------------------
 
@@ -5624,6 +5616,7 @@ CREATE TABLE `students` (
   `state` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
   `level` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('student','alumni') NOT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT 0,
@@ -5634,14 +5627,15 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `email`, `phone`, `country`, `state`, `course`, `level`, `password`, `role`, `is_verified`, `verification_token`) VALUES
-(16, 'Tina', '', 'Doe', 'Female', '2006-06-11', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Human Resource Management', 100, '', 'student', 0, NULL),
-(21, 'Steve', 'Testing', 'Jobs', 'Male', '2001-09-03', 'davidadebanwo@gmail.com', '+2295343738', 'Benin', 'Alibori Department', 'Management Information Technology', 200, '', 'student', 0, NULL),
-(23, 'David(Testing)', '', 'Adebanwo', 'Male', '2008-09-08', 'davidadebanwo@gmail.com', '+22954344', 'Benin', 'Alibori Department', 'Economics', 300, '', 'student', 0, NULL),
-(24, 'Pepa', 'Testing', 'Pig', 'Female', '2003-09-01', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Mass Communication', 200, '', 'student', 0, NULL),
-(27, 'David', '', 'Adebanwo', 'Male', '2008-01-01', 'davidadebanwo@gmail.com', '+22957512334', 'Benin', 'Alibori Department', 'Economics', 300, '', 'student', 0, NULL),
-(29, 'David', '', 'Adebanwo', 'Male', '2000-12-31', 'davidadebanwo@gmail.com', '+2295751456', 'Benin', 'Alibori Department', 'Transport and Logistics Management', 200, '', 'student', 0, NULL),
-(31, 'qwerrt', '', 'tyuio', 'Male', '2005-09-07', 'davidadebanwo@gmail.com', '+22957512312', 'Benin', 'Alibori Department', 'Computer Science', 200, '', 'student', 0, NULL);
+INSERT INTO `students` (`id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `email`, `phone`, `country`, `state`, `course`, `level`, `username`, `password`, `role`, `is_verified`, `verification_token`) VALUES
+(16, 'Tina', '', 'Doe', 'Female', '2006-06-11', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Human Resource Management', 100, 'tinadoe@estamuni.net', 'a5e5bwBV', 'student', 1, NULL),
+(21, 'Steve', 'Testing', 'Jobs', 'Male', '2001-09-03', 'davidadebanwo@gmail.com', '+2295343738', 'Benin', 'Alibori Department', 'Management Information Technology', 200, 'stevejobs@estamuni.net', 'INSpUWTl', 'student', 1, NULL),
+(35, 'Xavi', '5', 'test', 'Male', '2009-01-01', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Computer Science', 200, 'xavitest@estamuni.net', 'uC6WhLlx', 'student', 1, NULL),
+(54, 'Test', '5', '(RECAPTCHA)', 'Male', '2023-09-12', 'davidadebanwo@gmail.com', '34323432', 'Benin', 'Alibori Department', 'Political Science', 200, '', '', 'student', 0, NULL),
+(57, 'David', '', 'Adebanwo', 'Male', '2003-08-31', 'davidadebanwo@gmail.com', '+22957512312', 'Bahrain', 'Capital', 'Computer Science', 100, '', '', 'student', 0, NULL),
+(58, 'Sam', '', 'Adebanwo', 'Male', '2003-09-01', 'davidadebanwo@gmail.com', '+22957512312', 'Bahrain', 'Capital', 'Computer Science', 100, '', '', 'student', 0, NULL),
+(59, 'Sammy', '', 'Adebanwo', 'Male', '2003-08-31', 'davidadebanwo@gmail.com', '+22957512312', 'Bahrain', 'Capital', 'Computer Science', 100, '', '', 'student', 0, NULL),
+(60, 'Lola', '', 'Adebanwo', 'Female', '2003-08-31', 'davidadebanwo@gmail.com', '+22957512312', 'Bahrain', 'Capital', 'Computer Science', 100, '', '', 'student', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -5711,7 +5705,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -5735,7 +5729,7 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `rejects`
 --
 ALTER TABLE `rejects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -5747,7 +5741,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- Constraints for dumped tables

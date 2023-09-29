@@ -355,6 +355,18 @@ body {
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  transition:0.2s;
+}
+
+.status.delivered:hover {
+  padding: 4px 8px;
+  background: rgb(0, 0, 158);
+  transition:0.2s;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
 }
 .status.pending {
   padding: 2px 4px;
