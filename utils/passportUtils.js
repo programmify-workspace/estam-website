@@ -33,7 +33,8 @@ passport.use('admin-local', new LocalStrategy({ usernameField: 'email' }, async 
         const isMatch = await bcrypt.compare(password, user.password);
   
         if (isMatch) {
-            return done(null, user);
+          user.role = 'admin';
+            return done(null, user );
         } else {
             return done(null, false, { message: 'Please, input the correct credentials' });
         }
@@ -56,6 +57,7 @@ passport.use('student-local', new LocalStrategy(
         const user = rows[0];
   
         if (password === user.password) {
+          user.role = 'student'; // Set the role as 'student'
           return done(null, user);
         } else {
           return done(null, false, { message: 'Please, input the correct credentials' });
@@ -67,45 +69,34 @@ passport.use('student-local', new LocalStrategy(
   ));
   
 
-
+  // Serialize and Deserialize Functions
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    // Serialize the user based on their role (admin or student)
+    done(null, { id: user.id, role: user.role });
   });
   
-  passport.deserializeUser(async (id, done) => {
+  passport.deserializeUser(async (serializedUser, done) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM admins WHERE id = ?', [id]);
-        done(null, rows[0]);
+      const { id, role } = serializedUser;
+  
+      let user;
+      if (role === 'student') {
+        const [studentRows] = await pool.query('SELECT * FROM students WHERE id = ?', [id]);
+        user = studentRows[0];
+      } else if (role === 'admin') {
+        const [adminRows] = await pool.query('SELECT * FROM admins WHERE id = ?', [id]);
+        user = adminRows[0];
+      }
+  
+      if (user) {
+        return done(null, user);
+      }
+  
+      return done(null, null);
     } catch (err) {
-        done(err);
+      return done(err);
     }
   });
-
-
-  // Serialize and Deserialize Functions
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-  try {
-    const [studentRows] = await pool.query('SELECT * FROM students WHERE id = ?', [id]);
-
-    if (studentRows.length) {
-      return done(null, studentRows[0]);
-    }
-
-    const [adminRows] = await pool.query('SELECT * FROM admins WHERE id = ?', [id]);
-
-    if (adminRows.length) {
-      return done(null, adminRows[0]);
-    }
-
-    return done(null, null);
-  } catch (err) {
-    return done(err);
-  }
-});
 
 
   module.exports = passport;
