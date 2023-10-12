@@ -244,6 +244,7 @@ app.post('/submit-career', (req, res) => {
   const mailOptions = {
     from: `Career Services ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
     to: process.env.ZOHO_CAREER_SERVICES_EMAIL,
+    replyTo: process.env.ZOHO_CAREER_SERVICES_EMAIL,
     subject: 'New Career Services Request from ' + name,
     html: `<!DOCTYPE html>
     <html>
@@ -419,6 +420,7 @@ app.post('/submit-contact', (req, res) => {
   const mailOptions = {
     from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: process.env.ZOHO_CONTACT_US_EMAIL,
+    replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
     subject: `New Message From ${name}`,
     html: `<!DOCTYPE html>
     <html>
@@ -497,6 +499,7 @@ app.post('/submit-contact', (req, res) => {
   // Define the email content
   const emailContent = {
     from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
     to: email,
     subject: 'Thank You for Your Submission',
     html: `<!DOCTYPE html>
@@ -661,6 +664,7 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
     const mailOptions = {
       from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
       <!DOCTYPE html>
@@ -926,6 +930,7 @@ app.post("/reject-applicant", async (req, res) => {
   const mailOptions = {
     from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: email,
+    replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
     subject: 'Admission Decision',
     text: `Dear ${first_name},\n\nWe hope this letter finds you well. We appreciate your interest in ESTAM Uuiversity and the time and effort you invested in your application to the ${course} program. After careful consideration of your application and a thorough review of all aspects, we regret to inform you that we are unable to offer you admission for the 2023/2024 intake. \n\nWe understand that receiving this news may be disappointing, but please know that our admission process is highly competitive and we receive applications from many exceptional candidates. Our decision is not a reflection of your abilities or potential, but rather a result of the limited number of available spots.\n\nWe want to thank you for considering ESTAM University for your higher education journey. We believe that you possess unique qualities and potential that will serve you well in your future endeavors. We encourage you to continue pursuing your academic and personal goals with the same dedication and determination you demonstrated in your application.\n\nIf you have questions about our decision or would like feedback on your application, please do not hesitate to contact us. We are here to support you and provide any information you may need.\n\nWe wish you all the best in your educational pursuits and hope you find success and fulfillment in your chosen path.\n\n\nSincerely,\nThe Admissions Team,\nESTAM University`
   }
@@ -1014,6 +1019,7 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
     const mailOptions = {
       from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
       <!DOCTYPE html>
@@ -1627,6 +1633,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     const mailOptions = {
       from: `ESTAM University <${process.env.ZOHO_ADMIN_EMAIL}>`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Admission Letter',
       //text: `We're delighted you've chosen ESTAM University. Our expert faculty, cutting-edge technologies, and practical curriculum will provide you with excellent learning opportunities no matter what your field of study.\n\nAttached are your:\n- Offer of Admission (Letter of Acceptance) to ESTAM University.\n- School fees breakdown.\n\nPlease review your letter carefully as it contains important information about next steps.\n\nTo access the student portal, visit this site, www.estamuni.net/student-login\nBelow is your username and password to gain access to the school dashboard:\n\nUsername: ${username}\nPassword: ${password}\n\nFor more information:\nEmail: admissions@estamuni.net\nWhatsApp: +22964989194\n\nWe look forward to seeing you on campus.`,
       text: `We're delighted you've chosen ESTAM University. Our expert faculty, cutting-edge technologies, and practical curriculum will provide you with excellent learning opportunities no matter what your field of study.\n\nAttached are your:\n- Offer of Admission (Letter of Acceptance) to ESTAM University.\n- School fees breakdown.\n\nPlease review your letter carefully as it contains important information about next steps.\n\nFor more information:\nEmail: admissions@estamuni.net\nWhatsApp: +22964989194\n\nWe look forward to seeing you on campus.`,
