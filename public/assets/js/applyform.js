@@ -144,7 +144,7 @@ applyForm.addEventListener('submit', async (event) => {
         nokCountrySelect,
         nokStateSelect,
         applicationTypeSelect,
-        transferLevelSelect,
+        // transferLevelSelect,
         courseSelect,
         referrerSelect
     ];

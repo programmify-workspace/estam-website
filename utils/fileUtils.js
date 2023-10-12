@@ -1,13 +1,14 @@
 const multer = require('multer');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // destination folder for the file uploads
-    const dirPath = './uploads/applicants';
+    const dirPath = path.join(__dirname, '..', 'public' ,'uploads', 'applicants');
     if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath);
+      fs.mkdirSync(dirPath, { recursive: true }); // Create directory and its parent directories if they don't exist
     }
     cb(null, dirPath);
   },
