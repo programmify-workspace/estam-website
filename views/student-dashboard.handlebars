@@ -16,7 +16,11 @@
                 </div> --}}
 
                 <div class="user">
-                    <img src="/dashboard-assets/imgs/Estam Uni logo.png" alt="">
+                   {{#if photo_passport}}
+                        <img src="/uploads/applicants/{{photo_passport}}" alt="">
+                    {{else}}
+                        <img src="/dashboard-assets/imgs/Estam Uni logo.png" alt="">
+                    {{/if}}
                 </div>
             </div>
 
