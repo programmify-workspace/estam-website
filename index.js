@@ -1217,11 +1217,35 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 
   }
 
+     /*
+    // for backdating
+    const fullYear = new Date().getFullYear();
+    let currentYear;
+    
+    if (level >= 100 && level <= 300) {
+      currentYear = fullYear - Math.floor(level / 100);
+    }
+    
+    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
+    const dayOfWeek = septemberFirst.getDay();
+    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
+    const secondMonday = new Date(septemberFirst);
+    secondMonday.setDate(daysUntilSecondMonday);
+    
+    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    
+    console.log(admissionDate);
+    */
 
+    // set admission date to every second monday of september (temporary)
+    const currentYear = new Date().getFullYear();
+    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
+    const dayOfWeek = septemberFirst.getDay();
+    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
+    const secondMonday = new Date(septemberFirst);
+    secondMonday.setDate(daysUntilSecondMonday);
 
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    const admissionDate = new Date().toLocaleDateString(undefined, options);
-    console.log(admissionDate)
+    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
     const admissionLetterPath = 'path-to-your-admission-letter.pdf';
     const admissionDoc = new PDFDocument({
@@ -1317,7 +1341,12 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.moveDown();
     admissionDoc.text('Yours sincerely,', { align: 'left' });
 
-    admissionDoc.moveDown(3);
+     // Calculate the position based on the text width
+     const textWidth = admissionDoc.widthOfString('Yours sincerely,');
+     const xSignPosition = 100 - textWidth;
+ 
+     admissionDoc.image('./public/assets/images/sign.png', xSignPosition, admissionDoc.y, { width: 100 });
+    
     admissionDoc.font('Helvetica-Bold');
     admissionDoc.text('ABDULLAHI AHMED LAWAL, ACIFC', { align: 'left' });
     admissionDoc.font('Helvetica');
