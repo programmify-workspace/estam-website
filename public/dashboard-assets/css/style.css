@@ -368,6 +368,29 @@ body {
   font-weight: 500;
   cursor: pointer;
 }
+
+.status.credentials {
+  padding: 4px 8px;
+  background: rgb(121, 41, 234);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:0.2s;
+}
+
+.status.credentials:hover {
+  padding: 4px 8px;
+  background: rgb(0, 76, 158);
+  transition:0.2s;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .status.pending {
   padding: 2px 4px;
   background: #e9b10a;

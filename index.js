@@ -244,6 +244,7 @@ app.post('/submit-career', (req, res) => {
   const mailOptions = {
     from: `Career Services ${process.env.ZOHO_CAREER_SERVICES_EMAIL}`,
     to: process.env.ZOHO_CAREER_SERVICES_EMAIL,
+    replyTo: process.env.ZOHO_CAREER_SERVICES_EMAIL,
     subject: 'New Career Services Request from ' + name,
     html: `<!DOCTYPE html>
     <html>
@@ -419,6 +420,7 @@ app.post('/submit-contact', (req, res) => {
   const mailOptions = {
     from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: process.env.ZOHO_CONTACT_US_EMAIL,
+    replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
     subject: `New Message From ${name}`,
     html: `<!DOCTYPE html>
     <html>
@@ -497,6 +499,7 @@ app.post('/submit-contact', (req, res) => {
   // Define the email content
   const emailContent = {
     from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+    replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
     to: email,
     subject: 'Thank You for Your Submission',
     html: `<!DOCTYPE html>
@@ -632,7 +635,7 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
     }
 
     // Add applicant to student table
-    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level, ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const dobFormatted = new Date(dob).toISOString().split('T')[0];
@@ -648,18 +651,20 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
       country,
       state,
       course,
-      level
+      level,
+      ssce_certificate, 
+      birth_certificate, 
+      photo_passport, 
+      passport
     ]);
-
-    console.log(insertResult);
 
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     const admissionDate = new Date().toLocaleDateString(undefined, options);
-    console.log(admissionDate)
 
     const mailOptions = {
       from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
       <!DOCTYPE html>
@@ -776,52 +781,46 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
     });
 
 
-    console.log('ssce_certificate:', ssce_certificate);
-    console.log('birth_certificate:', birth_certificate);
-    console.log('photo_passport:', photo_passport);
-    console.log('passport:', passport);
-
-
     // Delete files associated with rejected applicant
-    if(ssce_certificate !== ""){
-      fs.unlink(`public/uploads/applicants/${ssce_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(ssce_certificate !== ""){
+    //   fs.unlink(`public/uploads/applicants/${ssce_certificate}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(birth_certificate !== ""){
-      fs.unlink(`public/uploads/applicants/${birth_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(birth_certificate !== ""){
+    //   fs.unlink(`public/uploads/applicants/${birth_certificate}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(photo_passport !== ""){
-      fs.unlink(`public/uploads/applicants/${photo_passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(photo_passport !== ""){
+    //   fs.unlink(`public/uploads/applicants/${photo_passport}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(passport !== ""){
-      fs.unlink(`public/uploads/applicants/${passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(passport !== ""){
+    //   fs.unlink(`public/uploads/applicants/${passport}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
     res.redirect('/admin-dashboard');
 
@@ -931,6 +930,7 @@ app.post("/reject-applicant", async (req, res) => {
   const mailOptions = {
     from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: email,
+    replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
     subject: 'Admission Decision',
     text: `Dear ${first_name},\n\nWe hope this letter finds you well. We appreciate your interest in ESTAM Uuiversity and the time and effort you invested in your application to the ${course} program. After careful consideration of your application and a thorough review of all aspects, we regret to inform you that we are unable to offer you admission for the 2023/2024 intake. \n\nWe understand that receiving this news may be disappointing, but please know that our admission process is highly competitive and we receive applications from many exceptional candidates. Our decision is not a reflection of your abilities or potential, but rather a result of the limited number of available spots.\n\nWe want to thank you for considering ESTAM University for your higher education journey. We believe that you possess unique qualities and potential that will serve you well in your future endeavors. We encourage you to continue pursuing your academic and personal goals with the same dedication and determination you demonstrated in your application.\n\nIf you have questions about our decision or would like feedback on your application, please do not hesitate to contact us. We are here to support you and provide any information you may need.\n\nWe wish you all the best in your educational pursuits and hope you find success and fulfillment in your chosen path.\n\n\nSincerely,\nThe Admissions Team,\nESTAM University`
   }
@@ -986,7 +986,7 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
     }
 
     // Add applicant to student table
-    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level,ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const dobFormatted = new Date(dob).toISOString().split('T')[0];
@@ -1002,7 +1002,11 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
       country,
       state,
       course,
-      level
+      level,
+      ssce_certificate, 
+      birth_certificate, 
+      photo_passport, 
+      passport
     ]);
 
     console.log(insertResult);
@@ -1015,6 +1019,7 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
     const mailOptions = {
       from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
       <!DOCTYPE html>
@@ -1130,52 +1135,47 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
       }
     });
 
-    console.log('ssce_certificate:', ssce_certificate);
-    console.log('birth_certificate:', birth_certificate);
-    console.log('photo_passport:', photo_passport);
-    console.log('passport:', passport);
-
 
     // Delete files associated with rejected applicant
-    if(ssce_certificate !== ""){
-      fs.unlink(`public/uploads/applicants/${ssce_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(ssce_certificate !== ""){
+    //   fs.unlink(`public/uploads/applicants/${ssce_certificate}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(birth_certificate !== ""){
-      fs.unlink(`public/uploads/applicants/${birth_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(birth_certificate !== ""){
+    //   fs.unlink(`public/uploads/applicants/${birth_certificate}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(photo_passport !== ""){
-      fs.unlink(`public/uploads/applicants/${photo_passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(photo_passport !== ""){
+    //   fs.unlink(`public/uploads/applicants/${photo_passport}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
-    if(passport !== ""){
-      fs.unlink(`public/uploads/applicants/${passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
-      });
-    }
+    // if(passport !== ""){
+    //   fs.unlink(`public/uploads/applicants/${passport}`, (err) => {
+    //       if (err) {
+    //           console.error('Error deleting file:', err);
+    //       } else {
+    //           console.log('File deleted successfully');
+    //       }
+    //   });
+    // }
 
     res.redirect('/admin-dashboard/rejected-applications');
 
@@ -1198,30 +1198,54 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
   try {
 
     // Check if username or password is already set
-  if(currentUsername === "" && currentPassword === ""){
-    username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
-    password = passwordGenerator(8, false);
+  // if(currentUsername === "" && currentPassword === ""){
+  //   username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
+  //   password = passwordGenerator(8, false);
 
-    // Add username and password to student table
-    const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?"; 
+  //   // Add username and password to student table
+  //   const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?"; 
 
-    const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
-      username,
-      password,
-      id
-    ]);
-    console.log(insertUserResult);
-  } else {
-    username = currentUsername
-    password = currentPassword
+  //   const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
+  //     username,
+  //     password,
+  //     id
+  //   ]);
+  //   console.log(insertUserResult);
+  // } else {
+  //   username = currentUsername
+  //   password = currentPassword
 
-  }
+  // }
 
+     /*
+    // for backdating
+    const fullYear = new Date().getFullYear();
+    let currentYear;
+    
+    if (level >= 100 && level <= 300) {
+      currentYear = fullYear - Math.floor(level / 100);
+    }
+    
+    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
+    const dayOfWeek = septemberFirst.getDay();
+    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
+    const secondMonday = new Date(septemberFirst);
+    secondMonday.setDate(daysUntilSecondMonday);
+    
+    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    
+    console.log(admissionDate);
+    */
 
+    // set admission date to every second monday of september (temporary)
+    const currentYear = new Date().getFullYear();
+    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
+    const dayOfWeek = septemberFirst.getDay();
+    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
+    const secondMonday = new Date(septemberFirst);
+    secondMonday.setDate(daysUntilSecondMonday);
 
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    const admissionDate = new Date().toLocaleDateString(undefined, options);
-    console.log(admissionDate)
+    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
     const admissionLetterPath = 'path-to-your-admission-letter.pdf';
     const admissionDoc = new PDFDocument({
@@ -1317,7 +1341,12 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.moveDown();
     admissionDoc.text('Yours sincerely,', { align: 'left' });
 
-    admissionDoc.moveDown(3);
+     // Calculate the position based on the text width
+     const textWidth = admissionDoc.widthOfString('Yours sincerely,');
+     const xSignPosition = 100 - textWidth;
+ 
+     admissionDoc.image('./public/assets/images/sign.png', xSignPosition, admissionDoc.y, { width: 100 });
+    
     admissionDoc.font('Helvetica-Bold');
     admissionDoc.text('ABDULLAHI AHMED LAWAL, ACIFC', { align: 'left' });
     admissionDoc.font('Helvetica');
@@ -1604,8 +1633,10 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     const mailOptions = {
       from: `ESTAM University <${process.env.ZOHO_ADMIN_EMAIL}>`,
       to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Admission Letter',
-      text: `We're delighted you've chosen ESTAM University. Our expert faculty, cutting-edge technologies, and practical curriculum will provide you with excellent learning opportunities no matter what your field of study.\n\nAttached are your:\n- Offer of Admission (Letter of Acceptance) to ESTAM University.\n- School fees breakdown.\n\nPlease review your letter carefully as it contains important information about next steps.\n\nTo access the student portal, visit this site, www.estamuni.net/student-login\nBelow is your username and password to gain access to the school dashboard:\n\nUsername: ${username}\nPassword: ${password}\n\nFor more information:\nEmail: admissions@estamuni.net\nWhatsApp: +22964989194\n\nWe look forward to seeing you on campus.`,
+      //text: `We're delighted you've chosen ESTAM University. Our expert faculty, cutting-edge technologies, and practical curriculum will provide you with excellent learning opportunities no matter what your field of study.\n\nAttached are your:\n- Offer of Admission (Letter of Acceptance) to ESTAM University.\n- School fees breakdown.\n\nPlease review your letter carefully as it contains important information about next steps.\n\nTo access the student portal, visit this site, www.estamuni.net/student-login\nBelow is your username and password to gain access to the school dashboard:\n\nUsername: ${username}\nPassword: ${password}\n\nFor more information:\nEmail: admissions@estamuni.net\nWhatsApp: +22964989194\n\nWe look forward to seeing you on campus.`,
+      text: `We're delighted you've chosen ESTAM University. Our expert faculty, cutting-edge technologies, and practical curriculum will provide you with excellent learning opportunities no matter what your field of study.\n\nAttached are your:\n- Offer of Admission (Letter of Acceptance) to ESTAM University.\n- School fees breakdown.\n\nPlease review your letter carefully as it contains important information about next steps.\n\nFor more information:\nEmail: admissions@estamuni.net\nWhatsApp: +22964989194\n\nWe look forward to seeing you on campus.`,
       attachments: [
         {
           filename: 'Admission_Letter.pdf',
@@ -1673,8 +1704,62 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 });
 
 
+app.post("/send-login-credentials", isAuthenticated, async (req, res) => {
+  const { id, first_name, middle_name, last_name, email, course, level, currentUsername, currentPassword } = req.body;
 
+  let username;
+  let password;
+  
 
+  try {
+
+    // Check if username or password is already set
+  if(currentUsername === "" && currentPassword === ""){
+    username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
+    password = passwordGenerator(8, false);
+
+    // Add username and password to student table
+    const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?"; 
+
+    const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
+      username,
+      password,
+      id
+    ]);
+    console.log(insertUserResult);
+  } else {
+    username = currentUsername
+    password = currentPassword
+
+  }
+
+  const mailOptions = {
+    from: `ESTAM Online Academics <${process.env.ZOHO_ADMIN_EMAIL}>`,
+    to: email,
+    subject: 'ESTAM University Student Portal Login Credentials',
+    text: `Dear Student,\n\nWe are excited to provide you with your ESTAM University student portal login credentials. These credentials will grant you access to our student dashboard, where you can access course materials, connect with peers, and utilize various resources to enhance your academic journey.\n\nYour login details are as follows:\n\n- Username: ${username}\n- Password: ${password}\n\nTo access the student portal, simply visit www.estamuni.net/student-login and use the provided credentials to log in.\n\nIf you have any questions or encounter any issues with your login, please don't hesitate to reach out to our Admissions team for assistance at admin@estamuni.net.\n\nWe look forward to supporting your educational endeavors at ESTAM University. Welcome to our academic community!\n\nBest regards,\nAdmissions Office\nESTAM University`
+  };  
+
+    // Send email with attachment
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log('Error sending email:', error);
+        req.flash('error', 'Error sending student login details.');
+      } else {
+        console.log('Email sent:', info.response);
+        req.flash('success', 'Student Login Details Sent');
+      }
+
+    });
+
+  res.redirect(`/admin-dashboard/students/${id}`);
+
+  } catch (error) {
+    console.log('Error:', error);
+    req.flash('error', 'An error occurred while processing the request.');
+    res.status(500).redirect(`/admin-dashboard/students/${id}`);
+  }
+});
 
 
 app.post("/delete-applicant", async (req, res) => {
@@ -1685,11 +1770,6 @@ app.post("/delete-applicant", async (req, res) => {
     const deleteSql = "DELETE FROM rejects WHERE id = ?";
     const [deleteResult, deleteFields] = await pool.query(deleteSql, id);
     console.log(deleteResult);
-
-    console.log('ssce_certificate:', ssce_certificate);
-    console.log('birth_certificate:', birth_certificate);
-    console.log('photo_passport:', photo_passport);
-    console.log('passport:', passport);
 
 
     // Delete files associated with rejected applicant
