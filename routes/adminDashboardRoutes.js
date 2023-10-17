@@ -8,7 +8,7 @@ const {isAuthenticated, preventLoginAccess} = require("../authenticate-admin");
 
 router.get("/admin-dashboard", isAuthenticated, async (req, res) => {
     try {
-      const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_date FROM applicants";
+      const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_date FROM applicants ORDER BY created_at DESC";
       const [results, fields] = await pool.query(sql);
       console.log(results);
       
