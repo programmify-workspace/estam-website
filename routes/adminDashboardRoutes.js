@@ -10,7 +10,6 @@ router.get("/admin-dashboard", isAuthenticated, async (req, res) => {
     try {
       const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_date FROM applicants ORDER BY created_at DESC";
       const [results, fields] = await pool.query(sql);
-      console.log(results);
       
       res.render('admin-dashboard', { layout: false, applicants: results, title: "Applicants" });
     } catch (error) {
@@ -25,7 +24,6 @@ router.get("/admin-dashboard/applicants/:id", isAuthenticated, async (req, res) 
       const id = req.params.id
       const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_created_at, DATE_FORMAT(dob, '%b %d, %Y') AS formatted_dob FROM applicants WHERE id = ?";
       const [result, fields] = await pool.query(sql, [id]);
-      console.log(result);
       
       res.render('admin-dashboard-applicant', { layout: false, applicants: result });
     } catch (error) {
@@ -40,7 +38,6 @@ router.get("/admin-dashboard/students", isAuthenticated, async (req,res) => {
   try {
     const sql = "SELECT * FROM students";
     const [results, fields] = await pool.query(sql);
-    console.log(results);
     res.render("admin-dashboard-students", { layout: false, students: results, title: "Students"  })
   } catch (error) {
     console.log(error);
@@ -69,7 +66,6 @@ router.get("/admin-dashboard/rejected-applications", isAuthenticated, async (req
   try {
     const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_date FROM rejects";
     const [results, fields] = await pool.query(sql);
-    console.log(results);
     res.render('admin-rejected-applicants', { layout: false, applicants: results, title: "Rejected Applicants"  });
   } catch (error) {
     console.log(error);
@@ -83,7 +79,6 @@ router.get("/admin-dashboard/rejected-applications/:id", isAuthenticated, async 
     const id = req.params.id
     const sql = "SELECT *, DATE_FORMAT(created_at, '%b %d, %Y') AS formatted_created_at, DATE_FORMAT(dob, '%b %d, %Y') AS formatted_dob FROM rejects WHERE id = ?";
     const [result, fields] = await pool.query(sql, [id]);
-    console.log(result);
     
     res.render('admin-dashboard-rejected-applicant', { layout: false, applicants: result });
   } catch (error) {
@@ -100,7 +95,6 @@ router.get('/admin-dashboard/admin-settings', isAuthenticated, async (req, res) 
     const id = req.user.id;
     const sql = "SELECT * FROM admins WHERE id = ?";
     const [result, field] = await pool.query(sql, [id]);
-    console.log(result);
 
     // const isMatch = await bcrypt.compare(password, user.password);
         // const hash = await bcrypt.

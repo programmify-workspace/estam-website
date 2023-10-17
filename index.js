@@ -39,13 +39,13 @@ dotenv.config();
 
 app.use(flash());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: false, // Set to true if using HTTPS
-        maxAge: 30 * 24 * 60 * 60 * 1000 // Session duration in milliseconds (30 days)
-    }
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // Set to true if using HTTPS
+    maxAge: 30 * 24 * 60 * 60 * 1000 // Session duration in milliseconds (30 days)
+  }
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -406,19 +406,19 @@ app.post('/submit-career', (req, res) => {
 
 app.post('/submit-contact', (req, res) => {
   const { name, email, phone, honeypot, anotherhiddenfield, message } = req.body
-  
-  if(name === 'RobertNet') {
-      return res.status(400).send('Spam submission detected.');
+
+  if (name === 'RobertNet') {
+    return res.status(400).send('Spam submission detected.');
   }
 
-   // Check hidden fields for values (indicating spam)
-   if (honeypot || anotherhiddenfield) {
+  // Check hidden fields for values (indicating spam)
+  if (honeypot || anotherhiddenfield) {
     return res.status(400).send('Spam submission detected.');
   }
 
   // Send email to admin
   const mailOptions = {
-    from:`Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
+    from: `Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: process.env.ZOHO_CONTACT_US_EMAIL,
     replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
     subject: `New Message From ${name}`,
@@ -574,14 +574,14 @@ app.post('/submit-contact', (req, res) => {
     }
   });
 
-    
+
 });
 
 app.post('/submit-apply', upload.fields([
-  {name:'photo_passport'}, 
-  {name: 'passport'}, 
-  {name: 'ssce_certificate'},
-  {name: 'birth_certificate'}
+  { name: 'photo_passport' },
+  { name: 'passport' },
+  { name: 'ssce_certificate' },
+  { name: 'birth_certificate' }
 ]), handleSubmitApply);
 
 
@@ -601,13 +601,13 @@ app.post('/submit-apply', upload.fields([
 
 
 // Middleware to check if user is authenticated
-const {isAuthenticated, preventLoginAccess} = require("./authenticate-admin");
+const { isAuthenticated, preventLoginAccess } = require("./authenticate-admin");
 
 
 
 
 // Admit applicant
-app.post("/admit-applicant", isAuthenticated,async (req, res) => {
+app.post("/admit-applicant", isAuthenticated, async (req, res) => {
   const { id, first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, application_type, transfer_level, ssce_certificate, birth_certificate, photo_passport, passport } = req.body;
 
   try {
@@ -617,25 +617,32 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
     console.log(deleteResult);
 
     let level;
+    let applicationType;
 
-    if(application_type === "New Student"){
-      level = 100
-    } else if(application_type === "Direct Entry"){
-        level = 200
-    } else if(application_type === "Transfer Student"){
-      if(transfer_level === "100L"){
-        level = 100
-      } else if(transfer_level === "200L"){
-        level = 200
-      }else if(transfer_level === "300L"){
-        level = 300
+    if (application_type === "New Student") {
+      level = 100;
+      applicationType = '';
+    } else if (application_type === "Direct Entry") {
+      level = 200;
+      applicationType = ' (Direct Entry)';
+    } else if (application_type === "Transfer Student") {
+      if (transfer_level === "100L") {
+        level = 100;
+        applicationType = ' (Transfer Student)';
+      } else if (transfer_level === "200L") {
+        level = 200;
+        applicationType = ' (Transfer Student)';
+      } else if (transfer_level === "300L") {
+        level = 300;
+        applicationType = ' (Transfer Student)';
       } else {
-        level = 100  // if the applicant is a transfer student and doesn't enter his/her level
+        level = 100;
+        applicationType = '';
       }
     }
 
     // Add applicant to student table
-    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level, ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertSQL = "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level, ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const dobFormatted = new Date(dob).toISOString().split('T')[0];
@@ -652,9 +659,9 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
       state,
       course,
       level,
-      ssce_certificate, 
-      birth_certificate, 
-      photo_passport, 
+      ssce_certificate,
+      birth_certificate,
+      photo_passport,
       passport
     ]);
 
@@ -667,105 +674,63 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
       replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="UTF-8">
-          <title>Email Template</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; padding: 20px; margin:0; padding:20px;">
-          <header class="header" style="padding:0 0 10px 0; margin:0 auto; border-bottom: 2px solid black; font-size: 14px; line-height:22px;">
-            <h3 style="padding:0; margin:0; ; text-align:center">ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">(ESTAM UNIVERSITY)</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">AUTH:</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">N°049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA</h3>
-            <h3 style="padding:0; margin:0; text-align:center">MINISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA  RECHERCHE SCIENTIFIQUE, REPUBLIQUE DU BENIN</h3>
-          </header>
-          
-          <section style="padding:30px 0 0 0;">
-          
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Date:</b> ${admissionDate}</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Dear ${first_name}${ ' ' + middle_name} ${last_name},</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Congratulations! We are pleased to inform you that you have been granted a provisional admission to Ecole Supérieure des Technologies Avancées et de Management (ESTAM University) to study <b>${course}</b> (${level}L) for the academic year starting in September 2023.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Your application and supporting documents have undergone a meticulous evaluation by our admissions committee, and we are delighted with your outstanding academic achievements and potential. We believe that your unique talents and abilities will make a significant contribution to our diverse and vibrant student community.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦40,000</b> to the following school account:</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Bank Name:</b> First Bank </p>
-                  <p style="line-height:20px; padding:0; margin:0;"><b>Bank Account:</b> 2034850600</p>
-                  <p style="line-height:20px; padding:0; margin:0;"><b>Account Holder Name:</b> Ecole ESTAM Educational Services</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Please ensure that you include your full name and the reference "Admission Fee [Your Name]" when making the payment. This will enable us to promptly identify your transaction.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">After making the payment, kindly send a copy of the payment receipt to admissions@estamuni.net or submit it in person to the school's administration office during working hours (Monday to Friday, 9:00 AM to 5:00 PM). Upon receipt of the payment and confirmation of the transaction, we will proceed with the final steps of your enrollment.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Additionally, an official admission letter will be issued to you, this letter serves as official confirmation of your admission, signed by the Director of Admissions of ESTAM University.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Please ensure you make this payment within the next <b>10 days</b> to secure your admission. If you encounter any difficulties with the payment process or require any assistance, please do not hesitate to contact our admission office at the following numbers:</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Benin:</b> +229 98 59 72 34 (WhatsApp)</p>
-                <p style="line-height:20px; padding:0; margin:0;"><b>Nigeria:</b> +234 806 688 4850</p>
-              </div>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; padding: 20px; margin:0; padding:20px;">
+      <header class="header" style="padding:0 0 10px 0; margin:0 auto; border-bottom: 2px solid black; font-size: 14px; line-height:22px;">
+        <h3 style="padding:0; margin:0; text-align:center">ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT (ESTAM UNIVERSITY)</h3>
+        <h3 style="padding:0; margin:0; text-align:center">AUTH N°: 049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA</h3>
+        <h3 style="padding:0; margin:0; text-align:center">MINISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA RECHERCHE SCIENTIFIQUE, REPUBLIQUE DU BENIN</h3>
+      </header>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Alternatively, you may reach us via email at info@estamuni.net. Our team is here to support and guide you through this exciting process.</p>
-              </div>
+      <section style="padding:30px 0 0 0;">
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Dear ${first_name}${' ' + middle_name} ${last_name},</p>
+        </div>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">We look forward to warmly welcoming you to our esteemed academic community and eagerly anticipate the positive impact you will make through your contributions to our academic and extracurricular activities.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Once again, congratulations on your admission to ESTAM University. We extend our best wishes to you as you embark on an enriching educational journey with us.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Sincerely,</p>
-              </div>
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Congratulations on your provisional admission to ESTAM University to study ${course}, at ${level} level${applicationType} for the academic calendar 2023/2024.</p>
+        </div>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Office of Admissions </p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Ecole Supérieure des Technologies Avancées et de Management </p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Ayelawadje kajakumo en fance eglise Gbigbo wiiwe, Cotonou, Republic of Benin</p>
-                  <p style="line-height:20px; padding:0; margin:0;">Benin: +229 98 59 72 34 </p>
-                  <p style="line-height:20px; padding:0; margin:0;">Nigeria: +234 806 688 4850 </p>
-                  <p style="line-height:20px; padding:0; margin:0;">admissions@estamuni.net</p>
-              </div>
-          
-          </section>
-        </body>
-      </html>
-        `
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">To secure your place and recieve your official admission letter, kindly pay the admission/registration fee of ₦40,000 to the following account:</p> 
+        </div>
+        
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Bank Name: First Bank</p>
+          <p style="line-height:20px; margin:0;">Bank Account: 2034850600</p>
+          <p style="line-height:20px; margin:0;">Account Holder Name: Ecole ESTAM Educational Services</p>
+        </div>
+        
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Please send a copy of the payment receipt to admissions@estamuni.net or submit it in person within 10 days.</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">For assistance, contact us at:</p>
+          <p style="line-height:20px; margin:0;">Benin: +229 98 59 72 34 (WhatsApp)</p>
+          <p style="line-height:20px; margin:0;">Nigeria: +234 806 688 4850</p>
+          <p style="line-height:20px; margin:0;">Email: info@estamuni.net</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">We look forward to welcoming you to our esteemed academic community.</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Sincerely, Office of Admissions</p>
+           <p style="line-height:20px; padding:0; margin:0;">Ayelawadje kajakumo en fance eglise Gbigbo wiiwe, Cotonou, Republic of Benin</p>
+           <p style="line-height:20px; padding:0; margin:0;">admissions@estamuni.net</p>
+        </div>
+        
+      </section>
+    </body>
+  </html>
+  `
     };
 
     // Send email with attachment
@@ -838,7 +803,7 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
 
 app.post("/reject-applicant", async (req, res) => {
   try {
-    const {id} = req.body
+    const { id } = req.body
 
     const sql = "SELECT * FROM applicants WHERE id = ?";
     const [result, field] = await pool.query(sql, id)
@@ -882,9 +847,9 @@ app.post("/reject-applicant", async (req, res) => {
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const dobFormatted = new Date(dob).toISOString().split('T')[0];
-    
+
     // Use these variables in your insert query
-    const insertSQL =  "INSERT INTO rejects (first_name, middle_name, last_name, gender, dob, email, phone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, nok_email, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertSQL = "INSERT INTO rejects (first_name, middle_name, last_name, gender, dob, email, phone, nationality, address, city, country, state, nok_name, nok_address, nok_city, nok_country, nok_state, nok_email, nok_relationship, primary_name, secondary_name, additional_school, course, application_type, transfer_level, start_date, ssce_certificate, birth_certificate, photo_passport, passport, hobbies_interest, referrer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     const insertResult = await pool.query(insertSQL, [
       first_name,
       middle_name,
@@ -921,44 +886,44 @@ app.post("/reject-applicant", async (req, res) => {
       created_at
     ]);
 
-  // Delete applicant from applicants database table
-  const deleteSql = "DELETE FROM applicants WHERE id = ?";
-  const [deleteResult, deleteFields] = await pool.query(deleteSql, id);
-  console.log(deleteResult);
+    // Delete applicant from applicants database table
+    const deleteSql = "DELETE FROM applicants WHERE id = ?";
+    const [deleteResult, deleteFields] = await pool.query(deleteSql, id);
+    console.log(deleteResult);
 
 
-  const mailOptions = {
-    from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
-    to: email,
-    replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
-    subject: 'Admission Decision',
-    text: `Dear ${first_name},\n\nWe hope this letter finds you well. We appreciate your interest in ESTAM Uuiversity and the time and effort you invested in your application to the ${course} program. After careful consideration of your application and a thorough review of all aspects, we regret to inform you that we are unable to offer you admission for the 2023/2024 intake. \n\nWe understand that receiving this news may be disappointing, but please know that our admission process is highly competitive and we receive applications from many exceptional candidates. Our decision is not a reflection of your abilities or potential, but rather a result of the limited number of available spots.\n\nWe want to thank you for considering ESTAM University for your higher education journey. We believe that you possess unique qualities and potential that will serve you well in your future endeavors. We encourage you to continue pursuing your academic and personal goals with the same dedication and determination you demonstrated in your application.\n\nIf you have questions about our decision or would like feedback on your application, please do not hesitate to contact us. We are here to support you and provide any information you may need.\n\nWe wish you all the best in your educational pursuits and hope you find success and fulfillment in your chosen path.\n\n\nSincerely,\nThe Admissions Team,\nESTAM University`
-  }
-
-  // Send email
-  transporter.sendMail({
-    ...mailOptions,
-    retry: 10
-  }, (error, info) => {
-    if (error) {
-      console.log('Error:', error);
-    } else {
-      console.log('Email sent:', info.response);
+    const mailOptions = {
+      from: `ESTAM University ${process.env.ZOHO_ADMIN_EMAIL}`,
+      to: email,
+      replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
+      subject: 'Admission Decision',
+      text: `Dear ${first_name},\n\nWe hope this letter finds you well. We appreciate your interest in ESTAM Uuiversity and the time and effort you invested in your application to the ${course} program. After careful consideration of your application and a thorough review of all aspects, we regret to inform you that we are unable to offer you admission for the 2023/2024 intake. \n\nWe understand that receiving this news may be disappointing, but please know that our admission process is highly competitive and we receive applications from many exceptional candidates. Our decision is not a reflection of your abilities or potential, but rather a result of the limited number of available spots.\n\nWe want to thank you for considering ESTAM University for your higher education journey. We believe that you possess unique qualities and potential that will serve you well in your future endeavors. We encourage you to continue pursuing your academic and personal goals with the same dedication and determination you demonstrated in your application.\n\nIf you have questions about our decision or would like feedback on your application, please do not hesitate to contact us. We are here to support you and provide any information you may need.\n\nWe wish you all the best in your educational pursuits and hope you find success and fulfillment in your chosen path.\n\n\nSincerely,\nThe Admissions Team,\nESTAM University`
     }
-  });
 
-  res.redirect('/admin-dashboard/rejected-applications')
+    // Send email
+    transporter.sendMail({
+      ...mailOptions,
+      retry: 10
+    }, (error, info) => {
+      if (error) {
+        console.log('Error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
+
+    res.redirect('/admin-dashboard/rejected-applications')
   } catch (error) {
     console.log(error);
     // Handle the error appropriately, e.g., send an error response
     res.status(500).send("An error occurred while processing the request.");
   }
-  
+
 })
 
 
 // Admit applicant
-app.post("/admit-reject", isAuthenticated,async (req, res) => {
+app.post("/admit-reject", isAuthenticated, async (req, res) => {
   const { id, first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, application_type, transfer_level, ssce_certificate, birth_certificate, photo_passport, passport } = req.body;
 
   try {
@@ -968,25 +933,33 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
     console.log(deleteResult);
 
     let level;
+    let applicationType;
 
-    if(application_type === "New Student"){
-      level = 100
-    } else if(application_type === "Direct Entry"){
-        level = 200
-    } else if(application_type === "Transfer Student"){
-      if(transfer_level === "100L"){
-        level = 100
-      } else if(transfer_level === "200L"){
-        level = 200
-      }else if(transfer_level === "300L"){
-        level = 300
+    if (application_type === "New Student") {
+      level = 100;
+      applicationType = '';
+    } else if (application_type === "Direct Entry") {
+      level = 200;
+      applicationType = ' (Direct Entry)';
+    } else if (application_type === "Transfer Student") {
+      if (transfer_level === "100L") {
+        level = 100;
+        applicationType = ' (Transfer Student)';
+      } else if (transfer_level === "200L") {
+        level = 200;
+        applicationType = ' (Transfer Student)';
+      } else if (transfer_level === "300L") {
+        level = 300;
+        applicationType = ' (Transfer Student)';
       } else {
-        level = 100  // if the applicant is a transfer student and doesn't enter his/her level
+        level = 100;
+        applicationType = '';
       }
     }
 
+
     // Add applicant to student table
-    const insertSQL =  "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level,ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertSQL = "INSERT INTO students (first_name, middle_name, last_name, dob, gender, email, phone, country, state, course, level,ssce_certificate, birth_certificate, photo_passport, passport) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const dobFormatted = new Date(dob).toISOString().split('T')[0];
@@ -1003,9 +976,9 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
       state,
       course,
       level,
-      ssce_certificate, 
-      birth_certificate, 
-      photo_passport, 
+      ssce_certificate,
+      birth_certificate,
+      photo_passport,
       passport
     ]);
 
@@ -1019,105 +992,63 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
       replyTo: process.env.ZOHO_ADMISSIONS_EMAIL,
       subject: 'Provisional Admission Offer',
       html: `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="UTF-8">
-          <title>Email Template</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; padding: 20px; margin:0; padding:20px;">
-          <header class="header" style="padding:0 0 10px 0; margin:0 auto; border-bottom: 2px solid black; font-size: 14px; line-height:22px;">
-            <h3 style="padding:0; margin:0; ; text-align:center">ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">(ESTAM UNIVERSITY)</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">AUTH:</h3>
-            <h3 style="padding:0; margin:0; ; text-align:center">N°049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA</h3>
-            <h3 style="padding:0; margin:0; text-align:center">MINISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA  RECHERCHE SCIENTIFIQUE, REPUBLIQUE DU BENIN</h3>
-          </header>
-          
-          <section style="padding:30px 0 0 0;">
-          
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Date:</b> ${admissionDate}</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Dear ${first_name}${ ' ' + middle_name} ${last_name},</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Congratulations! We are pleased to inform you that you have been granted a provisional admission to Ecole Supérieure des Technologies Avancées et de Management (ESTAM University) to study <b>${course}</b> (${level}L) for the academic year starting in September 2023.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Your application and supporting documents have undergone a meticulous evaluation by our admissions committee, and we are delighted with your outstanding academic achievements and potential. We believe that your unique talents and abilities will make a significant contribution to our diverse and vibrant student community.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦40,000</b> to the following school account:</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Bank Name:</b> First Bank </p>
-                  <p style="line-height:20px; padding:0; margin:0;"><b>Bank Account:</b> 2034850600</p>
-                  <p style="line-height:20px; padding:0; margin:0;"><b>Account Holder Name:</b> Ecole ESTAM Educational Services</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Please ensure that you include your full name and the reference "Admission Fee [Your Name]" when making the payment. This will enable us to promptly identify your transaction.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">After making the payment, kindly send a copy of the payment receipt to admissions@estamuni.net or submit it in person to the school's administration office during working hours (Monday to Friday, 9:00 AM to 5:00 PM). Upon receipt of the payment and confirmation of the transaction, we will proceed with the final steps of your enrollment.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Additionally, an official admission letter will be issued to you, this letter serves as official confirmation of your admission, signed by the Director of Admissions of ESTAM University.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Please ensure you make this payment within the next <b>10 days</b> to secure your admission. If you encounter any difficulties with the payment process or require any assistance, please do not hesitate to contact our admission office at the following numbers:</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;"><b>Benin:</b> +229 98 59 72 34 (WhatsApp)</p>
-                <p style="line-height:20px; padding:0; margin:0;"><b>Nigeria:</b> +234 806 688 4850</p>
-              </div>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Email Template</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; padding: 20px; margin:0; padding:20px;">
+      <header class="header" style="padding:0 0 10px 0; margin:0 auto; border-bottom: 2px solid black; font-size: 14px; line-height:22px;">
+        <h3 style="padding:0; margin:0; text-align:center">ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT (ESTAM UNIVERSITY)</h3>
+        <h3 style="padding:0; margin:0; text-align:center">AUTH N°: 049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA</h3>
+        <h3 style="padding:0; margin:0; text-align:center">MINISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA RECHERCHE SCIENTIFIQUE, REPUBLIQUE DU BENIN</h3>
+      </header>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Alternatively, you may reach us via email at info@estamuni.net. Our team is here to support and guide you through this exciting process.</p>
-              </div>
+      <section style="padding:30px 0 0 0;">
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Dear ${first_name}${' ' + middle_name} ${last_name},</p>
+        </div>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">We look forward to warmly welcoming you to our esteemed academic community and eagerly anticipate the positive impact you will make through your contributions to our academic and extracurricular activities.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Once again, congratulations on your admission to ESTAM University. We extend our best wishes to you as you embark on an enriching educational journey with us.</p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Sincerely,</p>
-              </div>
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Congratulations on your provisional admission to ESTAM University to study ${course}, at ${level} level${applicationType} for the academic calendar 2023/2024.</p>
+        </div>
 
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Office of Admissions </p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Ecole Supérieure des Technologies Avancées et de Management </p>
-              </div>
-              
-              <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">Ayelawadje kajakumo en fance eglise Gbigbo wiiwe, Cotonou, Republic of Benin</p>
-                  <p style="line-height:20px; padding:0; margin:0;">Benin: +229 98 59 72 34 </p>
-                  <p style="line-height:20px; padding:0; margin:0;">Nigeria: +234 806 688 4850 </p>
-                  <p style="line-height:20px; padding:0; margin:0;">admissions@estamuni.net</p>
-              </div>
-          
-          </section>
-        </body>
-      </html>
-        `
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">To secure your place and recieve your official admission letter, kindly pay the admission/registration fee of ₦40,000 to the following account:</p>
+        </div>
+        
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Bank Name: First Bank</p>
+          <p style="line-height:20px; margin:0;">Bank Account: 2034850600</p>
+          <p style="line-height:20px; margin:0;">Account Holder Name: Ecole ESTAM Educational Services</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Please send a copy of the payment receipt to admissions@estamuni.net or submit it in person within 10 days.</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">For assistance, contact us at:</p>
+          <p style="line-height:20px; margin:0;">Benin: +229 98 59 72 34 (WhatsApp)</p>
+          <p style="line-height:20px; margin:0;">Nigeria: +234 806 688 4850</p>
+          <p style="line-height:20px; margin:0;">Email: info@estamuni.net</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">We look forward to welcoming you to our esteemed academic community.</p>
+        </div>
+
+        <div style="margin-bottom: 20px; font-size:14px;">
+          <p style="line-height:20px; margin:0;">Sincerely, Office of Admissions</p>
+           <p style="line-height:20px; padding:0; margin:0;">Ayelawadje kajakumo en fance eglise Gbigbo wiiwe, Cotonou, Republic of Benin</p>
+           <p style="line-height:20px; padding:0; margin:0;">admissions@estamuni.net</p>
+        </div>
+        
+      </section>
+    </body>
+  </html>
+  `
     };
 
     // Send email with attachment
@@ -1186,61 +1117,52 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
 
 // Send admission letter
 app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
-  const { id, first_name, middle_name, last_name, email, course, level, currentUsername, currentPassword } = req.body;
+  const { id, first_name, middle_name, last_name, email, course, level } = req.body;
 
-  let username;
-  let password;
-  
+  // Process the selected course and insert into the applicants table
+  async function getFaculty(selectedCourse) {
+    try {
+      // Get the faculty_id based on the selected course
+      const [courseRows] = await pool.query('SELECT faculty_id FROM courses WHERE course_name = ?', [selectedCourse]);
+
+      if (courseRows.length > 0) {
+        const facultyId = courseRows[0].faculty_id;
+
+        const [facultyRows] = await pool.query('SELECT faculty_name FROM faculty WHERE faculty_id = ?', [facultyId]);
+
+        if (facultyRows.length > 0) {
+          return facultyRows[0].faculty_name;
+        } else {
+          console.error('Faculty not found or faculty name not available for the selected course.');
+        }
+      } else {
+        console.error('Course not found or faculty id not available for the selected course.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  const faculty = await getFaculty(course); // Use `await` here to wait for the asynchronous function to complete
+
+  let admissionLevel;
+  if (level == 200) {
+    admissionLevel = ` (${level} Level)`;
+  } else if (level == 300) {
+    admissionLevel = ` (${level} Level)`;
+  } else {
+    admissionLevel = "";
+  }
 
   try {
-
-    // Check if username or password is already set
-  // if(currentUsername === "" && currentPassword === ""){
-  //   username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
-  //   password = passwordGenerator(8, false);
-
-  //   // Add username and password to student table
-  //   const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?"; 
-
-  //   const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
-  //     username,
-  //     password,
-  //     id
-  //   ]);
-  //   console.log(insertUserResult);
-  // } else {
-  //   username = currentUsername
-  //   password = currentPassword
-
-  // }
-
-     /*
-    // for backdating
-    const fullYear = new Date().getFullYear();
-    let currentYear;
-    
-    if (level >= 100 && level <= 300) {
-      currentYear = fullYear - Math.floor(level / 100);
-    }
-    
-    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
-    const dayOfWeek = septemberFirst.getDay();
-    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
-    const secondMonday = new Date(septemberFirst);
-    secondMonday.setDate(daysUntilSecondMonday);
-    
-    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    
-    console.log(admissionDate);
-    */
 
     function getAdmissionDate(year) {
       // Create a date for September 11 of the given year.
       const admissionDate = new Date(year, 8, 11); // September is month 8 (0-indexed).
-    
+
       return admissionDate;
     }
-    
+
     const currentYear = new Date().getFullYear();
     const admissionDateObj = getAdmissionDate(currentYear);
     const admissionDate = admissionDateObj.toLocaleDateString('en-US', {
@@ -1266,16 +1188,16 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.image('./public/assets/images/logo/logo-dark.png', xPosition, admissionDoc.y, { width: imageWidth });
     admissionDoc.moveDown();
     admissionDoc.font('Helvetica-Bold');
-    admissionDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', {align: 'center'});
+    admissionDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', { align: 'center' });
     admissionDoc.font('Helvetica');
     admissionDoc.moveDown(0.1);
-    admissionDoc.fontSize(10).text('AUTH: N°049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', {align: 'center'});
+    admissionDoc.fontSize(10).text('AUTH N°: 049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', { align: 'center' });
     admissionDoc.moveDown(0.3);
-    admissionDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', {align: 'center'});
+    admissionDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', { align: 'center' });
     admissionDoc.moveDown(0.1);
-    admissionDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', {align: 'center'});
+    admissionDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', { align: 'center' });
     admissionDoc.moveDown(0.1);
-    admissionDoc.fontSize(10).text('REPUBLIQUE DU BENIN', {align: 'center'});
+    admissionDoc.fontSize(10).text('REPUBLIQUE DU BENIN', { align: 'center' });
 
     admissionDoc.moveDown();
     // Draw bottom border line
@@ -1305,37 +1227,41 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.font('Helvetica');
     admissionDoc.text('We are pleased to inform you that you have been offered a provisional admission into the department of ', { continued: true, lineGap: 2 });
     admissionDoc.font('Helvetica-Bold'); // Set the font style to bold
-    admissionDoc.text(`${course} `, { continued: true, lineGap: 2  });
+    admissionDoc.text(`${course.toUpperCase()}${admissionLevel}`, { continued: true, lineGap: 2 });
     admissionDoc.font('Helvetica'); // Reset the font style to regular
-    admissionDoc.text('on the following terms and conditions:', { lineGap: 2 }); // Move to the next line
+    admissionDoc.text(` under the faculty of`, { continued: true, lineGap: 2 }); // Continue regular font
+    admissionDoc.font('Helvetica-Bold'); // Set the font style to bold for the faculty
+    admissionDoc.text(` ${faculty.toUpperCase()}`, { continued: true, lineGap: 2 });
+    admissionDoc.font('Helvetica'); // Reset the font style to regular
+    admissionDoc.text(` on the following terms and conditions:`, { lineGap: 2 }); // Move to the next line
 
     admissionDoc.moveDown();
 
-    admissionDoc.text('1. You shall be required to appear for registration in person on the stated date of resumption.', { align: 'left', lineGap: 2  })
+    admissionDoc.text('1. You shall be required to appear for registration in person on the stated date of resumption.', { align: 'left', lineGap: 2 })
     admissionDoc.moveDown(0.4);
-    admissionDoc.text('2. At the point of registration, you shall be required to produce the original copies of the following documents:', { align: 'left', lineGap: 2  })
+    admissionDoc.text('2. At the point of registration, you shall be required to produce the original copies of the following documents:', { align: 'left', lineGap: 2 })
     admissionDoc.moveDown(0.2);
-    admissionDoc.text('a. Evidence of payment of the fees and other charges.', { align: 'left', lineGap: 2  })
+    admissionDoc.text('a. Evidence of payment of the fees and other charges.', { align: 'left', lineGap: 2 })
 
-    admissionDoc.text('b. O’ level result(s) (not more than two sittings).', { align: 'left', lineGap: 2  })
+    admissionDoc.text('b. O’ level result(s) (not more than two sittings).', { align: 'left', lineGap: 2 })
 
-    admissionDoc.text('c. Four passport-sized photographs with a white background.', { align: 'left', lineGap: 2  })
+    admissionDoc.text('c. Four passport-sized photographs with a white background.', { align: 'left', lineGap: 2 })
 
-    admissionDoc.text('d. International/ECOWAS passport for your travels and NYSC mobilization.', { align: 'left', lineGap: 2  })
+    admissionDoc.text('d. International/ECOWAS passport for your travels and NYSC mobilization.', { align: 'left', lineGap: 2 })
 
     admissionDoc.text('e. Birth Certificate.', { align: 'left' })
     admissionDoc.moveDown(0.4);
-    admissionDoc.text('3. Students from countries with eight-semester university program design will run two (2) summer semesters compulsory.', { align: 'left', lineGap: 2  })
+    admissionDoc.text('3. Students from countries with eight-semester university program design will run two (2) summer semesters compulsory.', { align: 'left', lineGap: 2 })
 
 
     admissionDoc.moveDown();
-    admissionDoc.text('This offer of admission is tentative and contingent upon a candidate meeting all the requirements and conditions for admission as stipulated in the admission letter.', { align: 'left', lineGap: 2  });
+    admissionDoc.text('This offer of admission is tentative and contingent upon a candidate meeting all the requirements and conditions for admission as stipulated in the admission letter.', { align: 'left', lineGap: 2 });
 
     admissionDoc.moveDown();
-    admissionDoc.text(`For a candidate who may not have obtained the requisite qualifying result for registration and final year clearance, his or her admission shall remain provisional until such results (containing the necessary grades) and such clearance requirements are submitted.`, { align: 'left', lineGap: 2  });
+    admissionDoc.text(`For a candidate who may not have obtained the requisite qualifying result for registration and final year clearance, his or her admission shall remain provisional until such results (containing the necessary grades) and such clearance requirements are submitted.`, { align: 'left', lineGap: 2 });
 
     admissionDoc.moveDown();
-    admissionDoc.text(`By acceptance of this offer of admission in compliance with all registration requirements, it is construed that you have accepted to abide by all the rules and regulations issued by the University authority from time to time. Non-observance of any of the conditions, rules, and regulations may result in your expulsion from the University.`, { align: 'left', lineGap: 2  });
+    admissionDoc.text(`By acceptance of this offer of admission in compliance with all registration requirements, it is construed that you have accepted to abide by all the rules and regulations issued by the University authority from time to time. Non-observance of any of the conditions, rules, and regulations may result in your expulsion from the University.`, { align: 'left', lineGap: 2 });
 
     admissionDoc.moveDown();
     admissionDoc.text('', { align: 'left' });
@@ -1343,12 +1269,12 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.moveDown();
     admissionDoc.text('Yours sincerely,', { align: 'left' });
 
-     // Calculate the position based on the text width
-     const textWidth = admissionDoc.widthOfString('Yours sincerely,');
-     const xSignPosition = 100 - textWidth;
- 
-     admissionDoc.image('./public/assets/images/sign.png', xSignPosition, admissionDoc.y, { width: 100 });
-    
+    // Calculate the position based on the text width
+    const textWidth = admissionDoc.widthOfString('Yours sincerely,');
+    const xSignPosition = 100 - textWidth;
+
+    admissionDoc.image('./public/assets/images/sign.png', xSignPosition, admissionDoc.y, { width: 85 });
+
     admissionDoc.font('Helvetica-Bold');
     admissionDoc.text('ABDULLAHI AHMED LAWAL, ACIFC', { align: 'left' });
     admissionDoc.font('Helvetica');
@@ -1357,7 +1283,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     admissionDoc.end();
 
     admissionStream.on('finish', () => {
-    console.log('PDF created successfully:', admissionLetterPath);
+      console.log('PDF created successfully:', admissionLetterPath);
     });
 
 
@@ -1373,103 +1299,103 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     const returningStudentTuitionStream = fs.createWriteStream(returningStudentTuitionPath);
     returningStudentTuitionDoc.pipe(returningStudentTuitionStream);
 
-  
+
     const returningStudentTuitionDocXPosition = (pdfWidth - 500) / 2; // Calculate the X position to center the image
-  // Header
-  returningStudentTuitionDoc.image('./public/assets/images/logo/logo-dark.png', xPosition, returningStudentTuitionDoc.y, { width: imageWidth });
-  returningStudentTuitionDoc.moveDown();
-  returningStudentTuitionDoc.font('Helvetica-Bold');
-  returningStudentTuitionDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', {align: 'center'});
-  returningStudentTuitionDoc.font('Helvetica');
-  returningStudentTuitionDoc.moveDown(0.1);
-  returningStudentTuitionDoc.fontSize(10).text('AUTH: N°049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', {align: 'center'});
-  returningStudentTuitionDoc.moveDown(0.3);
-  returningStudentTuitionDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', {align: 'center'});
-  returningStudentTuitionDoc.moveDown(0.1);
-  returningStudentTuitionDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', {align: 'center'});
-  returningStudentTuitionDoc.moveDown(0.1);
-  returningStudentTuitionDoc.fontSize(10).text('REPUBLIQUE DU BENIN', {align: 'center'});
+    // Header
+    returningStudentTuitionDoc.image('./public/assets/images/logo/logo-dark.png', xPosition, returningStudentTuitionDoc.y, { width: imageWidth });
+    returningStudentTuitionDoc.moveDown();
+    returningStudentTuitionDoc.font('Helvetica-Bold');
+    returningStudentTuitionDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', { align: 'center' });
+    returningStudentTuitionDoc.font('Helvetica');
+    returningStudentTuitionDoc.moveDown(0.1);
+    returningStudentTuitionDoc.fontSize(10).text('AUTH N°: 049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', { align: 'center' });
+    returningStudentTuitionDoc.moveDown(0.3);
+    returningStudentTuitionDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', { align: 'center' });
+    returningStudentTuitionDoc.moveDown(0.1);
+    returningStudentTuitionDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', { align: 'center' });
+    returningStudentTuitionDoc.moveDown(0.1);
+    returningStudentTuitionDoc.fontSize(10).text('REPUBLIQUE DU BENIN', { align: 'center' });
 
-  returningStudentTuitionDoc.moveDown();
-  // Draw bottom border line
-  returningStudentTuitionDoc.lineWidth(lineWidth).moveTo(30, returningStudentTuitionDoc.y).lineTo(582, returningStudentTuitionDoc.y).stroke();
+    returningStudentTuitionDoc.moveDown();
+    // Draw bottom border line
+    returningStudentTuitionDoc.lineWidth(lineWidth).moveTo(30, returningStudentTuitionDoc.y).lineTo(582, returningStudentTuitionDoc.y).stroke();
 
-  returningStudentTuitionDoc.fontSize(10);
-  returningStudentTuitionDoc.moveDown(3);
+    returningStudentTuitionDoc.fontSize(10);
+    returningStudentTuitionDoc.moveDown(3);
 
-  returningStudentTuitionDoc.font('Helvetica-Bold');
-  returningStudentTuitionDoc.text('APPROVED TUITION FEES FOR RETURNING STUDENTS', {align: 'center'});
-  returningStudentTuitionDoc.moveDown(0.5);
-  returningStudentTuitionDoc.text('200 & 300 LEVEL', {align: 'center' });
+    returningStudentTuitionDoc.font('Helvetica-Bold');
+    returningStudentTuitionDoc.text('APPROVED TUITION FEES FOR RETURNING STUDENTS', { align: 'center' });
+    returningStudentTuitionDoc.moveDown(0.5);
+    returningStudentTuitionDoc.text('200 & 300 LEVEL', { align: 'center' });
 
-  returningStudentTuitionDoc.font('Helvetica');
-  returningStudentTuitionDoc.moveDown(2);
+    returningStudentTuitionDoc.font('Helvetica');
+    returningStudentTuitionDoc.moveDown(2);
 
-  returningStudentTuitionDoc.font('Helvetica-Bold');
-  returningStudentTuitionDoc.text('NAIRA', returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { align: 'right', width: 500  });
+    returningStudentTuitionDoc.font('Helvetica-Bold');
+    returningStudentTuitionDoc.text('NAIRA', returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { align: 'right', width: 500 });
 
-  returningStudentTuitionDoc.moveDown(0.5);
-  returningStudentTuitionDoc.font('Helvetica');
+    returningStudentTuitionDoc.moveDown(0.5);
+    returningStudentTuitionDoc.font('Helvetica');
 
-  const items = [
-    { name: 'TUITION FEE', price: '175,000' },
-    { name: 'EXAMINATION', price: '10,000' },
-    { name: 'INTERNET', price: '10,000' },
-    { name: 'INTENSIVE FRENCH', price: '10,000' },
-    { name: 'RETURNING FEE', price: '10,000' },
-    { name: 'COURSE FORM', price: '5,000' }
-  ];
+    const items = [
+      { name: 'TUITION FEE', price: '175,000' },
+      { name: 'EXAMINATION', price: '10,000' },
+      { name: 'INTERNET', price: '10,000' },
+      { name: 'INTENSIVE FRENCH', price: '10,000' },
+      { name: 'RETURNING FEE', price: '10,000' },
+      { name: 'COURSE FORM', price: '5,000' }
+    ];
 
-  for (const item of items) {
-    returningStudentTuitionDoc.text(`${item.name}`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { continued: true, align: 'left',  width: 500 });
-    returningStudentTuitionDoc.text(`${item.price}`, { align: 'right', lineGap: 4 });
-  }
-  returningStudentTuitionDoc.font('Helvetica-Bold');
-  returningStudentTuitionDoc.text(`TOTAL      220,000`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { align: 'right', lineGap: 4,  width: 500 });
-  returningStudentTuitionDoc.font('Helvetica');
-
-
-
-
-  returningStudentTuitionDoc.moveDown();
-  returningStudentTuitionDoc.font('Helvetica-Bold');
-  returningStudentTuitionDoc.text('PRACTICALS', returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { underline: true, align: 'left', width: 500  });
-
-  returningStudentTuitionDoc.moveDown(0.5);
-  returningStudentTuitionDoc.font('Helvetica');
-
-  const items1 = [
-    { name: 'COMPUTER SCIENCE', price: '10,000' },
-    { name: 'COMPUTER SOFTWARE DEVELOPMENT', price: '10,000' },
-    { name: 'INFORMATION TECHNOLOGY', price: '10,000' },
-    { name: 'MASS COMMUNICATION', price: '10,000' }
-  ];
-
-
-  for (const item of items1) {
-    returningStudentTuitionDoc.text(`${item.name}`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { continued: true, align: 'left',  width: 500 });
-    returningStudentTuitionDoc.text(`${item.price}`, { align: 'right', lineGap: 4 });
-  }
-
-
-  returningStudentTuitionDoc.end();
-
-
-  returningStudentTuitionStream.on('finish', () => {
-    console.log(`PDF saved to ${returningStudentTuitionPath}`);
-  });
-
-  returningStudentTuitionStream.on('error', (err) => {
-    console.error('Error saving PDF:', err);
-  });
-
-
-  ////////
+    for (const item of items) {
+      returningStudentTuitionDoc.text(`${item.name}`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { continued: true, align: 'left', width: 500 });
+      returningStudentTuitionDoc.text(`${item.price}`, { align: 'right', lineGap: 4 });
+    }
+    returningStudentTuitionDoc.font('Helvetica-Bold');
+    returningStudentTuitionDoc.text(`TOTAL      220,000`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { align: 'right', lineGap: 4, width: 500 });
+    returningStudentTuitionDoc.font('Helvetica');
 
 
 
 
-  const tuitionFeePath = 'Student_Tuition.pdf';
+    returningStudentTuitionDoc.moveDown();
+    returningStudentTuitionDoc.font('Helvetica-Bold');
+    returningStudentTuitionDoc.text('PRACTICALS', returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { underline: true, align: 'left', width: 500 });
+
+    returningStudentTuitionDoc.moveDown(0.5);
+    returningStudentTuitionDoc.font('Helvetica');
+
+    const items1 = [
+      { name: 'COMPUTER SCIENCE', price: '10,000' },
+      { name: 'COMPUTER SOFTWARE DEVELOPMENT', price: '10,000' },
+      { name: 'INFORMATION TECHNOLOGY', price: '10,000' },
+      { name: 'MASS COMMUNICATION', price: '10,000' }
+    ];
+
+
+    for (const item of items1) {
+      returningStudentTuitionDoc.text(`${item.name}`, returningStudentTuitionDocXPosition, returningStudentTuitionDoc.y, { continued: true, align: 'left', width: 500 });
+      returningStudentTuitionDoc.text(`${item.price}`, { align: 'right', lineGap: 4 });
+    }
+
+
+    returningStudentTuitionDoc.end();
+
+
+    returningStudentTuitionStream.on('finish', () => {
+      console.log(`PDF saved to ${returningStudentTuitionPath}`);
+    });
+
+    returningStudentTuitionStream.on('error', (err) => {
+      console.error('Error saving PDF:', err);
+    });
+
+
+    ////////
+
+
+
+
+    const tuitionFeePath = 'Student_Tuition.pdf';
     const tuitionFeeDoc = new PDFDocument({
       margin: 20 // Adjust margin as needed
     });
@@ -1478,159 +1404,159 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     const tuitionFeeStream = fs.createWriteStream(tuitionFeePath);
     tuitionFeeDoc.pipe(tuitionFeeStream);
 
-  
+
     const tuitionFeeDocXPosition = (pdfWidth - 500) / 2; // Calculate the X position to center the image
-  // Header
-  tuitionFeeDoc.image('./public/assets/images/logo/logo-dark.png', xPosition, tuitionFeeDocXPosition.y, { width: imageWidth });
-  tuitionFeeDoc.moveDown();
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', {align: 'center'});
-  tuitionFeeDoc.font('Helvetica');
-  tuitionFeeDoc.moveDown(0.1);
-  tuitionFeeDoc.fontSize(10).text('AUTH: N°049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', {align: 'center'});
-  tuitionFeeDoc.moveDown(0.3);
-  tuitionFeeDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', {align: 'center'});
-  tuitionFeeDoc.moveDown(0.1);
-  tuitionFeeDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', {align: 'center'});
-  tuitionFeeDoc.moveDown(0.1);
-  tuitionFeeDoc.fontSize(10).text('REPUBLIQUE DU BENIN', {align: 'center'});
+    // Header
+    tuitionFeeDoc.image('./public/assets/images/logo/logo-dark.png', xPosition, tuitionFeeDocXPosition.y, { width: imageWidth });
+    tuitionFeeDoc.moveDown();
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.fontSize(12).text('ECOLE SUPÉRIEURE DES TECHNOLOGIES AVANCÉES ET DE MANAGEMENT', { align: 'center' });
+    tuitionFeeDoc.font('Helvetica');
+    tuitionFeeDoc.moveDown(0.1);
+    tuitionFeeDoc.fontSize(10).text('AUTH N°: 049/MESRS/CAB/DC/SGM/DPP/DGES/DEPES/SA', { align: 'center' });
+    tuitionFeeDoc.moveDown(0.3);
+    tuitionFeeDoc.fontSize(10).text('MINISTERE DE L\'ENSEIGNEMENT SUPERIEUR', { align: 'center' });
+    tuitionFeeDoc.moveDown(0.1);
+    tuitionFeeDoc.fontSize(10).text('ET DE LA RECHERCHE SCIENTIFIQUE,', { align: 'center' });
+    tuitionFeeDoc.moveDown(0.1);
+    tuitionFeeDoc.fontSize(10).text('REPUBLIQUE DU BENIN', { align: 'center' });
 
-  tuitionFeeDoc.moveDown();
-  // Draw bottom border line
-  tuitionFeeDoc.lineWidth(lineWidth).moveTo(30, tuitionFeeDoc.y).lineTo(582, tuitionFeeDoc.y).stroke();
+    tuitionFeeDoc.moveDown();
+    // Draw bottom border line
+    tuitionFeeDoc.lineWidth(lineWidth).moveTo(30, tuitionFeeDoc.y).lineTo(582, tuitionFeeDoc.y).stroke();
 
-  tuitionFeeDoc.fontSize(10);
-  tuitionFeeDoc.moveDown(1);
+    tuitionFeeDoc.fontSize(10);
+    tuitionFeeDoc.moveDown(1);
 
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('APPROVED TUITION FEES FOR STUDENTS', {align: 'center'});
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.text('100 LEVEL', {align: 'center' });
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('APPROVED TUITION FEES FOR STUDENTS', { align: 'center' });
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.text('100 LEVEL', { align: 'center' });
 
-  tuitionFeeDoc.font('Helvetica');
-  tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica');
+    tuitionFeeDoc.moveDown(0.5);
 
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('NAIRA', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', width: 500  });
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica');
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('NAIRA', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', width: 500 });
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica');
 
-  const tuitionItems = [
-    { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
-    { name: 'TUITION FEE', price: '175,000' },
-    { name: 'EXAMINATION', price: '10,000' },
-    { name: 'INTERNET', price: '10,000' },
-    { name: 'INTENSIVE FRENCH', price: '10,000' },
-    { name: 'MATRICULATION', price: '10,000' },
-    { name: 'ACCEPTANCE FEE', price: '10,000' },
-    { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
-  ];
+    const tuitionItems = [
+      { name: 'ADMISSION FORM', price: '5,000' },
+      { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
+      { name: 'TUITION FEE', price: '175,000' },
+      { name: 'EXAMINATION', price: '10,000' },
+      { name: 'INTERNET', price: '10,000' },
+      { name: 'INTENSIVE FRENCH', price: '10,000' },
+      { name: 'MATRICULATION', price: '10,000' },
+      { name: 'ACCEPTANCE FEE', price: '10,000' },
+      { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
+    ];
 
-  for (const item of tuitionItems) {
-    tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left',  width: 500 });
-    tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
-  }
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text(`TOTAL      290,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2,  width: 500 });
-  tuitionFeeDoc.font('Helvetica');
-
-
-
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('200 Level', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'center', lineGap: 2,width: 500  });
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica');
-
-  const tuitionItems1 = [
-    { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
-    { name: 'TUITION FEE', price: '175,000' },
-    { name: 'TRANSFER FEE', price: '40,000' },
-    { name: 'EXAMINATION', price: '10,000' },
-    { name: 'INTERNET', price: '10,000' },
-    { name: 'INTENSIVE FRENCH', price: '10,000' },
-    { name: 'ACCEPTANCE FEE', price: '10,000' },
-    { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
-  ];
-
-
-  for (const item of tuitionItems1) {
-    tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left',  width: 500 });
-    tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2});
-  }
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text(`TOTAL      320,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2,  width: 500 });
-  tuitionFeeDoc.font('Helvetica');
-
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('300 Level', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'center', lineGap: 2, width: 500  });
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica');
-
-  const tuitionItems2 = [
-    { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
-    { name: 'TUITION FEE', price: '175,000' },
-    { name: 'TRANSFER FEE', price: '40,000' },
-    { name: 'EXAMINATION', price: '10,000' },
-    { name: 'INTERNET', price: '10,000' },
-    { name: 'INTENSIVE FRENCH', price: '10,000' },
-    { name: 'ACCEPTANCE FEE', price: '20,000' },
-    { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
-  ];
-
-
-  for (const item of tuitionItems2) {
-    tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left',  width: 500 });
-    tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
-  }
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text(`TOTAL      330,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2,  width: 500 });
-  tuitionFeeDoc.font('Helvetica');
-
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('PRACTICALS', tuitionFeeDocXPosition, tuitionFeeDoc.y, { underline: true, align: 'left', width: 500  });
-
-  tuitionFeeDoc.moveDown(0.5);
-  tuitionFeeDoc.font('Helvetica');
-
-  const tuitionItems3 = [
-    { name: 'COMPUTER SCIENCE', price: '10,000' },
-    { name: 'INFORMATION TECHNOLOGY', price: '10,000' },
-    { name: 'MASS COMMUNICATION', price: '10,000' }
-  ];
-
-
-  for (const item of tuitionItems3) {
-    tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left',  width: 500 });
-    tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
-  }
-  tuitionFeeDoc.font('Helvetica-Bold');
-  tuitionFeeDoc.text('HOSTEL FEES', tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left',  width: 500 });
-  tuitionFeeDoc.text('85,000 PER SEMESTER', { align: 'right', lineGap: 2 });
+    for (const item of tuitionItems) {
+      tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left', width: 500 });
+      tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
+    }
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text(`TOTAL      290,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2, width: 500 });
+    tuitionFeeDoc.font('Helvetica');
 
 
 
 
-  tuitionFeeDoc.end();
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('200 Level', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'center', lineGap: 2, width: 500 });
+
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica');
+
+    const tuitionItems1 = [
+      { name: 'ADMISSION FORM', price: '5,000' },
+      { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
+      { name: 'TUITION FEE', price: '175,000' },
+      { name: 'TRANSFER FEE', price: '40,000' },
+      { name: 'EXAMINATION', price: '10,000' },
+      { name: 'INTERNET', price: '10,000' },
+      { name: 'INTENSIVE FRENCH', price: '10,000' },
+      { name: 'ACCEPTANCE FEE', price: '10,000' },
+      { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
+    ];
 
 
-  tuitionFeeStream.on('finish', () => {
-    console.log(`PDF saved to ${tuitionFeePath}`);
-  });
+    for (const item of tuitionItems1) {
+      tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left', width: 500 });
+      tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
+    }
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text(`TOTAL      320,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2, width: 500 });
+    tuitionFeeDoc.font('Helvetica');
 
-  tuitionFeeStream.on('error', (err) => {
-    console.error('Error saving PDF:', err);
-  });
+
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('300 Level', tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'center', lineGap: 2, width: 500 });
+
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica');
+
+    const tuitionItems2 = [
+      { name: 'ADMISSION FORM', price: '5,000' },
+      { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
+      { name: 'TUITION FEE', price: '175,000' },
+      { name: 'TRANSFER FEE', price: '40,000' },
+      { name: 'EXAMINATION', price: '10,000' },
+      { name: 'INTERNET', price: '10,000' },
+      { name: 'INTENSIVE FRENCH', price: '10,000' },
+      { name: 'ACCEPTANCE FEE', price: '20,000' },
+      { name: 'UNIFORM, ID CARD & COURSE FORM', price: '25,000' }
+    ];
+
+
+    for (const item of tuitionItems2) {
+      tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left', width: 500 });
+      tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
+    }
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text(`TOTAL      330,000`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { align: 'right', lineGap: 2, width: 500 });
+    tuitionFeeDoc.font('Helvetica');
+
+
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('PRACTICALS', tuitionFeeDocXPosition, tuitionFeeDoc.y, { underline: true, align: 'left', width: 500 });
+
+    tuitionFeeDoc.moveDown(0.5);
+    tuitionFeeDoc.font('Helvetica');
+
+    const tuitionItems3 = [
+      { name: 'COMPUTER SCIENCE', price: '10,000' },
+      { name: 'INFORMATION TECHNOLOGY', price: '10,000' },
+      { name: 'MASS COMMUNICATION', price: '10,000' }
+    ];
+
+
+    for (const item of tuitionItems3) {
+      tuitionFeeDoc.text(`${item.name}`, tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left', width: 500 });
+      tuitionFeeDoc.text(`${item.price}`, { align: 'right', lineGap: 2 });
+    }
+    tuitionFeeDoc.font('Helvetica-Bold');
+    tuitionFeeDoc.text('HOSTEL FEES', tuitionFeeDocXPosition, tuitionFeeDoc.y, { continued: true, align: 'left', width: 500 });
+    tuitionFeeDoc.text('85,000 PER SEMESTER', { align: 'right', lineGap: 2 });
+
+
+
+
+    tuitionFeeDoc.end();
+
+
+    tuitionFeeStream.on('finish', () => {
+      console.log(`PDF saved to ${tuitionFeePath}`);
+    });
+
+    tuitionFeeStream.on('error', (err) => {
+      console.error('Error saving PDF:', err);
+    });
 
     const mailOptions = {
       from: `ESTAM University <${process.env.ZOHO_ADMIN_EMAIL}>`,
@@ -1688,7 +1614,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 
 
     // Add applicant to student table
-    const insertSQL =  "UPDATE students SET is_verified = ? WHERE id = ?";
+    const insertSQL = "UPDATE students SET is_verified = ? WHERE id = ?";
 
     // Convert the provided DOB to a string in "yyyy-mm-dd" format
     const verified = 1;
@@ -1696,7 +1622,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     const [insertResult, insertField] = await pool.query(insertSQL, [verified, id]);
 
 
-  res.redirect(`/admin-dashboard/students/${id}`);
+    res.redirect(`/admin-dashboard/students/${id}`);
 
   } catch (error) {
     console.log('Error:', error);
@@ -1711,36 +1637,35 @@ app.post("/send-login-credentials", isAuthenticated, async (req, res) => {
 
   let username;
   let password;
-  
+
 
   try {
 
     // Check if username or password is already set
-  if(currentUsername === "" && currentPassword === ""){
-    username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
-    password = passwordGenerator(8, false);
+    if (currentUsername === "" && currentPassword === "") {
+      username = `${first_name.toLowerCase()}${last_name.toLowerCase()}@estamuni.net`;
+      password = passwordGenerator(8, false);
 
-    // Add username and password to student table
-    const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?"; 
+      // Add username and password to student table
+      const insertUserSQL = "UPDATE students SET username = ?, password = ? WHERE id = ?";
 
-    const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
-      username,
-      password,
-      id
-    ]);
-    console.log(insertUserResult);
-  } else {
-    username = currentUsername
-    password = currentPassword
+      const [insertUserResult, insertUserField] = await pool.query(insertUserSQL, [
+        username,
+        password,
+        id
+      ]);
+    } else {
+      username = currentUsername
+      password = currentPassword
 
-  }
+    }
 
-  const mailOptions = {
-    from: `ESTAM Online Academics <${process.env.ZOHO_ADMIN_EMAIL}>`,
-    to: email,
-    subject: 'ESTAM University Student Portal Login Credentials',
-    text: `Dear Student,\n\nWe are excited to provide you with your ESTAM University student portal login credentials. These credentials will grant you access to our student dashboard, where you can access course materials, connect with peers, and utilize various resources to enhance your academic journey.\n\nYour login details are as follows:\n\n- Username: ${username}\n- Password: ${password}\n\nTo access the student portal, simply visit www.estamuni.net/student-login and use the provided credentials to log in.\n\nIf you have any questions or encounter any issues with your login, please don't hesitate to reach out to our Admissions team for assistance at admin@estamuni.net.\n\nWe look forward to supporting your educational endeavors at ESTAM University. Welcome to our academic community!\n\nBest regards,\nAdmissions Office\nESTAM University`
-  };  
+    const mailOptions = {
+      from: `ESTAM Online Academics <${process.env.ZOHO_ADMIN_EMAIL}>`,
+      to: email,
+      subject: 'ESTAM University Student Portal Login Credentials',
+      text: `Dear Student,\n\nWe are excited to provide you with your ESTAM University student portal login credentials. These credentials will grant you access to our student dashboard, where you can access course materials, connect with peers, and utilize various resources to enhance your academic journey.\n\nYour login details are as follows:\n\n- Username: ${username}\n- Password: ${password}\n\nTo access the student portal, simply visit www.estamuni.net/student-login and use the provided credentials to log in.\n\nIf you have any questions or encounter any issues with your login, please don't hesitate to reach out to our Admissions team for assistance at admin@estamuni.net.\n\nWe look forward to supporting your educational endeavors at ESTAM University. Welcome to our academic community!\n\nBest regards,\nAdmissions Office\nESTAM University`
+    };
 
     // Send email with attachment
     transporter.sendMail(mailOptions, (error, info) => {
@@ -1754,7 +1679,7 @@ app.post("/send-login-credentials", isAuthenticated, async (req, res) => {
 
     });
 
-  res.redirect(`/admin-dashboard/students/${id}`);
+    res.redirect(`/admin-dashboard/students/${id}`);
 
   } catch (error) {
     console.log('Error:', error);
@@ -1766,52 +1691,51 @@ app.post("/send-login-credentials", isAuthenticated, async (req, res) => {
 
 app.post("/delete-applicant", async (req, res) => {
   try {
-    const {id, ssce_certificate, birth_certificate, photo_passport, passport} = req.body;
+    const { id, ssce_certificate, birth_certificate, photo_passport, passport } = req.body;
 
     // Delete applicant from applicants database table
     const deleteSql = "DELETE FROM rejects WHERE id = ?";
     const [deleteResult, deleteFields] = await pool.query(deleteSql, id);
-    console.log(deleteResult);
 
 
     // Delete files associated with rejected applicant
-    if(ssce_certificate !== ""){
+    if (ssce_certificate !== "") {
       fs.unlink(`public/uploads/applicants/${ssce_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
+        if (err) {
+          console.error('Error deleting file:', err);
+        } else {
+          console.log('File deleted successfully');
+        }
       });
     }
 
-    if(birth_certificate !== ""){
+    if (birth_certificate !== "") {
       fs.unlink(`public/uploads/applicants/${birth_certificate}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
+        if (err) {
+          console.error('Error deleting file:', err);
+        } else {
+          console.log('File deleted successfully');
+        }
       });
     }
 
-    if(photo_passport !== ""){
+    if (photo_passport !== "") {
       fs.unlink(`public/uploads/applicants/${photo_passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
+        if (err) {
+          console.error('Error deleting file:', err);
+        } else {
+          console.log('File deleted successfully');
+        }
       });
     }
 
-    if(passport !== ""){
+    if (passport !== "") {
       fs.unlink(`public/uploads/applicants/${passport}`, (err) => {
-          if (err) {
-              console.error('Error deleting file:', err);
-          } else {
-              console.log('File deleted successfully');
-          }
+        if (err) {
+          console.error('Error deleting file:', err);
+        } else {
+          console.log('File deleted successfully');
+        }
       });
     }
 
@@ -1828,42 +1752,42 @@ app.post("/delete-applicant", async (req, res) => {
 
 app.post('/change-admin-password', isAuthenticated, async (req, res) => {
   try {
-      const { currentPassword, newPassword, newPasswordRetype} = req.body;
-      const id = req.user.id;
+    const { currentPassword, newPassword, newPasswordRetype } = req.body;
+    const id = req.user.id;
 
-      // Get the admin's current information
-      const [adminResult, adminField] = await pool.query('SELECT * FROM admins WHERE id = ?', id);
-      const admin = adminResult[0];
+    // Get the admin's current information
+    const [adminResult, adminField] = await pool.query('SELECT * FROM admins WHERE id = ?', id);
+    const admin = adminResult[0];
 
 
-      // Compare the provided old password with the stored hash
-      const isCurrentPasswordCorrect = await bcrypt.compare(currentPassword, admin.password);
+    // Compare the provided old password with the stored hash
+    const isCurrentPasswordCorrect = await bcrypt.compare(currentPassword, admin.password);
 
-      if (!isCurrentPasswordCorrect) {
-          req.flash('currentPasswordError', 'Incorrect  password');
-          return res.redirect('/admin-dashboard/admin-settings');
-      }
-
-      if(newPassword !== newPasswordRetype){
-
-        req.flash('newPasswordError', "Please re-enter the new password exactly as before");
-        return res.redirect('/admin-dashboard/admin-settings');
-        
-      } 
-
-      // Hash the new password
-      const hashedNewPassword = await bcrypt.hash(newPassword, 10);
-
-      // Update the password in the database
-      await pool.query('UPDATE admins SET password = ? WHERE id = ?', [hashedNewPassword, id]);
-
-      req.flash('success', 'Password updated successfully');
+    if (!isCurrentPasswordCorrect) {
+      req.flash('currentPasswordError', 'Incorrect  password');
       return res.redirect('/admin-dashboard/admin-settings');
-      
+    }
+
+    if (newPassword !== newPasswordRetype) {
+
+      req.flash('newPasswordError', "Please re-enter the new password exactly as before");
+      return res.redirect('/admin-dashboard/admin-settings');
+
+    }
+
+    // Hash the new password
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update the password in the database
+    await pool.query('UPDATE admins SET password = ? WHERE id = ?', [hashedNewPassword, id]);
+
+    req.flash('success', 'Password updated successfully');
+    return res.redirect('/admin-dashboard/admin-settings');
+
   } catch (error) {
-      console.error(error);
-      // Handle the error appropriately, e.g., send an error response
-      res.status(500).send("An error occurred while processing the request.");
+    console.error(error);
+    // Handle the error appropriately, e.g., send an error response
+    res.status(500).send("An error occurred while processing the request.");
   }
 });
 
