@@ -701,7 +701,7 @@ app.post("/admit-applicant", isAuthenticated,async (req, res) => {
               </div>
               
               <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦35,000</b> to the following school account:</p>
+                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦40,000</b> to the following school account:</p>
               </div>
               
               <div style="margin-bottom: 20px; font-size:14px;">
@@ -1009,11 +1009,8 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
       passport
     ]);
 
-    console.log(insertResult);
-
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     const admissionDate = new Date().toLocaleDateString(undefined, options);
-    console.log(admissionDate)
 
 
     const mailOptions = {
@@ -1056,7 +1053,7 @@ app.post("/admit-reject", isAuthenticated,async (req, res) => {
               </div>
               
               <div style="margin-bottom: 20px; font-size:14px;">
-                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦35,000</b> to the following school account:</p>
+                <p style="line-height:20px; padding:0; margin:0;">To secure your place at ESTAM University, we kindly request you to pay the admission/registration fee of <b>₦40,000</b> to the following school account:</p>
               </div>
               
               <div style="margin-bottom: 20px; font-size:14px;">
@@ -1237,15 +1234,20 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
     console.log(admissionDate);
     */
 
-    // set admission date to every second monday of september (temporary)
+    function getAdmissionDate(year) {
+      // Create a date for September 11 of the given year.
+      const admissionDate = new Date(year, 8, 11); // September is month 8 (0-indexed).
+    
+      return admissionDate;
+    }
+    
     const currentYear = new Date().getFullYear();
-    const septemberFirst = new Date(currentYear, 8, 1); // September is month 8 (0-indexed)
-    const dayOfWeek = septemberFirst.getDay();
-    const daysUntilSecondMonday = dayOfWeek <= 1 ? 8 - dayOfWeek : 15 - dayOfWeek;
-    const secondMonday = new Date(septemberFirst);
-    secondMonday.setDate(daysUntilSecondMonday);
-
-    const admissionDate = secondMonday.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const admissionDateObj = getAdmissionDate(currentYear);
+    const admissionDate = admissionDateObj.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    });
 
     const admissionLetterPath = 'path-to-your-admission-letter.pdf';
     const admissionDoc = new PDFDocument({
@@ -1515,7 +1517,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 
   const tuitionItems = [
     { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '35,000' },
+    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
     { name: 'TUITION FEE', price: '175,000' },
     { name: 'EXAMINATION', price: '10,000' },
     { name: 'INTERNET', price: '10,000' },
@@ -1545,7 +1547,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 
   const tuitionItems1 = [
     { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '35,000' },
+    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
     { name: 'TUITION FEE', price: '175,000' },
     { name: 'TRANSFER FEE', price: '40,000' },
     { name: 'EXAMINATION', price: '10,000' },
@@ -1574,7 +1576,7 @@ app.post("/send-admission-letter", isAuthenticated, async (req, res) => {
 
   const tuitionItems2 = [
     { name: 'ADMISSION FORM', price: '5,000' },
-    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '35,000' },
+    { name: 'ADMISSION PROCESSING & REGISTRATION', price: '40,000' },
     { name: 'TUITION FEE', price: '175,000' },
     { name: 'TRANSFER FEE', price: '40,000' },
     { name: 'EXAMINATION', price: '10,000' },
@@ -1887,5 +1889,3 @@ const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
-
-
