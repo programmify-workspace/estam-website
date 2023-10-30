@@ -1,0 +1,134 @@
+{{> header}}
+
+    <!--=====================================-->
+        <!--=       Breadcrumb Area Start      =-->
+        <!--=====================================-->
+
+
+        <div class="edu-breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-inner">
+                    <div class="page-title">
+                        <h1 class="title">{{title}}</h1>
+                    </div>
+                    <ul class="edu-breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-one.html">Home</a></li>
+                        <li class="separator"><i class="icon-angle-right"></i></li>
+                        <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                        <li class="separator"><i class="icon-angle-right"></i></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="shape-group">
+                <li class="shape-1">
+                    <span></span>
+                </li>
+                <li class="shape-2 scene"><img data-depth="2" src="assets/images/about/shape-13.png" alt="shape"></li>
+                <li class="shape-3 scene"><img data-depth="-2" src="assets/images/about/shape-15.png" alt="shape"></li>
+                <li class="shape-4">
+                    <span></span>
+                </li>
+                <li class="shape-5 scene"><img data-depth="2" src="assets/images/about/shape-07.png" alt="shape"></li>
+            </ul>
+        </div>
+
+        <!--=====================================-->
+        <!--=     Courses Details Area Start    =-->
+        <!--=====================================-->
+        <section class="edu-section-gap course-details-area">
+            <div class="container ">
+                {{!-- <div class="row row--30"> --}}
+                    {{!-- <div class="col-lg-8"> --}}
+                        <div class="course-details-content">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="carriculam-tab" data-bs-toggle="tab" data-bs-target="#carriculam" type="button" role="tab" aria-controls="carriculam" aria-selected="false">Requirement</button>
+                                </li>
+                                {{!-- <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="instructor-tab" data-bs-toggle="tab" data-bs-target="#instructor" type="button" role="tab" aria-controls="instructor" aria-selected="false">Instructor</button>
+                                </li> --}}
+                                {{!-- <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Reviews</button>
+                                </li> --}}
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                    <div class="course-tab-content">
+                                        <div class="course-overview">
+                                            <h3 class="heading-title">Course Description</h3>
+                                            <p>{{description1}}</p>
+                                            <p class="mb--60">{{description2}}</p>
+                                            <h5 class="title">Program Highlights:</h5>
+                                            <ul class="mb--60">
+                                                <li>{{highlight1}}</li>
+                                                <li>{{highlight2}}</li>
+                                                <li>{{highlight3}}</li>
+                                            </ul>
+                                            <p>{{conclusion}}</p>
+                                            <a href="/apply" class="edu-btn btn-large">Apply Now<i class="icon-4"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="carriculam" role="tabpanel" aria-labelledby="carriculam-tab">
+                                    <div class="course-tab-content">
+                                        <div class="course-curriculam">
+                                            <h3 class="heading-title">Admission Requirements</h3>
+                                            <p>If you're considering pursuing a Master's degree at our university, you'll need to meet the following admission requirements:</p>
+                                            <div class="course-lesson">
+                                                <h5 class="title">General Entry Requirements</h5>
+                                                <p>These requirements are mandatory for all applicants:</p>
+                                                <ul>
+                                                    <li>
+                                                        <div class="text"><i class="icon-20"></i>Completed application form, including personal essays.</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="text"><i class="icon-20"></i>Complete university and college official transcripts for all years of study.</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="text"><i class="icon-20"></i>University or college credential (degree, diploma or certificate).</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="text"><i class="icon-20"></i>Certified copy of Birth Certificate</div>
+                                                    </li>
+                                                     <li>
+                                                        <div class="text"><i class="icon-20"></i>Academic records that are in a language other than English must include an official/certified English translation.</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="text"><i class="icon-20"></i>ESTAM reserves the right to verify submitted transcripts at any time. For courses and credentials earned inside any of the West African countries, ESTAM reserves the right to request original transcripts be sent directly to ESTAM from the issuing institution. Applicants will be informed by email if this is needed.</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                              <div class="course-lesson">
+                                                    <h5 class="title">Transfer Students Requirements</h5>
+                                                    <p>If you are transferring from another institution to pursue a Master's degree with us, please follow these additional steps:</p>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="text"><i class="icon-20"></i>Provide official transcripts from your previous school as well as your degree certificate.</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="text"><i class="icon-20"></i>Submit a statement of purpose detailing your academic and professional goals.</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="text"><i class="icon-20"></i>Arrange for any necessary English translations of your academic records if they are in a language other than English.</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="text"><i class="icon-20"></i>Our admissions team may request original transcripts to be sent directly from your previous institution for verification.</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            <a href="/apply" class="edu-btn btn-large">Apply Now<i class="icon-4"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+            </div>
+        </section>
+ 

@@ -3,7 +3,7 @@ router = express.Router()
 
 // Master of Business Administration (MBA) Course Details Page route
 router.get('/mba', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "Master of Business Administration (MBA)",
       name: "Master of Business Administration (MBA)",
       description1: "The Master of Business Administration (MBA) program at ESTAM University provides students with a comprehensive understanding of business management principles, strategic thinking, and leadership skills. The program is designed to develop students' analytical, critical thinking, and decision-making abilities, preparing them for leadership roles in diverse industries and organizational settings.",

@@ -4,19 +4,20 @@ const pool = require('../database');
 
 // Get list of countries from db
 const getCountries = async () => {
-  const [countryArray] = await pool.query('SELECT id, name FROM countries')
+  const [countryArray] = await pool.query('SELECT id, name FROM countries ORDER BY CASE WHEN name = "Nigeria" THEN 0 ELSE 1 END, name');
+
   return countryArray
 }
 
 // Get list of states by country_id from db
 const getStatesByCountryId = async (countryId) => {
-  const [states] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
+  const [states] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY CASE WHEN name = "Lagos" THEN 0 ELSE 1 END, name', [countryId]);
   return states;
 };
 
 // Get list of states by country_id for Next of kin from db
 const getNokStatesByCountryId = async (countryId) => {
-  const [nokStates] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY name', [countryId]);
+  const [nokStates] = await pool.query('SELECT name FROM states WHERE country_id = ? ORDER BY CASE WHEN name = "Lagos" THEN 0 ELSE 1 END, name', [countryId]);
   return nokStates;
 };
 

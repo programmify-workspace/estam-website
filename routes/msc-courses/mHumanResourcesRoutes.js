@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc. Human Resource Management Course Details Page route
 router.get('/msc-human-resource-management', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Human Resource Management",
       name: "MSc. Human Resource Management",
       description1: "The Master's in Human Resource Management program at ESTAM University provides students with comprehensive knowledge and practical skills in various areas of human resource management, including talent acquisition, employee development, performance management, compensation and benefits, and organizational effectiveness. The program is designed to prepare students to become strategic HR leaders who can effectively contribute to the success of organizations.",

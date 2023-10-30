@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc. Public and Local Government Administration Course Details Page route
 router.get('/msc-public-and-local-government-administration', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Public and Local Government Administration",
       name: "MSc. Public and Local Government Administration",
       description1: "The Master's in Public and Local Government Administration program at ESTAM University provides students with a comprehensive understanding of public administration, policy analysis, and local government management. The program is designed to develop students' analytical, managerial, and leadership skills, preparing them for careers in public administration, government agencies, nonprofit organizations, and other public sector settings.",

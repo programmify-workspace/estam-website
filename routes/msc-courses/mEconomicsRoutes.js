@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc Economics Course Details Page route
 router.get('/msc-economics', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc Economics",
       name: "MSc Economics",
       description1: "The Master's in Economics program at ESTAM University provides students with a strong foundation in economic theory, quantitative methods, and applied economics. The program is designed to develop students' analytical and critical thinking abilities, equipping them with the tools and knowledge needed to tackle complex economic issues and contribute to the development of sound economic policies.",

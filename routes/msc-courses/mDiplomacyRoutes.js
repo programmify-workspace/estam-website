@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc. Diplomacy and International Affairs Course Details Page route
 router.get('/msc-diplomacy-and-international-affairs', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Diplomacy and International Affairs",
       name: "MSc. Diplomacy and International Affairs",
       description1: "The Master's in Diplomacy and International Affairs program at ESTAM University provides students with a comprehensive understanding of the theories, practices, and challenges of international relations. The program is designed to develop students' analytical, diplomatic, and negotiation skills, preparing them for careers in diplomacy, international organizations, government agencies, and non-governmental organizations.",
