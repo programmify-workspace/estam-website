@@ -420,8 +420,8 @@ app.post('/submit-contact', (req, res) => {
   const mailOptions = {
     from: `Contact Us ${process.env.ZOHO_ADMIN_EMAIL}`,
     to: process.env.ZOHO_CONTACT_US_EMAIL,
-    replyTo: process.env.ZOHO_CONTACT_US_EMAIL,
-    subject: `New Message From ${name}`,
+    replyTo: email,
+    subject: `New Contact From ${name}`,
     html: `<!DOCTYPE html>
     <html>
     <head>
