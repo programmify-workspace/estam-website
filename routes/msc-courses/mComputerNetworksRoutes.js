@@ -3,7 +3,7 @@ router = express.Router()
 
 // Master's in Computer Networks and Security Course Details Page route
 router.get('/msc-computer-networks-and-security', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Computer Networks and Security Program",
       name: "MSc. Computer Networks and Security Program",
       description1: "The Master's in Computer Networks and Security program at ESTAM University provides students with in-depth knowledge and practical skills in the areas of computer networks, network security, and data protection. The program is designed to meet the growing demand for professionals who can address the complex challenges of network security and ensure the smooth operation of computer networks.",

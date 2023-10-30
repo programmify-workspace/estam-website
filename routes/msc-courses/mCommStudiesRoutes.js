@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc. Communication and Media Studies Course Details Page route
 router.get('/msc-communication-and-media-studies', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Communication and Media Studies",
       name: "MSc. Communication and Media Studies",
       description1: "The Master's in Communication and Media Studies program at ESTAM University provides students with a comprehensive understanding of communication theories, media technologies, media industries, and the societal impact of media. The program is designed to develop students' critical thinking, research, and practical skills, equipping them to navigate the complex and ever-changing media landscape.",

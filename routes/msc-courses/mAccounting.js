@@ -3,7 +3,7 @@ router = express.Router()
 
 // Msc. Accounting and Auditing Course Details Page route
 router.get('/msc-accounting-and-auditing', (req, res) => {
-    res.render('course-details', {
+    res.render('course-details-msc', {
       title: "MSc. Accounting and Auditing",
       name: "MSc. Accounting and Auditing",
       description1: "The Master's in Accounting and Auditing program at ESTAM University provides students with a comprehensive understanding of financial accounting, managerial accounting, auditing, and related areas. The program is designed to develop students' technical proficiency, critical thinking abilities, and ethical awareness, preparing them for careers in accounting firms, corporations, government agencies, and other professional settings.",
